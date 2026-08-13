@@ -24,11 +24,8 @@ OUTPUT_FILE = (
 )
 
 
-# Initial home-field advantage.
 HOME_FIELD_ADVANTAGE = 2.5
 
-# Initial conversion from rating points
-# to expected point margin.
 RATING_TO_POINTS = 0.50
 
 
@@ -54,10 +51,7 @@ def build_rating_lookup(ratings):
 def calculate_win_probability(
     rating_difference
 ):
-    """
-    Convert rating difference into
-    approximate win probability.
-    """
+    """Convert rating difference into win probability."""
 
     return 1 / (
         1 + math.exp(
@@ -102,7 +96,7 @@ def predict_game(
         + HOME_FIELD_ADVANTAGE
     )
 
-    projected_margin = (
+    home_projected_margin = (
         adjusted_difference
         * RATING_TO_POINTS
     )
@@ -120,8 +114,14 @@ def predict_game(
 
     if home_win_probability >= 0.5:
         predicted_winner = home_team
+        projected_margin = (
+            home_projected_margin
+        )
     else:
         predicted_winner = away_team
+        projected_margin = (
+            -home_projected_margin
+        )
 
     return {
         "away_team": away_team,
@@ -132,8 +132,9 @@ def predict_game(
             rating_difference,
             2
         ),
-        "home_field_advantage":
-            HOME_FIELD_ADVANTAGE,
+        "home_field_advantage": (
+            HOME_FIELD_ADVANTAGE
+        ),
         "projected_margin": round(
             projected_margin,
             2
@@ -146,8 +147,9 @@ def predict_game(
             away_win_probability,
             4
         ),
-        "predicted_winner":
-            predicted_winner,
+        "predicted_winner": (
+            predicted_winner
+        ),
     }
 
 
