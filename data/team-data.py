@@ -1,8 +1,5 @@
 """
-Team data definitions.
-
-This module provides the structure used to represent
-college football teams throughout the project.
+Standardized college football team data structure.
 """
 
 
@@ -11,14 +8,30 @@ def create_team(
     name,
     abbreviation,
     conference,
-    fbs_status="full",
+    mascot=None,
+    stadium=None,
+    city=None,
+    state=None,
+    timezone=None,
+    elevation=None,
+    capacity=None,
+    grass=None,
+    dome=None,
 ):
     """Create a standardized team record."""
 
     return {
-        "id": team_id,
+        "team_id": team_id,
         "name": name,
         "abbreviation": abbreviation,
         "conference": conference,
-        "fbs_status": fbs_status,
+        "mascot": mascot,
+        "stadium": stadium,
+        "city": city,
+        "state": state,
+        "timezone": timezone,
+        "elevation": elevation,
+        "capacity": capacity,
+        "grass": grass,
+        "dome": dome,
     }
