@@ -1,24 +1,31 @@
-name: Test CFBD API
+name: Download FBS Teams
 
 on:
   workflow_dispatch:
 
 jobs:
-  test-api:
+  download-teams:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test CFBD API connection
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Download FBS teams
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
-          echo "Testing CollegeFootballData API..."
+          python data/download_teams.py
 
-          response=$(curl -s \
-            -H "Authorization: Bearer $CFBD_API_KEY" \
-            "https://api.collegefootballdata.com/teams/fbs")
-
-          echo "$response" | head -c 500
-
-          echo ""
-          echo "CFBD API request completed."
+      - name: Display team count
+        run: |
+          python -c "import json; data=json.load(open('data/raw/teams.json')); print(f'Teams downloaded: {len(data)}')"
