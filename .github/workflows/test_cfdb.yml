@@ -24,7 +24,7 @@ jobs:
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
-          python data/download_teams.py
+          python -m data.download_teams
 
       - name: Display team count
         run: |
