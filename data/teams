@@ -1,0 +1,9 @@
+"""
+FBS Team Database
+
+Master list of FBS college football teams.
+"""
+
+TEAMS = {
+
+}
