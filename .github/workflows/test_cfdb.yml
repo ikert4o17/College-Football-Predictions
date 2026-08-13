@@ -1,10 +1,10 @@
-name: Update FBS Team Data
+name: Update FBS Data
 
 on:
   workflow_dispatch:
 
 jobs:
-  update-teams:
+  update-data:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,20 +30,26 @@ jobs:
         run: |
           python -m data.process_teams
 
-      - name: Display team counts
+      - name: Download 2026 games
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
-          python -c "import json; raw=json.load(open('data/raw/teams.json')); processed=json.load(open('data/processed/teams.json')); print(f'Raw teams: {len(raw)}'); print(f'Processed teams: {len(processed)}')"
+          python -m data.download_games 2026
 
-      - name: Save team data
+      - name: Display data counts
+        run: |
+          python -c "import json; teams=json.load(open('data/processed/teams.json')); games=json.load(open('data/raw/games.json')); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games)}')"
+
+      - name: Save data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/raw/teams.json data/processed/teams.json
+          git add data/raw/teams.json data/raw/games.json data/processed/teams.json
 
           if git diff --cached --quiet; then
-            echo "No changes to team data."
+            echo "No changes to data."
           else
-            git commit -m "Update FBS team data"
+            git commit -m "Update FBS data"
             git push
           fi
