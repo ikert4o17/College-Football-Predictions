@@ -1,0 +1,4218 @@
+[
+    {
+        "season": 2025,
+        "team": "Air Force",
+        "conference": "Mountain West",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 261.5,
+            "passing_yards_per_game": 145.16666666666666,
+            "total_yards_per_game": 406.6666666666667,
+            "yards_per_rush": 4.805513016845329,
+            "net_yards_per_pass": 10.621951219512194,
+            "third_down_conversion": 0.5098039215686274
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 159.58333333333334,
+            "passing_yards_allowed_per_game": 264.6666666666667,
+            "total_yards_allowed_per_game": 424.25,
+            "third_down_defense": 0.5036496350364964,
+            "sacks_per_game": 1.25,
+            "tackles_for_loss_per_game": 3.3333333333333335
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 0.8333333333333334,
+            "turnover_margin_per_game": -0.16666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 3.5833333333333335,
+            "penalty_yards_per_game": 31.25
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Akron",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 136.41666666666666,
+            "passing_yards_per_game": 219.0,
+            "total_yards_per_game": 355.4166666666667,
+            "yards_per_rush": 3.8069767441860467,
+            "net_yards_per_pass": 6.5049504950495045,
+            "third_down_conversion": 0.3076923076923077
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 156.16666666666666,
+            "passing_yards_allowed_per_game": 229.16666666666666,
+            "total_yards_allowed_per_game": 385.3333333333333,
+            "third_down_defense": 0.35064935064935066,
+            "sacks_per_game": 2.0833333333333335,
+            "tackles_for_loss_per_game": 5.833333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4166666666666667,
+            "turnovers_forced_per_game": 1.6666666666666667,
+            "turnover_margin_per_game": 0.25
+        },
+        "discipline": {
+            "penalties_per_game": 5.833333333333333,
+            "penalty_yards_per_game": 45.75
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Alabama",
+        "conference": "SEC",
+        "games": 15,
+        "offense": {
+            "rushing_yards_per_game": 104.2,
+            "passing_yards_per_game": 263.53333333333336,
+            "total_yards_per_game": 367.73333333333335,
+            "yards_per_rush": 3.361290322580645,
+            "net_yards_per_pass": 7.558317399617591,
+            "third_down_conversion": 0.4166666666666667
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 126.93333333333334,
+            "passing_yards_allowed_per_game": 170.26666666666668,
+            "total_yards_allowed_per_game": 297.2,
+            "third_down_defense": 0.373134328358209,
+            "sacks_per_game": 2.2,
+            "tackles_for_loss_per_game": 5.733333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.8666666666666667,
+            "turnovers_forced_per_game": 1.3333333333333333,
+            "turnover_margin_per_game": 0.4666666666666667
+        },
+        "discipline": {
+            "penalties_per_game": 4.466666666666667,
+            "penalty_yards_per_game": 39.4
+        }
+    },
+    {
+        "season": 2025,
+        "team": "App State",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 128.3846153846154,
+            "passing_yards_per_game": 256.53846153846155,
+            "total_yards_per_game": 384.9230769230769,
+            "yards_per_rush": 4.070731707317073,
+            "net_yards_per_pass": 6.56496062992126,
+            "third_down_conversion": 0.3279569892473118
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 149.53846153846155,
+            "passing_yards_allowed_per_game": 267.53846153846155,
+            "total_yards_allowed_per_game": 417.0769230769231,
+            "third_down_defense": 0.42391304347826086,
+            "sacks_per_game": 2.230769230769231,
+            "tackles_for_loss_per_game": 5.769230769230769
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6923076923076923,
+            "turnovers_forced_per_game": 1.4615384615384615,
+            "turnover_margin_per_game": -0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 6.769230769230769,
+            "penalty_yards_per_game": 62.76923076923077
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arizona",
+        "conference": "Big 12",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 152.69230769230768,
+            "passing_yards_per_game": 255.23076923076923,
+            "total_yards_per_game": 407.9230769230769,
+            "yards_per_rush": 4.315217391304348,
+            "net_yards_per_pass": 7.422818791946309,
+            "third_down_conversion": 0.4101123595505618
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 143.53846153846155,
+            "passing_yards_allowed_per_game": 165.30769230769232,
+            "total_yards_allowed_per_game": 308.84615384615387,
+            "third_down_defense": 0.34054054054054056,
+            "sacks_per_game": 1.6153846153846154,
+            "tackles_for_loss_per_game": 6.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 2.3846153846153846,
+            "turnover_margin_per_game": 1.3846153846153846
+        },
+        "discipline": {
+            "penalties_per_game": 5.615384615384615,
+            "penalty_yards_per_game": 52.23076923076923
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arizona State",
+        "conference": "Big 12",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 192.92307692307693,
+            "passing_yards_per_game": 223.69230769230768,
+            "total_yards_per_game": 416.61538461538464,
+            "yards_per_rush": 5.076923076923077,
+            "net_yards_per_pass": 6.7627906976744185,
+            "third_down_conversion": 0.32620320855614976
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 124.38461538461539,
+            "passing_yards_allowed_per_game": 233.46153846153845,
+            "total_yards_allowed_per_game": 357.84615384615387,
+            "third_down_defense": 0.359375,
+            "sacks_per_game": 2.6153846153846154,
+            "tackles_for_loss_per_game": 6.615384615384615
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6153846153846154,
+            "turnovers_forced_per_game": 1.1538461538461537,
+            "turnover_margin_per_game": -0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 7.153846153846154,
+            "penalty_yards_per_game": 57.76923076923077
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arkansas",
+        "conference": "SEC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 192.16666666666666,
+            "passing_yards_per_game": 262.9166666666667,
+            "total_yards_per_game": 455.0833333333333,
+            "yards_per_rush": 5.722084367245658,
+            "net_yards_per_pass": 8.280839895013123,
+            "third_down_conversion": 0.47183098591549294
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 187.16666666666666,
+            "passing_yards_allowed_per_game": 239.25,
+            "total_yards_allowed_per_game": 426.4166666666667,
+            "third_down_defense": 0.44370860927152317,
+            "sacks_per_game": 1.8333333333333333,
+            "tackles_for_loss_per_game": 5.416666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6666666666666667,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -0.9166666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 7.75,
+            "penalty_yards_per_game": 67.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arkansas State",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 123.53846153846153,
+            "passing_yards_per_game": 259.7692307692308,
+            "total_yards_per_game": 383.3076923076923,
+            "yards_per_rush": 3.5848214285714284,
+            "net_yards_per_pass": 6.647637795275591,
+            "third_down_conversion": 0.39285714285714285
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 171.76923076923077,
+            "passing_yards_allowed_per_game": 244.30769230769232,
+            "total_yards_allowed_per_game": 416.0769230769231,
+            "third_down_defense": 0.4166666666666667,
+            "sacks_per_game": 3.0,
+            "tackles_for_loss_per_game": 6.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.7692307692307692,
+            "turnovers_forced_per_game": 1.2307692307692308,
+            "turnover_margin_per_game": -0.5384615384615384
+        },
+        "discipline": {
+            "penalties_per_game": 6.3076923076923075,
+            "penalty_yards_per_game": 57.84615384615385
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Army",
+        "conference": "American Athletic",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 255.0,
+            "passing_yards_per_game": 80.84615384615384,
+            "total_yards_per_game": 335.84615384615387,
+            "yards_per_rush": 4.437751004016064,
+            "net_yards_per_pass": 8.341269841269842,
+            "third_down_conversion": 0.4117647058823529
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 153.15384615384616,
+            "passing_yards_allowed_per_game": 190.3846153846154,
+            "total_yards_allowed_per_game": 343.53846153846155,
+            "third_down_defense": 0.4484848484848485,
+            "sacks_per_game": 1.0769230769230769,
+            "tackles_for_loss_per_game": 3.3846153846153846
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.8461538461538461,
+            "turnovers_forced_per_game": 1.2307692307692308,
+            "turnover_margin_per_game": 0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 2.6153846153846154,
+            "penalty_yards_per_game": 21.923076923076923
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Auburn",
+        "conference": "SEC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 176.91666666666666,
+            "passing_yards_per_game": 197.08333333333334,
+            "total_yards_per_game": 374.0,
+            "yards_per_rush": 4.686534216335541,
+            "net_yards_per_pass": 6.533149171270718,
+            "third_down_conversion": 0.39156626506024095
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 99.58333333333333,
+            "passing_yards_allowed_per_game": 229.83333333333334,
+            "total_yards_allowed_per_game": 329.4166666666667,
+            "third_down_defense": 0.3508771929824561,
+            "sacks_per_game": 2.5833333333333335,
+            "tackles_for_loss_per_game": 6.583333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.6666666666666666,
+            "turnovers_forced_per_game": 1.4166666666666667,
+            "turnover_margin_per_game": 0.75
+        },
+        "discipline": {
+            "penalties_per_game": 7.75,
+            "penalty_yards_per_game": 63.666666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "BYU",
+        "conference": "Big 12",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 179.14285714285714,
+            "passing_yards_per_game": 221.14285714285714,
+            "total_yards_per_game": 400.2857142857143,
+            "yards_per_rush": 4.75,
+            "net_yards_per_pass": 7.682382133995037,
+            "third_down_conversion": 0.4143646408839779
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 122.92857142857143,
+            "passing_yards_allowed_per_game": 209.71428571428572,
+            "total_yards_allowed_per_game": 332.64285714285717,
+            "third_down_defense": 0.33157894736842103,
+            "sacks_per_game": 2.142857142857143,
+            "tackles_for_loss_per_game": 5.285714285714286
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1428571428571428,
+            "turnovers_forced_per_game": 1.7142857142857142,
+            "turnover_margin_per_game": 0.5714285714285714
+        },
+        "discipline": {
+            "penalties_per_game": 5.357142857142857,
+            "penalty_yards_per_game": 45.357142857142854
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ball State",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 133.66666666666666,
+            "passing_yards_per_game": 138.0,
+            "total_yards_per_game": 271.6666666666667,
+            "yards_per_rush": 3.54083885209713,
+            "net_yards_per_pass": 5.978339350180505,
+            "third_down_conversion": 0.3352601156069364
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 179.66666666666666,
+            "passing_yards_allowed_per_game": 226.83333333333334,
+            "total_yards_allowed_per_game": 406.5,
+            "third_down_defense": 0.41875,
+            "sacks_per_game": 1.8333333333333333,
+            "tackles_for_loss_per_game": 4.583333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3333333333333333,
+            "turnovers_forced_per_game": 1.0833333333333333,
+            "turnover_margin_per_game": -0.25
+        },
+        "discipline": {
+            "penalties_per_game": 4.666666666666667,
+            "penalty_yards_per_game": 38.833333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Baylor",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 141.58333333333334,
+            "passing_yards_per_game": 309.5833333333333,
+            "total_yards_per_game": 451.1666666666667,
+            "yards_per_rush": 4.154034229828851,
+            "net_yards_per_pass": 7.284313725490196,
+            "third_down_conversion": 0.37790697674418605
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 197.33333333333334,
+            "passing_yards_allowed_per_game": 194.5,
+            "total_yards_allowed_per_game": 391.8333333333333,
+            "third_down_defense": 0.4088050314465409,
+            "sacks_per_game": 1.0,
+            "tackles_for_loss_per_game": 4.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 2.0,
+            "turnovers_forced_per_game": 0.9166666666666666,
+            "turnover_margin_per_game": -1.0833333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 6.0,
+            "penalty_yards_per_game": 61.416666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Boise State",
+        "conference": "Mountain West",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 179.42857142857142,
+            "passing_yards_per_game": 244.85714285714286,
+            "total_yards_per_game": 424.2857142857143,
+            "yards_per_rush": 4.567272727272727,
+            "net_yards_per_pass": 7.262711864406779,
+            "third_down_conversion": 0.4583333333333333
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 162.35714285714286,
+            "passing_yards_allowed_per_game": 175.5,
+            "total_yards_allowed_per_game": 337.85714285714283,
+            "third_down_defense": 0.33695652173913043,
+            "sacks_per_game": 2.0,
+            "tackles_for_loss_per_game": 6.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5,
+            "turnovers_forced_per_game": 1.6428571428571428,
+            "turnover_margin_per_game": 0.14285714285714285
+        },
+        "discipline": {
+            "penalties_per_game": 6.928571428571429,
+            "penalty_yards_per_game": 59.42857142857143
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Boston College",
+        "conference": "ACC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 104.0,
+            "passing_yards_per_game": 280.1666666666667,
+            "total_yards_per_game": 384.1666666666667,
+            "yards_per_rush": 3.3191489361702127,
+            "net_yards_per_pass": 7.405286343612334,
+            "third_down_conversion": 0.3902439024390244
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 178.66666666666666,
+            "passing_yards_allowed_per_game": 255.66666666666666,
+            "total_yards_allowed_per_game": 434.3333333333333,
+            "third_down_defense": 0.4090909090909091,
+            "sacks_per_game": 1.3333333333333333,
+            "tackles_for_loss_per_game": 3.8333333333333335
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.75,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": -0.75
+        },
+        "discipline": {
+            "penalties_per_game": 5.916666666666667,
+            "penalty_yards_per_game": 49.666666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Bowling Green",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 155.5,
+            "passing_yards_per_game": 151.25,
+            "total_yards_per_game": 306.75,
+            "yards_per_rush": 3.9533898305084745,
+            "net_yards_per_pass": 6.346153846153846,
+            "third_down_conversion": 0.3668639053254438
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 140.83333333333334,
+            "passing_yards_allowed_per_game": 201.66666666666666,
+            "total_yards_allowed_per_game": 342.5,
+            "third_down_defense": 0.3401360544217687,
+            "sacks_per_game": 1.8333333333333333,
+            "tackles_for_loss_per_game": 6.166666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1666666666666667,
+            "turnovers_forced_per_game": 1.3333333333333333,
+            "turnover_margin_per_game": 0.16666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 6.666666666666667,
+            "penalty_yards_per_game": 61.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Buffalo",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 133.16666666666666,
+            "passing_yards_per_game": 229.0,
+            "total_yards_per_game": 362.1666666666667,
+            "yards_per_rush": 3.8692493946731235,
+            "net_yards_per_pass": 6.686131386861314,
+            "third_down_conversion": 0.35795454545454547
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 157.75,
+            "passing_yards_allowed_per_game": 186.41666666666666,
+            "total_yards_allowed_per_game": 344.1666666666667,
+            "third_down_defense": 0.34375,
+            "sacks_per_game": 2.8333333333333335,
+            "tackles_for_loss_per_game": 6.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.8333333333333333,
+            "turnovers_forced_per_game": 1.25,
+            "turnover_margin_per_game": -0.5833333333333334
+        },
+        "discipline": {
+            "penalties_per_game": 5.416666666666667,
+            "penalty_yards_per_game": 45.666666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "California",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 82.53846153846153,
+            "passing_yards_per_game": 275.3076923076923,
+            "total_yards_per_game": 357.84615384615387,
+            "yards_per_rush": 2.787012987012987,
+            "net_yards_per_pass": 7.087128712871287,
+            "third_down_conversion": 0.4044943820224719
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 156.53846153846155,
+            "passing_yards_allowed_per_game": 205.3846153846154,
+            "total_yards_allowed_per_game": 361.9230769230769,
+            "third_down_defense": 0.4166666666666667,
+            "sacks_per_game": 1.5384615384615385,
+            "tackles_for_loss_per_game": 4.615384615384615
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2307692307692308,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": -0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 7.769230769230769,
+            "penalty_yards_per_game": 64.61538461538461
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Central Michigan",
+        "conference": "Mid-American",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 165.07692307692307,
+            "passing_yards_per_game": 167.07692307692307,
+            "total_yards_per_game": 332.15384615384613,
+            "yards_per_rush": 3.9888475836431225,
+            "net_yards_per_pass": 8.58498023715415,
+            "third_down_conversion": 0.34146341463414637
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 147.07692307692307,
+            "passing_yards_allowed_per_game": 209.3846153846154,
+            "total_yards_allowed_per_game": 356.46153846153845,
+            "third_down_defense": 0.40555555555555556,
+            "sacks_per_game": 2.230769230769231,
+            "tackles_for_loss_per_game": 5.3076923076923075
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2307692307692308,
+            "turnovers_forced_per_game": 1.6153846153846154,
+            "turnover_margin_per_game": 0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 6.0,
+            "penalty_yards_per_game": 48.69230769230769
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Charlotte",
+        "conference": "American Athletic",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 81.83333333333333,
+            "passing_yards_per_game": 204.0,
+            "total_yards_per_game": 285.8333333333333,
+            "yards_per_rush": 2.7052341597796143,
+            "net_yards_per_pass": 6.45910290237467,
+            "third_down_conversion": 0.34502923976608185
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 200.33333333333334,
+            "passing_yards_allowed_per_game": 271.6666666666667,
+            "total_yards_allowed_per_game": 472.0,
+            "third_down_defense": 0.4358974358974359,
+            "sacks_per_game": 1.1666666666666667,
+            "tackles_for_loss_per_game": 4.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.9166666666666667,
+            "turnovers_forced_per_game": 1.25,
+            "turnover_margin_per_game": -0.6666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 6.083333333333333,
+            "penalty_yards_per_game": 50.833333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Cincinnati",
+        "conference": "Big 12",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 177.46153846153845,
+            "passing_yards_per_game": 230.15384615384616,
+            "total_yards_per_game": 407.61538461538464,
+            "yards_per_rush": 5.753117206982544,
+            "net_yards_per_pass": 8.242424242424242,
+            "third_down_conversion": 0.3873239436619718
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 178.69230769230768,
+            "passing_yards_allowed_per_game": 220.3846153846154,
+            "total_yards_allowed_per_game": 399.0769230769231,
+            "third_down_defense": 0.4095744680851064,
+            "sacks_per_game": 1.6923076923076923,
+            "tackles_for_loss_per_game": 4.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0769230769230769,
+            "turnovers_forced_per_game": 0.7692307692307693,
+            "turnover_margin_per_game": -0.3076923076923077
+        },
+        "discipline": {
+            "penalties_per_game": 7.076923076923077,
+            "penalty_yards_per_game": 65.07692307692308
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Clemson",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 124.46153846153847,
+            "passing_yards_per_game": 267.7692307692308,
+            "total_yards_per_game": 392.2307692307692,
+            "yards_per_rush": 3.946341463414634,
+            "net_yards_per_pass": 7.343881856540085,
+            "third_down_conversion": 0.34285714285714286
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 105.6923076923077,
+            "passing_yards_allowed_per_game": 251.53846153846155,
+            "total_yards_allowed_per_game": 357.0769230769231,
+            "third_down_defense": 0.32044198895027626,
+            "sacks_per_game": 2.6153846153846154,
+            "tackles_for_loss_per_game": 6.538461538461538
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1538461538461537,
+            "turnovers_forced_per_game": 1.3076923076923077,
+            "turnover_margin_per_game": 0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 4.384615384615385,
+            "penalty_yards_per_game": 42.07692307692308
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Coastal Carolina",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 156.30769230769232,
+            "passing_yards_per_game": 169.53846153846155,
+            "total_yards_per_game": 325.84615384615387,
+            "yards_per_rush": 4.314225053078556,
+            "net_yards_per_pass": 5.523809523809524,
+            "third_down_conversion": 0.32978723404255317
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 209.84615384615384,
+            "passing_yards_allowed_per_game": 235.46153846153845,
+            "total_yards_allowed_per_game": 445.3076923076923,
+            "third_down_defense": 0.3858695652173913,
+            "sacks_per_game": 1.4615384615384615,
+            "tackles_for_loss_per_game": 5.384615384615385
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6923076923076923,
+            "turnovers_forced_per_game": 1.7692307692307692,
+            "turnover_margin_per_game": 0.07692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 6.846153846153846,
+            "penalty_yards_per_game": 57.23076923076923
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Colorado",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 126.66666666666667,
+            "passing_yards_per_game": 202.75,
+            "total_yards_per_game": 329.4166666666667,
+            "yards_per_rush": 3.5849056603773586,
+            "net_yards_per_pass": 6.834269662921348,
+            "third_down_conversion": 0.384180790960452
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 223.41666666666666,
+            "passing_yards_allowed_per_game": 203.16666666666666,
+            "total_yards_allowed_per_game": 426.5833333333333,
+            "third_down_defense": 0.3522012578616352,
+            "sacks_per_game": 1.1666666666666667,
+            "tackles_for_loss_per_game": 5.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4166666666666667,
+            "turnovers_forced_per_game": 1.25,
+            "turnover_margin_per_game": -0.16666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 5.666666666666667,
+            "penalty_yards_per_game": 49.916666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Colorado State",
+        "conference": "Mountain West",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 108.25,
+            "passing_yards_per_game": 215.91666666666666,
+            "total_yards_per_game": 324.1666666666667,
+            "yards_per_rush": 3.5785123966942147,
+            "net_yards_per_pass": 6.5761421319796955,
+            "third_down_conversion": 0.3291139240506329
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 205.0,
+            "passing_yards_allowed_per_game": 221.08333333333334,
+            "total_yards_allowed_per_game": 426.0833333333333,
+            "third_down_defense": 0.46496815286624205,
+            "sacks_per_game": 1.3333333333333333,
+            "tackles_for_loss_per_game": 3.8333333333333335
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6666666666666667,
+            "turnovers_forced_per_game": 1.3333333333333333,
+            "turnover_margin_per_game": -0.3333333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 5.833333333333333,
+            "penalty_yards_per_game": 56.25
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Delaware",
+        "conference": "Conference USA",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 119.23076923076923,
+            "passing_yards_per_game": 291.53846153846155,
+            "total_yards_per_game": 410.7692307692308,
+            "yards_per_rush": 3.799019607843137,
+            "net_yards_per_pass": 7.00554528650647,
+            "third_down_conversion": 0.41578947368421054
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 160.07692307692307,
+            "passing_yards_allowed_per_game": 245.53846153846155,
+            "total_yards_allowed_per_game": 405.61538461538464,
+            "third_down_defense": 0.3989071038251366,
+            "sacks_per_game": 2.0,
+            "tackles_for_loss_per_game": 6.153846153846154
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4615384615384615,
+            "turnovers_forced_per_game": 1.4615384615384615,
+            "turnover_margin_per_game": 0.0
+        },
+        "discipline": {
+            "penalties_per_game": 5.3076923076923075,
+            "penalty_yards_per_game": 49.92307692307692
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Duke",
+        "conference": "ACC",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 138.21428571428572,
+            "passing_yards_per_game": 285.35714285714283,
+            "total_yards_per_game": 423.57142857142856,
+            "yards_per_rush": 4.262114537444934,
+            "net_yards_per_pass": 7.895256916996048,
+            "third_down_conversion": 0.3901098901098901
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 147.28571428571428,
+            "passing_yards_allowed_per_game": 276.42857142857144,
+            "total_yards_allowed_per_game": 423.7142857142857,
+            "third_down_defense": 0.453551912568306,
+            "sacks_per_game": 1.8571428571428572,
+            "tackles_for_loss_per_game": 6.714285714285714
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.7142857142857142,
+            "turnover_margin_per_game": 0.7142857142857143
+        },
+        "discipline": {
+            "penalties_per_game": 6.428571428571429,
+            "penalty_yards_per_game": 62.714285714285715
+        }
+    },
+    {
+        "season": 2025,
+        "team": "East Carolina",
+        "conference": "American Athletic",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 176.30769230769232,
+            "passing_yards_per_game": 272.6923076923077,
+            "total_yards_per_game": 449.0,
+            "yards_per_rush": 4.100178890876565,
+            "net_yards_per_pass": 8.056818181818182,
+            "third_down_conversion": 0.4723618090452261
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 120.23076923076923,
+            "passing_yards_allowed_per_game": 230.76923076923077,
+            "total_yards_allowed_per_game": 351.0,
+            "third_down_defense": 0.3048128342245989,
+            "sacks_per_game": 2.3076923076923075,
+            "tackles_for_loss_per_game": 7.769230769230769
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0769230769230769,
+            "turnovers_forced_per_game": 1.8461538461538463,
+            "turnover_margin_per_game": 0.7692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 7.230769230769231,
+            "penalty_yards_per_game": 61.46153846153846
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Eastern Michigan",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 142.75,
+            "passing_yards_per_game": 234.75,
+            "total_yards_per_game": 377.5,
+            "yards_per_rush": 4.403598971722365,
+            "net_yards_per_pass": 6.9727722772277225,
+            "third_down_conversion": 0.41040462427745666
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 230.83333333333334,
+            "passing_yards_allowed_per_game": 183.33333333333334,
+            "total_yards_allowed_per_game": 414.1666666666667,
+            "third_down_defense": 0.4634146341463415,
+            "sacks_per_game": 1.0833333333333333,
+            "tackles_for_loss_per_game": 4.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1666666666666667,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -0.4166666666666667
+        },
+        "discipline": {
+            "penalties_per_game": 5.666666666666667,
+            "penalty_yards_per_game": 48.833333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida",
+        "conference": "SEC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 136.75,
+            "passing_yards_per_game": 204.58333333333334,
+            "total_yards_per_game": 341.3333333333333,
+            "yards_per_rush": 4.2734375,
+            "net_yards_per_pass": 6.564171122994653,
+            "third_down_conversion": 0.3443708609271523
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 154.83333333333334,
+            "passing_yards_allowed_per_game": 222.91666666666666,
+            "total_yards_allowed_per_game": 377.75,
+            "third_down_defense": 0.4378698224852071,
+            "sacks_per_game": 2.0833333333333335,
+            "tackles_for_loss_per_game": 5.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5,
+            "turnovers_forced_per_game": 1.4166666666666667,
+            "turnover_margin_per_game": -0.08333333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 5.083333333333333,
+            "penalty_yards_per_game": 43.666666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida Atlantic",
+        "conference": "American Athletic",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 105.16666666666667,
+            "passing_yards_per_game": 340.5,
+            "total_yards_per_game": 445.6666666666667,
+            "yards_per_rush": 3.5649717514124295,
+            "net_yards_per_pass": 7.032702237521515,
+            "third_down_conversion": 0.3684210526315789
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 201.0,
+            "passing_yards_allowed_per_game": 235.16666666666666,
+            "total_yards_allowed_per_game": 436.1666666666667,
+            "third_down_defense": 0.4540540540540541,
+            "sacks_per_game": 1.8333333333333333,
+            "tackles_for_loss_per_game": 5.416666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 2.4166666666666665,
+            "turnovers_forced_per_game": 0.6666666666666666,
+            "turnover_margin_per_game": -1.75
+        },
+        "discipline": {
+            "penalties_per_game": 6.583333333333333,
+            "penalty_yards_per_game": 56.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida International",
+        "conference": "Conference USA",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 181.6153846153846,
+            "passing_yards_per_game": 215.3846153846154,
+            "total_yards_per_game": 397.0,
+            "yards_per_rush": 4.868041237113402,
+            "net_yards_per_pass": 6.526806526806527,
+            "third_down_conversion": 0.35751295336787564
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 161.6153846153846,
+            "passing_yards_allowed_per_game": 250.46153846153845,
+            "total_yards_allowed_per_game": 412.0769230769231,
+            "third_down_defense": 0.3956043956043956,
+            "sacks_per_game": 2.3076923076923075,
+            "tackles_for_loss_per_game": 5.3076923076923075
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6153846153846154,
+            "turnovers_forced_per_game": 1.6153846153846154,
+            "turnover_margin_per_game": 0.0
+        },
+        "discipline": {
+            "penalties_per_game": 6.538461538461538,
+            "penalty_yards_per_game": 55.53846153846154
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida State",
+        "conference": "ACC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 218.83333333333334,
+            "passing_yards_per_game": 253.41666666666666,
+            "total_yards_per_game": 472.25,
+            "yards_per_rush": 5.2,
+            "net_yards_per_pass": 8.970501474926253,
+            "third_down_conversion": 0.5063291139240507
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 138.33333333333334,
+            "passing_yards_allowed_per_game": 190.75,
+            "total_yards_allowed_per_game": 329.0833333333333,
+            "third_down_defense": 0.38372093023255816,
+            "sacks_per_game": 2.5833333333333335,
+            "tackles_for_loss_per_game": 6.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5833333333333333,
+            "turnovers_forced_per_game": 1.1666666666666667,
+            "turnover_margin_per_game": -0.4166666666666667
+        },
+        "discipline": {
+            "penalties_per_game": 5.416666666666667,
+            "penalty_yards_per_game": 45.333333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Fresno State",
+        "conference": "Mountain West",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 170.69230769230768,
+            "passing_yards_per_game": 183.3846153846154,
+            "total_yards_per_game": 354.0769230769231,
+            "yards_per_rush": 4.6037344398340245,
+            "net_yards_per_pass": 6.39142091152815,
+            "third_down_conversion": 0.36363636363636365
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 133.69230769230768,
+            "passing_yards_allowed_per_game": 153.69230769230768,
+            "total_yards_allowed_per_game": 287.38461538461536,
+            "third_down_defense": 0.36,
+            "sacks_per_game": 1.8461538461538463,
+            "tackles_for_loss_per_game": 5.153846153846154
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5384615384615385,
+            "turnovers_forced_per_game": 1.9230769230769231,
+            "turnover_margin_per_game": 0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 6.615384615384615,
+            "penalty_yards_per_game": 60.61538461538461
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia",
+        "conference": "SEC",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 182.35714285714286,
+            "passing_yards_per_game": 220.21428571428572,
+            "total_yards_per_game": 402.57142857142856,
+            "yards_per_rush": 4.432291666666667,
+            "net_yards_per_pass": 7.393285371702638,
+            "third_down_conversion": 0.4340659340659341
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 81.57142857142857,
+            "passing_yards_allowed_per_game": 216.5,
+            "total_yards_allowed_per_game": 298.07142857142856,
+            "third_down_defense": 0.35135135135135137,
+            "sacks_per_game": 1.3571428571428572,
+            "tackles_for_loss_per_game": 4.142857142857143
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9285714285714286,
+            "turnovers_forced_per_game": 0.9285714285714286,
+            "turnover_margin_per_game": 0.0
+        },
+        "discipline": {
+            "penalties_per_game": 4.571428571428571,
+            "penalty_yards_per_game": 43.5
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia Southern",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 155.30769230769232,
+            "passing_yards_per_game": 247.0,
+            "total_yards_per_game": 402.3076923076923,
+            "yards_per_rush": 4.379609544468547,
+            "net_yards_per_pass": 7.450116009280743,
+            "third_down_conversion": 0.44692737430167595
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 219.07692307692307,
+            "passing_yards_allowed_per_game": 240.23076923076923,
+            "total_yards_allowed_per_game": 459.3076923076923,
+            "third_down_defense": 0.46107784431137727,
+            "sacks_per_game": 0.9230769230769231,
+            "tackles_for_loss_per_game": 4.615384615384615
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.4615384615384615,
+            "turnover_margin_per_game": 0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 5.3076923076923075,
+            "penalty_yards_per_game": 50.38461538461539
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia State",
+        "conference": "Sun Belt",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 123.75,
+            "passing_yards_per_game": 254.41666666666666,
+            "total_yards_per_game": 378.1666666666667,
+            "yards_per_rush": 4.057377049180328,
+            "net_yards_per_pass": 6.427368421052631,
+            "third_down_conversion": 0.38636363636363635
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 209.58333333333334,
+            "passing_yards_allowed_per_game": 240.75,
+            "total_yards_allowed_per_game": 450.3333333333333,
+            "third_down_defense": 0.4691358024691358,
+            "sacks_per_game": 1.5,
+            "tackles_for_loss_per_game": 4.833333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4166666666666667,
+            "turnovers_forced_per_game": 0.5,
+            "turnover_margin_per_game": -0.9166666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 8.583333333333334,
+            "penalty_yards_per_game": 67.91666666666667
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia Tech",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 197.6153846153846,
+            "passing_yards_per_game": 262.53846153846155,
+            "total_yards_per_game": 460.15384615384613,
+            "yards_per_rush": 5.5606060606060606,
+            "net_yards_per_pass": 8.66243654822335,
+            "third_down_conversion": 0.461038961038961
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 164.6153846153846,
+            "passing_yards_allowed_per_game": 234.84615384615384,
+            "total_yards_allowed_per_game": 399.46153846153845,
+            "third_down_defense": 0.4011299435028249,
+            "sacks_per_game": 2.076923076923077,
+            "tackles_for_loss_per_game": 4.846153846153846
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1538461538461537,
+            "turnovers_forced_per_game": 0.6923076923076923,
+            "turnover_margin_per_game": -0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 6.0,
+            "penalty_yards_per_game": 47.23076923076923
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Hawai'i",
+        "conference": "Mountain West",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 104.6923076923077,
+            "passing_yards_per_game": 290.61538461538464,
+            "total_yards_per_game": 395.3076923076923,
+            "yards_per_rush": 3.728767123287671,
+            "net_yards_per_pass": 6.996296296296296,
+            "third_down_conversion": 0.4494949494949495
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 134.46153846153845,
+            "passing_yards_allowed_per_game": 227.15384615384616,
+            "total_yards_allowed_per_game": 361.61538461538464,
+            "third_down_defense": 0.36075949367088606,
+            "sacks_per_game": 2.230769230769231,
+            "tackles_for_loss_per_game": 4.769230769230769
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3076923076923077,
+            "turnovers_forced_per_game": 1.1538461538461537,
+            "turnover_margin_per_game": -0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 7.6923076923076925,
+            "penalty_yards_per_game": 65.76923076923077
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Houston",
+        "conference": "Big 12",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 178.6153846153846,
+            "passing_yards_per_game": 216.3846153846154,
+            "total_yards_per_game": 395.0,
+            "yards_per_rush": 4.2605504587155965,
+            "net_yards_per_pass": 7.461538461538462,
+            "third_down_conversion": 0.40816326530612246
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 129.0,
+            "passing_yards_allowed_per_game": 218.84615384615384,
+            "total_yards_allowed_per_game": 347.84615384615387,
+            "third_down_defense": 0.358695652173913,
+            "sacks_per_game": 2.1538461538461537,
+            "tackles_for_loss_per_game": 4.6923076923076925
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0769230769230769,
+            "turnovers_forced_per_game": 1.3846153846153846,
+            "turnover_margin_per_game": 0.3076923076923077
+        },
+        "discipline": {
+            "penalties_per_game": 4.615384615384615,
+            "penalty_yards_per_game": 40.07692307692308
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Illinois",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 138.15384615384616,
+            "passing_yards_per_game": 235.76923076923077,
+            "total_yards_per_game": 373.9230769230769,
+            "yards_per_rush": 3.9299781181619258,
+            "net_yards_per_pass": 8.239247311827956,
+            "third_down_conversion": 0.42105263157894735
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 126.92307692307692,
+            "passing_yards_allowed_per_game": 218.3846153846154,
+            "total_yards_allowed_per_game": 345.3076923076923,
+            "third_down_defense": 0.44970414201183434,
+            "sacks_per_game": 2.1538461538461537,
+            "tackles_for_loss_per_game": 4.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.8461538461538461,
+            "turnovers_forced_per_game": 1.2307692307692308,
+            "turnover_margin_per_game": 0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 4.615384615384615,
+            "penalty_yards_per_game": 39.46153846153846
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Indiana",
+        "conference": "Big Ten",
+        "games": 16,
+        "offense": {
+            "rushing_yards_per_game": 217.1875,
+            "passing_yards_per_game": 239.125,
+            "total_yards_per_game": 456.3125,
+            "yards_per_rush": 5.346153846153846,
+            "net_yards_per_pass": 9.423645320197044,
+            "third_down_conversion": 0.5628140703517588
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 77.1875,
+            "passing_yards_allowed_per_game": 188.8125,
+            "total_yards_allowed_per_game": 266.0,
+            "third_down_defense": 0.30097087378640774,
+            "sacks_per_game": 2.875,
+            "tackles_for_loss_per_game": 8.0625
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.5,
+            "turnovers_forced_per_game": 1.875,
+            "turnover_margin_per_game": 1.375
+        },
+        "discipline": {
+            "penalties_per_game": 3.75,
+            "penalty_yards_per_game": 27.5625
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Iowa",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 176.92307692307693,
+            "passing_yards_per_game": 143.15384615384616,
+            "total_yards_per_game": 320.0769230769231,
+            "yards_per_rush": 4.563492063492063,
+            "net_yards_per_pass": 6.506993006993007,
+            "third_down_conversion": 0.43478260869565216
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 111.46153846153847,
+            "passing_yards_allowed_per_game": 172.69230769230768,
+            "total_yards_allowed_per_game": 284.15384615384613,
+            "third_down_defense": 0.3393939393939394,
+            "sacks_per_game": 1.9230769230769231,
+            "tackles_for_loss_per_game": 4.769230769230769
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.0769230769230769,
+            "turnover_margin_per_game": 0.07692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 3.0,
+            "penalty_yards_per_game": 30.153846153846153
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Iowa State",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 174.16666666666666,
+            "passing_yards_per_game": 221.41666666666666,
+            "total_yards_per_game": 395.5833333333333,
+            "yards_per_rush": 4.372384937238493,
+            "net_yards_per_pass": 7.679190751445087,
+            "third_down_conversion": 0.3987730061349693
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 138.91666666666666,
+            "passing_yards_allowed_per_game": 218.5,
+            "total_yards_allowed_per_game": 357.4166666666667,
+            "third_down_defense": 0.3875,
+            "sacks_per_game": 1.0833333333333333,
+            "tackles_for_loss_per_game": 5.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1666666666666667,
+            "turnovers_forced_per_game": 1.5,
+            "turnover_margin_per_game": 0.3333333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 4.583333333333333,
+            "penalty_yards_per_game": 40.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Jacksonville State",
+        "conference": "Conference USA",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 247.64285714285714,
+            "passing_yards_per_game": 161.78571428571428,
+            "total_yards_per_game": 409.42857142857144,
+            "yards_per_rush": 5.358578052550232,
+            "net_yards_per_pass": 6.905487804878049,
+            "third_down_conversion": 0.3869346733668342
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 144.71428571428572,
+            "passing_yards_allowed_per_game": 234.5,
+            "total_yards_allowed_per_game": 379.2142857142857,
+            "third_down_defense": 0.36363636363636365,
+            "sacks_per_game": 2.0,
+            "tackles_for_loss_per_game": 5.428571428571429
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9285714285714286,
+            "turnovers_forced_per_game": 1.7142857142857142,
+            "turnover_margin_per_game": 0.7857142857142857
+        },
+        "discipline": {
+            "penalties_per_game": 5.714285714285714,
+            "penalty_yards_per_game": 56.285714285714285
+        }
+    },
+    {
+        "season": 2025,
+        "team": "James Madison",
+        "conference": "Sun Belt",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 243.71428571428572,
+            "passing_yards_per_game": 211.14285714285714,
+            "total_yards_per_game": 454.85714285714283,
+            "yards_per_rush": 5.705685618729097,
+            "net_yards_per_pass": 7.677922077922078,
+            "third_down_conversion": 0.4666666666666667
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 85.42857142857143,
+            "passing_yards_allowed_per_game": 181.57142857142858,
+            "total_yards_allowed_per_game": 267.0,
+            "third_down_defense": 0.2923076923076923,
+            "sacks_per_game": 2.5,
+            "tackles_for_loss_per_game": 6.071428571428571
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1428571428571428,
+            "turnovers_forced_per_game": 1.2142857142857142,
+            "turnover_margin_per_game": 0.07142857142857142
+        },
+        "discipline": {
+            "penalties_per_game": 7.5,
+            "penalty_yards_per_game": 72.5
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kansas",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 169.75,
+            "passing_yards_per_game": 220.0,
+            "total_yards_per_game": 389.75,
+            "yards_per_rush": 4.78169014084507,
+            "net_yards_per_pass": 7.6521739130434785,
+            "third_down_conversion": 0.38926174496644295
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 173.16666666666666,
+            "passing_yards_allowed_per_game": 214.08333333333334,
+            "total_yards_allowed_per_game": 387.25,
+            "third_down_defense": 0.4057142857142857,
+            "sacks_per_game": 2.0,
+            "tackles_for_loss_per_game": 6.25
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0833333333333333,
+            "turnovers_forced_per_game": 0.8333333333333334,
+            "turnover_margin_per_game": -0.25
+        },
+        "discipline": {
+            "penalties_per_game": 5.0,
+            "penalty_yards_per_game": 39.75
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kansas State",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 172.25,
+            "passing_yards_per_game": 198.33333333333334,
+            "total_yards_per_game": 370.5833333333333,
+            "yards_per_rush": 5.193467336683417,
+            "net_yards_per_pass": 6.95906432748538,
+            "third_down_conversion": 0.36942675159235666
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 163.83333333333334,
+            "passing_yards_allowed_per_game": 222.41666666666666,
+            "total_yards_allowed_per_game": 386.25,
+            "third_down_defense": 0.39444444444444443,
+            "sacks_per_game": 2.3333333333333335,
+            "tackles_for_loss_per_game": 6.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.25,
+            "turnovers_forced_per_game": 2.1666666666666665,
+            "turnover_margin_per_game": 0.9166666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 4.083333333333333,
+            "penalty_yards_per_game": 38.25
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kennesaw State",
+        "conference": "Conference USA",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 160.07142857142858,
+            "passing_yards_per_game": 243.07142857142858,
+            "total_yards_per_game": 403.14285714285717,
+            "yards_per_rush": 4.15,
+            "net_yards_per_pass": 8.044917257683215,
+            "third_down_conversion": 0.4
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 184.78571428571428,
+            "passing_yards_allowed_per_game": 218.64285714285714,
+            "total_yards_allowed_per_game": 403.42857142857144,
+            "third_down_defense": 0.38578680203045684,
+            "sacks_per_game": 2.2142857142857144,
+            "tackles_for_loss_per_game": 6.428571428571429
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2857142857142858,
+            "turnovers_forced_per_game": 1.0714285714285714,
+            "turnover_margin_per_game": -0.21428571428571427
+        },
+        "discipline": {
+            "penalties_per_game": 7.5,
+            "penalty_yards_per_game": 66.78571428571429
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kent State",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 98.33333333333333,
+            "passing_yards_per_game": 197.08333333333334,
+            "total_yards_per_game": 295.4166666666667,
+            "yards_per_rush": 2.9873417721518987,
+            "net_yards_per_pass": 8.071672354948806,
+            "third_down_conversion": 0.27564102564102566
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 192.25,
+            "passing_yards_allowed_per_game": 236.0,
+            "total_yards_allowed_per_game": 428.25,
+            "third_down_defense": 0.44571428571428573,
+            "sacks_per_game": 2.0,
+            "tackles_for_loss_per_game": 5.833333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0833333333333333,
+            "turnovers_forced_per_game": 0.8333333333333334,
+            "turnover_margin_per_game": -0.25
+        },
+        "discipline": {
+            "penalties_per_game": 6.083333333333333,
+            "penalty_yards_per_game": 48.75
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kentucky",
+        "conference": "SEC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 139.25,
+            "passing_yards_per_game": 201.91666666666666,
+            "total_yards_per_game": 341.1666666666667,
+            "yards_per_rush": 3.8770301624129933,
+            "net_yards_per_pass": 6.602179836512262,
+            "third_down_conversion": 0.4025157232704403
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 134.66666666666666,
+            "passing_yards_allowed_per_game": 239.91666666666666,
+            "total_yards_allowed_per_game": 374.5833333333333,
+            "third_down_defense": 0.3987341772151899,
+            "sacks_per_game": 2.0833333333333335,
+            "tackles_for_loss_per_game": 5.75
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.8333333333333333,
+            "turnovers_forced_per_game": 1.1666666666666667,
+            "turnover_margin_per_game": -0.6666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 4.916666666666667,
+            "penalty_yards_per_game": 41.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "LSU",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 104.76923076923077,
+            "passing_yards_per_game": 229.53846153846155,
+            "total_yards_per_game": 334.15384615384613,
+            "yards_per_rush": 3.661290322580645,
+            "net_yards_per_pass": 6.735891647855531,
+            "third_down_conversion": 0.367816091954023
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 124.46153846153847,
+            "passing_yards_allowed_per_game": 204.6153846153846,
+            "total_yards_allowed_per_game": 329.0769230769231,
+            "third_down_defense": 0.3446327683615819,
+            "sacks_per_game": 2.076923076923077,
+            "tackles_for_loss_per_game": 5.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0769230769230769,
+            "turnovers_forced_per_game": 1.6153846153846154,
+            "turnover_margin_per_game": 0.5384615384615384
+        },
+        "discipline": {
+            "penalties_per_game": 7.0,
+            "penalty_yards_per_game": 59.30769230769231
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Liberty",
+        "conference": "Conference USA",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 193.0,
+            "passing_yards_per_game": 195.5,
+            "total_yards_per_game": 388.5,
+            "yards_per_rush": 4.632,
+            "net_yards_per_pass": 7.424050632911392,
+            "third_down_conversion": 0.40119760479041916
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 180.08333333333334,
+            "passing_yards_allowed_per_game": 196.75,
+            "total_yards_allowed_per_game": 376.8333333333333,
+            "third_down_defense": 0.43859649122807015,
+            "sacks_per_game": 1.3333333333333333,
+            "tackles_for_loss_per_game": 4.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.75,
+            "turnovers_forced_per_game": 1.1666666666666667,
+            "turnover_margin_per_game": -0.5833333333333334
+        },
+        "discipline": {
+            "penalties_per_game": 6.166666666666667,
+            "penalty_yards_per_game": 55.583333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Louisiana",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 182.92307692307693,
+            "passing_yards_per_game": 161.15384615384616,
+            "total_yards_per_game": 344.0769230769231,
+            "yards_per_rush": 4.61747572815534,
+            "net_yards_per_pass": 6.125730994152047,
+            "third_down_conversion": 0.40625
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 187.15384615384616,
+            "passing_yards_allowed_per_game": 224.0,
+            "total_yards_allowed_per_game": 411.15384615384613,
+            "third_down_defense": 0.4277456647398844,
+            "sacks_per_game": 1.6923076923076923,
+            "tackles_for_loss_per_game": 4.538461538461538
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4615384615384615,
+            "turnovers_forced_per_game": 1.3846153846153846,
+            "turnover_margin_per_game": -0.07692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 5.923076923076923,
+            "penalty_yards_per_game": 46.53846153846154
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Louisiana Tech",
+        "conference": "Conference USA",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 195.15384615384616,
+            "passing_yards_per_game": 164.15384615384616,
+            "total_yards_per_game": 359.3076923076923,
+            "yards_per_rush": 4.750936329588015,
+            "net_yards_per_pass": 6.817891373801917,
+            "third_down_conversion": 0.4101123595505618
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 134.84615384615384,
+            "passing_yards_allowed_per_game": 240.07692307692307,
+            "total_yards_allowed_per_game": 374.9230769230769,
+            "third_down_defense": 0.3891891891891892,
+            "sacks_per_game": 1.5384615384615385,
+            "tackles_for_loss_per_game": 5.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3076923076923077,
+            "turnovers_forced_per_game": 1.9230769230769231,
+            "turnover_margin_per_game": 0.6153846153846154
+        },
+        "discipline": {
+            "penalties_per_game": 7.6923076923076925,
+            "penalty_yards_per_game": 77.38461538461539
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Louisville",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 164.0,
+            "passing_yards_per_game": 220.6153846153846,
+            "total_yards_per_game": 384.61538461538464,
+            "yards_per_rush": 5.076190476190476,
+            "net_yards_per_pass": 6.861244019138756,
+            "third_down_conversion": 0.3532934131736527
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 114.3076923076923,
+            "passing_yards_allowed_per_game": 188.76923076923077,
+            "total_yards_allowed_per_game": 303.0769230769231,
+            "third_down_defense": 0.3314917127071823,
+            "sacks_per_game": 2.3846153846153846,
+            "tackles_for_loss_per_game": 5.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3076923076923077,
+            "turnovers_forced_per_game": 1.5384615384615385,
+            "turnover_margin_per_game": 0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 6.923076923076923,
+            "penalty_yards_per_game": 63.15384615384615
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Marshall",
+        "conference": "Sun Belt",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 198.16666666666666,
+            "passing_yards_per_game": 207.91666666666666,
+            "total_yards_per_game": 406.0833333333333,
+            "yards_per_rush": 4.7847082494969815,
+            "net_yards_per_pass": 7.447761194029851,
+            "third_down_conversion": 0.3515151515151515
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 148.91666666666666,
+            "passing_yards_allowed_per_game": 261.6666666666667,
+            "total_yards_allowed_per_game": 410.5833333333333,
+            "third_down_defense": 0.3989071038251366,
+            "sacks_per_game": 2.3333333333333335,
+            "tackles_for_loss_per_game": 6.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.25,
+            "turnovers_forced_per_game": 1.75,
+            "turnover_margin_per_game": 0.5
+        },
+        "discipline": {
+            "penalties_per_game": 6.833333333333333,
+            "penalty_yards_per_game": 59.916666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Maryland",
+        "conference": "Big Ten",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 105.5,
+            "passing_yards_per_game": 255.66666666666666,
+            "total_yards_per_game": 361.1666666666667,
+            "yards_per_rush": 4.1644736842105265,
+            "net_yards_per_pass": 6.24847250509165,
+            "third_down_conversion": 0.36627906976744184
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 175.91666666666666,
+            "passing_yards_allowed_per_game": 226.5,
+            "total_yards_allowed_per_game": 402.4166666666667,
+            "third_down_defense": 0.42105263157894735,
+            "sacks_per_game": 2.25,
+            "tackles_for_loss_per_game": 5.416666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1666666666666667,
+            "turnovers_forced_per_game": 1.75,
+            "turnover_margin_per_game": 0.5833333333333334
+        },
+        "discipline": {
+            "penalties_per_game": 6.0,
+            "penalty_yards_per_game": 55.75
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Massachusetts",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 82.41666666666667,
+            "passing_yards_per_game": 165.08333333333334,
+            "total_yards_per_game": 247.5,
+            "yards_per_rush": 2.809659090909091,
+            "net_yards_per_pass": 4.773493975903614,
+            "third_down_conversion": 0.3068181818181818
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 222.08333333333334,
+            "passing_yards_allowed_per_game": 212.5,
+            "total_yards_allowed_per_game": 434.5833333333333,
+            "third_down_defense": 0.4666666666666667,
+            "sacks_per_game": 1.0833333333333333,
+            "tackles_for_loss_per_game": 3.3333333333333335
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3333333333333333,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -0.5833333333333334
+        },
+        "discipline": {
+            "penalties_per_game": 5.166666666666667,
+            "penalty_yards_per_game": 41.416666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Memphis",
+        "conference": "American Athletic",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 183.15384615384616,
+            "passing_yards_per_game": 228.3846153846154,
+            "total_yards_per_game": 411.53846153846155,
+            "yards_per_rush": 5.055201698513801,
+            "net_yards_per_pass": 7.206310679611651,
+            "third_down_conversion": 0.4166666666666667
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 132.07692307692307,
+            "passing_yards_allowed_per_game": 227.15384615384616,
+            "total_yards_allowed_per_game": 359.2307692307692,
+            "third_down_defense": 0.3989071038251366,
+            "sacks_per_game": 1.6153846153846154,
+            "tackles_for_loss_per_game": 6.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9230769230769231,
+            "turnovers_forced_per_game": 1.4615384615384615,
+            "turnover_margin_per_game": 0.5384615384615384
+        },
+        "discipline": {
+            "penalties_per_game": 5.538461538461538,
+            "penalty_yards_per_game": 48.07692307692308
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Miami",
+        "conference": "ACC",
+        "games": 16,
+        "offense": {
+            "rushing_yards_per_game": 151.75,
+            "passing_yards_per_game": 253.1875,
+            "total_yards_per_game": 404.9375,
+            "yards_per_rush": 4.304964539007092,
+            "net_yards_per_pass": 8.16733870967742,
+            "third_down_conversion": 0.465
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 89.3125,
+            "passing_yards_allowed_per_game": 204.875,
+            "total_yards_allowed_per_game": 294.1875,
+            "third_down_defense": 0.30985915492957744,
+            "sacks_per_game": 3.125,
+            "tackles_for_loss_per_game": 6.375
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9375,
+            "turnovers_forced_per_game": 1.5625,
+            "turnover_margin_per_game": 0.625
+        },
+        "discipline": {
+            "penalties_per_game": 7.0,
+            "penalty_yards_per_game": 57.25
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Miami (OH)",
+        "conference": "Mid-American",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 150.78571428571428,
+            "passing_yards_per_game": 187.28571428571428,
+            "total_yards_per_game": 338.07142857142856,
+            "yards_per_rush": 4.290650406504065,
+            "net_yards_per_pass": 7.125,
+            "third_down_conversion": 0.3465909090909091
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 134.21428571428572,
+            "passing_yards_allowed_per_game": 200.35714285714286,
+            "total_yards_allowed_per_game": 334.57142857142856,
+            "third_down_defense": 0.42574257425742573,
+            "sacks_per_game": 2.9285714285714284,
+            "tackles_for_loss_per_game": 5.785714285714286
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0714285714285714,
+            "turnovers_forced_per_game": 1.4285714285714286,
+            "turnover_margin_per_game": 0.35714285714285715
+        },
+        "discipline": {
+            "penalties_per_game": 5.571428571428571,
+            "penalty_yards_per_game": 49.142857142857146
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Michigan",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 211.15384615384616,
+            "passing_yards_per_game": 186.76923076923077,
+            "total_yards_per_game": 397.9230769230769,
+            "yards_per_rush": 5.523138832997988,
+            "net_yards_per_pass": 7.141176470588236,
+            "third_down_conversion": 0.43636363636363634
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 112.23076923076923,
+            "passing_yards_allowed_per_game": 211.3846153846154,
+            "total_yards_allowed_per_game": 323.61538461538464,
+            "third_down_defense": 0.3743016759776536,
+            "sacks_per_game": 2.1538461538461537,
+            "tackles_for_loss_per_game": 5.846153846153846
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3076923076923077,
+            "turnovers_forced_per_game": 1.4615384615384615,
+            "turnover_margin_per_game": 0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 4.384615384615385,
+            "penalty_yards_per_game": 39.07692307692308
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Michigan State",
+        "conference": "Big Ten",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 122.66666666666667,
+            "passing_yards_per_game": 222.66666666666666,
+            "total_yards_per_game": 345.3333333333333,
+            "yards_per_rush": 3.7938144329896906,
+            "net_yards_per_pass": 7.068783068783069,
+            "third_down_conversion": 0.34591194968553457
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 148.58333333333334,
+            "passing_yards_allowed_per_game": 231.33333333333334,
+            "total_yards_allowed_per_game": 379.9166666666667,
+            "third_down_defense": 0.42,
+            "sacks_per_game": 1.8333333333333333,
+            "tackles_for_loss_per_game": 4.666666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -0.25
+        },
+        "discipline": {
+            "penalties_per_game": 5.25,
+            "penalty_yards_per_game": 44.916666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Middle Tennessee",
+        "conference": "Conference USA",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 106.08333333333333,
+            "passing_yards_per_game": 264.9166666666667,
+            "total_yards_per_game": 371.0,
+            "yards_per_rush": 4.054140127388535,
+            "net_yards_per_pass": 6.370741482965932,
+            "third_down_conversion": 0.37142857142857144
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 146.41666666666666,
+            "passing_yards_allowed_per_game": 256.1666666666667,
+            "total_yards_allowed_per_game": 402.5833333333333,
+            "third_down_defense": 0.391304347826087,
+            "sacks_per_game": 1.8333333333333333,
+            "tackles_for_loss_per_game": 5.166666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.1666666666666667,
+            "turnover_margin_per_game": 0.16666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 7.25,
+            "penalty_yards_per_game": 67.66666666666667
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Minnesota",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 103.46153846153847,
+            "passing_yards_per_game": 189.92307692307693,
+            "total_yards_per_game": 293.38461538461536,
+            "yards_per_rush": 3.5866666666666664,
+            "net_yards_per_pass": 6.18796992481203,
+            "third_down_conversion": 0.40119760479041916
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 121.6923076923077,
+            "passing_yards_allowed_per_game": 210.53846153846155,
+            "total_yards_allowed_per_game": 332.2307692307692,
+            "third_down_defense": 0.4036144578313253,
+            "sacks_per_game": 3.0,
+            "tackles_for_loss_per_game": 7.076923076923077
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.6923076923076923,
+            "turnovers_forced_per_game": 1.2307692307692308,
+            "turnover_margin_per_game": 0.5384615384615384
+        },
+        "discipline": {
+            "penalties_per_game": 3.769230769230769,
+            "penalty_yards_per_game": 31.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Mississippi State",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 157.76923076923077,
+            "passing_yards_per_game": 241.3846153846154,
+            "total_yards_per_game": 399.15384615384613,
+            "yards_per_rush": 3.729090909090909,
+            "net_yards_per_pass": 8.046153846153846,
+            "third_down_conversion": 0.4270833333333333
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 187.07692307692307,
+            "passing_yards_allowed_per_game": 222.53846153846155,
+            "total_yards_allowed_per_game": 409.61538461538464,
+            "third_down_defense": 0.4134078212290503,
+            "sacks_per_game": 1.6153846153846154,
+            "tackles_for_loss_per_game": 4.3076923076923075
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1538461538461537,
+            "turnovers_forced_per_game": 1.3846153846153846,
+            "turnover_margin_per_game": 0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 7.230769230769231,
+            "penalty_yards_per_game": 61.61538461538461
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Missouri",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 228.46153846153845,
+            "passing_yards_per_game": 188.3846153846154,
+            "total_yards_per_game": 416.84615384615387,
+            "yards_per_rush": 5.341726618705036,
+            "net_yards_per_pass": 6.78393351800554,
+            "third_down_conversion": 0.44886363636363635
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 101.76923076923077,
+            "passing_yards_allowed_per_game": 173.46153846153845,
+            "total_yards_allowed_per_game": 275.2307692307692,
+            "third_down_defense": 0.35294117647058826,
+            "sacks_per_game": 2.8461538461538463,
+            "tackles_for_loss_per_game": 6.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3076923076923077,
+            "turnovers_forced_per_game": 0.9230769230769231,
+            "turnover_margin_per_game": -0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 5.461538461538462,
+            "penalty_yards_per_game": 51.15384615384615
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Missouri State",
+        "conference": "Conference USA",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 113.6923076923077,
+            "passing_yards_per_game": 279.6923076923077,
+            "total_yards_per_game": 393.38461538461536,
+            "yards_per_rush": 3.5961070559610704,
+            "net_yards_per_pass": 8.358620689655172,
+            "third_down_conversion": 0.36257309941520466
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 154.30769230769232,
+            "passing_yards_allowed_per_game": 229.46153846153845,
+            "total_yards_allowed_per_game": 383.7692307692308,
+            "third_down_defense": 0.40229885057471265,
+            "sacks_per_game": 1.8461538461538463,
+            "tackles_for_loss_per_game": 4.076923076923077
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3846153846153846,
+            "turnovers_forced_per_game": 1.1538461538461537,
+            "turnover_margin_per_game": -0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 7.615384615384615,
+            "penalty_yards_per_game": 66.46153846153847
+        }
+    },
+    {
+        "season": 2025,
+        "team": "NC State",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 147.07692307692307,
+            "passing_yards_per_game": 245.69230769230768,
+            "total_yards_per_game": 392.7692307692308,
+            "yards_per_rush": 4.520094562647754,
+            "net_yards_per_pass": 7.733656174334141,
+            "third_down_conversion": 0.4121212121212121
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 139.3846153846154,
+            "passing_yards_allowed_per_game": 273.15384615384613,
+            "total_yards_allowed_per_game": 412.53846153846155,
+            "third_down_defense": 0.45652173913043476,
+            "sacks_per_game": 1.5384615384615385,
+            "tackles_for_loss_per_game": 5.076923076923077
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.1538461538461537,
+            "turnover_margin_per_game": 0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 5.538461538461538,
+            "penalty_yards_per_game": 53.76923076923077
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Navy",
+        "conference": "American Athletic",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 286.0769230769231,
+            "passing_yards_per_game": 130.0,
+            "total_yards_per_game": 416.0769230769231,
+            "yards_per_rush": 5.792834890965732,
+            "net_yards_per_pass": 9.285714285714286,
+            "third_down_conversion": 0.5182926829268293
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 141.46153846153845,
+            "passing_yards_allowed_per_game": 230.0,
+            "total_yards_allowed_per_game": 371.46153846153845,
+            "third_down_defense": 0.39285714285714285,
+            "sacks_per_game": 2.076923076923077,
+            "tackles_for_loss_per_game": 4.461538461538462
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0769230769230769,
+            "turnovers_forced_per_game": 1.1538461538461537,
+            "turnover_margin_per_game": 0.07692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 5.6923076923076925,
+            "penalty_yards_per_game": 48.30769230769231
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Nebraska",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 147.84615384615384,
+            "passing_yards_per_game": 224.6153846153846,
+            "total_yards_per_game": 372.46153846153845,
+            "yards_per_rush": 4.319101123595505,
+            "net_yards_per_pass": 7.724867724867725,
+            "third_down_conversion": 0.4567901234567901
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 176.92307692307693,
+            "passing_yards_allowed_per_game": 154.07692307692307,
+            "total_yards_allowed_per_game": 331.0,
+            "third_down_defense": 0.39285714285714285,
+            "sacks_per_game": 1.6923076923076923,
+            "tackles_for_loss_per_game": 5.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.8461538461538461,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": 0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 4.615384615384615,
+            "penalty_yards_per_game": 43.46153846153846
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Nevada",
+        "conference": "Mountain West",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 155.25,
+            "passing_yards_per_game": 147.16666666666666,
+            "total_yards_per_game": 302.4166666666667,
+            "yards_per_rush": 4.489156626506024,
+            "net_yards_per_pass": 5.733766233766234,
+            "third_down_conversion": 0.32051282051282054
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 150.33333333333334,
+            "passing_yards_allowed_per_game": 220.16666666666666,
+            "total_yards_allowed_per_game": 370.5,
+            "third_down_defense": 0.38125,
+            "sacks_per_game": 1.5833333333333333,
+            "tackles_for_loss_per_game": 5.25
+        },
+        "turnovers": {
+            "turnovers_per_game": 2.25,
+            "turnovers_forced_per_game": 1.25,
+            "turnover_margin_per_game": -1.0
+        },
+        "discipline": {
+            "penalties_per_game": 5.25,
+            "penalty_yards_per_game": 45.166666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "New Mexico",
+        "conference": "Mountain West",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 152.3846153846154,
+            "passing_yards_per_game": 204.76923076923077,
+            "total_yards_per_game": 357.15384615384613,
+            "yards_per_rush": 4.269396551724138,
+            "net_yards_per_pass": 7.605714285714286,
+            "third_down_conversion": 0.3939393939393939
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 113.53846153846153,
+            "passing_yards_allowed_per_game": 229.69230769230768,
+            "total_yards_allowed_per_game": 343.2307692307692,
+            "third_down_defense": 0.4022346368715084,
+            "sacks_per_game": 2.769230769230769,
+            "tackles_for_loss_per_game": 5.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.7692307692307692,
+            "turnovers_forced_per_game": 1.3076923076923077,
+            "turnover_margin_per_game": -0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 5.769230769230769,
+            "penalty_yards_per_game": 48.46153846153846
+        }
+    },
+    {
+        "season": 2025,
+        "team": "New Mexico State",
+        "conference": "Conference USA",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 77.41666666666667,
+            "passing_yards_per_game": 250.33333333333334,
+            "total_yards_per_game": 327.75,
+            "yards_per_rush": 2.609550561797753,
+            "net_yards_per_pass": 6.364406779661017,
+            "third_down_conversion": 0.41711229946524064
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 165.16666666666666,
+            "passing_yards_allowed_per_game": 236.91666666666666,
+            "total_yards_allowed_per_game": 402.0833333333333,
+            "third_down_defense": 0.4111111111111111,
+            "sacks_per_game": 1.5,
+            "tackles_for_loss_per_game": 5.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 2.0,
+            "turnovers_forced_per_game": 1.9166666666666667,
+            "turnover_margin_per_game": -0.08333333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 6.166666666666667,
+            "penalty_yards_per_game": 54.416666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "North Carolina",
+        "conference": "ACC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 105.16666666666667,
+            "passing_yards_per_game": 183.91666666666666,
+            "total_yards_per_game": 289.0833333333333,
+            "yards_per_rush": 3.647398843930636,
+            "net_yards_per_pass": 6.216901408450704,
+            "third_down_conversion": 0.36942675159235666
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 125.33333333333333,
+            "passing_yards_allowed_per_game": 211.25,
+            "total_yards_allowed_per_game": 336.5833333333333,
+            "third_down_defense": 0.4235294117647059,
+            "sacks_per_game": 2.5833333333333335,
+            "tackles_for_loss_per_game": 5.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.25,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": -0.25
+        },
+        "discipline": {
+            "penalties_per_game": 6.583333333333333,
+            "penalty_yards_per_game": 62.583333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "North Texas",
+        "conference": "American Athletic",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 194.14285714285714,
+            "passing_yards_per_game": 317.2857142857143,
+            "total_yards_per_game": 511.42857142857144,
+            "yards_per_rush": 5.298245614035087,
+            "net_yards_per_pass": 9.31236897274633,
+            "third_down_conversion": 0.45930232558139533
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 215.85714285714286,
+            "passing_yards_allowed_per_game": 166.21428571428572,
+            "total_yards_allowed_per_game": 382.07142857142856,
+            "third_down_defense": 0.4236453201970443,
+            "sacks_per_game": 1.7142857142857142,
+            "tackles_for_loss_per_game": 5.285714285714286
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3571428571428572,
+            "turnovers_forced_per_game": 2.0,
+            "turnover_margin_per_game": 0.6428571428571429
+        },
+        "discipline": {
+            "penalties_per_game": 5.571428571428571,
+            "penalty_yards_per_game": 45.5
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Northern Illinois",
+        "conference": "Mid-American",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 185.58333333333334,
+            "passing_yards_per_game": 98.83333333333333,
+            "total_yards_per_game": 284.4166666666667,
+            "yards_per_rush": 4.480885311871227,
+            "net_yards_per_pass": 4.860655737704918,
+            "third_down_conversion": 0.3179190751445087
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 183.75,
+            "passing_yards_allowed_per_game": 173.91666666666666,
+            "total_yards_allowed_per_game": 357.6666666666667,
+            "third_down_defense": 0.4294478527607362,
+            "sacks_per_game": 1.1666666666666667,
+            "tackles_for_loss_per_game": 3.3333333333333335
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9166666666666666,
+            "turnovers_forced_per_game": 1.0833333333333333,
+            "turnover_margin_per_game": 0.16666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 4.333333333333333,
+            "penalty_yards_per_game": 38.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Northwestern",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 160.92307692307693,
+            "passing_yards_per_game": 185.92307692307693,
+            "total_yards_per_game": 346.84615384615387,
+            "yards_per_rush": 4.65924276169265,
+            "net_yards_per_pass": 6.394179894179894,
+            "third_down_conversion": 0.42857142857142855
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 136.30769230769232,
+            "passing_yards_allowed_per_game": 193.53846153846155,
+            "total_yards_allowed_per_game": 329.84615384615387,
+            "third_down_defense": 0.41830065359477125,
+            "sacks_per_game": 1.7692307692307692,
+            "tackles_for_loss_per_game": 4.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6153846153846154,
+            "turnovers_forced_per_game": 1.5384615384615385,
+            "turnover_margin_per_game": -0.07692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 4.230769230769231,
+            "penalty_yards_per_game": 33.84615384615385
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Notre Dame",
+        "conference": "FBS Independents",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 204.41666666666666,
+            "passing_yards_per_game": 255.08333333333334,
+            "total_yards_per_game": 459.5,
+            "yards_per_rush": 5.868421052631579,
+            "net_yards_per_pass": 9.506211180124224,
+            "third_down_conversion": 0.48148148148148145
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 99.66666666666667,
+            "passing_yards_allowed_per_game": 213.41666666666666,
+            "total_yards_allowed_per_game": 313.0833333333333,
+            "third_down_defense": 0.3539325842696629,
+            "sacks_per_game": 2.8333333333333335,
+            "tackles_for_loss_per_game": 5.75
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.8333333333333334,
+            "turnovers_forced_per_game": 1.9166666666666667,
+            "turnover_margin_per_game": 1.0833333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 5.5,
+            "penalty_yards_per_game": 53.083333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ohio",
+        "conference": "Mid-American",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 228.15384615384616,
+            "passing_yards_per_game": 184.15384615384616,
+            "total_yards_per_game": 412.3076923076923,
+            "yards_per_rush": 5.3731884057971016,
+            "net_yards_per_pass": 7.673076923076923,
+            "third_down_conversion": 0.42424242424242425
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 144.23076923076923,
+            "passing_yards_allowed_per_game": 208.07692307692307,
+            "total_yards_allowed_per_game": 352.3076923076923,
+            "third_down_defense": 0.3333333333333333,
+            "sacks_per_game": 1.6923076923076923,
+            "tackles_for_loss_per_game": 4.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4615384615384615,
+            "turnovers_forced_per_game": 1.3076923076923077,
+            "turnover_margin_per_game": -0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 6.153846153846154,
+            "penalty_yards_per_game": 48.30769230769231
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ohio State",
+        "conference": "Big Ten",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 154.78571428571428,
+            "passing_yards_per_game": 268.2142857142857,
+            "total_yards_per_game": 423.0,
+            "yards_per_rush": 4.600849256900212,
+            "net_yards_per_pass": 9.20343137254902,
+            "third_down_conversion": 0.5263157894736842
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 89.35714285714286,
+            "passing_yards_allowed_per_game": 129.71428571428572,
+            "total_yards_allowed_per_game": 219.07142857142858,
+            "third_down_defense": 0.3050847457627119,
+            "sacks_per_game": 2.5,
+            "tackles_for_loss_per_game": 5.571428571428571
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.7857142857142857,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": 0.21428571428571427
+        },
+        "discipline": {
+            "penalties_per_game": 4.071428571428571,
+            "penalty_yards_per_game": 38.5
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oklahoma",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 118.6923076923077,
+            "passing_yards_per_game": 235.84615384615384,
+            "total_yards_per_game": 354.53846153846155,
+            "yards_per_rush": 3.5635103926097,
+            "net_yards_per_pass": 7.113689095127611,
+            "third_down_conversion": 0.3858695652173913
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 77.53846153846153,
+            "passing_yards_allowed_per_game": 195.23076923076923,
+            "total_yards_allowed_per_game": 272.7692307692308,
+            "third_down_defense": 0.2804232804232804,
+            "sacks_per_game": 3.4615384615384617,
+            "tackles_for_loss_per_game": 9.461538461538462
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2307692307692308,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": -0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 6.769230769230769,
+            "penalty_yards_per_game": 61.15384615384615
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oklahoma State",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 118.41666666666667,
+            "passing_yards_per_game": 174.08333333333334,
+            "total_yards_per_game": 292.5,
+            "yards_per_rush": 3.5260545905707197,
+            "net_yards_per_pass": 5.723287671232876,
+            "third_down_conversion": 0.34831460674157305
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 167.16666666666666,
+            "passing_yards_allowed_per_game": 251.25,
+            "total_yards_allowed_per_game": 418.4166666666667,
+            "third_down_defense": 0.43373493975903615,
+            "sacks_per_game": 1.8333333333333333,
+            "tackles_for_loss_per_game": 5.583333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4166666666666667,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": -0.4166666666666667
+        },
+        "discipline": {
+            "penalties_per_game": 5.25,
+            "penalty_yards_per_game": 47.333333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Old Dominion",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 238.92307692307693,
+            "passing_yards_per_game": 216.0,
+            "total_yards_per_game": 454.9230769230769,
+            "yards_per_rush": 5.6268115942028984,
+            "net_yards_per_pass": 8.50909090909091,
+            "third_down_conversion": 0.41379310344827586
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 140.15384615384616,
+            "passing_yards_allowed_per_game": 191.53846153846155,
+            "total_yards_allowed_per_game": 331.6923076923077,
+            "third_down_defense": 0.34196891191709844,
+            "sacks_per_game": 3.0,
+            "tackles_for_loss_per_game": 6.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.8461538461538463,
+            "turnovers_forced_per_game": 2.0,
+            "turnover_margin_per_game": 0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 6.0,
+            "penalty_yards_per_game": 53.84615384615385
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ole Miss",
+        "conference": "SEC",
+        "games": 15,
+        "offense": {
+            "rushing_yards_per_game": 176.73333333333332,
+            "passing_yards_per_game": 313.3333333333333,
+            "total_yards_per_game": 490.06666666666666,
+            "yards_per_rush": 4.634615384615385,
+            "net_yards_per_pass": 8.98661567877629,
+            "third_down_conversion": 0.4307692307692308
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 149.2,
+            "passing_yards_allowed_per_game": 198.93333333333334,
+            "total_yards_allowed_per_game": 348.1333333333333,
+            "third_down_defense": 0.3719806763285024,
+            "sacks_per_game": 2.2,
+            "tackles_for_loss_per_game": 5.533333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9333333333333333,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": 0.06666666666666667
+        },
+        "discipline": {
+            "penalties_per_game": 5.533333333333333,
+            "penalty_yards_per_game": 52.4
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oregon",
+        "conference": "Big Ten",
+        "games": 15,
+        "offense": {
+            "rushing_yards_per_game": 198.6,
+            "passing_yards_per_game": 253.6,
+            "total_yards_per_game": 452.2,
+            "yards_per_rush": 5.416363636363636,
+            "net_yards_per_pass": 8.704805491990847,
+            "third_down_conversion": 0.46524064171123
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 116.86666666666666,
+            "passing_yards_allowed_per_game": 157.93333333333334,
+            "total_yards_allowed_per_game": 274.8,
+            "third_down_defense": 0.3789954337899543,
+            "sacks_per_game": 2.0,
+            "tackles_for_loss_per_game": 5.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.4,
+            "turnover_margin_per_game": 0.4
+        },
+        "discipline": {
+            "penalties_per_game": 5.066666666666666,
+            "penalty_yards_per_game": 49.733333333333334
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oregon State",
+        "conference": "Pac-12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 127.25,
+            "passing_yards_per_game": 225.41666666666666,
+            "total_yards_per_game": 352.6666666666667,
+            "yards_per_rush": 3.751842751842752,
+            "net_yards_per_pass": 6.276102088167053,
+            "third_down_conversion": 0.3588235294117647
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 158.91666666666666,
+            "passing_yards_allowed_per_game": 221.41666666666666,
+            "total_yards_allowed_per_game": 380.3333333333333,
+            "third_down_defense": 0.32679738562091504,
+            "sacks_per_game": 1.3333333333333333,
+            "tackles_for_loss_per_game": 5.25
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6666666666666667,
+            "turnovers_forced_per_game": 0.8333333333333334,
+            "turnover_margin_per_game": -0.8333333333333334
+        },
+        "discipline": {
+            "penalties_per_game": 5.916666666666667,
+            "penalty_yards_per_game": 49.916666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Penn State",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 174.3846153846154,
+            "passing_yards_per_game": 187.6153846153846,
+            "total_yards_per_game": 362.0,
+            "yards_per_rush": 4.772631578947369,
+            "net_yards_per_pass": 7.1946902654867255,
+            "third_down_conversion": 0.43558282208588955
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 143.3846153846154,
+            "passing_yards_allowed_per_game": 184.23076923076923,
+            "total_yards_allowed_per_game": 327.61538461538464,
+            "third_down_defense": 0.4090909090909091,
+            "sacks_per_game": 2.3846153846153846,
+            "tackles_for_loss_per_game": 6.153846153846154
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.7692307692307693,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": 0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 4.076923076923077,
+            "penalty_yards_per_game": 37.30769230769231
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Pittsburgh",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 117.6923076923077,
+            "passing_yards_per_game": 273.53846153846155,
+            "total_yards_per_game": 391.2307692307692,
+            "yards_per_rush": 3.558139534883721,
+            "net_yards_per_pass": 7.663793103448276,
+            "third_down_conversion": 0.3333333333333333
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 95.15384615384616,
+            "passing_yards_allowed_per_game": 235.30769230769232,
+            "total_yards_allowed_per_game": 330.46153846153845,
+            "third_down_defense": 0.32608695652173914,
+            "sacks_per_game": 2.3846153846153846,
+            "tackles_for_loss_per_game": 7.6923076923076925
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.7692307692307692,
+            "turnovers_forced_per_game": 1.6153846153846154,
+            "turnover_margin_per_game": -0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 7.3076923076923075,
+            "penalty_yards_per_game": 67.38461538461539
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Purdue",
+        "conference": "Big Ten",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 126.41666666666667,
+            "passing_yards_per_game": 217.16666666666666,
+            "total_yards_per_game": 343.5833333333333,
+            "yards_per_rush": 4.034574468085107,
+            "net_yards_per_pass": 6.4504950495049505,
+            "third_down_conversion": 0.3836477987421384
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 182.25,
+            "passing_yards_allowed_per_game": 241.66666666666666,
+            "total_yards_allowed_per_game": 423.9166666666667,
+            "third_down_defense": 0.43448275862068964,
+            "sacks_per_game": 2.0,
+            "tackles_for_loss_per_game": 5.333333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.75,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -1.0
+        },
+        "discipline": {
+            "penalties_per_game": 4.833333333333333,
+            "penalty_yards_per_game": 46.833333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Rice",
+        "conference": "American Athletic",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 204.76923076923077,
+            "passing_yards_per_game": 97.61538461538461,
+            "total_yards_per_game": 302.38461538461536,
+            "yards_per_rush": 4.114374034003091,
+            "net_yards_per_pass": 5.665178571428571,
+            "third_down_conversion": 0.3401015228426396
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 163.92307692307693,
+            "passing_yards_allowed_per_game": 240.15384615384616,
+            "total_yards_allowed_per_game": 404.0769230769231,
+            "third_down_defense": 0.43529411764705883,
+            "sacks_per_game": 1.9230769230769231,
+            "tackles_for_loss_per_game": 5.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.8461538461538461,
+            "turnovers_forced_per_game": 0.5384615384615384,
+            "turnover_margin_per_game": -0.3076923076923077
+        },
+        "discipline": {
+            "penalties_per_game": 4.769230769230769,
+            "penalty_yards_per_game": 49.53846153846154
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Rutgers",
+        "conference": "Big Ten",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 141.5,
+            "passing_yards_per_game": 266.0833333333333,
+            "total_yards_per_game": 407.5833333333333,
+            "yards_per_rush": 3.6516129032258067,
+            "net_yards_per_pass": 8.447089947089948,
+            "third_down_conversion": 0.425
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 211.08333333333334,
+            "passing_yards_allowed_per_game": 222.91666666666666,
+            "total_yards_allowed_per_game": 434.0,
+            "third_down_defense": 0.40350877192982454,
+            "sacks_per_game": 0.9166666666666666,
+            "tackles_for_loss_per_game": 3.9166666666666665
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9166666666666666,
+            "turnovers_forced_per_game": 0.9166666666666666,
+            "turnover_margin_per_game": 0.0
+        },
+        "discipline": {
+            "penalties_per_game": 4.083333333333333,
+            "penalty_yards_per_game": 32.583333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "SMU",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 133.92307692307693,
+            "passing_yards_per_game": 283.0769230769231,
+            "total_yards_per_game": 417.0,
+            "yards_per_rush": 4.3525,
+            "net_yards_per_pass": 8.0,
+            "third_down_conversion": 0.40828402366863903
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 112.07692307692308,
+            "passing_yards_allowed_per_game": 283.15384615384613,
+            "total_yards_allowed_per_game": 395.2307692307692,
+            "third_down_defense": 0.3605769230769231,
+            "sacks_per_game": 2.769230769230769,
+            "tackles_for_loss_per_game": 6.3076923076923075
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4615384615384615,
+            "turnovers_forced_per_game": 2.1538461538461537,
+            "turnover_margin_per_game": 0.6923076923076923
+        },
+        "discipline": {
+            "penalties_per_game": 7.0,
+            "penalty_yards_per_game": 70.84615384615384
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Sam Houston",
+        "conference": "Conference USA",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 132.83333333333334,
+            "passing_yards_per_game": 184.0,
+            "total_yards_per_game": 316.8333333333333,
+            "yards_per_rush": 4.308108108108108,
+            "net_yards_per_pass": 5.676092544987147,
+            "third_down_conversion": 0.2222222222222222
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 207.5,
+            "passing_yards_allowed_per_game": 275.9166666666667,
+            "total_yards_allowed_per_game": 483.4166666666667,
+            "third_down_defense": 0.4444444444444444,
+            "sacks_per_game": 1.75,
+            "tackles_for_loss_per_game": 5.25
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3333333333333333,
+            "turnovers_forced_per_game": 1.5,
+            "turnover_margin_per_game": 0.16666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 6.416666666666667,
+            "penalty_yards_per_game": 59.416666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "San Diego State",
+        "conference": "Mountain West",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 198.92307692307693,
+            "passing_yards_per_game": 157.92307692307693,
+            "total_yards_per_game": 356.0,
+            "yards_per_rush": 4.762430939226519,
+            "net_yards_per_pass": 7.0793103448275865,
+            "third_down_conversion": 0.3136094674556213
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 131.3846153846154,
+            "passing_yards_allowed_per_game": 162.84615384615384,
+            "total_yards_allowed_per_game": 294.2307692307692,
+            "third_down_defense": 0.3251231527093596,
+            "sacks_per_game": 2.4615384615384617,
+            "tackles_for_loss_per_game": 4.769230769230769
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1538461538461537,
+            "turnovers_forced_per_game": 1.3846153846153846,
+            "turnover_margin_per_game": 0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 6.153846153846154,
+            "penalty_yards_per_game": 55.92307692307692
+        }
+    },
+    {
+        "season": 2025,
+        "team": "San Jos\u00e9 State",
+        "conference": "Mountain West",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 120.08333333333333,
+            "passing_yards_per_game": 283.1666666666667,
+            "total_yards_per_game": 403.25,
+            "yards_per_rush": 4.603833865814696,
+            "net_yards_per_pass": 6.97741273100616,
+            "third_down_conversion": 0.42592592592592593
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 158.83333333333334,
+            "passing_yards_allowed_per_game": 245.25,
+            "total_yards_allowed_per_game": 404.0833333333333,
+            "third_down_defense": 0.3674698795180723,
+            "sacks_per_game": 1.5,
+            "tackles_for_loss_per_game": 4.333333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 2.25,
+            "turnovers_forced_per_game": 1.1666666666666667,
+            "turnover_margin_per_game": -1.0833333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 5.833333333333333,
+            "penalty_yards_per_game": 54.833333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "South Alabama",
+        "conference": "Sun Belt",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 201.16666666666666,
+            "passing_yards_per_game": 181.08333333333334,
+            "total_yards_per_game": 382.25,
+            "yards_per_rush": 4.546139359698682,
+            "net_yards_per_pass": 7.009677419354839,
+            "third_down_conversion": 0.42613636363636365
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 176.0,
+            "passing_yards_allowed_per_game": 204.91666666666666,
+            "total_yards_allowed_per_game": 380.9166666666667,
+            "third_down_defense": 0.3821656050955414,
+            "sacks_per_game": 1.0,
+            "tackles_for_loss_per_game": 4.666666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.25,
+            "turnover_margin_per_game": 0.25
+        },
+        "discipline": {
+            "penalties_per_game": 6.5,
+            "penalty_yards_per_game": 54.916666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "South Carolina",
+        "conference": "SEC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 111.58333333333333,
+            "passing_yards_per_game": 225.25,
+            "total_yards_per_game": 336.8333333333333,
+            "yards_per_rush": 3.281862745098039,
+            "net_yards_per_pass": 7.9035087719298245,
+            "third_down_conversion": 0.31875
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 137.0,
+            "passing_yards_allowed_per_game": 216.33333333333334,
+            "total_yards_allowed_per_game": 353.3333333333333,
+            "third_down_defense": 0.39644970414201186,
+            "sacks_per_game": 1.75,
+            "tackles_for_loss_per_game": 5.333333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5,
+            "turnovers_forced_per_game": 1.8333333333333333,
+            "turnover_margin_per_game": 0.3333333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 7.333333333333333,
+            "penalty_yards_per_game": 57.25
+        }
+    },
+    {
+        "season": 2025,
+        "team": "South Florida",
+        "conference": "American Athletic",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 212.23076923076923,
+            "passing_yards_per_game": 275.61538461538464,
+            "total_yards_per_game": 487.84615384615387,
+            "yards_per_rush": 5.474206349206349,
+            "net_yards_per_pass": 8.846913580246914,
+            "third_down_conversion": 0.46408839779005523
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 142.92307692307693,
+            "passing_yards_allowed_per_game": 242.0,
+            "total_yards_allowed_per_game": 384.9230769230769,
+            "third_down_defense": 0.4,
+            "sacks_per_game": 2.5384615384615383,
+            "tackles_for_loss_per_game": 6.461538461538462
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5384615384615385,
+            "turnovers_forced_per_game": 1.9230769230769231,
+            "turnover_margin_per_game": 0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 6.615384615384615,
+            "penalty_yards_per_game": 61.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Southern Miss",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 135.76923076923077,
+            "passing_yards_per_game": 266.0,
+            "total_yards_per_game": 401.7692307692308,
+            "yards_per_rush": 3.763326226012793,
+            "net_yards_per_pass": 7.616740088105727,
+            "third_down_conversion": 0.3968253968253968
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 174.69230769230768,
+            "passing_yards_allowed_per_game": 229.15384615384616,
+            "total_yards_allowed_per_game": 403.84615384615387,
+            "third_down_defense": 0.455,
+            "sacks_per_game": 2.3076923076923075,
+            "tackles_for_loss_per_game": 6.0
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1538461538461537,
+            "turnovers_forced_per_game": 2.230769230769231,
+            "turnover_margin_per_game": 1.0769230769230769
+        },
+        "discipline": {
+            "penalties_per_game": 7.461538461538462,
+            "penalty_yards_per_game": 60.15384615384615
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Stanford",
+        "conference": "ACC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 85.5,
+            "passing_yards_per_game": 222.0,
+            "total_yards_per_game": 307.5,
+            "yards_per_rush": 2.6443298969072164,
+            "net_yards_per_pass": 6.813299232736573,
+            "third_down_conversion": 0.3770491803278688
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 119.75,
+            "passing_yards_allowed_per_game": 288.9166666666667,
+            "total_yards_allowed_per_game": 408.6666666666667,
+            "third_down_defense": 0.4235294117647059,
+            "sacks_per_game": 1.9166666666666667,
+            "tackles_for_loss_per_game": 4.916666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4166666666666667,
+            "turnovers_forced_per_game": 1.0833333333333333,
+            "turnover_margin_per_game": -0.3333333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 6.0,
+            "penalty_yards_per_game": 54.083333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Syracuse",
+        "conference": "ACC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 123.08333333333333,
+            "passing_yards_per_game": 217.25,
+            "total_yards_per_game": 340.3333333333333,
+            "yards_per_rush": 3.403225806451613,
+            "net_yards_per_pass": 6.389705882352941,
+            "third_down_conversion": 0.3508771929824561
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 176.33333333333334,
+            "passing_yards_allowed_per_game": 252.83333333333334,
+            "total_yards_allowed_per_game": 429.1666666666667,
+            "third_down_defense": 0.40522875816993464,
+            "sacks_per_game": 1.5833333333333333,
+            "tackles_for_loss_per_game": 4.833333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.9166666666666667,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -1.1666666666666667
+        },
+        "discipline": {
+            "penalties_per_game": 6.166666666666667,
+            "penalty_yards_per_game": 54.916666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "TCU",
+        "conference": "Big 12",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 131.76923076923077,
+            "passing_yards_per_game": 290.0769230769231,
+            "total_yards_per_game": 421.84615384615387,
+            "yards_per_rush": 3.956120092378753,
+            "net_yards_per_pass": 8.197826086956521,
+            "third_down_conversion": 0.47398843930635837
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 133.53846153846155,
+            "passing_yards_allowed_per_game": 245.6153846153846,
+            "total_yards_allowed_per_game": 379.15384615384613,
+            "third_down_defense": 0.3989071038251366,
+            "sacks_per_game": 1.8461538461538463,
+            "tackles_for_loss_per_game": 5.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5384615384615385,
+            "turnovers_forced_per_game": 1.6153846153846154,
+            "turnover_margin_per_game": 0.07692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 6.769230769230769,
+            "penalty_yards_per_game": 62.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Temple",
+        "conference": "American Athletic",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 147.75,
+            "passing_yards_per_game": 197.5,
+            "total_yards_per_game": 345.25,
+            "yards_per_rush": 4.454773869346734,
+            "net_yards_per_pass": 6.810344827586207,
+            "third_down_conversion": 0.37579617834394907
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 197.33333333333334,
+            "passing_yards_allowed_per_game": 199.5,
+            "total_yards_allowed_per_game": 396.8333333333333,
+            "third_down_defense": 0.39864864864864863,
+            "sacks_per_game": 1.3333333333333333,
+            "tackles_for_loss_per_game": 4.583333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.3333333333333333,
+            "turnovers_forced_per_game": 1.25,
+            "turnover_margin_per_game": 0.9166666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 5.0,
+            "penalty_yards_per_game": 50.25
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Tennessee",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 176.15384615384616,
+            "passing_yards_per_game": 292.84615384615387,
+            "total_yards_per_game": 469.0,
+            "yards_per_rush": 4.663951120162933,
+            "net_yards_per_pass": 8.711670480549198,
+            "third_down_conversion": 0.5031055900621118
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 152.07692307692307,
+            "passing_yards_allowed_per_game": 244.92307692307693,
+            "total_yards_allowed_per_game": 397.0,
+            "third_down_defense": 0.4067796610169492,
+            "sacks_per_game": 2.6923076923076925,
+            "tackles_for_loss_per_game": 6.615384615384615
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1538461538461537,
+            "turnovers_forced_per_game": 1.5384615384615385,
+            "turnover_margin_per_game": 0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 6.153846153846154,
+            "penalty_yards_per_game": 54.84615384615385
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 138.0,
+            "passing_yards_per_game": 250.69230769230768,
+            "total_yards_per_game": 388.6923076923077,
+            "yards_per_rush": 4.24113475177305,
+            "net_yards_per_pass": 7.7595238095238095,
+            "third_down_conversion": 0.39204545454545453
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 103.92307692307692,
+            "passing_yards_allowed_per_game": 234.92307692307693,
+            "total_yards_allowed_per_game": 338.84615384615387,
+            "third_down_defense": 0.32989690721649484,
+            "sacks_per_game": 3.0,
+            "tackles_for_loss_per_game": 6.3076923076923075
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.6923076923076923,
+            "turnovers_forced_per_game": 1.7692307692307692,
+            "turnover_margin_per_game": 1.0769230769230769
+        },
+        "discipline": {
+            "penalties_per_game": 8.307692307692308,
+            "penalty_yards_per_game": 69.6923076923077
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas A&M",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 185.0,
+            "passing_yards_per_game": 259.84615384615387,
+            "total_yards_per_game": 444.84615384615387,
+            "yards_per_rush": 4.858585858585859,
+            "net_yards_per_pass": 8.279411764705882,
+            "third_down_conversion": 0.40804597701149425
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 130.76923076923077,
+            "passing_yards_allowed_per_game": 176.6153846153846,
+            "total_yards_allowed_per_game": 307.38461538461536,
+            "third_down_defense": 0.22485207100591717,
+            "sacks_per_game": 3.3076923076923075,
+            "tackles_for_loss_per_game": 8.461538461538462
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.4615384615384615,
+            "turnovers_forced_per_game": 0.7692307692307693,
+            "turnover_margin_per_game": -0.6923076923076923
+        },
+        "discipline": {
+            "penalties_per_game": 7.230769230769231,
+            "penalty_yards_per_game": 60.69230769230769
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas State",
+        "conference": "Sun Belt",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 222.69230769230768,
+            "passing_yards_per_game": 250.84615384615384,
+            "total_yards_per_game": 473.53846153846155,
+            "yards_per_rush": 5.188172043010753,
+            "net_yards_per_pass": 9.033240997229917,
+            "third_down_conversion": 0.45977011494252873
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 167.6153846153846,
+            "passing_yards_allowed_per_game": 218.0,
+            "total_yards_allowed_per_game": 385.61538461538464,
+            "third_down_defense": 0.4074074074074074,
+            "sacks_per_game": 1.9230769230769231,
+            "tackles_for_loss_per_game": 7.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3076923076923077,
+            "turnovers_forced_per_game": 0.9230769230769231,
+            "turnover_margin_per_game": -0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 6.923076923076923,
+            "penalty_yards_per_game": 59.46153846153846
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas Tech",
+        "conference": "Big 12",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 184.0,
+            "passing_yards_per_game": 277.64285714285717,
+            "total_yards_per_game": 461.64285714285717,
+            "yards_per_rush": 4.700729927007299,
+            "net_yards_per_pass": 7.997942386831276,
+            "third_down_conversion": 0.49321266968325794
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 70.14285714285714,
+            "passing_yards_allowed_per_game": 187.85714285714286,
+            "total_yards_allowed_per_game": 258.0,
+            "third_down_defense": 0.30092592592592593,
+            "sacks_per_game": 2.9285714285714284,
+            "tackles_for_loss_per_game": 7.571428571428571
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2857142857142858,
+            "turnovers_forced_per_game": 2.2857142857142856,
+            "turnover_margin_per_game": 1.0
+        },
+        "discipline": {
+            "penalties_per_game": 6.785714285714286,
+            "penalty_yards_per_game": 55.714285714285715
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Toledo",
+        "conference": "Mid-American",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 177.69230769230768,
+            "passing_yards_per_game": 238.07692307692307,
+            "total_yards_per_game": 415.7692307692308,
+            "yards_per_rush": 4.904458598726115,
+            "net_yards_per_pass": 7.756892230576441,
+            "third_down_conversion": 0.40229885057471265
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 99.23076923076923,
+            "passing_yards_allowed_per_game": 156.23076923076923,
+            "total_yards_allowed_per_game": 255.46153846153845,
+            "third_down_defense": 0.2896174863387978,
+            "sacks_per_game": 2.8461538461538463,
+            "tackles_for_loss_per_game": 7.076923076923077
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.1538461538461537,
+            "turnovers_forced_per_game": 1.6153846153846154,
+            "turnover_margin_per_game": 0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 8.538461538461538,
+            "penalty_yards_per_game": 74.61538461538461
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Troy",
+        "conference": "Sun Belt",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 98.0,
+            "passing_yards_per_game": 209.21428571428572,
+            "total_yards_per_game": 307.2142857142857,
+            "yards_per_rush": 2.7886178861788617,
+            "net_yards_per_pass": 6.764434180138569,
+            "third_down_conversion": 0.3878504672897196
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 176.14285714285714,
+            "passing_yards_allowed_per_game": 196.5,
+            "total_yards_allowed_per_game": 372.64285714285717,
+            "third_down_defense": 0.38235294117647056,
+            "sacks_per_game": 2.5714285714285716,
+            "tackles_for_loss_per_game": 6.142857142857143
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2857142857142858,
+            "turnovers_forced_per_game": 1.2857142857142858,
+            "turnover_margin_per_game": 0.0
+        },
+        "discipline": {
+            "penalties_per_game": 5.571428571428571,
+            "penalty_yards_per_game": 52.07142857142857
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Tulane",
+        "conference": "American Athletic",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 166.35714285714286,
+            "passing_yards_per_game": 245.14285714285714,
+            "total_yards_per_game": 411.5,
+            "yards_per_rush": 4.531128404669261,
+            "net_yards_per_pass": 8.07529411764706,
+            "third_down_conversion": 0.4207650273224044
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 122.64285714285714,
+            "passing_yards_allowed_per_game": 261.64285714285717,
+            "total_yards_allowed_per_game": 384.2857142857143,
+            "third_down_defense": 0.39572192513368987,
+            "sacks_per_game": 2.5714285714285716,
+            "tackles_for_loss_per_game": 5.642857142857143
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2142857142857142,
+            "turnovers_forced_per_game": 1.7857142857142858,
+            "turnover_margin_per_game": 0.5714285714285714
+        },
+        "discipline": {
+            "penalties_per_game": 6.857142857142857,
+            "penalty_yards_per_game": 63.92857142857143
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Tulsa",
+        "conference": "American Athletic",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 176.0,
+            "passing_yards_per_game": 222.5,
+            "total_yards_per_game": 398.5,
+            "yards_per_rush": 4.354639175257732,
+            "net_yards_per_pass": 6.528117359413203,
+            "third_down_conversion": 0.37894736842105264
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 182.5,
+            "passing_yards_allowed_per_game": 214.25,
+            "total_yards_allowed_per_game": 396.75,
+            "third_down_defense": 0.42934782608695654,
+            "sacks_per_game": 1.9166666666666667,
+            "tackles_for_loss_per_game": 5.333333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5833333333333333,
+            "turnovers_forced_per_game": 0.9166666666666666,
+            "turnover_margin_per_game": -0.6666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 5.083333333333333,
+            "penalty_yards_per_game": 38.166666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UAB",
+        "conference": "American Athletic",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 138.75,
+            "passing_yards_per_game": 265.5833333333333,
+            "total_yards_per_game": 404.3333333333333,
+            "yards_per_rush": 4.215189873417722,
+            "net_yards_per_pass": 7.276255707762557,
+            "third_down_conversion": 0.4642857142857143
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 192.08333333333334,
+            "passing_yards_allowed_per_game": 231.5,
+            "total_yards_allowed_per_game": 423.5833333333333,
+            "third_down_defense": 0.48322147651006714,
+            "sacks_per_game": 1.4166666666666667,
+            "tackles_for_loss_per_game": 4.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.75,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -1.0
+        },
+        "discipline": {
+            "penalties_per_game": 7.416666666666667,
+            "penalty_yards_per_game": 61.166666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UCF",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 158.16666666666666,
+            "passing_yards_per_game": 220.75,
+            "total_yards_per_game": 378.9166666666667,
+            "yards_per_rush": 4.904392764857882,
+            "net_yards_per_pass": 6.573200992555831,
+            "third_down_conversion": 0.3392857142857143
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 151.16666666666666,
+            "passing_yards_allowed_per_game": 185.08333333333334,
+            "total_yards_allowed_per_game": 336.25,
+            "third_down_defense": 0.3668639053254438,
+            "sacks_per_game": 2.0833333333333335,
+            "tackles_for_loss_per_game": 5.583333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5,
+            "turnovers_forced_per_game": 1.1666666666666667,
+            "turnover_margin_per_game": -0.3333333333333333
+        },
+        "discipline": {
+            "penalties_per_game": 7.583333333333333,
+            "penalty_yards_per_game": 57.166666666666664
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UCLA",
+        "conference": "Big Ten",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 139.58333333333334,
+            "passing_yards_per_game": 180.25,
+            "total_yards_per_game": 319.8333333333333,
+            "yards_per_rush": 4.466666666666667,
+            "net_yards_per_pass": 5.991689750692521,
+            "third_down_conversion": 0.37341772151898733
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 190.66666666666666,
+            "passing_yards_allowed_per_game": 196.58333333333334,
+            "total_yards_allowed_per_game": 387.25,
+            "third_down_defense": 0.5517241379310345,
+            "sacks_per_game": 0.8333333333333334,
+            "tackles_for_loss_per_game": 3.3333333333333335
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0833333333333333,
+            "turnovers_forced_per_game": 0.8333333333333334,
+            "turnover_margin_per_game": -0.25
+        },
+        "discipline": {
+            "penalties_per_game": 7.5,
+            "penalty_yards_per_game": 65.5
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UConn",
+        "conference": "FBS Independents",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 164.69230769230768,
+            "passing_yards_per_game": 283.84615384615387,
+            "total_yards_per_game": 448.53846153846155,
+            "yards_per_rush": 5.325870646766169,
+            "net_yards_per_pass": 8.181818181818182,
+            "third_down_conversion": 0.40588235294117647
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 199.46153846153845,
+            "passing_yards_allowed_per_game": 218.53846153846155,
+            "total_yards_allowed_per_game": 418.0,
+            "third_down_defense": 0.37222222222222223,
+            "sacks_per_game": 2.6923076923076925,
+            "tackles_for_loss_per_game": 6.076923076923077
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.15384615384615385,
+            "turnovers_forced_per_game": 1.3076923076923077,
+            "turnover_margin_per_game": 1.1538461538461537
+        },
+        "discipline": {
+            "penalties_per_game": 4.923076923076923,
+            "penalty_yards_per_game": 48.30769230769231
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UL Monroe",
+        "conference": "Sun Belt",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 162.58333333333334,
+            "passing_yards_per_game": 159.58333333333334,
+            "total_yards_per_game": 322.1666666666667,
+            "yards_per_rush": 4.558411214953271,
+            "net_yards_per_pass": 6.341059602649007,
+            "third_down_conversion": 0.32666666666666666
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 162.91666666666666,
+            "passing_yards_allowed_per_game": 222.5,
+            "total_yards_allowed_per_game": 385.4166666666667,
+            "third_down_defense": 0.4277456647398844,
+            "sacks_per_game": 1.9166666666666667,
+            "tackles_for_loss_per_game": 5.5
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5833333333333333,
+            "turnovers_forced_per_game": 0.75,
+            "turnover_margin_per_game": -0.8333333333333334
+        },
+        "discipline": {
+            "penalties_per_game": 7.333333333333333,
+            "penalty_yards_per_game": 65.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UNLV",
+        "conference": "Mountain West",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 195.92857142857142,
+            "passing_yards_per_game": 250.85714285714286,
+            "total_yards_per_game": 446.7857142857143,
+            "yards_per_rush": 5.552631578947368,
+            "net_yards_per_pass": 8.283018867924529,
+            "third_down_conversion": 0.4523809523809524
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 177.42857142857142,
+            "passing_yards_allowed_per_game": 241.71428571428572,
+            "total_yards_allowed_per_game": 419.14285714285717,
+            "third_down_defense": 0.32941176470588235,
+            "sacks_per_game": 2.142857142857143,
+            "tackles_for_loss_per_game": 4.714285714285714
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2142857142857142,
+            "turnovers_forced_per_game": 1.7142857142857142,
+            "turnover_margin_per_game": 0.5
+        },
+        "discipline": {
+            "penalties_per_game": 7.642857142857143,
+            "penalty_yards_per_game": 66.21428571428571
+        }
+    },
+    {
+        "season": 2025,
+        "team": "USC",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 169.15384615384616,
+            "passing_yards_per_game": 296.0,
+            "total_yards_per_game": 465.15384615384613,
+            "yards_per_rush": 5.198581560283688,
+            "net_yards_per_pass": 9.161904761904761,
+            "third_down_conversion": 0.5131578947368421
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 143.0,
+            "passing_yards_allowed_per_game": 207.53846153846155,
+            "total_yards_allowed_per_game": 350.53846153846155,
+            "third_down_defense": 0.4012738853503185,
+            "sacks_per_game": 2.3846153846153846,
+            "tackles_for_loss_per_game": 5.538461538461538
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.2307692307692308,
+            "turnovers_forced_per_game": 1.3846153846153846,
+            "turnover_margin_per_game": 0.15384615384615385
+        },
+        "discipline": {
+            "penalties_per_game": 5.846153846153846,
+            "penalty_yards_per_game": 54.23076923076923
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UTEP",
+        "conference": "Conference USA",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 115.58333333333333,
+            "passing_yards_per_game": 216.25,
+            "total_yards_per_game": 331.8333333333333,
+            "yards_per_rush": 3.6986666666666665,
+            "net_yards_per_pass": 6.329268292682927,
+            "third_down_conversion": 0.3028571428571429
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 170.33333333333334,
+            "passing_yards_allowed_per_game": 221.83333333333334,
+            "total_yards_allowed_per_game": 392.1666666666667,
+            "third_down_defense": 0.28160919540229884,
+            "sacks_per_game": 2.3333333333333335,
+            "tackles_for_loss_per_game": 6.833333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 2.0,
+            "turnovers_forced_per_game": 1.0,
+            "turnover_margin_per_game": -1.0
+        },
+        "discipline": {
+            "penalties_per_game": 5.916666666666667,
+            "penalty_yards_per_game": 57.083333333333336
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UTSA",
+        "conference": "American Athletic",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 174.07692307692307,
+            "passing_yards_per_game": 247.23076923076923,
+            "total_yards_per_game": 421.3076923076923,
+            "yards_per_rush": 5.096846846846847,
+            "net_yards_per_pass": 7.190156599552573,
+            "third_down_conversion": 0.39655172413793105
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 150.07692307692307,
+            "passing_yards_allowed_per_game": 222.76923076923077,
+            "total_yards_allowed_per_game": 372.84615384615387,
+            "third_down_defense": 0.34594594594594597,
+            "sacks_per_game": 1.8461538461538463,
+            "tackles_for_loss_per_game": 5.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9230769230769231,
+            "turnovers_forced_per_game": 1.3846153846153846,
+            "turnover_margin_per_game": 0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 7.3076923076923075,
+            "penalty_yards_per_game": 68.6923076923077
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Utah",
+        "conference": "Big 12",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 266.53846153846155,
+            "passing_yards_per_game": 216.6153846153846,
+            "total_yards_per_game": 483.15384615384613,
+            "yards_per_rush": 6.047120418848167,
+            "net_yards_per_pass": 7.549597855227882,
+            "third_down_conversion": 0.5287356321839081
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 180.07692307692307,
+            "passing_yards_allowed_per_game": 177.84615384615384,
+            "total_yards_allowed_per_game": 357.9230769230769,
+            "third_down_defense": 0.34759358288770054,
+            "sacks_per_game": 2.6153846153846154,
+            "tackles_for_loss_per_game": 6.3076923076923075
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9230769230769231,
+            "turnovers_forced_per_game": 1.3846153846153846,
+            "turnover_margin_per_game": 0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 5.923076923076923,
+            "penalty_yards_per_game": 48.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Utah State",
+        "conference": "Mountain West",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 162.92307692307693,
+            "passing_yards_per_game": 246.92307692307693,
+            "total_yards_per_game": 409.84615384615387,
+            "yards_per_rush": 4.759550561797753,
+            "net_yards_per_pass": 7.965260545905707,
+            "third_down_conversion": 0.34502923976608185
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 181.69230769230768,
+            "passing_yards_allowed_per_game": 258.84615384615387,
+            "total_yards_allowed_per_game": 440.53846153846155,
+            "third_down_defense": 0.40298507462686567,
+            "sacks_per_game": 2.230769230769231,
+            "tackles_for_loss_per_game": 4.923076923076923
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.8461538461538461,
+            "turnovers_forced_per_game": 1.3076923076923077,
+            "turnover_margin_per_game": 0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 7.615384615384615,
+            "penalty_yards_per_game": 60.15384615384615
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Vanderbilt",
+        "conference": "SEC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 175.92307692307693,
+            "passing_yards_per_game": 287.3076923076923,
+            "total_yards_per_game": 463.2307692307692,
+            "yards_per_rush": 5.689054726368159,
+            "net_yards_per_pass": 9.3375,
+            "third_down_conversion": 0.5112781954887218
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 108.07692307692308,
+            "passing_yards_allowed_per_game": 249.46153846153845,
+            "total_yards_allowed_per_game": 357.53846153846155,
+            "third_down_defense": 0.430939226519337,
+            "sacks_per_game": 2.3846153846153846,
+            "tackles_for_loss_per_game": 6.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 0.9230769230769231,
+            "turnovers_forced_per_game": 1.1538461538461537,
+            "turnover_margin_per_game": 0.23076923076923078
+        },
+        "discipline": {
+            "penalties_per_game": 6.846153846153846,
+            "penalty_yards_per_game": 59.69230769230769
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Virginia",
+        "conference": "ACC",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 179.92857142857142,
+            "passing_yards_per_game": 239.14285714285714,
+            "total_yards_per_game": 419.07142857142856,
+            "yards_per_rush": 4.622018348623853,
+            "net_yards_per_pass": 6.804878048780488,
+            "third_down_conversion": 0.4978540772532189
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 115.57142857142857,
+            "passing_yards_allowed_per_game": 195.57142857142858,
+            "total_yards_allowed_per_game": 311.14285714285717,
+            "third_down_defense": 0.27979274611398963,
+            "sacks_per_game": 2.142857142857143,
+            "tackles_for_loss_per_game": 4.785714285714286
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0,
+            "turnovers_forced_per_game": 1.4285714285714286,
+            "turnover_margin_per_game": 0.42857142857142855
+        },
+        "discipline": {
+            "penalties_per_game": 5.285714285714286,
+            "penalty_yards_per_game": 44.142857142857146
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Virginia Tech",
+        "conference": "ACC",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 183.16666666666666,
+            "passing_yards_per_game": 166.33333333333334,
+            "total_yards_per_game": 349.5,
+            "yards_per_rush": 4.961625282167043,
+            "net_yards_per_pass": 6.25705329153605,
+            "third_down_conversion": 0.3939393939393939
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 154.25,
+            "passing_yards_allowed_per_game": 224.83333333333334,
+            "total_yards_allowed_per_game": 379.0833333333333,
+            "third_down_defense": 0.4503311258278146,
+            "sacks_per_game": 1.5833333333333333,
+            "tackles_for_loss_per_game": 4.916666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.25,
+            "turnovers_forced_per_game": 0.5,
+            "turnover_margin_per_game": -0.75
+        },
+        "discipline": {
+            "penalties_per_game": 7.166666666666667,
+            "penalty_yards_per_game": 64.25
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Wake Forest",
+        "conference": "ACC",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 156.15384615384616,
+            "passing_yards_per_game": 237.69230769230768,
+            "total_yards_per_game": 393.84615384615387,
+            "yards_per_rush": 4.481236203090508,
+            "net_yards_per_pass": 7.610837438423645,
+            "third_down_conversion": 0.4
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 121.61538461538461,
+            "passing_yards_allowed_per_game": 206.92307692307693,
+            "total_yards_allowed_per_game": 328.53846153846155,
+            "third_down_defense": 0.35609756097560974,
+            "sacks_per_game": 2.3076923076923075,
+            "tackles_for_loss_per_game": 7.384615384615385
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6153846153846154,
+            "turnovers_forced_per_game": 1.1538461538461537,
+            "turnover_margin_per_game": -0.46153846153846156
+        },
+        "discipline": {
+            "penalties_per_game": 7.384615384615385,
+            "penalty_yards_per_game": 69.46153846153847
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Washington",
+        "conference": "Big Ten",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 166.76923076923077,
+            "passing_yards_per_game": 244.46153846153845,
+            "total_yards_per_game": 411.2307692307692,
+            "yards_per_rush": 4.702819956616052,
+            "net_yards_per_pass": 8.58918918918919,
+            "third_down_conversion": 0.5032258064516129
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 100.23076923076923,
+            "passing_yards_allowed_per_game": 211.15384615384616,
+            "total_yards_allowed_per_game": 311.38461538461536,
+            "third_down_defense": 0.38202247191011235,
+            "sacks_per_game": 1.8461538461538463,
+            "tackles_for_loss_per_game": 4.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0769230769230769,
+            "turnovers_forced_per_game": 1.4615384615384615,
+            "turnover_margin_per_game": 0.38461538461538464
+        },
+        "discipline": {
+            "penalties_per_game": 6.153846153846154,
+            "penalty_yards_per_game": 55.30769230769231
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Washington State",
+        "conference": "Pac-12",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 129.46153846153845,
+            "passing_yards_per_game": 210.3846153846154,
+            "total_yards_per_game": 339.84615384615387,
+            "yards_per_rush": 3.860091743119266,
+            "net_yards_per_pass": 6.71990171990172,
+            "third_down_conversion": 0.3806818181818182
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 127.15384615384616,
+            "passing_yards_allowed_per_game": 174.3846153846154,
+            "total_yards_allowed_per_game": 301.53846153846155,
+            "third_down_defense": 0.3493975903614458,
+            "sacks_per_game": 2.3846153846153846,
+            "tackles_for_loss_per_game": 5.230769230769231
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6153846153846154,
+            "turnovers_forced_per_game": 0.8461538461538461,
+            "turnover_margin_per_game": -0.7692307692307693
+        },
+        "discipline": {
+            "penalties_per_game": 6.6923076923076925,
+            "penalty_yards_per_game": 56.07692307692308
+        }
+    },
+    {
+        "season": 2025,
+        "team": "West Virginia",
+        "conference": "Big 12",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 160.66666666666666,
+            "passing_yards_per_game": 188.91666666666666,
+            "total_yards_per_game": 349.5833333333333,
+            "yards_per_rush": 3.6864244741873806,
+            "net_yards_per_pass": 6.9327217125382266,
+            "third_down_conversion": 0.29608938547486036
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 145.41666666666666,
+            "passing_yards_allowed_per_game": 265.4166666666667,
+            "total_yards_allowed_per_game": 410.8333333333333,
+            "third_down_defense": 0.38461538461538464,
+            "sacks_per_game": 2.4166666666666665,
+            "tackles_for_loss_per_game": 6.666666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5,
+            "turnovers_forced_per_game": 1.6666666666666667,
+            "turnover_margin_per_game": 0.16666666666666666
+        },
+        "discipline": {
+            "penalties_per_game": 5.75,
+            "penalty_yards_per_game": 56.0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Western Kentucky",
+        "conference": "Conference USA",
+        "games": 13,
+        "offense": {
+            "rushing_yards_per_game": 134.6153846153846,
+            "passing_yards_per_game": 272.15384615384613,
+            "total_yards_per_game": 406.7692307692308,
+            "yards_per_rush": 4.237288135593221,
+            "net_yards_per_pass": 7.147474747474748,
+            "third_down_conversion": 0.45901639344262296
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 176.07692307692307,
+            "passing_yards_allowed_per_game": 224.53846153846155,
+            "total_yards_allowed_per_game": 400.61538461538464,
+            "third_down_defense": 0.35121951219512193,
+            "sacks_per_game": 1.3846153846153846,
+            "tackles_for_loss_per_game": 5.461538461538462
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.6153846153846154,
+            "turnovers_forced_per_game": 1.0769230769230769,
+            "turnover_margin_per_game": -0.5384615384615384
+        },
+        "discipline": {
+            "penalties_per_game": 6.230769230769231,
+            "penalty_yards_per_game": 61.30769230769231
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Western Michigan",
+        "conference": "Mid-American",
+        "games": 14,
+        "offense": {
+            "rushing_yards_per_game": 204.5,
+            "passing_yards_per_game": 138.5,
+            "total_yards_per_game": 343.0,
+            "yards_per_rush": 4.625201938610663,
+            "net_yards_per_pass": 6.357377049180328,
+            "third_down_conversion": 0.4031413612565445
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 125.57142857142857,
+            "passing_yards_allowed_per_game": 179.92857142857142,
+            "total_yards_allowed_per_game": 305.5,
+            "third_down_defense": 0.3149171270718232,
+            "sacks_per_game": 3.0714285714285716,
+            "tackles_for_loss_per_game": 5.928571428571429
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.0714285714285714,
+            "turnovers_forced_per_game": 1.7142857142857142,
+            "turnover_margin_per_game": 0.6428571428571429
+        },
+        "discipline": {
+            "penalties_per_game": 4.571428571428571,
+            "penalty_yards_per_game": 40.142857142857146
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Wisconsin",
+        "conference": "Big Ten",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 118.33333333333333,
+            "passing_yards_per_game": 136.41666666666666,
+            "total_yards_per_game": 254.75,
+            "yards_per_rush": 3.3729216152019004,
+            "net_yards_per_pass": 6.018382352941177,
+            "third_down_conversion": 0.3225806451612903
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 105.33333333333333,
+            "passing_yards_allowed_per_game": 218.25,
+            "total_yards_allowed_per_game": 323.5833333333333,
+            "third_down_defense": 0.38,
+            "sacks_per_game": 2.5833333333333335,
+            "tackles_for_loss_per_game": 5.083333333333333
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.3333333333333333,
+            "turnovers_forced_per_game": 0.5,
+            "turnover_margin_per_game": -0.8333333333333334
+        },
+        "discipline": {
+            "penalties_per_game": 3.5833333333333335,
+            "penalty_yards_per_game": 30.083333333333332
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Wyoming",
+        "conference": "Mountain West",
+        "games": 12,
+        "offense": {
+            "rushing_yards_per_game": 131.75,
+            "passing_yards_per_game": 183.0,
+            "total_yards_per_game": 314.75,
+            "yards_per_rush": 4.06426735218509,
+            "net_yards_per_pass": 5.71875,
+            "third_down_conversion": 0.3373493975903614
+        },
+        "defense": {
+            "rushing_yards_allowed_per_game": 168.83333333333334,
+            "passing_yards_allowed_per_game": 175.5,
+            "total_yards_allowed_per_game": 344.3333333333333,
+            "third_down_defense": 0.34705882352941175,
+            "sacks_per_game": 1.25,
+            "tackles_for_loss_per_game": 4.416666666666667
+        },
+        "turnovers": {
+            "turnovers_per_game": 1.5,
+            "turnovers_forced_per_game": 1.25,
+            "turnover_margin_per_game": -0.25
+        },
+        "discipline": {
+            "penalties_per_game": 6.583333333333333,
+            "penalty_yards_per_game": 56.25
+        }
+    }
+]
