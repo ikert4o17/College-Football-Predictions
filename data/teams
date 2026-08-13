@@ -1,9 +1,13 @@
 """
 FBS Team Database
 
-Master list of FBS college football teams.
+Master team definitions used throughout the model.
 """
 
 TEAMS = {
-
+    "ohio_state": {
+        "name": "Ohio State",
+        "abbreviation": "OSU",
+        "conference": "Big Ten",
+    },
 }
