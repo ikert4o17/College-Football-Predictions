@@ -6,7 +6,7 @@
         "home_rating": 79.63,
         "rating_difference": -3.11,
         "home_field_advantage": 2.5,
-        "projected_margin": -0.3,
+        "projected_margin": 0.3,
         "home_win_probability": 0.4809,
         "away_win_probability": 0.5191,
         "predicted_winner": "Indiana"
@@ -18,7 +18,7 @@
         "home_rating": 31.66,
         "rating_difference": -15.43,
         "home_field_advantage": 2.5,
-        "projected_margin": -6.47,
+        "projected_margin": 6.47,
         "home_win_probability": 0.1657,
         "away_win_probability": 0.8343,
         "predicted_winner": "Air Force"
