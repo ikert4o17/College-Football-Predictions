@@ -114,7 +114,7 @@ def calculate_power_ratings():
             team_name
         ]
 
-        sos = sos_lookup[
+        sos_record = sos_lookup[
             team_name
         ]
 
@@ -191,7 +191,9 @@ def calculate_power_ratings():
                     ],
 
                 "sos":
-                    sos[
+                    sos_record[
+                        "sos"
+                    ][
                         "average_opponent_margin"
                     ],
             }
