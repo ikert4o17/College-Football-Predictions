@@ -36,7 +36,7 @@ jobs:
         run: |
           python -m data.download_games 2026
 
-      - name: Process games
+      - name: Process 2026 games
         run: |
           python -m data.process_games
 
@@ -50,16 +50,29 @@ jobs:
         run: |
           python -m data.process_historical_stats
 
+      - name: Download 2025 historical games
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_historical_games 2025
+
       - name: Display data counts
         run: |
-          python -c "import json; teams=json.load(open('data/processed/teams.json')); games=json.load(open('data/processed/games.json')); stats=json.load(open('data/processed/historical_stats_2025.json')); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games)}'); print(f'2025 team profiles: {len(stats)}')"
+          python -c "import json; teams=json.load(open('data/processed/teams.json')); games2026=json.load(open('data/processed/games.json')); stats=json.load(open('data/processed/historical_stats_2025.json')); games2025=json.load(open('data/raw/historical_games/2025.json')); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games2026)}'); print(f'2025 team profiles: {len(stats)}'); print(f'2025 historical games: {len(games2025)}')"
 
       - name: Save data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/raw/teams.json data/raw/games.json data/raw/stats.json data/raw/historical_stats/2025.json data/processed/teams.json data/processed/games.json data/processed/historical_stats_2025.json
+          git add data/raw/teams.json \
+                  data/raw/games.json \
+                  data/raw/stats.json \
+                  data/raw/historical_stats/2025.json \
+                  data/raw/historical_games/2025.json \
+                  data/processed/teams.json \
+                  data/processed/games.json \
+                  data/processed/historical_stats_2025.json
 
           if git diff --cached --quiet; then
             echo "No changes to data."
