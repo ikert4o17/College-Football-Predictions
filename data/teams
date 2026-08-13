@@ -4,12 +4,16 @@ FBS Team Database
 Master team definitions used throughout the model.
 """
 
+from data.team_data import create_team
+
+
 TEAMS = {
-    "ohio_state": {
-        "name": "Ohio State",
-        "abbreviation": "OSU",
-        "conference": "Big Ten",
-    },
+    "ohio_state": create_team(
+        team_id="ohio_state",
+        name="Ohio State",
+        abbreviation="OSU",
+        conference="Big Ten",
+    ),
 }
 
 
