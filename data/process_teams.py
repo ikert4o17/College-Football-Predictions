@@ -3,13 +3,18 @@ Process raw CFBD team data into the model's standardized team format.
 """
 
 import json
+import sys
 from pathlib import Path
+
+# Add the repository root to Python's import path.
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
 from data.team_data import create_team
 
 
-INPUT_FILE = Path("data/raw/teams.json")
-OUTPUT_FILE = Path("data/processed/teams.json")
+INPUT_FILE = PROJECT_ROOT / "data" / "raw" / "teams.json"
+OUTPUT_FILE = PROJECT_ROOT / "data" / "processed" / "teams.json"
 
 
 def process_team(team):
