@@ -68,9 +68,13 @@ jobs:
         run: |
           python -m ratings.team_strength
 
+      - name: Calculate 2025 strength of schedule
+        run: |
+          python -m ratings.strength_of_schedule
+
       - name: Display data counts
         run: |
-          python -c "import json; teams=json.load(open('data/processed/teams.json')); games2026=json.load(open('data/processed/games.json')); stats=json.load(open('data/processed/historical_stats_2025.json')); games2025=json.load(open('data/processed/historical_games_2025.json')); strength=json.load(open('data/processed/team_strength_2025.json')); results=json.load(open('data/processed/team_results_2025.json')); fbs=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_fbs'); lower=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_lower'); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games2026)}'); print(f'2025 team profiles: {len(stats)}'); print(f'2025 FBS games: {len(games2025)}'); print(f'2025 FBS vs FBS: {fbs}'); print(f'2025 FBS vs lower: {lower}'); print(f'2025 team strength profiles: {len(strength)}'); print(f'2025 team result profiles: {len(results)}')"
+          python -c "import json; teams=json.load(open('data/processed/teams.json')); games2026=json.load(open('data/processed/games.json')); stats=json.load(open('data/processed/historical_stats_2025.json')); games2025=json.load(open('data/processed/historical_games_2025.json')); strength=json.load(open('data/processed/team_strength_2025.json')); results=json.load(open('data/processed/team_results_2025.json')); sos=json.load(open('data/processed/strength_of_schedule_2025.json')); fbs=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_fbs'); lower=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_lower'); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games2026)}'); print(f'2025 team profiles: {len(stats)}'); print(f'2025 FBS games: {len(games2025)}'); print(f'2025 FBS vs FBS: {fbs}'); print(f'2025 FBS vs lower: {lower}'); print(f'2025 team strength profiles: {len(strength)}'); print(f'2025 team result profiles: {len(results)}'); print(f'2025 SOS profiles: {len(sos)}')"
 
       - name: Save data
         run: |
@@ -86,9 +90,9 @@ jobs:
                   data/processed/games.json \
                   data/processed/historical_stats_2025.json \
                   data/processed/historical_games_2025.json \
-                  data/processed/historical_stats_2025.json \
                   data/processed/team_strength_2025.json \
-                  data/processed/team_results_2025.json
+                  data/processed/team_results_2025.json \
+                  data/processed/strength_of_schedule_2025.json
 
           if git diff --cached --quiet; then
             echo "No changes to data."
