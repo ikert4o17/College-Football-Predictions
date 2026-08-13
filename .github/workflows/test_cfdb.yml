@@ -36,16 +36,20 @@ jobs:
         run: |
           python -m data.download_games 2026
 
+      - name: Process games
+        run: |
+          python -m data.process_games
+
       - name: Display data counts
         run: |
-          python -c "import json; teams=json.load(open('data/processed/teams.json')); games=json.load(open('data/raw/games.json')); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games)}')"
+          python -c "import json; teams=json.load(open('data/processed/teams.json')); games=json.load(open('data/processed/games.json')); print(f'Processed teams: {len(teams)}'); print(f'Processed games: {len(games)}')"
 
       - name: Save data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/raw/teams.json data/raw/games.json data/processed/teams.json
+          git add data/raw/teams.json data/raw/games.json data/processed/teams.json data/processed/games.json
 
           if git diff --cached --quiet; then
             echo "No changes to data."
