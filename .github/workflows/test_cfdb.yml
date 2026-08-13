@@ -1,0 +1,24 @@
+name: Test CFBD API
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test CFBD API connection
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          echo "Testing CollegeFootballData API..."
+
+          response=$(curl -s \
+            -H "Authorization: Bearer $CFBD_API_KEY" \
+            "https://api.collegefootballdata.com/teams/fbs")
+
+          echo "$response" | head -c 500
+
+          echo ""
+          echo "CFBD API request completed."
