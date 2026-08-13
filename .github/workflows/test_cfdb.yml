@@ -40,16 +40,22 @@ jobs:
         run: |
           python -m data.process_games
 
+      - name: Download 2026 team stats
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_stats 2026
+
       - name: Display data counts
         run: |
-          python -c "import json; teams=json.load(open('data/processed/teams.json')); games=json.load(open('data/processed/games.json')); print(f'Processed teams: {len(teams)}'); print(f'Processed games: {len(games)}')"
+          python -c "import json; teams=json.load(open('data/processed/teams.json')); games=json.load(open('data/processed/games.json')); stats=json.load(open('data/raw/stats.json')); print(f'Processed teams: {len(teams)}'); print(f'Processed games: {len(games)}'); print(f'Stat records: {len(stats)}')"
 
       - name: Save data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/raw/teams.json data/raw/games.json data/processed/teams.json data/processed/games.json
+          git add data/raw/teams.json data/raw/games.json data/raw/stats.json data/processed/teams.json data/processed/games.json
 
           if git diff --cached --quiet; then
             echo "No changes to data."
