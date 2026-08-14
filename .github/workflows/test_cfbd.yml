@@ -90,6 +90,9 @@ jobs:
       - name: Calculate 2024 power ratings
         run: python -m ratings.power_rating_2024
 
+      - name: Analyze 2024 to 2025 continuity
+        run: python -m ratings.season_continuity
+
       - name: Test game predictor
         run: python -m predictions.game_predictor
 
@@ -266,6 +269,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to data."
           else
-            git commit -m "Add 2024 SOS and power ratings"
+            git commit -m "Add 2024 to 2025 rating continuity analysis"
             git push
           fi
