@@ -1,24 +1,33 @@
+```python
 """
-Dynamic week-by-week backtest for Project Gridiron.
+True historical 2025 weekly backtest.
 
-This version simulates the 2025 season one week at a time.
+The model starts with information from the 2024 season and
+then moves through the 2025 season one week at a time.
+
+No 2025 final-season power ratings are used.
 
 Process:
 
-1. Load 2025 historical games.
-2. Load the existing 2025 power ratings.
-3. Group FBS-vs-FBS games by week.
-4. Predict each week's games using the ratings available
-   BEFORE that week's games.
-5. After the week's games are completed, update the ratings
-   using the actual results.
-6. Repeat for the next week.
+2024 results
+    ↓
+Initial 2025 ratings
+    ↓
+Predict Week 1
+    ↓
+Update from Week 1
+    ↓
+Predict Week 2
+    ↓
+Update from Week 2
+    ↓
+...
+    ↓
+Predict Week 16
 
-IMPORTANT:
-The initial ratings are still based on the existing 2025
-power-rating file. The goal of this version is to establish
-a dynamic rating/backtesting framework without introducing
-additional complexity all at once.
+This is intended to provide a much more realistic historical
+simulation of how Project Gridiron would have performed during
+the 2025 season.
 """
 
 import json
@@ -27,18 +36,18 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-GAMES_FILE = (
+HISTORICAL_GAMES_2024 = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "historical_games_2024.json"
+)
+
+HISTORICAL_GAMES_2025 = (
     PROJECT_ROOT
     / "data"
     / "processed"
     / "historical_games_2025.json"
-)
-
-RATINGS_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "power_ratings_2025.json"
 )
 
 
@@ -46,15 +55,13 @@ RATINGS_FILE = (
 # Configuration
 # ---------------------------------------------------------
 
-# How strongly actual game results influence the rating.
+HOME_FIELD_ADVANTAGE = 2.5
+
 UPDATE_RATE = 0.15
 
-# Maximum adjustment from a single game.
 MAX_GAME_ADJUSTMENT = 5.0
 
-# Home-field advantage added to the home team's rating
-# when making a prediction.
-HOME_FIELD_ADVANTAGE = 2.5
+BASE_RATING = 50.0
 
 
 # ---------------------------------------------------------
@@ -72,52 +79,260 @@ def load_json(path):
 
 
 # ---------------------------------------------------------
-# Rating setup
-# ---------------------------------------------------------
-
-def build_rating_lookup(ratings):
-    """
-    Build a simple team -> rating dictionary.
-
-    The existing power-rating file contains:
-
-        team
-        power_rating
-        rank
-        etc.
-    """
-
-    rating_lookup = {}
-
-    for team in ratings:
-
-        name = team.get("team")
-
-        if name is None:
-            continue
-
-        rating_lookup[name] = float(
-            team.get(
-                "power_rating",
-                50.0
-            )
-        )
-
-    return rating_lookup
-
-
-# ---------------------------------------------------------
-# Game filtering
+# Game helpers
 # ---------------------------------------------------------
 
 def is_fbs_vs_fbs(game):
-    """Return True for FBS-vs-FBS games."""
+    """Return True when both teams are FBS."""
 
     return (
         game.get("game_classification")
         == "fbs_vs_fbs"
     )
 
+
+def get_team_name(game, side):
+    """Return the team name for home or away."""
+
+    team_data = game.get(side)
+
+    if not team_data:
+        return None
+
+    return team_data.get("team")
+
+
+def get_points(game, side):
+    """Return points for home or away."""
+
+    team_data = game.get(side)
+
+    if not team_data:
+        return None
+
+    return team_data.get("points")
+
+
+def get_margin(game):
+    """
+    Return home-team scoring margin.
+
+    Positive = home team won.
+    Negative = away team won.
+    """
+
+    home_points = get_points(
+        game,
+        "home"
+    )
+
+    away_points = get_points(
+        game,
+        "away"
+    )
+
+    if (
+        home_points is None
+        or away_points is None
+    ):
+        return None
+
+    return (
+        home_points
+        - away_points
+    )
+
+
+def get_actual_winner(game):
+    """Return the actual winning team."""
+
+    home_team = get_team_name(
+        game,
+        "home"
+    )
+
+    away_team = get_team_name(
+        game,
+        "away"
+    )
+
+    margin = get_margin(game)
+
+    if (
+        home_team is None
+        or away_team is None
+        or margin is None
+    ):
+        return None
+
+    if margin > 0:
+        return home_team
+
+    if margin < 0:
+        return away_team
+
+    return None
+
+
+# ---------------------------------------------------------
+# 2024 baseline
+# ---------------------------------------------------------
+
+def calculate_2024_team_performance(games):
+    """
+    Calculate a simple 2024 team performance rating.
+
+    The rating is based on:
+
+    - Win/loss results
+    - Average scoring margin
+    - Opponent quality
+
+    This gives us a preseason starting point for 2025.
+    """
+
+    team_data = {}
+
+    for game in games:
+
+        if not is_fbs_vs_fbs(game):
+            continue
+
+        home_team = get_team_name(
+            game,
+            "home"
+        )
+
+        away_team = get_team_name(
+            game,
+            "away"
+        )
+
+        margin = get_margin(game)
+
+        if (
+            home_team is None
+            or away_team is None
+            or margin is None
+        ):
+            continue
+
+        if home_team not in team_data:
+            team_data[home_team] = {
+                "games": 0,
+                "wins": 0,
+                "losses": 0,
+                "margin": 0.0,
+            }
+
+        if away_team not in team_data:
+            team_data[away_team] = {
+                "games": 0,
+                "wins": 0,
+                "losses": 0,
+                "margin": 0.0,
+            }
+
+        team_data[home_team]["games"] += 1
+        team_data[away_team]["games"] += 1
+
+        team_data[home_team]["margin"] += margin
+        team_data[away_team]["margin"] -= margin
+
+        if margin > 0:
+
+            team_data[home_team]["wins"] += 1
+            team_data[away_team]["losses"] += 1
+
+        elif margin < 0:
+
+            team_data[away_team]["wins"] += 1
+            team_data[home_team]["losses"] += 1
+
+    ratings = {}
+
+    for team, data in team_data.items():
+
+        games_played = data["games"]
+
+        if games_played == 0:
+            ratings[team] = BASE_RATING
+            continue
+
+        win_percentage = (
+            data["wins"]
+            / games_played
+        )
+
+        average_margin = (
+            data["margin"]
+            / games_played
+        )
+
+        # Convert 2024 performance into a rating
+        # centered around 50.
+        #
+        # Win percentage contributes up to +/- 25.
+        # Average margin contributes up to +/- 25.
+
+        win_component = (
+            win_percentage - 0.5
+        ) * 50.0
+
+        margin_component = (
+            average_margin / 20.0
+        ) * 25.0
+
+        rating = (
+            BASE_RATING
+            + win_component
+            + margin_component
+        )
+
+        ratings[team] = rating
+
+    return ratings
+
+
+# ---------------------------------------------------------
+# Prediction
+# ---------------------------------------------------------
+
+def predict_winner(
+    home_team,
+    away_team,
+    ratings
+):
+    """Predict the winner using current ratings."""
+
+    home_rating = ratings.get(
+        home_team
+    )
+
+    away_rating = ratings.get(
+        away_team
+    )
+
+    if (
+        home_rating is None
+        or away_rating is None
+    ):
+        return None
+
+    adjusted_home_rating = (
+        home_rating
+        + HOME_FIELD_ADVANTAGE
+    )
+
+    if adjusted_home_rating >= away_rating:
+        return home_team
+
+    return away_team
+
+
+# ---------------------------------------------------------
+# Weekly grouping
+# ---------------------------------------------------------
 
 def group_games_by_week(games):
     """Group FBS-vs-FBS games by week."""
@@ -134,223 +349,59 @@ def group_games_by_week(games):
         if week is None:
             continue
 
-        if week not in weekly_games:
-            weekly_games[week] = []
-
-        weekly_games[week].append(game)
+        weekly_games.setdefault(
+            week,
+            []
+        ).append(game)
 
     return weekly_games
 
 
 # ---------------------------------------------------------
-# Prediction
+# Rating updates
 # ---------------------------------------------------------
-
-def predict_winner(
-    away_team,
-    home_team,
-    ratings
-):
-    """
-    Predict the winner using the ratings available
-    before the game.
-    """
-
-    away_rating = ratings.get(
-        away_team
-    )
-
-    home_rating = ratings.get(
-        home_team
-    )
-
-    if (
-        away_rating is None
-        or home_rating is None
-    ):
-        return None
-
-    adjusted_home_rating = (
-        home_rating
-        + HOME_FIELD_ADVANTAGE
-    )
-
-    if adjusted_home_rating >= away_rating:
-        return home_team
-
-    return away_team
-
-
-# ---------------------------------------------------------
-# Actual result
-# ---------------------------------------------------------
-
-def get_actual_winner(game):
-    """Return the actual winner."""
-
-    home = game.get("home")
-    away = game.get("away")
-
-    if home is None or away is None:
-        return None
-
-    home_points = home.get("points")
-    away_points = away.get("points")
-
-    if (
-        home_points is None
-        or away_points is None
-    ):
-        return None
-
-    if home_points > away_points:
-        return home["team"]
-
-    if away_points > home_points:
-        return away["team"]
-
-    return None
-
-
-# ---------------------------------------------------------
-# Margin
-# ---------------------------------------------------------
-
-def get_game_margin(game):
-    """
-    Return the home team's actual scoring margin.
-
-    Example:
-
-        Home 31
-        Away 24
-
-    returns +7.
-
-    If:
-
-        Home 17
-        Away 28
-
-    returns -11.
-    """
-
-    home = game.get("home")
-    away = game.get("away")
-
-    if home is None or away is None:
-        return None
-
-    home_points = home.get("points")
-    away_points = away.get("points")
-
-    if (
-        home_points is None
-        or away_points is None
-    ):
-        return None
-
-    return (
-        home_points
-        - away_points
-    )
-
-
-# ---------------------------------------------------------
-# Rating update
-# ---------------------------------------------------------
-
-def calculate_game_adjustment(
-    predicted_rating,
-    opponent_rating,
-    actual_margin,
-    home_team
-):
-    """
-    Calculate a rating adjustment from the actual result.
-
-    The adjustment is based primarily on the difference
-    between the team's expected rating advantage and the
-    actual scoring margin.
-
-    This is intentionally conservative for v1.
-    """
-
-    expected_margin = (
-        predicted_rating
-        - opponent_rating
-    )
-
-    if home_team:
-        expected_margin += (
-            HOME_FIELD_ADVANTAGE
-        )
-
-    margin_error = (
-        actual_margin
-        - expected_margin
-    )
-
-    adjustment = (
-        margin_error
-        * UPDATE_RATE
-    )
-
-    # Prevent one game from moving a team too much.
-    adjustment = max(
-        -MAX_GAME_ADJUSTMENT,
-        min(
-            MAX_GAME_ADJUSTMENT,
-            adjustment
-        )
-    )
-
-    return adjustment
-
 
 def update_ratings_after_week(
     games,
     ratings
 ):
     """
-    Update ratings after all games in a week have been
-    completed.
+    Update ratings after a complete week.
 
-    Updates are calculated from the ratings that existed
-    BEFORE the week began.
-
-    This prevents one game in the same week from affecting
-    another game's rating calculation.
+    All adjustments are calculated from the ratings that
+    existed before the week started.
     """
 
     adjustments = {}
 
-    # -----------------------------------------------------
-    # First calculate all adjustments.
-    # -----------------------------------------------------
+    starting_ratings = ratings.copy()
 
     for game in games:
 
-        home = game.get("home")
-        away = game.get("away")
+        home_team = get_team_name(
+            game,
+            "home"
+        )
 
-        if home is None or away is None:
-            continue
+        away_team = get_team_name(
+            game,
+            "away"
+        )
 
-        home_team = home.get("team")
-        away_team = away.get("team")
+        margin = get_margin(game)
 
         if (
             home_team is None
             or away_team is None
+            or margin is None
         ):
             continue
 
-        home_rating = ratings.get(
+        home_rating = starting_ratings.get(
             home_team
         )
 
-        away_rating = ratings.get(
+        away_rating = starting_ratings.get(
             away_team
         )
 
@@ -360,122 +411,113 @@ def update_ratings_after_week(
         ):
             continue
 
-        margin = get_game_margin(
-            game
+        expected_margin = (
+            home_rating
+            + HOME_FIELD_ADVANTAGE
+            - away_rating
         )
 
-        if margin is None:
-            continue
+        margin_error = (
+            margin
+            - expected_margin
+        )
 
-        # Home team's adjustment.
-        home_adjustment = (
-            calculate_game_adjustment(
-                predicted_rating=home_rating,
-                opponent_rating=away_rating,
-                actual_margin=margin,
-                home_team=True
+        adjustment = (
+            margin_error
+            * UPDATE_RATE
+        )
+
+        adjustment = max(
+            -MAX_GAME_ADJUSTMENT,
+            min(
+                MAX_GAME_ADJUSTMENT,
+                adjustment
             )
         )
 
-        # Away team's adjustment is the inverse.
-        away_adjustment = (
-            -home_adjustment
+        adjustments[home_team] = (
+            adjustments.get(
+                home_team,
+                0.0
+            )
+            + adjustment
         )
 
-        if home_team not in adjustments:
-            adjustments[home_team] = 0.0
-
-        if away_team not in adjustments:
-            adjustments[away_team] = 0.0
-
-        adjustments[home_team] += (
-            home_adjustment
+        adjustments[away_team] = (
+            adjustments.get(
+                away_team,
+                0.0
+            )
+            - adjustment
         )
-
-        adjustments[away_team] += (
-            away_adjustment
-        )
-
-    # -----------------------------------------------------
-    # Apply all adjustments simultaneously.
-    # -----------------------------------------------------
 
     for team, adjustment in adjustments.items():
 
-        ratings[team] += adjustment
+        ratings[team] = (
+            ratings[team]
+            + adjustment
+        )
 
     return adjustments
 
 
 # ---------------------------------------------------------
-# Weekly backtest
+# Backtest one week
 # ---------------------------------------------------------
 
 def backtest_week(
-    week,
     games,
     ratings
 ):
-    """
-    Predict every game in a week using the ratings
-    available BEFORE the week begins.
-    """
+    """Predict all games using pre-week ratings."""
 
-    total_games = 0
-    correct_predictions = 0
-    skipped_games = 0
+    correct = 0
+    tested = 0
+    skipped = 0
 
     for game in games:
 
-        home = game.get("home")
-        away = game.get("away")
-
-        if home is None or away is None:
-            skipped_games += 1
-            continue
-
-        home_team = home.get("team")
-        away_team = away.get("team")
-
-        if (
-            home_team is None
-            or away_team is None
-        ):
-            skipped_games += 1
-            continue
-
-        predicted_winner = predict_winner(
-            away_team,
-            home_team,
-            ratings
+        home_team = get_team_name(
+            game,
+            "home"
         )
 
-        if predicted_winner is None:
-            skipped_games += 1
-            continue
+        away_team = get_team_name(
+            game,
+            "away"
+        )
 
         actual_winner = get_actual_winner(
             game
         )
 
-        if actual_winner is None:
-            skipped_games += 1
+        if (
+            home_team is None
+            or away_team is None
+            or actual_winner is None
+        ):
+            skipped += 1
             continue
 
-        total_games += 1
+        prediction = predict_winner(
+            home_team,
+            away_team,
+            ratings
+        )
 
-        if predicted_winner == actual_winner:
-            correct_predictions += 1
+        if prediction is None:
+            skipped += 1
+            continue
+
+        tested += 1
+
+        if prediction == actual_winner:
+            correct += 1
 
     return {
-        "week": week,
-        "games": total_games,
-        "correct": correct_predictions,
-        "incorrect": (
-            total_games
-            - correct_predictions
-        ),
-        "skipped": skipped_games,
+        "tested": tested,
+        "correct": correct,
+        "skipped": skipped,
     }
 
 
@@ -484,40 +526,56 @@ def backtest_week(
 # ---------------------------------------------------------
 
 def main():
-    """Run the dynamic weekly backtest."""
 
-    games = load_json(
-        GAMES_FILE
+    games_2024 = load_json(
+        HISTORICAL_GAMES_2024
     )
 
-    ratings_data = load_json(
-        RATINGS_FILE
-    )
-
-    ratings = build_rating_lookup(
-        ratings_data
-    )
-
-    weekly_games = group_games_by_week(
-        games
+    games_2025 = load_json(
+        HISTORICAL_GAMES_2025
     )
 
     print()
     print("=" * 70)
     print(
-        "2025 DYNAMIC WEEK-BY-WEEK BACKTEST"
+        "2025 TRUE PRESEASON WEEKLY BACKTEST"
     )
     print("=" * 70)
     print()
 
     print(
-        f"Historical games loaded: "
-        f"{len(games)}"
+        f"2024 historical games loaded: "
+        f"{len(games_2024)}"
     )
 
     print(
-        f"Initial power ratings loaded: "
+        f"2025 historical games loaded: "
+        f"{len(games_2025)}"
+    )
+
+    # -----------------------------------------------------
+    # Build starting ratings ONLY from 2024.
+    # -----------------------------------------------------
+
+    ratings = (
+        calculate_2024_team_performance(
+            games_2024
+        )
+    )
+
+    print(
+        f"Initial 2024-based ratings: "
         f"{len(ratings)}"
+    )
+
+    # -----------------------------------------------------
+    # Group 2025 games.
+    # -----------------------------------------------------
+
+    weekly_games = (
+        group_games_by_week(
+            games_2025
+        )
     )
 
     print(
@@ -527,36 +585,29 @@ def main():
 
     print()
 
-    total_games = 0
+    total_tested = 0
     total_correct = 0
     total_skipped = 0
 
     # -----------------------------------------------------
-    # Process each week.
+    # Simulate the season.
     # -----------------------------------------------------
 
     for week in sorted(
         weekly_games.keys()
     ):
 
-        games_this_week = (
-            weekly_games[week]
-        )
+        games = weekly_games[week]
 
-        # -------------------------------------------------
-        # STEP 1:
-        # Predict the entire week using ratings from the
-        # previous week.
-        # -------------------------------------------------
-
+        # Predict using ratings available BEFORE
+        # this week's games.
         result = backtest_week(
-            week,
-            games_this_week,
+            games,
             ratings
         )
 
-        total_games += result[
-            "games"
+        total_tested += result[
+            "tested"
         ]
 
         total_correct += result[
@@ -567,11 +618,11 @@ def main():
             "skipped"
         ]
 
-        if result["games"] > 0:
+        if result["tested"]:
 
             accuracy = (
                 result["correct"]
-                / result["games"]
+                / result["tested"]
             )
 
         else:
@@ -581,21 +632,16 @@ def main():
         print(
             f"Week {week:>2}: "
             f"{result['correct']:>3}/"
-            f"{result['games']:<3} "
+            f"{result['tested']:<3} "
             f"({accuracy:.1%}) "
             f"Skipped: "
             f"{result['skipped']}"
         )
 
-        # -------------------------------------------------
-        # STEP 2:
-        # AFTER all predictions are made, update the
-        # ratings using that week's actual results.
-        # -------------------------------------------------
-
+        # Update AFTER the predictions.
         adjustments = (
             update_ratings_after_week(
-                games_this_week,
+                games,
                 ratings
             )
         )
@@ -607,26 +653,35 @@ def main():
         )
 
     # -----------------------------------------------------
-    # Final results
+    # Final summary.
     # -----------------------------------------------------
 
     print()
     print("-" * 70)
 
-    if total_games > 0:
+    total_incorrect = (
+        total_tested
+        - total_correct
+    )
+
+    if total_tested:
 
         overall_accuracy = (
             total_correct
-            / total_games
+            / total_tested
+        )
+
+        accuracy_text = (
+            f"{overall_accuracy:.3%}"
         )
 
     else:
 
-        overall_accuracy = 0.0
+        accuracy_text = "N/A"
 
     print(
-        f"Total games tested: "
-        f"{total_games}"
+        f"Games tested: "
+        f"{total_tested}"
     )
 
     print(
@@ -636,7 +691,7 @@ def main():
 
     print(
         f"Incorrect predictions: "
-        f"{total_games - total_correct}"
+        f"{total_incorrect}"
     )
 
     print(
@@ -645,22 +700,23 @@ def main():
     )
 
     print(
-        f"Overall accuracy: "
-        f"{overall_accuracy:.3%}"
+        f"Prediction accuracy: "
+        f"{accuracy_text}"
     )
 
     print()
     print(
-        "Dynamic rating updates were "
-        "applied after every week."
+        "Starting ratings source: "
+        "2024 FBS-vs-FBS results"
     )
 
     print(
-        f"Update rate: {UPDATE_RATE}"
+        f"Update rate: "
+        f"{UPDATE_RATE}"
     )
 
     print(
-        f"Maximum single-game adjustment: "
+        f"Maximum game adjustment: "
         f"{MAX_GAME_ADJUSTMENT}"
     )
 
@@ -674,3 +730,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
