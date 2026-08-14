@@ -1,8 +1,7 @@
 ```yaml
 name: Update FBS Data
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   update-data:
@@ -18,76 +17,57 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Download FBS teams
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_teams
+        run: python -m data.download_teams
 
       - name: Process FBS teams
-        run: |
-          python -m data.process_teams
+        run: python -m data.process_teams
 
       - name: Download 2026 games
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_games 2026
+        run: python -m data.download_games 2026
 
       - name: Process 2026 games
-        run: |
-          python -m data.process_games
+        run: python -m data.process_games
 
       - name: Download 2025 historical stats
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_historical_stats 2025
+        run: python -m data.download_historical_stats 2025
 
       - name: Process 2025 historical stats
-        run: |
-          python -m data.process_historical_stats
+        run: python -m data.process_historical_stats
 
       - name: Download 2025 historical games
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_historical_games 2025
+        run: python -m data.download_historical_games 2025
 
       - name: Process 2025 historical games
-        run: |
-          python -m data.process_historical_games 2025
+        run: python -m data.process_historical_games 2025
 
       - name: Process 2025 team results
-        run: |
-          python -m data.process_team_results
+        run: python -m data.process_team_results
 
       - name: Calculate 2025 team strength
-        run: |
-          python -m ratings.team_strength
+        run: python -m ratings.team_strength
 
       - name: Calculate 2025 strength of schedule
-        run: |
-          python -m ratings.strength_of_schedule
+        run: python -m ratings.strength_of_schedule
 
       - name: Calculate 2025 power ratings
-        run: |
-          python -m ratings.power_rating
+        run: python -m ratings.power_rating
 
       - name: Test game predictor
-        run: |
-          python -m predictions.game_predictor
+        run: python -m predictions.game_predictor
 
       - name: Run baseline backtest
-        run: |
-          python -m ratings.backtest
-
-      - name: Run weekly dynamic backtest
-        run: |
-          python -m ratings.weekly_backtest
+        run: python -m ratings.backtest
 
       - name: Display data counts
         run: |
