@@ -75,6 +75,9 @@ jobs:
       - name: Calculate 2025 team strength
         run: python -m ratings.team_strength
 
+      - name: Calculate 2024 team strength
+        run: python -m ratings.team_strength_2024
+
       - name: Calculate 2025 strength of schedule
         run: python -m ratings.strength_of_schedule
 
@@ -117,6 +120,10 @@ jobs:
 
           strength2025 = load(
               "data/processed/team_strength_2025.json"
+          )
+
+          strength2024 = load(
+              "data/processed/team_strength_2024.json"
           )
 
           results2025 = load(
@@ -196,6 +203,10 @@ jobs:
           print(f"2024 FBS vs FBS: {fbs2024}")
           print(f"2024 FBS vs lower: {lower2024}")
           print(
+              f"2024 team strength profiles: "
+              f"{len(strength2024)}"
+          )
+          print(
               f"2024 team result profiles: "
               f"{len(results2024)}"
           )
@@ -221,6 +232,7 @@ jobs:
             data/processed/historical_games_2025.json \
             data/processed/historical_games_2024.json \
             data/processed/team_strength_2025.json \
+            data/processed/team_strength_2024.json \
             data/processed/team_results_2025.json \
             data/processed/team_results_2024.json \
             data/processed/strength_of_schedule_2025.json \
@@ -230,6 +242,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to data."
           else
-            git commit -m "Add 2024 team result profiles"
+            git commit -m "Add 2024 team strength profiles"
             git push
           fi
