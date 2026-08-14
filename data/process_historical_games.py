@@ -1,4 +1,3 @@
-```python
 """
 Process historical CFBD games into model-ready results.
 """
@@ -14,13 +13,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 def classify_game(game):
     """Classify a game based on team divisions."""
 
-    home_classification = game.get(
-        "homeClassification"
-    )
-
-    away_classification = game.get(
-        "awayClassification"
-    )
+    home_classification = game.get("homeClassification")
+    away_classification = game.get("awayClassification")
 
     if (
         home_classification == "fbs"
@@ -40,37 +34,19 @@ def classify_game(game):
 def process_game(game):
     """Convert one raw game into a standardized result."""
 
-    home_points = game.get(
-        "homePoints"
-    )
+    home_points = game.get("homePoints")
+    away_points = game.get("awayPoints")
 
-    away_points = game.get(
-        "awayPoints"
-    )
-
-    # Skip games without completed scores.
-    if (
-        home_points is None
-        or away_points is None
-    ):
+    if home_points is None or away_points is None:
         return None
 
-    home_margin = (
-        home_points
-        - away_points
-    )
-
-    away_margin = (
-        away_points
-        - home_points
-    )
+    home_margin = home_points - away_points
+    away_margin = away_points - home_points
 
     if home_margin > 0:
         winner = "home"
-
     elif away_margin > 0:
         winner = "away"
-
     else:
         winner = "tie"
 
@@ -83,45 +59,26 @@ def process_game(game):
         "completed": game["completed"],
         "neutral_site": game["neutralSite"],
         "conference_game": game["conferenceGame"],
-
         "venue": game.get("venue"),
-
         "home": {
             "team_id": game["homeId"],
             "team": game["homeTeam"],
-            "classification": game[
-                "homeClassification"
-            ],
-            "conference": game[
-                "homeConference"
-            ],
+            "classification": game["homeClassification"],
+            "conference": game["homeConference"],
             "points": home_points,
             "margin": home_margin,
         },
-
         "away": {
             "team_id": game["awayId"],
             "team": game["awayTeam"],
-            "classification": game[
-                "awayClassification"
-            ],
-            "conference": game[
-                "awayConference"
-            ],
+            "classification": game["awayClassification"],
+            "conference": game["awayConference"],
             "points": away_points,
             "margin": away_margin,
         },
-
         "winner": winner,
-
-        "total_points": (
-            home_points
-            + away_points
-        ),
-
-        "game_classification": (
-            classify_game(game)
-        ),
+        "total_points": home_points + away_points,
+        "game_classification": classify_game(game),
     }
 
 
@@ -145,36 +102,24 @@ def process_games(year):
 
     if not input_file.exists():
         raise FileNotFoundError(
-            f"Historical games file not found: "
-            f"{input_file}"
+            f"Historical games file not found: {input_file}"
         )
 
-    with input_file.open(
-        "r",
-        encoding="utf-8"
-    ) as file:
+    with input_file.open("r", encoding="utf-8") as file:
         raw_games = json.load(file)
 
     processed_games = []
 
     for game in raw_games:
-
-        processed = process_game(
-            game
-        )
+        processed = process_game(game)
 
         if processed is not None:
-            processed_games.append(
-                processed
-            )
+            processed_games.append(processed)
 
-    # Keep only games involving at least one FBS team.
     processed_games = [
         game
         for game in processed_games
-        if game[
-            "game_classification"
-        ] != "non_fbs"
+        if game["game_classification"] != "non_fbs"
     ]
 
     processed_games.sort(
@@ -189,11 +134,7 @@ def process_games(year):
         exist_ok=True
     )
 
-    with output_file.open(
-        "w",
-        encoding="utf-8"
-    ) as file:
-
+    with output_file.open("w", encoding="utf-8") as file:
         json.dump(
             processed_games,
             file,
@@ -203,47 +144,25 @@ def process_games(year):
     fbs_vs_fbs = sum(
         1
         for game in processed_games
-        if game[
-            "game_classification"
-        ] == "fbs_vs_fbs"
+        if game["game_classification"] == "fbs_vs_fbs"
     )
 
     fbs_vs_lower = sum(
         1
         for game in processed_games
-        if game[
-            "game_classification"
-        ] == "fbs_vs_lower"
+        if game["game_classification"] == "fbs_vs_lower"
     )
 
-    print(
-        f"Processed games: "
-        f"{len(processed_games)}"
-    )
-
-    print(
-        f"FBS vs FBS: "
-        f"{fbs_vs_fbs}"
-    )
-
-    print(
-        f"FBS vs lower: "
-        f"{fbs_vs_lower}"
-    )
-
-    print(
-        f"Saved to {output_file}"
-    )
+    print(f"Processed games: {len(processed_games)}")
+    print(f"FBS vs FBS: {fbs_vs_fbs}")
+    print(f"FBS vs lower: {fbs_vs_lower}")
+    print(f"Saved to {output_file}")
 
 
 if __name__ == "__main__":
-
     year = 2025
 
     if len(sys.argv) > 1:
-        year = int(
-            sys.argv[1]
-        )
+        year = int(sys.argv[1])
 
     process_games(year)
-```
