@@ -1,4 +1,3 @@
-```yaml
 name: Update FBS Data
 
 on: workflow_dispatch
