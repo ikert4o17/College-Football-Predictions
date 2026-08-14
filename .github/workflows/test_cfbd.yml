@@ -69,6 +69,9 @@ jobs:
       - name: Process 2025 team results
         run: python -m data.process_team_results
 
+      - name: Process 2024 team results
+        run: python -m data.process_team_results_2024
+
       - name: Calculate 2025 team strength
         run: python -m ratings.team_strength
 
@@ -86,7 +89,7 @@ jobs:
 
       - name: Display data counts
         run: |
-          python -c "import json; teams=json.load(open('data/processed/teams.json')); games2026=json.load(open('data/processed/games.json')); stats=json.load(open('data/processed/historical_stats_2025.json')); stats2024=json.load(open('data/processed/historical_stats_2024.json')); games2025=json.load(open('data/processed/historical_games_2025.json')); games2024=json.load(open('data/processed/historical_games_2024.json')); strength=json.load(open('data/processed/team_strength_2025.json')); results=json.load(open('data/processed/team_results_2025.json')); sos=json.load(open('data/processed/strength_of_schedule_2025.json')); ratings=json.load(open('data/processed/power_ratings_2025.json')); predictions=json.load(open('data/processed/game_predictions_2025.json')); fbs2025=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_fbs'); lower2025=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_lower'); fbs2024=sum(1 for g in games2024 if g['game_classification']=='fbs_vs_fbs'); lower2024=sum(1 for g in games2024 if g['game_classification']=='fbs_vs_lower'); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games2026)}'); print(f'2025 team profiles: {len(stats)}'); print(f'2025 FBS games: {len(games2025)}'); print(f'2025 FBS vs FBS: {fbs2025}'); print(f'2025 FBS vs lower: {lower2025}'); print(f'2025 team strength profiles: {len(strength)}'); print(f'2025 team result profiles: {len(results)}'); print(f'2025 SOS profiles: {len(sos)}'); print(f'2025 power ratings: {len(ratings)}'); print(f'2025 game predictions: {len(predictions)}'); print(f'2024 team profiles: {len(stats2024)}'); print(f'2024 processed games: {len(games2024)}'); print(f'2024 FBS vs FBS: {fbs2024}'); print(f'2024 FBS vs lower: {lower2024}')"
+          python -c "import json; teams=json.load(open('data/processed/teams.json')); games2026=json.load(open('data/processed/games.json')); stats=json.load(open('data/processed/historical_stats_2025.json')); stats2024=json.load(open('data/processed/historical_stats_2024.json')); games2025=json.load(open('data/processed/historical_games_2025.json')); games2024=json.load(open('data/processed/historical_games_2024.json')); strength=json.load(open('data/processed/team_strength_2025.json')); results=json.load(open('data/processed/team_results_2025.json')); results2024=json.load(open('data/processed/team_results_2024.json')); sos=json.load(open('data/processed/strength_of_schedule_2025.json')); ratings=json.load(open('data/processed/power_ratings_2025.json')); predictions=json.load(open('data/processed/game_predictions_2025.json')); fbs2025=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_fbs'); lower2025=sum(1 for g in games2025 if g['game_classification']=='fbs_vs_lower'); fbs2024=sum(1 for g in games2024 if g['game_classification']=='fbs_vs_fbs'); lower2024=sum(1 for g in games2024 if g['game_classification']=='fbs_vs_lower'); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games2026)}'); print(f'2025 team profiles: {len(stats)}'); print(f'2025 FBS games: {len(games2025)}'); print(f'2025 FBS vs FBS: {fbs2025}'); print(f'2025 FBS vs lower: {lower2025}'); print(f'2025 team strength profiles: {len(strength)}'); print(f'2025 team result profiles: {len(results)}'); print(f'2025 SOS profiles: {len(sos)}'); print(f'2025 power ratings: {len(ratings)}'); print(f'2025 game predictions: {len(predictions)}'); print(f'2024 team profiles: {len(stats2024)}'); print(f'2024 processed games: {len(games2024)}'); print(f'2024 FBS vs FBS: {fbs2024}'); print(f'2024 FBS vs lower: {lower2024}'); print(f'2024 team result profiles: {len(results2024)}')"
 
       - name: Save data
         run: |
@@ -108,6 +111,7 @@ jobs:
                   data/processed/historical_games_2024.json \
                   data/processed/team_strength_2025.json \
                   data/processed/team_results_2025.json \
+                  data/processed/team_results_2024.json \
                   data/processed/strength_of_schedule_2025.json \
                   data/processed/power_ratings_2025.json \
                   data/processed/game_predictions_2025.json
@@ -115,6 +119,19 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to data."
           else
-            git commit -m "Add 2024 processed historical games"
+            git commit -m "Add 2024 team result profiles"
             git push
           fi
+```
+
+### What we're checking
+
+After the workflow runs, the new line we're looking for is:
+
+```text
+2024 team result profiles: ???
+```
+
+I'd expect it to be somewhere around **130–140**, given your 134 team profiles.
+
+If that succeeds, we'll have **matching 2024 + 2025 result datasets**, and then we're ready to start doing something much more interesting with the extra season.
