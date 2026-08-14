@@ -36,63 +36,47 @@ def process_team(record):
         "conference": record.get("conference"),
 
         "overall": {
-            "percent_ppa": record.get(
-                "percentPPA",
-                0
-            ),
-            "usage": record.get(
-                "usage",
-                0
-            ),
-            "total_ppa": record.get(
-                "totalPPA",
-                0
-            ),
+            "percent_ppa":
+                record.get("percentPPA", 0),
+
+            "usage":
+                record.get("usage", 0),
+
+            "total_ppa":
+                record.get("totalPPA", 0),
         },
 
         "passing": {
-            "percent_ppa": record.get(
-                "percentPassingPPA",
-                0
-            ),
-            "usage": record.get(
-                "passingUsage",
-                0
-            ),
-            "total_ppa": record.get(
-                "totalPassingPPA",
-                0
-            ),
+            "percent_ppa":
+                record.get("percentPassingPPA", 0),
+
+            "usage":
+                record.get("passingUsage", 0),
+
+            "total_ppa":
+                record.get("totalPassingPPA", 0),
         },
 
         "rushing": {
-            "percent_ppa": record.get(
-                "percentRushingPPA",
-                0
-            ),
-            "usage": record.get(
-                "rushingUsage",
-                0
-            ),
-            "total_ppa": record.get(
-                "totalRushingPPA",
-                0
-            ),
+            "percent_ppa":
+                record.get("percentRushingPPA", 0),
+
+            "usage":
+                record.get("rushingUsage", 0),
+
+            "total_ppa":
+                record.get("totalRushingPPA", 0),
         },
 
         "receiving": {
-            "percent_ppa": record.get(
-                "percentReceivingPPA",
-                0
-            ),
-            "usage": record.get(
-                "receivingUsage",
-                0
-            ),
-            "total_ppa": record.get(
-                "totalReceivingPPA",
-                0
-            ),
+            "percent_ppa":
+                record.get("percentReceivingPPA", 0),
+
+            "usage":
+                record.get("receivingUsage", 0),
+
+            "total_ppa":
+                record.get("totalReceivingPPA", 0),
         },
     }
 
@@ -105,6 +89,18 @@ def process_returning_production():
         encoding="utf-8"
     ) as file:
         raw_records = json.load(file)
+
+    if not raw_records:
+        raise ValueError(
+            "No returning production records were found."
+        )
+
+    print(
+        "CFBD returning production fields:"
+    )
+
+    for key in sorted(raw_records[0].keys()):
+        print(f"  {key}")
 
     processed = []
 
@@ -146,6 +142,18 @@ def process_returning_production():
     print(
         f"Saved to {OUTPUT_FILE}"
     )
+
+    if processed:
+        print(
+            "\nSample processed record:"
+        )
+
+        print(
+            json.dumps(
+                processed[0],
+                indent=4
+            )
+        )
 
 
 if __name__ == "__main__":
