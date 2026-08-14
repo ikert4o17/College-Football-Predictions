@@ -50,6 +50,14 @@ jobs:
       - name: Process 2025 historical games
         run: python -m data.process_historical_games 2025
 
+      - name: Download 2025 returning production
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python -m data.download_returning_production 2025
+
+      - name: Process 2025 returning production
+        run: python -m data.process_returning_production
+
       - name: Download 2024 historical stats
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -159,6 +167,10 @@ jobs:
               "data/processed/power_ratings_2024.json"
           )
 
+          returning2025 = load(
+              "data/processed/returning_production_2025.json"
+          )
+
           predictions2025 = load(
               "data/processed/game_predictions_2025.json"
           )
@@ -211,6 +223,10 @@ jobs:
               f"{len(ratings2025)}"
           )
           print(
+              f"2025 returning production profiles: "
+              f"{len(returning2025)}"
+          )
+          print(
               f"2025 game predictions: "
               f"{len(predictions2025)}"
           )
@@ -250,12 +266,14 @@ jobs:
             data/raw/historical_stats/2024.json \
             data/raw/historical_games/2025.json \
             data/raw/historical_games/2024.json \
+            data/raw/returning_production/2025.json \
             data/processed/teams.json \
             data/processed/games.json \
             data/processed/historical_stats_2025.json \
             data/processed/historical_stats_2024.json \
             data/processed/historical_games_2025.json \
             data/processed/historical_games_2024.json \
+            data/processed/returning_production_2025.json \
             data/processed/team_strength_2025.json \
             data/processed/team_strength_2024.json \
             data/processed/team_results_2025.json \
@@ -269,6 +287,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to data."
           else
-            git commit -m "Add 2024 to 2025 rating continuity analysis"
+            git commit -m "Add returning production data"
             git push
           fi
