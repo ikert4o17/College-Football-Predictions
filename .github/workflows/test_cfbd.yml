@@ -101,6 +101,9 @@ jobs:
       - name: Analyze 2024 to 2025 continuity
         run: python -m ratings.season_continuity
 
+      - name: Analyze returning production
+        run: python -m ratings.analyze_returning_production
+
       - name: Test game predictor
         run: python -m predictions.game_predictor
 
@@ -287,6 +290,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to data."
           else
-            git commit -m "Add returning production data"
+            git commit -m "Analyze returning production"
             git push
           fi
