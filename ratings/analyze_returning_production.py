@@ -95,7 +95,7 @@ def pearson_correlation(x_values, y_values):
     return numerator / denominator
 
 
-def percentile(values, percentile):
+def percentile(values, percentile_value):
     """Calculate a percentile using linear interpolation."""
 
     if not values:
@@ -108,7 +108,7 @@ def percentile(values, percentile):
 
     position = (
         (len(values) - 1)
-        * percentile
+        * percentile_value
     )
 
     lower = math.floor(position)
@@ -126,6 +126,17 @@ def percentile(values, percentile):
         values[upper]
         * weight
     )
+
+
+def safe_value(section, key):
+    """Safely retrieve a returning-production metric."""
+
+    value = section.get(key, 0)
+
+    if value is None:
+        return 0
+
+    return value
 
 
 def analyze():
@@ -185,6 +196,26 @@ def analyze():
             rating_2024["power_rating"]
         )
 
+        overall = returning.get(
+            "overall",
+            {}
+        )
+
+        passing = returning.get(
+            "passing",
+            {}
+        )
+
+        rushing = returning.get(
+            "rushing",
+            {}
+        )
+
+        receiving = returning.get(
+            "receiving",
+            {}
+        )
+
         teams.append(
             {
                 "team": team_name,
@@ -203,69 +234,83 @@ def analyze():
                     rating_change,
 
                 "overall_percent":
-                    returning[
-                        "overall"
-                    ]["percent"],
+                    safe_value(
+                        overall,
+                        "percent_ppa"
+                    ),
 
                 "overall_usage":
-                    returning[
-                        "overall"
-                    ]["usage"],
+                    safe_value(
+                        overall,
+                        "usage"
+                    ),
 
                 "overall_ppa":
-                    returning[
-                        "overall"
-                    ]["ppa"],
+                    safe_value(
+                        overall,
+                        "total_ppa"
+                    ),
 
                 "passing_percent":
-                    returning[
-                        "passing"
-                    ]["percent"],
+                    safe_value(
+                        passing,
+                        "percent_ppa"
+                    ),
 
                 "passing_usage":
-                    returning[
-                        "passing"
-                    ]["usage"],
+                    safe_value(
+                        passing,
+                        "usage"
+                    ),
 
                 "passing_ppa":
-                    returning[
-                        "passing"
-                    ]["ppa"],
+                    safe_value(
+                        passing,
+                        "total_ppa"
+                    ),
 
                 "rushing_percent":
-                    returning[
-                        "rushing"
-                    ]["percent"],
+                    safe_value(
+                        rushing,
+                        "percent_ppa"
+                    ),
 
                 "rushing_usage":
-                    returning[
-                        "rushing"
-                    ]["usage"],
+                    safe_value(
+                        rushing,
+                        "usage"
+                    ),
 
                 "rushing_ppa":
-                    returning[
-                        "rushing"
-                    ]["ppa"],
+                    safe_value(
+                        rushing,
+                        "total_ppa"
+                    ),
 
                 "receiving_percent":
-                    returning[
-                        "receiving"
-                    ]["percent"],
+                    safe_value(
+                        receiving,
+                        "percent_ppa"
+                    ),
 
                 "receiving_usage":
-                    returning[
-                        "receiving"
-                    ]["usage"],
+                    safe_value(
+                        receiving,
+                        "usage"
+                    ),
 
                 "receiving_ppa":
-                    returning[
-                        "receiving"
-                    ]["ppa"],
+                    safe_value(
+                        receiving,
+                        "total_ppa"
+                    ),
             }
         )
 
     if not teams:
-        print("No matching teams found.")
+        print(
+            "No matching teams found."
+        )
         return
 
     print("=" * 60)
@@ -374,7 +419,7 @@ def analyze():
     print()
 
     print(
-        "RETURNING PRODUCTION DISTRIBUTION"
+        "OVERALL RETURNING PRODUCTION DISTRIBUTION"
     )
     print("-" * 60)
 
@@ -384,38 +429,32 @@ def analyze():
     ]
 
     print(
-        f"Overall returning production "
-        f"minimum: "
+        f"Minimum: "
         f"{min(overall_values):.2f}"
     )
 
     print(
-        f"Overall returning production "
         f"25th percentile: "
         f"{percentile(overall_values, 0.25):.2f}"
     )
 
     print(
-        f"Overall returning production "
-        f"median: "
+        f"Median: "
         f"{percentile(overall_values, 0.50):.2f}"
     )
 
     print(
-        f"Overall returning production "
         f"75th percentile: "
         f"{percentile(overall_values, 0.75):.2f}"
     )
 
     print(
-        f"Overall returning production "
-        f"maximum: "
+        f"Maximum: "
         f"{max(overall_values):.2f}"
     )
 
     print()
 
-    # Sort by overall returning production.
     highest_returning = sorted(
         teams,
         key=lambda team:
@@ -463,7 +502,6 @@ def analyze():
 
     print()
 
-    # Compare teams in the top and bottom quartiles.
     cutoff_low = percentile(
         overall_values,
         0.25
@@ -532,8 +570,6 @@ def analyze():
 
     print()
 
-    # Show teams with the largest rating changes
-    # and their returning production.
     biggest_changes = sorted(
         teams,
         key=lambda team:
