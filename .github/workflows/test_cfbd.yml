@@ -122,7 +122,6 @@ jobs:
             git commit -m "Add 2024 team result profiles"
             git push
           fi
-```
 
 ### What we're checking
 
