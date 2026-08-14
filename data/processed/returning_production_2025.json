@@ -1,0 +1,3218 @@
+[
+    {
+        "season": 2025,
+        "team": "Air Force",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Akron",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Alabama",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "App State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arizona",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arizona State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arkansas",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Arkansas State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Army",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Auburn",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "BYU",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ball State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Baylor",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Boise State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Boston College",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Bowling Green",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Buffalo",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "California",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Central Michigan",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Charlotte",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Cincinnati",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Clemson",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Coastal Carolina",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Colorado",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Colorado State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Duke",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "East Carolina",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Eastern Michigan",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida Atlantic",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida International",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Florida State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Fresno State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia Southern",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Georgia Tech",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Hawai'i",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Houston",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Illinois",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Indiana",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Iowa",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Iowa State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Jacksonville State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "James Madison",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kansas",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kansas State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kennesaw State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kent State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Kentucky",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "LSU",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Liberty",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Louisiana",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Louisiana Tech",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Louisville",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Marshall",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Maryland",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Massachusetts",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Memphis",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Miami",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Miami (OH)",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Michigan",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Michigan State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Middle Tennessee",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Minnesota",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Mississippi State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Missouri",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "NC State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Navy",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Nebraska",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Nevada",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "New Mexico",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "New Mexico State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "North Carolina",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "North Texas",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Northern Illinois",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Northwestern",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Notre Dame",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ohio",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ohio State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oklahoma",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oklahoma State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Old Dominion",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Ole Miss",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oregon",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Oregon State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Penn State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Pittsburgh",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Purdue",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Rice",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Rutgers",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "SMU",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Sam Houston",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "San Diego State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "San Jos\u00e9 State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "South Alabama",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "South Carolina",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "South Florida",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Southern Miss",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Stanford",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Syracuse",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "TCU",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Temple",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Tennessee",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas A&M",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Texas Tech",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Toledo",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Troy",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Tulane",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Tulsa",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UAB",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UCF",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UCLA",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UConn",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UL Monroe",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UNLV",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "USC",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UTEP",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "UTSA",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Utah",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Utah State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Vanderbilt",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Virginia",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Virginia Tech",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Wake Forest",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Washington",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Washington State",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "West Virginia",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Western Kentucky",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Western Michigan",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Wisconsin",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    },
+    {
+        "season": 2025,
+        "team": "Wyoming",
+        "overall": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "passing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "rushing": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        },
+        "receiving": {
+            "percent": 0,
+            "usage": 0,
+            "ppa": 0
+        }
+    }
+]
