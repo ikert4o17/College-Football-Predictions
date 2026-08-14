@@ -33,63 +33,64 @@ def process_team(record):
     return {
         "season": record.get("season"),
         "team": record.get("team"),
+        "conference": record.get("conference"),
 
         "overall": {
-            "percent": record.get(
-                "percentReturning",
+            "percent_ppa": record.get(
+                "percentPPA",
                 0
             ),
             "usage": record.get(
-                "usageReturning",
+                "usage",
                 0
             ),
-            "ppa": record.get(
-                "ppaReturning",
+            "total_ppa": record.get(
+                "totalPPA",
                 0
             ),
         },
 
         "passing": {
-            "percent": record.get(
-                "percentReturningPassing",
+            "percent_ppa": record.get(
+                "percentPassingPPA",
                 0
             ),
             "usage": record.get(
-                "usageReturningPassing",
+                "passingUsage",
                 0
             ),
-            "ppa": record.get(
-                "ppaReturningPassing",
+            "total_ppa": record.get(
+                "totalPassingPPA",
                 0
             ),
         },
 
         "rushing": {
-            "percent": record.get(
-                "percentReturningRushing",
+            "percent_ppa": record.get(
+                "percentRushingPPA",
                 0
             ),
             "usage": record.get(
-                "usageReturningRushing",
+                "rushingUsage",
                 0
             ),
-            "ppa": record.get(
-                "ppaReturningRushing",
+            "total_ppa": record.get(
+                "totalRushingPPA",
                 0
             ),
         },
 
         "receiving": {
-            "percent": record.get(
-                "percentReturningReceiving",
+            "percent_ppa": record.get(
+                "percentReceivingPPA",
                 0
             ),
             "usage": record.get(
-                "usageReturningReceiving",
+                "receivingUsage",
                 0
             ),
-            "ppa": record.get(
-                "ppaReturningReceiving",
+            "total_ppa": record.get(
+                "totalReceivingPPA",
                 0
             ),
         },
