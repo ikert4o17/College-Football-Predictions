@@ -282,3 +282,11 @@ jobs:
       - name: Validate SP+ baseline blend
         run: |
           python -m ratings.validate_sp_baseline
+
+      # ============================================================
+      # COMBINED PRESEASON MODEL V3
+      # ============================================================
+
+      - name: Run SP+ anchored preseason model V3
+        run: |
+          python -m ratings.preseason_model_v3
