@@ -21,6 +21,10 @@ jobs:
         run: |
           pip install requests
 
+      # ============================================================
+      # TEAMS
+      # ============================================================
+
       - name: Download teams
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -31,6 +35,10 @@ jobs:
         run: |
           python -m data.process_teams
 
+      # ============================================================
+      # 2026 GAMES
+      # ============================================================
+
       - name: Download 2026 games
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -40,6 +48,10 @@ jobs:
       - name: Process 2026 games
         run: |
           python -m data.process_games 2026
+
+      # ============================================================
+      # 2025 HISTORICAL DATA
+      # ============================================================
 
       - name: Download 2025 historical stats
         env:
@@ -61,6 +73,10 @@ jobs:
         run: |
           python -m data.process_historical_games 2025
 
+      # ============================================================
+      # 2025 RATINGS
+      # ============================================================
+
       - name: Calculate 2025 team strength
         run: |
           python -m ratings.team_strength
@@ -73,9 +89,17 @@ jobs:
         run: |
           python -m ratings.power_rating
 
+      # ============================================================
+      # 2025 PREDICTIONS
+      # ============================================================
+
       - name: Test 2025 game predictions
         run: |
           python -m predictions.game_predictor
+
+      # ============================================================
+      # 2024 HISTORICAL DATA
+      # ============================================================
 
       - name: Download 2024 historical stats
         env:
@@ -91,7 +115,15 @@ jobs:
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
+          python -m data.download_historical_games 2024
+
+      - name: Process 2024 historical games
+        run: |
           python -m data.process_historical_games 2024
+
+      # ============================================================
+      # 2024 RATINGS
+      # ============================================================
 
       - name: Calculate 2024 team strength
         run: |
@@ -105,9 +137,17 @@ jobs:
         run: |
           python -m ratings.power_rating_2024
 
+      # ============================================================
+      # SEASON CONTINUITY
+      # ============================================================
+
       - name: Test season continuity
         run: |
           python -m ratings.season_continuity
+
+      # ============================================================
+      # RETURNING PRODUCTION
+      # ============================================================
 
       - name: Download 2025 returning production
         env:
@@ -127,6 +167,10 @@ jobs:
         run: |
           python -m ratings.validate_returning_production
 
+      # ============================================================
+      # TRANSFER PORTAL
+      # ============================================================
+
       - name: Download 2025 transfer portal
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -135,143 +179,17 @@ jobs:
 
       - name: Process 2025 transfer portal
         run: |
-          python -m data.process_transfer_portal 2025
+          python -m data.process_transfer_portal
 
       - name: Validate transfer portal
         run: |
           python -m ratings.validate_transfer_portal
 
-      - name: Inspect CFBD player search
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+      # ============================================================
+      # PUNT & RALLY RETURNING SNAPS
+      # ============================================================
+
+      - name: Download 2026 returning snaps
         run: |
-          python - <<'PY'
-          import os
-          import json
-          import requests
-
-          headers = {
-              "Authorization": f"Bearer {os.environ['CFBD_API_KEY']}"
-          }
-
-          url = "https://api.collegefootballdata.com/player/search"
-
-          response = requests.get(
-              url,
-              headers=headers,
-              params={
-                  "searchTerm": "Arch Manning"
-              },
-              timeout=30,
-          )
-
-          print("=" * 70)
-          print("CFBD PLAYER SEARCH")
-          print("=" * 70)
-          print(f"Status code: {response.status_code}")
-          print()
-
-          try:
-              data = response.json()
-              print(json.dumps(data, indent=2))
-          except Exception:
-              print(response.text)
-          PY
-
-      - name: Inspect CFBD player stats
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python - <<'PY'
-          import os
-          import json
-          import requests
-
-          headers = {
-              "Authorization": f"Bearer {os.environ['CFBD_API_KEY']}"
-          }
-
-          url = "https://api.collegefootballdata.com/stats/player/season"
-
-          response = requests.get(
-              url,
-              headers=headers,
-              params={
-                  "year": 2025,
-                  "team": "Texas"
-              },
-              timeout=30,
-          )
-
-          print("=" * 70)
-          print("CFBD PLAYER SEASON STATS")
-          print("=" * 70)
-          print(f"Status code: {response.status_code}")
-          print()
-
-          try:
-              data = response.json()
-
-              print(f"Records returned: {len(data)}")
-              print()
-
-              if data:
-                  print("FIRST RECORD:")
-                  print(json.dumps(data[0], indent=2))
-
-                  print()
-                  print("FIELDS:")
-                  print(sorted(data[0].keys()))
-
-          except Exception:
-              print(response.text)
-          PY
-
-      - name: Inspect CFBD player game stats
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python - <<'PY'
-          import os
-          import json
-          import requests
-
-          headers = {
-              "Authorization": f"Bearer {os.environ['CFBD_API_KEY']}"
-          }
-
-          url = "https://api.collegefootballdata.com/stats/player/game"
-
-          response = requests.get(
-              url,
-              headers=headers,
-              params={
-                  "year": 2025,
-                  "team": "Texas"
-              },
-              timeout=30,
-          )
-
-          print("=" * 70)
-          print("CFBD PLAYER GAME STATS")
-          print("=" * 70)
-          print(f"Status code: {response.status_code}")
-          print()
-
-          try:
-              data = response.json()
-
-              print(f"Records returned: {len(data)}")
-              print()
-
-              if data:
-                  print("FIRST RECORD:")
-                  print(json.dumps(data[0], indent=2))
-
-                  print()
-                  print("FIELDS:")
-                  print(sorted(data[0].keys()))
-
-          except Exception:
-              print(response.text)
-          PY
+          python -m data.download_returning_snaps 2026
+```
