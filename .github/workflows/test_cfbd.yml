@@ -234,3 +234,13 @@ jobs:
       - name: Validate 2025 recruiting talent
         run: |
           python -m ratings.validate_recruiting_talent
+
+      # ============================================================
+      # NFL DRAFT LOSSES
+      # ============================================================
+
+      - name: Download 2025 NFL draft picks
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_draft_picks 2025
