@@ -258,9 +258,19 @@ jobs:
           python -m ratings.validate_draft_losses
 
       # ============================================================
-      # COMBINED PRESEASON MODEL
+      # COMBINED PRESEASON MODEL V2
       # ============================================================
 
       - name: Run combined preseason model validation
         run: |
           python -m ratings.preseason_model
+
+      # ============================================================
+      # HISTORICAL SP+ RATINGS
+      # ============================================================
+
+      - name: Download 2024-2025 SP+ ratings
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_sp_ratings 2024 2025
