@@ -218,3 +218,11 @@ jobs:
       - name: Validate composite-weighted transfer talent
         run: |
           python -m ratings.validate_transfer_talent
+
+      # ============================================================
+      # RECRUITING TALENT
+      # ============================================================
+
+      - name: Calculate 2025 recruiting talent metrics
+        run: |
+          python -m ratings.recruiting_talent
