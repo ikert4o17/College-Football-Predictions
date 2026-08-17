@@ -192,4 +192,3 @@ jobs:
       - name: Download 2026 returning snaps
         run: |
           python -m data.download_returning_snaps 2026
-```
