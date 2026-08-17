@@ -1,18 +1,22 @@
 """
 Project Gridiron
-Combined Preseason Model Validation
+Combined Preseason Model Validation - Version 2
 
-Build and validate a combined preseason rating model using:
+This version fixes the scaling problem from the first combined model.
 
-    Previous-season power rating
-    + Returning production
-    + Incoming transfer talent
-    + Net transfer talent
-    + Recruiting talent
+Core principles:
 
-NFL Draft losses are retained as a diagnostic variable but are
-not forced into the model because standalone validation showed
-that they did not improve the baseline.
+1. Previous-season power rating remains the anchor.
+2. Returning production is centered around the national average.
+3. Incoming elite transfers create bonuses, not penalties for teams with none.
+4. Outgoing elite transfers create penalties.
+5. Recruiting creates only a small positive bonus.
+6. Individual adjustments are capped to realistic point ranges.
+7. A model must improve:
+       correlation
+       MAE
+       RMSE
+   before it can be considered better than the baseline.
 
 Historical validation:
 
@@ -20,16 +24,12 @@ Historical validation:
         ->
     2025 preseason projection
         ->
-    Actual 2025 power rating
+    actual 2025 power rating
 
-IMPORTANT:
-We currently do not have historical 2025 returning-snaps data.
-Therefore snaps are NOT included in this historical validation.
+Returning snaps are still not included historically because
+we do not have a comparable 2025 snap dataset.
 
-The 2026 production model can later add the manually captured
-2026 returning-snaps dataset.
-
-This module does NOT overwrite the production power ratings.
+This module does NOT overwrite production power ratings.
 """
 
 import json
@@ -87,50 +87,50 @@ OUTPUT_FILE = (
     PROJECT_ROOT
     / "data"
     / "processed"
-    / "preseason_model_validation_2025.json"
+    / "preseason_model_validation_2025_v2.json"
 )
 
 
-# ------------------------------------------------------------
-# WEIGHT SEARCH
-# ------------------------------------------------------------
+# ============================================================
+# SEARCH SPACE
+# ============================================================
 
-RETURNING_WEIGHTS = [
-    0.00,
-    0.01,
-    0.02,
-    0.03,
-    0.05,
-    0.075,
-    0.10,
+RETURNING_MAX_POINTS = [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
 ]
 
-TRANSFER_WEIGHTS = [
-    0.00,
-    0.02,
-    0.03,
-    0.05,
-    0.075,
-    0.10,
-    0.125,
-    0.15,
+INCOMING_ELITE_POINTS = [
+    0.0,
+    0.25,
+    0.50,
+    0.75,
+    1.00,
 ]
 
-NET_TRANSFER_WEIGHTS = [
-    0.00,
-    0.01,
-    0.02,
-    0.03,
-    0.05,
+OUTGOING_ELITE_POINTS = [
+    0.0,
+    0.25,
+    0.50,
+    0.75,
+    1.00,
 ]
 
-RECRUITING_WEIGHTS = [
-    0.00,
-    0.01,
-    0.02,
-    0.03,
-    0.05,
+RECRUITING_MAX_POINTS = [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
 ]
+
+
+RETURNING_CAP = 4.0
+TRANSFER_CAP = 5.0
+RECRUITING_CAP = 2.0
 
 
 def load_json(path):
@@ -140,12 +140,11 @@ def load_json(path):
         "r",
         encoding="utf-8"
     ) as file:
-
         return json.load(file)
 
 
 def build_lookup(records):
-    """Build team-name lookup."""
+    """Build a team lookup."""
 
     return {
         record["team"]: record
@@ -155,7 +154,7 @@ def build_lookup(records):
 
 
 def safe_float(value):
-    """Safely convert value to float."""
+    """Convert a value safely to float."""
 
     if value is None:
         return 0.0
@@ -170,16 +169,29 @@ def safe_float(value):
         return 0.0
 
 
+def clamp(
+    value,
+    minimum,
+    maximum
+):
+    """Clamp a numeric value."""
+
+    return max(
+        minimum,
+        min(
+            value,
+            maximum
+        )
+    )
+
+
 def pearson_correlation(
     x_values,
     y_values
 ):
     """Calculate Pearson correlation."""
 
-    if (
-        len(x_values)
-        != len(y_values)
-    ):
+    if len(x_values) != len(y_values):
         return None
 
     if len(x_values) < 2:
@@ -234,18 +246,14 @@ def pearson_correlation(
     if denominator == 0:
         return None
 
-    return (
-        numerator
-        /
-        denominator
-    )
+    return numerator / denominator
 
 
 def mean_absolute_error(
     predictions,
     actuals
 ):
-    """Calculate mean absolute error."""
+    """Calculate MAE."""
 
     if not predictions:
         return None
@@ -271,7 +279,7 @@ def root_mean_squared_error(
     predictions,
     actuals
 ):
-    """Calculate root mean squared error."""
+    """Calculate RMSE."""
 
     if not predictions:
         return None
@@ -298,79 +306,46 @@ def root_mean_squared_error(
     )
 
 
-def normalize_values(
-    teams,
-    metric_key
-):
-    """
-    Convert a metric to approximately -1 to +1.
-
-    Centering the variable around the national average means
-    average teams receive roughly zero adjustment.
-    """
-
-    values = [
-        safe_float(
-            team.get(
-                metric_key
-            )
-        )
-        for team in teams
-    ]
+def mean(values):
+    """Calculate arithmetic mean."""
 
     if not values:
-        return {}
+        return 0.0
 
-    minimum = min(
+    return (
+        sum(values)
+        /
+        len(values)
+    )
+
+
+def standard_deviation(values):
+    """Calculate population standard deviation."""
+
+    if not values:
+        return 0.0
+
+    average = mean(
         values
     )
 
-    maximum = max(
-        values
-    )
-
-    if maximum == minimum:
-
-        return {
-            team["team"]: 0.0
-            for team in teams
-        }
-
-    normalized = {}
-
-    for team in teams:
-
-        value = safe_float(
-            team.get(
-                metric_key
-            )
-        )
-
-        zero_to_one = (
+    variance = (
+        sum(
             (
                 value
                 -
-                minimum
+                average
             )
-            /
-            (
-                maximum
-                -
-                minimum
-            )
+            ** 2
+            for value in values
         )
+        /
+        len(values)
+    )
 
-        normalized[
-            team["team"]
-        ] = (
-            zero_to_one
-            *
-            2.0
-            -
-            1.0
-        )
-
-    return normalized
+    return math.sqrt(
+        variance
+    )
 
 
 def get_returning_percent(record):
@@ -392,7 +367,7 @@ def get_returning_percent(record):
 
 
 def build_analysis_records():
-    """Build one combined historical record per FBS team."""
+    """Build one historical analysis record per team."""
 
     ratings_2024 = load_json(
         RATINGS_2024_FILE
@@ -417,7 +392,6 @@ def build_analysis_records():
     draft_losses = []
 
     if DRAFT_FILE.exists():
-
         draft_losses = load_json(
             DRAFT_FILE
         )
@@ -452,10 +426,7 @@ def build_analysis_records():
         ratings_2024_lookup
     ):
 
-        if (
-            team_name
-            not in ratings_2025_lookup
-        ):
+        if team_name not in ratings_2025_lookup:
             continue
 
         rating_2024 = safe_float(
@@ -474,32 +445,24 @@ def build_analysis_records():
             )
         )
 
-        returning_record = (
-            returning_lookup.get(
-                team_name,
-                {}
-            )
+        returning_record = returning_lookup.get(
+            team_name,
+            {}
         )
 
-        transfer_record = (
-            transfer_lookup.get(
-                team_name,
-                {}
-            )
+        transfer_record = transfer_lookup.get(
+            team_name,
+            {}
         )
 
-        recruiting_record = (
-            recruiting_lookup.get(
-                team_name,
-                {}
-            )
+        recruiting_record = recruiting_lookup.get(
+            team_name,
+            {}
         )
 
-        draft_record = (
-            draft_lookup.get(
-                team_name,
-                {}
-            )
+        draft_record = draft_lookup.get(
+            team_name,
+            {}
         )
 
         incoming = transfer_record.get(
@@ -507,34 +470,9 @@ def build_analysis_records():
             {}
         )
 
-        net = transfer_record.get(
-            "net",
+        outgoing = transfer_record.get(
+            "outgoing",
             {}
-        )
-
-        # Previous transfer validation showed that
-        # incoming 0.90+ players were the strongest signal.
-        incoming_high_end = safe_float(
-            incoming.get(
-                "high_end_count"
-            )
-        )
-
-        # Net high-end talent remains available as a smaller
-        # secondary transfer signal.
-        net_high_end = safe_float(
-            net.get(
-                "high_end_count"
-            )
-        )
-
-        # Recruiting validation showed several similar signals.
-        # Four-star count produced the strongest tested result,
-        # so we use it in this first combined experiment.
-        four_star_count = safe_float(
-            recruiting_record.get(
-                "four_star_count"
-            )
         )
 
         teams.append(
@@ -549,11 +487,9 @@ def build_analysis_records():
                     rating_2025,
 
                 "rating_change":
-                    (
-                        rating_2025
-                        -
-                        rating_2024
-                    ),
+                    rating_2025
+                    -
+                    rating_2024,
 
                 "returning_percent":
                     get_returning_percent(
@@ -561,15 +497,33 @@ def build_analysis_records():
                     ),
 
                 "incoming_high_end":
-                    incoming_high_end,
+                    safe_float(
+                        incoming.get(
+                            "high_end_count"
+                        )
+                    ),
 
-                "net_high_end":
-                    net_high_end,
+                "outgoing_high_end":
+                    safe_float(
+                        outgoing.get(
+                            "high_end_count"
+                        )
+                    ),
 
                 "four_star_count":
-                    four_star_count,
+                    safe_float(
+                        recruiting_record.get(
+                            "four_star_count"
+                        )
+                    ),
 
-                # Diagnostics only.
+                "top_10_recruiting":
+                    safe_float(
+                        recruiting_record.get(
+                            "top_10_average_rating"
+                        )
+                    ),
+
                 "drafted_count":
                     safe_float(
                         draft_record.get(
@@ -583,275 +537,376 @@ def build_analysis_records():
                             "draft_capital"
                         )
                     ),
-
-                "qb_drafted_count":
-                    safe_float(
-                        draft_record.get(
-                            "qb_drafted_count"
-                        )
-                    ),
             }
         )
 
     return teams
 
 
-def build_normalized_metrics(
-    teams
-):
-    """Create normalized versions of model inputs."""
+def calculate_context(teams):
+    """Calculate population context for centered metrics."""
+
+    returning_values = [
+        team[
+            "returning_percent"
+        ]
+        for team in teams
+    ]
+
+    recruiting_values = [
+        team[
+            "four_star_count"
+        ]
+        for team in teams
+    ]
 
     return {
-        "returning":
-            normalize_values(
-                teams,
-                "returning_percent"
+        "returning_mean":
+            mean(
+                returning_values
             ),
 
-        "incoming_transfer":
-            normalize_values(
-                teams,
-                "incoming_high_end"
+        "returning_std":
+            standard_deviation(
+                returning_values
             ),
 
-        "net_transfer":
-            normalize_values(
-                teams,
-                "net_high_end"
+        "recruiting_min":
+            min(
+                recruiting_values
             ),
 
-        "recruiting":
-            normalize_values(
-                teams,
-                "four_star_count"
+        "recruiting_max":
+            max(
+                recruiting_values
             ),
     }
 
 
-def project_rating(
+def returning_adjustment(
     team,
-    normalized,
-    returning_weight,
-    transfer_weight,
-    net_transfer_weight,
-    recruiting_weight
+    context,
+    max_points
 ):
     """
-    Build one preseason projection.
+    Center returning production around the national average.
 
-    We use additive point adjustments rather than replacing
-    portions of the baseline rating.
-
-    A weight of 0.10 corresponds to a maximum adjustment
-    of roughly +/- 10 rating points for that metric.
+    One standard deviation above or below average receives
+    roughly +/- max_points before the cap.
     """
 
-    baseline = team[
-        "rating_2024"
+    if max_points == 0:
+        return 0.0
+
+    std = context[
+        "returning_std"
     ]
 
-    team_name = team[
-        "team"
+    if std == 0:
+        return 0.0
+
+    z_score = (
+        (
+            team[
+                "returning_percent"
+            ]
+            -
+            context[
+                "returning_mean"
+            ]
+        )
+        /
+        std
+    )
+
+    adjustment = (
+        z_score
+        *
+        max_points
+    )
+
+    return clamp(
+        adjustment,
+        -RETURNING_CAP,
+        RETURNING_CAP
+    )
+
+
+def incoming_transfer_adjustment(
+    team,
+    points_per_player
+):
+    """
+    Incoming 0.90+ transfers create a positive bonus.
+
+    Zero elite incoming transfers = zero bonus.
+    """
+
+    adjustment = (
+        team[
+            "incoming_high_end"
+        ]
+        *
+        points_per_player
+    )
+
+    return clamp(
+        adjustment,
+        0.0,
+        TRANSFER_CAP
+    )
+
+
+def outgoing_transfer_adjustment(
+    team,
+    points_per_player
+):
+    """
+    Outgoing 0.90+ transfers create a negative adjustment.
+    """
+
+    adjustment = (
+        -team[
+            "outgoing_high_end"
+        ]
+        *
+        points_per_player
+    )
+
+    return clamp(
+        adjustment,
+        -TRANSFER_CAP,
+        0.0
+    )
+
+
+def recruiting_adjustment(
+    team,
+    context,
+    max_points
+):
+    """
+    Recruiting provides only a small positive bonus.
+
+    The worst class gets approximately zero.
+    The strongest class can receive up to max_points.
+
+    Recruiting never creates a negative adjustment.
+    """
+
+    if max_points == 0:
+        return 0.0
+
+    minimum = context[
+        "recruiting_min"
     ]
 
-    returning_adjustment = (
-        normalized[
-            "returning"
-        ][
-            team_name
-        ]
-        *
-        returning_weight
-        *
-        100.0
+    maximum = context[
+        "recruiting_max"
+    ]
+
+    if maximum == minimum:
+        return 0.0
+
+    normalized = (
+        (
+            team[
+                "four_star_count"
+            ]
+            -
+            minimum
+        )
+        /
+        (
+            maximum
+            -
+            minimum
+        )
     )
 
-    transfer_adjustment = (
-        normalized[
-            "incoming_transfer"
-        ][
-            team_name
-        ]
+    adjustment = (
+        normalized
         *
-        transfer_weight
-        *
-        100.0
+        max_points
     )
 
-    net_transfer_adjustment = (
-        normalized[
-            "net_transfer"
-        ][
-            team_name
-        ]
-        *
-        net_transfer_weight
-        *
-        100.0
+    return clamp(
+        adjustment,
+        0.0,
+        RECRUITING_CAP
     )
 
-    recruiting_adjustment = (
-        normalized[
-            "recruiting"
-        ][
-            team_name
-        ]
-        *
-        recruiting_weight
-        *
-        100.0
+
+def project_team(
+    team,
+    context,
+    returning_points,
+    incoming_points,
+    outgoing_points,
+    recruiting_points
+):
+    """Generate one preseason projection."""
+
+    returning = returning_adjustment(
+        team,
+        context,
+        returning_points
     )
 
-    projected = (
-        baseline
+    incoming = incoming_transfer_adjustment(
+        team,
+        incoming_points
+    )
+
+    outgoing = outgoing_transfer_adjustment(
+        team,
+        outgoing_points
+    )
+
+    recruiting = recruiting_adjustment(
+        team,
+        context,
+        recruiting_points
+    )
+
+    total_adjustment = (
+        returning
         +
-        returning_adjustment
+        incoming
         +
-        transfer_adjustment
+        outgoing
         +
-        net_transfer_adjustment
+        recruiting
+    )
+
+    projected_rating = (
+        team[
+            "rating_2024"
+        ]
         +
-        recruiting_adjustment
+        total_adjustment
     )
 
     return {
         "projected_rating":
-            projected,
+            projected_rating,
+
+        "total_adjustment":
+            total_adjustment,
 
         "returning_adjustment":
-            returning_adjustment,
+            returning,
 
-        "transfer_adjustment":
-            transfer_adjustment,
+        "incoming_transfer_adjustment":
+            incoming,
 
-        "net_transfer_adjustment":
-            net_transfer_adjustment,
+        "outgoing_transfer_adjustment":
+            outgoing,
 
         "recruiting_adjustment":
-            recruiting_adjustment,
+            recruiting,
     }
 
 
 def evaluate_model(
     teams,
-    normalized,
-    returning_weight,
-    transfer_weight,
-    net_transfer_weight,
-    recruiting_weight
+    context,
+    returning_points,
+    incoming_points,
+    outgoing_points,
+    recruiting_points
 ):
-    """Evaluate one combination of model weights."""
+    """Evaluate one parameter combination."""
 
-    projected = []
+    predictions = []
 
-    actual = []
+    actuals = []
 
     for team in teams:
 
-        result = project_rating(
+        result = project_team(
             team,
-            normalized,
-            returning_weight,
-            transfer_weight,
-            net_transfer_weight,
-            recruiting_weight
+            context,
+            returning_points,
+            incoming_points,
+            outgoing_points,
+            recruiting_points
         )
 
-        projected.append(
+        predictions.append(
             result[
                 "projected_rating"
             ]
         )
 
-        actual.append(
+        actuals.append(
             team[
                 "rating_2025"
             ]
         )
 
-    correlation = pearson_correlation(
-        projected,
-        actual
-    )
-
-    mae = mean_absolute_error(
-        projected,
-        actual
-    )
-
-    rmse = root_mean_squared_error(
-        projected,
-        actual
-    )
-
     return {
-        "returning_weight":
-            returning_weight,
+        "returning_points":
+            returning_points,
 
-        "transfer_weight":
-            transfer_weight,
+        "incoming_points":
+            incoming_points,
 
-        "net_transfer_weight":
-            net_transfer_weight,
+        "outgoing_points":
+            outgoing_points,
 
-        "recruiting_weight":
-            recruiting_weight,
+        "recruiting_points":
+            recruiting_points,
 
         "correlation":
-            correlation,
+            pearson_correlation(
+                predictions,
+                actuals
+            ),
 
         "mae":
-            mae,
+            mean_absolute_error(
+                predictions,
+                actuals
+            ),
 
         "rmse":
-            rmse,
+            root_mean_squared_error(
+                predictions,
+                actuals
+            ),
     }
 
 
-def run_weight_search(
+def run_search(
     teams,
-    normalized
+    context
 ):
-    """Test all configured weight combinations."""
+    """Search all parameter combinations."""
 
     results = []
 
     combinations = itertools.product(
-        RETURNING_WEIGHTS,
-        TRANSFER_WEIGHTS,
-        NET_TRANSFER_WEIGHTS,
-        RECRUITING_WEIGHTS,
+        RETURNING_MAX_POINTS,
+        INCOMING_ELITE_POINTS,
+        OUTGOING_ELITE_POINTS,
+        RECRUITING_MAX_POINTS,
     )
 
     for (
-        returning_weight,
-        transfer_weight,
-        net_transfer_weight,
-        recruiting_weight,
+        returning_points,
+        incoming_points,
+        outgoing_points,
+        recruiting_points,
     ) in combinations:
-
-        # Prevent the roster adjustments from overwhelming
-        # the historical baseline in this first experiment.
-        total_weight = (
-            returning_weight
-            +
-            transfer_weight
-            +
-            net_transfer_weight
-            +
-            recruiting_weight
-        )
-
-        if total_weight > 0.25:
-            continue
 
         result = evaluate_model(
             teams,
-            normalized,
-            returning_weight,
-            transfer_weight,
-            net_transfer_weight,
-            recruiting_weight
+            context,
+            returning_points,
+            incoming_points,
+            outgoing_points,
+            recruiting_points
         )
 
         results.append(
@@ -861,39 +916,131 @@ def run_weight_search(
     return results
 
 
-def build_final_team_results(
+def model_is_better(
+    result,
+    baseline_correlation,
+    baseline_mae,
+    baseline_rmse
+):
+    """
+    Require improvement in all three major validation metrics.
+    """
+
+    if result[
+        "correlation"
+    ] is None:
+        return False
+
+    return (
+        result[
+            "correlation"
+        ]
+        >
+        baseline_correlation
+
+        and
+
+        result[
+            "mae"
+        ]
+        <
+        baseline_mae
+
+        and
+
+        result[
+            "rmse"
+        ]
+        <
+        baseline_rmse
+    )
+
+
+def improvement_score(
+    result,
+    baseline_correlation,
+    baseline_mae,
+    baseline_rmse
+):
+    """
+    Rank valid models using all three metrics.
+
+    Correlation receives substantial importance, but MAE and
+    RMSE improvements must also contribute.
+    """
+
+    correlation_gain = (
+        result[
+            "correlation"
+        ]
+        -
+        baseline_correlation
+    )
+
+    mae_gain = (
+        baseline_mae
+        -
+        result[
+            "mae"
+        ]
+    )
+
+    rmse_gain = (
+        baseline_rmse
+        -
+        result[
+            "rmse"
+        ]
+    )
+
+    return (
+        correlation_gain
+        *
+        100.0
+
+        +
+
+        mae_gain
+
+        +
+
+        rmse_gain
+    )
+
+
+def build_team_results(
     teams,
-    normalized,
+    context,
     best
 ):
-    """Generate team-level results using the best combination."""
+    """Build final team-level validation output."""
 
     results = []
 
     for team in teams:
 
-        projection = project_rating(
+        projection = project_team(
             team,
-            normalized,
+            context,
             best[
-                "returning_weight"
+                "returning_points"
             ],
             best[
-                "transfer_weight"
+                "incoming_points"
             ],
             best[
-                "net_transfer_weight"
+                "outgoing_points"
             ],
             best[
-                "recruiting_weight"
+                "recruiting_points"
             ],
         )
 
-        projected_rating = projection[
+        projected = projection[
             "projected_rating"
         ]
 
-        actual_rating = team[
+        actual = team[
             "rating_2025"
         ]
 
@@ -904,34 +1051,24 @@ def build_final_team_results(
                 **projection,
 
                 "projection_error":
-                    (
-                        projected_rating
-                        -
-                        actual_rating
-                    ),
+                    projected
+                    -
+                    actual,
 
                 "absolute_error":
                     abs(
-                        projected_rating
+                        projected
                         -
-                        actual_rating
+                        actual
                     ),
             }
         )
-
-    results.sort(
-        key=lambda team:
-            team[
-                "projected_rating"
-            ],
-        reverse=True,
-    )
 
     return results
 
 
 def analyze():
-    """Run combined preseason model validation."""
+    """Run Version 2 combined preseason validation."""
 
     teams = build_analysis_records()
 
@@ -940,21 +1077,20 @@ def analyze():
         print(
             "No matching teams found."
         )
-
         return
 
-    normalized = build_normalized_metrics(
+    context = calculate_context(
         teams
     )
 
-    baseline_values = [
+    baseline_predictions = [
         team[
             "rating_2024"
         ]
         for team in teams
     ]
 
-    actual_values = [
+    actuals = [
         team[
             "rating_2025"
         ]
@@ -963,27 +1099,29 @@ def analyze():
 
     baseline_correlation = (
         pearson_correlation(
-            baseline_values,
-            actual_values
+            baseline_predictions,
+            actuals
         )
     )
 
-    baseline_mae = mean_absolute_error(
-        baseline_values,
-        actual_values
+    baseline_mae = (
+        mean_absolute_error(
+            baseline_predictions,
+            actuals
+        )
     )
 
     baseline_rmse = (
         root_mean_squared_error(
-            baseline_values,
-            actual_values
+            baseline_predictions,
+            actuals
         )
     )
 
     print("=" * 72)
 
     print(
-        "PROJECT GRIDIRON COMBINED PRESEASON MODEL"
+        "PROJECT GRIDIRON PRESEASON MODEL V2"
     )
 
     print("=" * 72)
@@ -1002,119 +1140,167 @@ def analyze():
     print("-" * 72)
 
     print(
-        f"2024 -> 2025 correlation: "
+        f"Correlation: "
         f"{baseline_correlation:.4f}"
     )
 
     print(
-        f"Baseline MAE: "
+        f"MAE: "
         f"{baseline_mae:.2f}"
     )
 
     print(
-        f"Baseline RMSE: "
+        f"RMSE: "
         f"{baseline_rmse:.2f}"
     )
 
     print()
 
     print(
-        "MODEL INPUTS"
+        "SCALING RULES"
     )
 
     print("-" * 72)
 
     print(
         "Returning production: "
-        "overall returning percentage"
+        "centered around national average"
     )
 
     print(
-        "Transfer talent: "
-        "incoming 0.90+ transfer count"
+        "Incoming elite transfers: "
+        "positive bonus only"
     )
 
     print(
-        "Net transfer talent: "
-        "incoming minus outgoing 0.90+ count"
+        "Outgoing elite transfers: "
+        "negative penalty only"
     )
 
     print(
-        "Recruiting talent: "
-        "four-star recruit count"
-    )
-
-    print(
-        "NFL Draft losses: "
-        "diagnostic only"
-    )
-
-    print(
-        "Returning snaps: "
-        "not available historically for this validation"
+        "Recruiting: "
+        "small positive bonus only"
     )
 
     print()
 
-    results = run_weight_search(
+    results = run_search(
         teams,
-        normalized
+        context
     )
 
-    valid_results = [
+    valid_models = [
         result
         for result in results
-        if result[
-            "correlation"
-        ] is not None
+        if model_is_better(
+            result,
+            baseline_correlation,
+            baseline_mae,
+            baseline_rmse
+        )
     ]
 
-    # Primary objective:
-    # maximize correlation.
-    #
-    # Tie-breakers:
-    # minimize RMSE, then MAE.
-    valid_results.sort(
-        key=lambda result:
-            (
-                -result[
-                    "correlation"
-                ],
-                result[
-                    "rmse"
-                ],
-                result[
-                    "mae"
-                ],
-            )
+    print(
+        f"Parameter combinations tested: "
+        f"{len(results)}"
     )
 
-    best = valid_results[0]
+    print(
+        f"Models improving all three metrics: "
+        f"{len(valid_models)}"
+    )
+
+    print()
+
+    if not valid_models:
+
+        print(
+            "RESULT: No tested combined model "
+            "improved correlation, MAE, and RMSE simultaneously."
+        )
+
+        print()
+
+        print(
+            "Best models by MAE:"
+        )
+
+        print("-" * 72)
+
+        by_mae = sorted(
+            results,
+            key=lambda result:
+                result[
+                    "mae"
+                ]
+        )
+
+        for result in by_mae[:10]:
+
+            print(
+                f"returning="
+                f"{result['returning_points']:.2f}, "
+                f"in="
+                f"{result['incoming_points']:.2f}, "
+                f"out="
+                f"{result['outgoing_points']:.2f}, "
+                f"recruit="
+                f"{result['recruiting_points']:.2f}, "
+                f"corr="
+                f"{result['correlation']:.4f}, "
+                f"MAE="
+                f"{result['mae']:.2f}, "
+                f"RMSE="
+                f"{result['rmse']:.2f}"
+            )
+
+        return
+
+    for result in valid_models:
+
+        result[
+            "improvement_score"
+        ] = improvement_score(
+            result,
+            baseline_correlation,
+            baseline_mae,
+            baseline_rmse
+        )
+
+    valid_models.sort(
+        key=lambda result:
+            result[
+                "improvement_score"
+            ],
+        reverse=True,
+    )
+
+    best = valid_models[0]
 
     print(
-        "BEST COMBINED MODEL"
+        "BEST VALID MODEL"
     )
 
     print("-" * 72)
 
     print(
-        f"Returning production weight: "
-        f"{best['returning_weight'] * 100:.1f}%"
+        f"Returning max points: "
+        f"{best['returning_points']:.2f}"
     )
 
     print(
-        f"Incoming transfer weight: "
-        f"{best['transfer_weight'] * 100:.1f}%"
+        f"Incoming elite transfer points/player: "
+        f"{best['incoming_points']:.2f}"
     )
 
     print(
-        f"Net transfer weight: "
-        f"{best['net_transfer_weight'] * 100:.1f}%"
+        f"Outgoing elite transfer penalty/player: "
+        f"{best['outgoing_points']:.2f}"
     )
 
     print(
-        f"Recruiting weight: "
-        f"{best['recruiting_weight'] * 100:.1f}%"
+        f"Recruiting max bonus: "
+        f"{best['recruiting_points']:.2f}"
     )
 
     print()
@@ -1125,7 +1311,7 @@ def analyze():
     )
 
     print(
-        f"Combined correlation: "
+        f"Model correlation: "
         f"{best['correlation']:.4f}"
     )
 
@@ -1142,7 +1328,7 @@ def analyze():
     )
 
     print(
-        f"Combined MAE: "
+        f"Model MAE: "
         f"{best['mae']:.2f}"
     )
 
@@ -1159,7 +1345,7 @@ def analyze():
     )
 
     print(
-        f"Combined RMSE: "
+        f"Model RMSE: "
         f"{best['rmse']:.2f}"
     )
 
@@ -1171,26 +1357,26 @@ def analyze():
     print()
 
     print(
-        "TOP 10 MODEL COMBINATIONS"
+        "TOP 10 VALID MODELS"
     )
 
     print("-" * 72)
 
     for rank, result in enumerate(
-        valid_results[:10],
+        valid_models[:10],
         start=1
     ):
 
         print(
             f"{rank}. "
             f"returning="
-            f"{result['returning_weight']:.3f}, "
-            f"transfer="
-            f"{result['transfer_weight']:.3f}, "
-            f"net_transfer="
-            f"{result['net_transfer_weight']:.3f}, "
-            f"recruiting="
-            f"{result['recruiting_weight']:.3f}, "
+            f"{result['returning_points']:.2f}, "
+            f"in="
+            f"{result['incoming_points']:.2f}, "
+            f"out="
+            f"{result['outgoing_points']:.2f}, "
+            f"recruit="
+            f"{result['recruiting_points']:.2f}, "
             f"corr="
             f"{result['correlation']:.4f}, "
             f"MAE="
@@ -1199,54 +1385,36 @@ def analyze():
             f"{result['rmse']:.2f}"
         )
 
-    final_team_results = (
-        build_final_team_results(
-            teams,
-            normalized,
-            best
-        )
+    team_results = build_team_results(
+        teams,
+        context,
+        best
     )
 
     print()
 
     print(
-        "BIGGEST POSITIVE PRESEASON ADJUSTMENTS"
+        "BIGGEST POSITIVE ADJUSTMENTS"
     )
 
     print("-" * 72)
 
-    positive_adjustments = sorted(
-        final_team_results,
+    positive = sorted(
+        team_results,
         key=lambda team:
-            (
-                team[
-                    "projected_rating"
-                ]
-                -
-                team[
-                    "rating_2024"
-                ]
-            ),
+            team[
+                "total_adjustment"
+            ],
         reverse=True,
     )
 
-    for team in positive_adjustments[:15]:
-
-        adjustment = (
-            team[
-                "projected_rating"
-            ]
-            -
-            team[
-                "rating_2024"
-            ]
-        )
+    for team in positive[:15]:
 
         print(
             f"{team['team']}: "
             f"{team['rating_2024']:.2f} -> "
             f"{team['projected_rating']:.2f} "
-            f"({adjustment:+.2f}), "
+            f"({team['total_adjustment']:+.2f}), "
             f"actual="
             f"{team['rating_2025']:.2f}"
         )
@@ -1254,72 +1422,28 @@ def analyze():
     print()
 
     print(
-        "BIGGEST NEGATIVE PRESEASON ADJUSTMENTS"
+        "BIGGEST NEGATIVE ADJUSTMENTS"
     )
 
     print("-" * 72)
 
-    negative_adjustments = sorted(
-        final_team_results,
+    negative = sorted(
+        team_results,
         key=lambda team:
-            (
-                team[
-                    "projected_rating"
-                ]
-                -
-                team[
-                    "rating_2024"
-                ]
-            )
+            team[
+                "total_adjustment"
+            ]
     )
 
-    for team in negative_adjustments[:15]:
-
-        adjustment = (
-            team[
-                "projected_rating"
-            ]
-            -
-            team[
-                "rating_2024"
-            ]
-        )
+    for team in negative[:15]:
 
         print(
             f"{team['team']}: "
             f"{team['rating_2024']:.2f} -> "
             f"{team['projected_rating']:.2f} "
-            f"({adjustment:+.2f}), "
+            f"({team['total_adjustment']:+.2f}), "
             f"actual="
             f"{team['rating_2025']:.2f}"
-        )
-
-    print()
-
-    print(
-        "LOWEST MODEL ERRORS"
-    )
-
-    print("-" * 72)
-
-    best_predictions = sorted(
-        final_team_results,
-        key=lambda team:
-            team[
-                "absolute_error"
-            ]
-    )
-
-    for team in best_predictions[:10]:
-
-        print(
-            f"{team['team']}: "
-            f"projected="
-            f"{team['projected_rating']:.2f}, "
-            f"actual="
-            f"{team['rating_2025']:.2f}, "
-            f"error="
-            f"{team['projection_error']:+.2f}"
         )
 
     print()
@@ -1330,8 +1454,8 @@ def analyze():
 
     print("-" * 72)
 
-    worst_predictions = sorted(
-        final_team_results,
+    worst = sorted(
+        team_results,
         key=lambda team:
             team[
                 "absolute_error"
@@ -1339,7 +1463,7 @@ def analyze():
         reverse=True,
     )
 
-    for team in worst_predictions[:15]:
+    for team in worst[:15]:
 
         print(
             f"{team['team']}: "
@@ -1348,12 +1472,17 @@ def analyze():
             f"actual="
             f"{team['rating_2025']:.2f}, "
             f"error="
-            f"{team['projection_error']:+.2f}"
+            f"{team['projection_error']:+.2f}, "
+            f"adjustment="
+            f"{team['total_adjustment']:+.2f}"
         )
 
     output = {
         "season":
             2025,
+
+        "version":
+            2,
 
         "teams_tested":
             len(teams),
@@ -1372,35 +1501,11 @@ def analyze():
         "best_model":
             best,
 
-        "correlation_improvement":
-            (
-                best[
-                    "correlation"
-                ]
-                -
-                baseline_correlation
-            ),
-
-        "mae_improvement":
-            (
-                baseline_mae
-                -
-                best[
-                    "mae"
-                ]
-            ),
-
-        "rmse_improvement":
-            (
-                baseline_rmse
-                -
-                best[
-                    "rmse"
-                ]
-            ),
+        "valid_model_count":
+            len(valid_models),
 
         "team_results":
-            final_team_results,
+            team_results,
     }
 
     OUTPUT_FILE.parent.mkdir(
