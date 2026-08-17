@@ -248,3 +248,11 @@ jobs:
       - name: Calculate 2025 NFL draft loss metrics
         run: |
           python -m ratings.draft_losses
+
+      # ============================================================
+      # NFL DRAFT LOSS VALIDATION
+      # ============================================================
+
+      - name: Validate 2025 NFL draft losses
+        run: |
+          python -m ratings.validate_draft_losses
