@@ -283,6 +283,10 @@ jobs:
         run: |
           python -m data.download_qb_data 2025
 
+      - name: Calculate 2025 QB continuity metrics
+        run: |
+          python -m ratings.qb_continuity 2025
+
       # ============================================================
       # 2026 PRODUCTION INPUTS
       # ============================================================
