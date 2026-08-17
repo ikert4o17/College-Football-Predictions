@@ -1,370 +1,438 @@
 """
 Process CFBD transfer portal data into team-level profiles.
 
-The processor separates incoming and outgoing transfers and
-summarizes available transfer talent by team and position.
+Usage:
+    python -m data.process_transfer_portal 2025
+    python -m data.process_transfer_portal 2026
 
-CFBD transfer ratings/stars may be null, so missing values
-are handled safely.
+The raw input is expected at:
+    data/raw/transfer_portal/<year>.json
+
+The processed output is written to:
+    data/processed/transfer_portal_<year>.json
 """
 
 import json
+import sys
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-INPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "raw"
-    / "transfer_portal"
-    / "2025.json"
-)
 
-OUTPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "transfer_portal_2025.json"
-)
+def input_file(year):
+    """Return raw transfer portal input path."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "raw"
+        / "transfer_portal"
+        / f"{year}.json"
+    )
 
 
-POSITIONS = [
-    "QB",
-    "RB",
-    "FB",
-    "WR",
-    "TE",
-    "OL",
-    "OT",
-    "OG",
-    "C",
-    "DL",
-    "DT",
-    "DE",
-    "EDGE",
-    "LB",
-    "CB",
-    "S",
-    "DB",
-    "K",
-    "P",
-    "LS",
-]
+def output_file(year):
+    """Return processed transfer portal output path."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / f"transfer_portal_{year}.json"
+    )
 
 
-def load_records():
-    """Load raw transfer portal records."""
+def safe_float(value):
+    """Safely convert a value to float."""
 
-    with INPUT_FILE.open(
-        "r",
-        encoding="utf-8"
-    ) as file:
-        return json.load(file)
+    if value is None:
+        return None
+
+    try:
+        return float(value)
+
+    except (
+        TypeError,
+        ValueError
+    ):
+        return None
 
 
-def create_team_profile(team):
+def safe_int(value):
+    """Safely convert a value to int."""
+
+    if value is None:
+        return None
+
+    try:
+        return int(value)
+
+    except (
+        TypeError,
+        ValueError
+    ):
+        return None
+
+
+def create_team_profile(team, season):
     """Create an empty team transfer profile."""
 
     return {
-        "season": 2025,
+        "season": season,
         "team": team,
 
         "incoming": {
             "count": 0,
             "rated_count": 0,
-            "average_rating": 0,
-            "total_rating": 0,
-            "stars_count": 0,
-            "total_stars": 0,
-            "positions": {},
+            "rating_sum": 0.0,
+            "stars_sum": 0,
+            "average_rating": 0.0,
+            "average_stars": 0.0,
+            "players": [],
         },
 
         "outgoing": {
             "count": 0,
             "rated_count": 0,
-            "average_rating": 0,
-            "total_rating": 0,
-            "stars_count": 0,
-            "total_stars": 0,
-            "positions": {},
-        },
-
-        "net": {
-            "transfer_count": 0,
-            "rated_count_difference": 0,
-            "rating_difference": 0,
-            "star_difference": 0,
+            "rating_sum": 0.0,
+            "stars_sum": 0,
+            "average_rating": 0.0,
+            "average_stars": 0.0,
+            "players": [],
         },
     }
 
 
 def ensure_team(
     profiles,
-    team
+    team,
+    season
 ):
-    """Create a team profile if it does not exist."""
+    """Create team profile if needed."""
 
     if not team:
         return
 
     if team not in profiles:
-        profiles[team] = create_team_profile(team)
+        profiles[team] = (
+            create_team_profile(
+                team,
+                season
+            )
+        )
+
+
+def player_name(record):
+    """Build transfer player's full name."""
+
+    first_name = (
+        record.get(
+            "firstName"
+        )
+        or ""
+    )
+
+    last_name = (
+        record.get(
+            "lastName"
+        )
+        or ""
+    )
+
+    return (
+        f"{first_name} {last_name}"
+    ).strip()
 
 
 def add_transfer(
-    profile,
-    transfer
+    side,
+    record
 ):
-    """Add one transfer to a team profile."""
+    """Add one transfer record to a side profile."""
 
-    position = transfer.get(
-        "position"
-    )
+    side[
+        "count"
+    ] += 1
 
-    if not position:
-        position = "UNKNOWN"
-
-    profile["count"] += 1
-
-    position_counts = profile[
-        "positions"
-    ]
-
-    position_counts[position] = (
-        position_counts.get(
-            position,
-            0
+    rating = safe_float(
+        record.get(
+            "rating"
         )
-        + 1
     )
 
-    rating = transfer.get(
-        "rating"
+    stars = safe_int(
+        record.get(
+            "stars"
+        )
     )
 
     if rating is not None:
-        try:
-            rating = float(rating)
 
-            profile[
-                "rated_count"
-            ] += 1
+        side[
+            "rated_count"
+        ] += 1
 
-            profile[
-                "total_rating"
-            ] += rating
-
-        except (
-            TypeError,
-            ValueError
-        ):
-            pass
-
-    stars = transfer.get(
-        "stars"
-    )
+        side[
+            "rating_sum"
+        ] += rating
 
     if stars is not None:
-        try:
-            stars = float(stars)
 
-            profile[
-                "stars_count"
-            ] += 1
+        side[
+            "stars_sum"
+        ] += stars
 
-            profile[
-                "total_stars"
-            ] += stars
+    side[
+        "players"
+    ].append(
+        {
+            "player":
+                player_name(
+                    record
+                ),
 
-        except (
-            TypeError,
-            ValueError
-        ):
-            pass
+            "position":
+                record.get(
+                    "position"
+                ),
+
+            "origin":
+                record.get(
+                    "origin"
+                ),
+
+            "destination":
+                record.get(
+                    "destination"
+                ),
+
+            "transfer_date":
+                record.get(
+                    "transferDate"
+                ),
+
+            "rating":
+                rating,
+
+            "stars":
+                stars,
+
+            "eligibility":
+                record.get(
+                    "eligibility"
+                ),
+        }
+    )
 
 
-def finalize_profile(profile):
-    """Calculate averages and net transfer metrics."""
+def finalize_side(side):
+    """Calculate averages for one side."""
 
-    incoming = profile[
-        "incoming"
-    ]
+    if (
+        side[
+            "rated_count"
+        ] > 0
+    ):
 
-    outgoing = profile[
-        "outgoing"
-    ]
-
-    if incoming[
-        "rated_count"
-    ] > 0:
-
-        incoming[
+        side[
             "average_rating"
         ] = (
-            incoming[
-                "total_rating"
+            side[
+                "rating_sum"
             ]
             /
-            incoming[
+            side[
                 "rated_count"
             ]
         )
 
-    if outgoing[
-        "rated_count"
-    ] > 0:
+    starred_players = [
+        player
+        for player in side[
+            "players"
+        ]
+        if player[
+            "stars"
+        ] is not None
+    ]
 
-        outgoing[
-            "average_rating"
+    if starred_players:
+
+        side[
+            "average_stars"
         ] = (
-            outgoing[
-                "total_rating"
-            ]
+            sum(
+                player[
+                    "stars"
+                ]
+                for player in starred_players
+            )
             /
-            outgoing[
-                "rated_count"
-            ]
+            len(
+                starred_players
+            )
         )
+
+    side[
+        "rating_sum"
+    ] = round(
+        side[
+            "rating_sum"
+        ],
+        4
+    )
+
+    side[
+        "average_rating"
+    ] = round(
+        side[
+            "average_rating"
+        ],
+        4
+    )
+
+    side[
+        "average_stars"
+    ] = round(
+        side[
+            "average_stars"
+        ],
+        3
+    )
+
+    return side
+
+
+def finalize_team(profile):
+    """Finalize one team profile."""
+
+    incoming = finalize_side(
+        profile[
+            "incoming"
+        ]
+    )
+
+    outgoing = finalize_side(
+        profile[
+            "outgoing"
+        ]
+    )
 
     profile[
         "net"
     ] = {
-        "transfer_count":
-            incoming["count"]
+        "count":
+            incoming[
+                "count"
+            ]
             -
-            outgoing["count"],
+            outgoing[
+                "count"
+            ],
 
-        "rated_count_difference":
-            incoming["rated_count"]
+        "rated_count":
+            incoming[
+                "rated_count"
+            ]
             -
-            outgoing["rated_count"],
+            outgoing[
+                "rated_count"
+            ],
 
-        "rating_difference":
-            incoming["total_rating"]
-            -
-            outgoing["total_rating"],
+        "rating_sum":
+            round(
+                incoming[
+                    "rating_sum"
+                ]
+                -
+                outgoing[
+                    "rating_sum"
+                ],
+                4
+            ),
 
-        "star_difference":
-            incoming["total_stars"]
+        "average_rating_difference":
+            round(
+                incoming[
+                    "average_rating"
+                ]
+                -
+                outgoing[
+                    "average_rating"
+                ],
+                4
+            ),
+
+        "stars_sum":
+            incoming[
+                "stars_sum"
+            ]
             -
-            outgoing["total_stars"],
+            outgoing[
+                "stars_sum"
+            ],
     }
-
-    incoming[
-        "average_rating"
-    ] = round(
-        incoming[
-            "average_rating"
-        ],
-        4
-    )
-
-    outgoing[
-        "average_rating"
-    ] = round(
-        outgoing[
-            "average_rating"
-        ],
-        4
-    )
-
-    incoming[
-        "total_rating"
-    ] = round(
-        incoming[
-            "total_rating"
-        ],
-        4
-    )
-
-    outgoing[
-        "total_rating"
-    ] = round(
-        outgoing[
-            "total_rating"
-        ],
-        4
-    )
-
-    incoming[
-        "total_stars"
-    ] = round(
-        incoming[
-            "total_stars"
-        ],
-        4
-    )
-
-    outgoing[
-        "total_stars"
-    ] = round(
-        outgoing[
-            "total_stars"
-        ],
-        4
-    )
-
-    profile[
-        "net"
-    ][
-        "rating_difference"
-    ] = round(
-        profile[
-            "net"
-        ][
-            "rating_difference"
-        ],
-        4
-    )
-
-    profile[
-        "net"
-    ][
-        "star_difference"
-    ] = round(
-        profile[
-            "net"
-        ][
-            "star_difference"
-        ],
-        4
-    )
 
     return profile
 
 
-def process_transfer_portal():
-    """Process all transfer portal records."""
+def process_transfer_portal(year):
+    """Process one season of transfer portal data."""
 
-    records = load_records()
+    source = input_file(
+        year
+    )
+
+    destination = output_file(
+        year
+    )
+
+    if not source.exists():
+
+        raise FileNotFoundError(
+            f"Transfer portal input file not found: "
+            f"{source}"
+        )
+
+    with source.open(
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        records = json.load(
+            file
+        )
 
     profiles = {}
 
-    for transfer in records:
+    total_incoming = 0
+    total_outgoing = 0
 
-        origin = transfer.get(
+    for record in records:
+
+        origin = record.get(
             "origin"
         )
 
-        destination = transfer.get(
-            "destination"
-        )
-
-        # Create profiles for both sides
-        # when a team is available.
-        ensure_team(
-            profiles,
-            origin
+        destination_team = (
+            record.get(
+                "destination"
+            )
         )
 
         ensure_team(
             profiles,
-            destination
+            origin,
+            year
         )
 
-        # Outgoing transfer.
+        ensure_team(
+            profiles,
+            destination_team,
+            year
+        )
+
         if origin:
 
             add_transfer(
@@ -373,42 +441,47 @@ def process_transfer_portal():
                 ][
                     "outgoing"
                 ],
-                transfer
+                record
             )
 
-        # Incoming transfer.
-        if destination:
+            total_outgoing += 1
+
+        if destination_team:
 
             add_transfer(
                 profiles[
-                    destination
+                    destination_team
                 ][
                     "incoming"
                 ],
-                transfer
+                record
             )
+
+            total_incoming += 1
 
     processed = []
 
-    for team in profiles.values():
+    for profile in profiles.values():
 
         processed.append(
-            finalize_profile(
-                team
+            finalize_team(
+                profile
             )
         )
 
     processed.sort(
         key=lambda team:
-            team["team"]
+            team[
+                "team"
+            ]
     )
 
-    OUTPUT_FILE.parent.mkdir(
+    destination.parent.mkdir(
         parents=True,
         exist_ok=True
     )
 
-    with OUTPUT_FILE.open(
+    with destination.open(
         "w",
         encoding="utf-8"
     ) as file:
@@ -418,24 +491,6 @@ def process_transfer_portal():
             file,
             indent=4
         )
-
-    incoming_total = sum(
-        team[
-            "incoming"
-        ][
-            "count"
-        ]
-        for team in processed
-    )
-
-    outgoing_total = sum(
-        team[
-            "outgoing"
-        ][
-            "count"
-        ]
-        for team in processed
-    )
 
     teams_with_incoming = sum(
         1
@@ -457,6 +512,14 @@ def process_transfer_portal():
         ] > 0
     )
 
+    print("=" * 70)
+
+    print(
+        f"{year} TRANSFER PORTAL PROCESSING"
+    )
+
+    print("=" * 70)
+
     print(
         f"Processed "
         f"{len(records)} "
@@ -470,12 +533,12 @@ def process_transfer_portal():
 
     print(
         f"Incoming transfers: "
-        f"{incoming_total}"
+        f"{total_incoming}"
     )
 
     print(
         f"Outgoing transfers: "
-        f"{outgoing_total}"
+        f"{total_outgoing}"
     )
 
     print(
@@ -489,9 +552,20 @@ def process_transfer_portal():
     )
 
     print(
-        f"Saved to {OUTPUT_FILE}"
+        f"Saved to {destination}"
     )
 
 
 if __name__ == "__main__":
-    process_transfer_portal()
+
+    year = 2025
+
+    if len(sys.argv) > 1:
+
+        year = int(
+            sys.argv[1]
+        )
+
+    process_transfer_portal(
+        year
+    )
