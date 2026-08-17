@@ -1,36 +1,49 @@
 """
 Process CFBD returning production data into model-ready team profiles.
 
-CFBD's /player/returning endpoint provides returning production
-as PPA percentages and returning usage percentages.
+The data represents production returning into the specified season.
 
-For 2025, these values describe production returning from the
-2024 season into the 2025 season.
+Example:
+    2025 returning production describes production returning
+    from the 2024 season into 2025.
+
+Usage:
+    python -m data.process_returning_production 2025
+    python -m data.process_returning_production 2026
 """
 
 import json
+import sys
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-INPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "raw"
-    / "returning_production"
-    / "2025.json"
-)
 
-OUTPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "returning_production_2025.json"
-)
+def input_file(year):
+    """Return raw input path for a season."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "raw"
+        / "returning_production"
+        / f"{year}.json"
+    )
 
 
-def to_float(value):
+def output_file(year):
+    """Return processed output path for a season."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / f"returning_production_{year}.json"
+    )
+
+
+def safe_float(value):
     """Safely convert a value to float."""
 
     if value is None:
@@ -38,113 +51,232 @@ def to_float(value):
 
     try:
         return float(value)
-    except (TypeError, ValueError):
+
+    except (
+        TypeError,
+        ValueError
+    ):
         return 0.0
 
 
 def process_team(record):
-    """Convert one CFBD record into a standardized team profile."""
+    """
+    Convert one CFBD record into a standardized team profile.
 
-    team_name = record.get("team")
-
-    if not team_name:
-        return None
+    CFBD currently returns fields such as:
+        percentPPA
+        percentPassingPPA
+        percentReceivingPPA
+        percentRushingPPA
+        usage
+        passingUsage
+        receivingUsage
+        rushingUsage
+    """
 
     return {
-        "season": record.get("season"),
-        "team": team_name,
-        "conference": record.get("conference"),
+        "season":
+            record.get(
+                "season"
+            ),
+
+        "team":
+            record.get(
+                "team"
+            ),
+
+        "conference":
+            record.get(
+                "conference"
+            ),
 
         "overall": {
-            "percent": to_float(
-                record.get("percentPPA", 0)
-            ),
-            "usage": to_float(
-                record.get("usage", 0)
-            ),
+            "percent":
+                safe_float(
+                    record.get(
+                        "percentPPA"
+                    )
+                ),
+
+            "usage":
+                safe_float(
+                    record.get(
+                        "usage"
+                    )
+                ),
+
+            "ppa":
+                safe_float(
+                    record.get(
+                        "totalPPA"
+                    )
+                ),
         },
 
         "passing": {
-            "percent": to_float(
-                record.get("percentPassingPPA", 0)
-            ),
-            "usage": to_float(
-                record.get("passingUsage", 0)
-            ),
+            "percent":
+                safe_float(
+                    record.get(
+                        "percentPassingPPA"
+                    )
+                ),
+
+            "usage":
+                safe_float(
+                    record.get(
+                        "passingUsage"
+                    )
+                ),
+
+            "ppa":
+                safe_float(
+                    record.get(
+                        "totalPassingPPA"
+                    )
+                ),
         },
 
         "rushing": {
-            "percent": to_float(
-                record.get("percentRushingPPA", 0)
-            ),
-            "usage": to_float(
-                record.get("rushingUsage", 0)
-            ),
+            "percent":
+                safe_float(
+                    record.get(
+                        "percentRushingPPA"
+                    )
+                ),
+
+            "usage":
+                safe_float(
+                    record.get(
+                        "rushingUsage"
+                    )
+                ),
+
+            "ppa":
+                safe_float(
+                    record.get(
+                        "totalRushingPPA"
+                    )
+                ),
         },
 
         "receiving": {
-            "percent": to_float(
-                record.get("percentReceivingPPA", 0)
-            ),
-            "usage": to_float(
-                record.get("receivingUsage", 0)
-            ),
-        },
+            "percent":
+                safe_float(
+                    record.get(
+                        "percentReceivingPPA"
+                    )
+                ),
 
-        "raw": {
-            "total_ppa": to_float(
-                record.get("totalPPA", 0)
-            ),
-            "total_passing_ppa": to_float(
-                record.get("totalPassingPPA", 0)
-            ),
-            "total_receiving_ppa": to_float(
-                record.get("totalReceivingPPA", 0)
-            ),
-            "total_rushing_ppa": to_float(
-                record.get("totalRushingPPA", 0)
-            ),
+            "usage":
+                safe_float(
+                    record.get(
+                        "receivingUsage"
+                    )
+                ),
+
+            "ppa":
+                safe_float(
+                    record.get(
+                        "totalReceivingPPA"
+                    )
+                ),
         },
     }
 
 
-def process_returning_production():
-    """Process all returning production records."""
+def process_returning_production(year):
+    """Process all returning-production records for one season."""
 
-    with INPUT_FILE.open(
+    source = input_file(
+        year
+    )
+
+    destination = output_file(
+        year
+    )
+
+    if not source.exists():
+
+        raise FileNotFoundError(
+            f"Returning production input file not found: "
+            f"{source}"
+        )
+
+    with source.open(
         "r",
         encoding="utf-8"
     ) as file:
-        raw_records = json.load(file)
+
+        raw_records = json.load(
+            file
+        )
 
     processed = []
 
     for record in raw_records:
 
-        team = process_team(record)
+        team = process_team(
+            record
+        )
 
-        if team is not None:
-            processed.append(team)
+        if not team[
+            "team"
+        ]:
+            continue
+
+        processed.append(
+            team
+        )
 
     processed.sort(
         key=lambda team:
-            team["team"]
+            team[
+                "team"
+            ]
     )
 
-    OUTPUT_FILE.parent.mkdir(
+    destination.parent.mkdir(
         parents=True,
         exist_ok=True
     )
 
-    with OUTPUT_FILE.open(
+    with destination.open(
         "w",
         encoding="utf-8"
     ) as file:
+
         json.dump(
             processed,
             file,
             indent=4
         )
+
+    non_zero = [
+        team
+        for team in processed
+        if team[
+            "overall"
+        ][
+            "percent"
+        ] > 0
+    ]
+
+    values = [
+        team[
+            "overall"
+        ][
+            "percent"
+        ]
+        for team in processed
+    ]
+
+    print("=" * 70)
+
+    print(
+        f"{year} RETURNING PRODUCTION PROCESSING"
+    )
+
+    print("=" * 70)
 
     print(
         f"Processed "
@@ -153,77 +285,71 @@ def process_returning_production():
     )
 
     print(
-        f"Saved to {OUTPUT_FILE}"
+        f"Saved to {destination}"
     )
 
-    nonzero_overall = [
-        team["overall"]["percent"]
-        for team in processed
-        if team["overall"]["percent"] != 0
-    ]
+    print()
 
     print(
-        f"Teams with non-zero overall returning production: "
-        f"{len(nonzero_overall)}"
+        f"Teams with non-zero overall "
+        f"returning production: "
+        f"{len(non_zero)}"
     )
 
-    if nonzero_overall:
+    if values:
 
         print(
             f"Minimum overall returning production: "
-            f"{min(nonzero_overall):.3f}"
+            f"{min(values):.3f}"
         )
 
         print(
             f"Maximum overall returning production: "
-            f"{max(nonzero_overall):.3f}"
+            f"{max(values):.3f}"
         )
 
         print(
             f"Average overall returning production: "
-            f"{sum(nonzero_overall) / len(nonzero_overall):.3f}"
+            f"{sum(values) / len(values):.3f}"
         )
 
-        print()
+    print()
 
-        highest = sorted(
-            processed,
-            key=lambda team:
-                team["overall"]["percent"],
-            reverse=True,
-        )
+    print(
+        "TOP 10 RETURNING PRODUCTION"
+    )
+
+    print("-" * 70)
+
+    highest = sorted(
+        processed,
+        key=lambda team:
+            team[
+                "overall"
+            ][
+                "percent"
+            ],
+        reverse=True,
+    )
+
+    for team in highest[:10]:
 
         print(
-            "Top 5 returning production:"
+            f"{team['team']}: "
+            f"{team['overall']['percent']:.3f}"
         )
-
-        for team in highest[:5]:
-
-            print(
-                f"{team['team']}: "
-                f"{team['overall']['percent']:.3f}"
-            )
-
-    else:
-
-        print(
-            "WARNING: No non-zero returning production "
-            "values were found."
-        )
-
-        if raw_records:
-
-            print(
-                "First raw CFBD record:"
-            )
-
-            print(
-                json.dumps(
-                    raw_records[0],
-                    indent=4
-                )
-            )
 
 
 if __name__ == "__main__":
-    process_returning_production()
+
+    year = 2025
+
+    if len(sys.argv) > 1:
+
+        year = int(
+            sys.argv[1]
+        )
+
+    process_returning_production(
+        year
+    )
