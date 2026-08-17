@@ -1,1 +1,1382 @@
-
+[
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 1,
+    "team": "Colorado",
+    "returning_snaps": 21069,
+    "returning_snap_percent": 74,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 2,
+    "team": "Ole Miss",
+    "returning_snaps": 19361,
+    "returning_snap_percent": 66,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 3,
+    "team": "UCLA",
+    "returning_snaps": 19265,
+    "returning_snap_percent": 78,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 4,
+    "team": "Texas",
+    "returning_snaps": 19129,
+    "returning_snap_percent": 84,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 5,
+    "team": "Texas Tech",
+    "returning_snaps": 18998,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 6,
+    "team": "Virginia",
+    "returning_snaps": 18526,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 7,
+    "team": "LSU",
+    "returning_snaps": 17950,
+    "returning_snap_percent": 70,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 8,
+    "team": "Tennessee",
+    "returning_snaps": 17716,
+    "returning_snap_percent": 76,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 9,
+    "team": "Oklahoma State",
+    "returning_snaps": 17637,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 10,
+    "team": "Florida Atlantic",
+    "returning_snaps": 17407,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 11,
+    "team": "Nebraska",
+    "returning_snaps": 17354,
+    "returning_snap_percent": 73,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 12,
+    "team": "Oklahoma",
+    "returning_snaps": 17216,
+    "returning_snap_percent": 75,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 13,
+    "team": "Arizona",
+    "returning_snaps": 17106,
+    "returning_snap_percent": 68,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 14,
+    "team": "South Carolina",
+    "returning_snaps": 16880,
+    "returning_snap_percent": 80,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 15,
+    "team": "Auburn",
+    "returning_snaps": 16878,
+    "returning_snap_percent": 80,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 16,
+    "team": "Florida",
+    "returning_snaps": 16843,
+    "returning_snap_percent": 79,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 17,
+    "team": "Texas A&M",
+    "returning_snaps": 16838,
+    "returning_snap_percent": 64,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 18,
+    "team": "Houston",
+    "returning_snaps": 16732,
+    "returning_snap_percent": 66,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 19,
+    "team": "West Virginia",
+    "returning_snaps": 16698,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 20,
+    "team": "UCF",
+    "returning_snaps": 16679,
+    "returning_snap_percent": 75,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 21,
+    "team": "Wake Forest",
+    "returning_snaps": 16437,
+    "returning_snap_percent": 63,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 22,
+    "team": "Virginia Tech",
+    "returning_snaps": 16266,
+    "returning_snap_percent": 83,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 23,
+    "team": "Georgia",
+    "returning_snaps": 16243,
+    "returning_snap_percent": 70,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 24,
+    "team": "San Diego State",
+    "returning_snaps": 16155,
+    "returning_snap_percent": 69,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 25,
+    "team": "Indiana",
+    "returning_snaps": 16139,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 26,
+    "team": "Arkansas",
+    "returning_snaps": 16100,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 27,
+    "team": "Kennesaw State",
+    "returning_snaps": 16043,
+    "returning_snap_percent": 70,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 28,
+    "team": "California",
+    "returning_snaps": 15972,
+    "returning_snap_percent": 72,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 29,
+    "team": "South Florida",
+    "returning_snaps": 15898,
+    "returning_snap_percent": 67,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 30,
+    "team": "Arkansas State",
+    "returning_snaps": 15769,
+    "returning_snap_percent": 74,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 31,
+    "team": "SMU",
+    "returning_snaps": 15763,
+    "returning_snap_percent": 61,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 32,
+    "team": "Kansas",
+    "returning_snaps": 15737,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 33,
+    "team": "Tulsa",
+    "returning_snaps": 15605,
+    "returning_snap_percent": 73,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 34,
+    "team": "BYU",
+    "returning_snaps": 15546,
+    "returning_snap_percent": 66,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 35,
+    "team": "Iowa State",
+    "returning_snaps": 15527,
+    "returning_snap_percent": 75,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 36,
+    "team": "Utah State",
+    "returning_snaps": 15482,
+    "returning_snap_percent": 73,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 37,
+    "team": "Memphis",
+    "returning_snaps": 15463,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 38,
+    "team": "Louisville",
+    "returning_snaps": 15417,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 39,
+    "team": "Duke",
+    "returning_snaps": 15337,
+    "returning_snap_percent": 56,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 40,
+    "team": "Ohio State",
+    "returning_snaps": 15299,
+    "returning_snap_percent": 72,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 41,
+    "team": "Oregon",
+    "returning_snaps": 15211,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 42,
+    "team": "Miami",
+    "returning_snaps": 15076,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 43,
+    "team": "Penn State",
+    "returning_snaps": 15019,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 44,
+    "team": "Cincinnati",
+    "returning_snaps": 14964,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 45,
+    "team": "Missouri",
+    "returning_snaps": 14852,
+    "returning_snap_percent": 70,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 46,
+    "team": "Toledo",
+    "returning_snaps": 14845,
+    "returning_snap_percent": 77,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 47,
+    "team": "Baylor",
+    "returning_snaps": 14813,
+    "returning_snap_percent": 66,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 48,
+    "team": "Maryland",
+    "returning_snaps": 14802,
+    "returning_snap_percent": 83,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 49,
+    "team": "Pittsburgh",
+    "returning_snaps": 14796,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 50,
+    "team": "Florida State",
+    "returning_snaps": 14685,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 51,
+    "team": "New Mexico State",
+    "returning_snaps": 14664,
+    "returning_snap_percent": 79,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 52,
+    "team": "Minnesota",
+    "returning_snaps": 14637,
+    "returning_snap_percent": 67,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 53,
+    "team": "Arizona State",
+    "returning_snaps": 14636,
+    "returning_snap_percent": 54,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 54,
+    "team": "Syracuse",
+    "returning_snaps": 14622,
+    "returning_snap_percent": 64,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 55,
+    "team": "Miami (OH)",
+    "returning_snaps": 14499,
+    "returning_snap_percent": 74,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 56,
+    "team": "Boise State",
+    "returning_snaps": 14411,
+    "returning_snap_percent": 62,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 57,
+    "team": "Michigan",
+    "returning_snaps": 14359,
+    "returning_snap_percent": 68,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 58,
+    "team": "Kansas State",
+    "returning_snaps": 14331,
+    "returning_snap_percent": 70,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 59,
+    "team": "Purdue",
+    "returning_snaps": 14305,
+    "returning_snap_percent": 66,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 60,
+    "team": "Northwestern",
+    "returning_snaps": 14228,
+    "returning_snap_percent": 68,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 61,
+    "team": "New Mexico",
+    "returning_snaps": 14157,
+    "returning_snap_percent": 69,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 62,
+    "team": "Illinois",
+    "returning_snaps": 14151,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 63,
+    "team": "Oregon State",
+    "returning_snaps": 14097,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 64,
+    "team": "Rutgers",
+    "returning_snaps": 14089,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 65,
+    "team": "Utah",
+    "returning_snaps": 14004,
+    "returning_snap_percent": 62,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 66,
+    "team": "TCU",
+    "returning_snaps": 13956,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 67,
+    "team": "Delaware",
+    "returning_snaps": 13931,
+    "returning_snap_percent": 66,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 68,
+    "team": "NC State",
+    "returning_snaps": 13850,
+    "returning_snap_percent": 68,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 69,
+    "team": "Notre Dame",
+    "returning_snaps": 13835,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 70,
+    "team": "Jacksonville State",
+    "returning_snaps": 13830,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 71,
+    "team": "Coastal Carolina",
+    "returning_snaps": 13806,
+    "returning_snap_percent": 62,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 72,
+    "team": "Michigan State",
+    "returning_snaps": 13802,
+    "returning_snap_percent": 64,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 73,
+    "team": "Vanderbilt",
+    "returning_snaps": 13754,
+    "returning_snap_percent": 62,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 74,
+    "team": "Georgia Southern",
+    "returning_snaps": 13643,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 75,
+    "team": "Boston College",
+    "returning_snaps": 13548,
+    "returning_snap_percent": 68,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 76,
+    "team": "Wisconsin",
+    "returning_snaps": 13539,
+    "returning_snap_percent": 64,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 77,
+    "team": "Kentucky",
+    "returning_snaps": 13375,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 78,
+    "team": "Washington",
+    "returning_snaps": 13353,
+    "returning_snap_percent": 71,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 79,
+    "team": "Alabama",
+    "returning_snaps": 13309,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 80,
+    "team": "Clemson",
+    "returning_snaps": 13224,
+    "returning_snap_percent": 62,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 81,
+    "team": "Mississippi State",
+    "returning_snaps": 13133,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 82,
+    "team": "Central Michigan",
+    "returning_snaps": 13037,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 83,
+    "team": "Iowa",
+    "returning_snaps": 12962,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 84,
+    "team": "Florida International",
+    "returning_snaps": 12803,
+    "returning_snap_percent": 61,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 85,
+    "team": "UNLV",
+    "returning_snaps": 12711,
+    "returning_snap_percent": 59,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 86,
+    "team": "Washington State",
+    "returning_snaps": 12363,
+    "returning_snap_percent": 54,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 87,
+    "team": "USC",
+    "returning_snaps": 12293,
+    "returning_snap_percent": 64,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 88,
+    "team": "Western Kentucky",
+    "returning_snaps": 12117,
+    "returning_snap_percent": 54,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 89,
+    "team": "Stanford",
+    "returning_snaps": 11992,
+    "returning_snap_percent": 68,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 90,
+    "team": "UTSA",
+    "returning_snaps": 11965,
+    "returning_snap_percent": 65,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 91,
+    "team": "Georgia Tech",
+    "returning_snaps": 11955,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 92,
+    "team": "Texas State",
+    "returning_snaps": 11837,
+    "returning_snap_percent": 63,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 93,
+    "team": "East Carolina",
+    "returning_snaps": 11797,
+    "returning_snap_percent": 55,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 94,
+    "team": "UAB",
+    "returning_snaps": 11693,
+    "returning_snap_percent": 61,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 95,
+    "team": "Fresno State",
+    "returning_snaps": 11317,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 96,
+    "team": "Liberty",
+    "returning_snaps": 11271,
+    "returning_snap_percent": 62,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 97,
+    "team": "App State",
+    "returning_snaps": 11250,
+    "returning_snap_percent": 51,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 98,
+    "team": "Massachusetts",
+    "returning_snaps": 11238,
+    "returning_snap_percent": 53,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 99,
+    "team": "Wyoming",
+    "returning_snaps": 11184,
+    "returning_snap_percent": 56,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 100,
+    "team": "UTEP",
+    "returning_snaps": 11168,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 101,
+    "team": "Eastern Michigan",
+    "returning_snaps": 11116,
+    "returning_snap_percent": 62,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 102,
+    "team": "Marshall",
+    "returning_snaps": 10904,
+    "returning_snap_percent": 63,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 103,
+    "team": "Southern Miss",
+    "returning_snaps": 10896,
+    "returning_snap_percent": 59,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 104,
+    "team": "Louisiana",
+    "returning_snaps": 10894,
+    "returning_snap_percent": 59,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 105,
+    "team": "Rice",
+    "returning_snaps": 10821,
+    "returning_snap_percent": 52,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 106,
+    "team": "Tulane",
+    "returning_snaps": 10749,
+    "returning_snap_percent": 61,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 107,
+    "team": "James Madison",
+    "returning_snaps": 10746,
+    "returning_snap_percent": 63,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 108,
+    "team": "Temple",
+    "returning_snaps": 10732,
+    "returning_snap_percent": 55,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 109,
+    "team": "Western Michigan",
+    "returning_snaps": 10723,
+    "returning_snap_percent": 47,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 110,
+    "team": "Louisiana Tech",
+    "returning_snaps": 10687,
+    "returning_snap_percent": 63,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 111,
+    "team": "North Texas",
+    "returning_snaps": 10623,
+    "returning_snap_percent": 57,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 112,
+    "team": "Colorado State",
+    "returning_snaps": 10591,
+    "returning_snap_percent": 73,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 113,
+    "team": "Georgia State",
+    "returning_snaps": 10568,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 114,
+    "team": "North Carolina",
+    "returning_snaps": 10535,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 115,
+    "team": "Hawai'i",
+    "returning_snaps": 10271,
+    "returning_snap_percent": 51,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 116,
+    "team": "Troy",
+    "returning_snaps": 10200,
+    "returning_snap_percent": 48,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 117,
+    "team": "Sam Houston",
+    "returning_snaps": 10182,
+    "returning_snap_percent": 59,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 118,
+    "team": "UConn",
+    "returning_snaps": 10028,
+    "returning_snap_percent": 50,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 119,
+    "team": "Ohio",
+    "returning_snaps": 9899,
+    "returning_snap_percent": 52,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 120,
+    "team": "Air Force",
+    "returning_snaps": 9789,
+    "returning_snap_percent": 58,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 121,
+    "team": "Charlotte",
+    "returning_snaps": 9597,
+    "returning_snap_percent": 53,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 122,
+    "team": "North Dakota State",
+    "returning_snaps": 9571,
+    "returning_snap_percent": 67,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 123,
+    "team": "Kent State",
+    "returning_snaps": 9562,
+    "returning_snap_percent": 60,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 124,
+    "team": "Navy",
+    "returning_snaps": 9533,
+    "returning_snap_percent": 55,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 125,
+    "team": "Nevada",
+    "returning_snaps": 9409,
+    "returning_snap_percent": 51,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 126,
+    "team": "Akron",
+    "returning_snaps": 9334,
+    "returning_snap_percent": 63,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 127,
+    "team": "Army",
+    "returning_snaps": 9333,
+    "returning_snap_percent": 51,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 128,
+    "team": "Old Dominion",
+    "returning_snaps": 9294,
+    "returning_snap_percent": 56,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 129,
+    "team": "South Alabama",
+    "returning_snaps": 9274,
+    "returning_snap_percent": 66,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 130,
+    "team": "Northern Illinois",
+    "returning_snaps": 8441,
+    "returning_snap_percent": 50,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 131,
+    "team": "Missouri State",
+    "returning_snaps": 8227,
+    "returning_snap_percent": 46,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 132,
+    "team": "Middle Tennessee",
+    "returning_snaps": 7972,
+    "returning_snap_percent": 49,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 133,
+    "team": "Buffalo",
+    "returning_snaps": 7944,
+    "returning_snap_percent": 50,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 134,
+    "team": "UL Monroe",
+    "returning_snaps": 7200,
+    "returning_snap_percent": 44,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 135,
+    "team": "Sacramento State",
+    "returning_snaps": 7009,
+    "returning_snap_percent": 57,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 136,
+    "team": "Bowling Green",
+    "returning_snaps": 6931,
+    "returning_snap_percent": 54,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 137,
+    "team": "Ball State",
+    "returning_snaps": 6337,
+    "returning_snap_percent": 45,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  },
+  {
+    "season": 2026,
+    "rank_by_returning_snaps": 138,
+    "team": "San Jos\u00e9 State",
+    "returning_snaps": 5585,
+    "returning_snap_percent": 35,
+    "source": "Punt and Rally",
+    "show_portal": false,
+    "stat": "overall"
+  }
+]
