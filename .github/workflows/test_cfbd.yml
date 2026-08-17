@@ -144,3 +144,7 @@ jobs:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python -m data.download_transfer_portal 2025
+
+      - name: Process 2025 transfer portal
+        run: |
+          python -m data.process_transfer_portal
