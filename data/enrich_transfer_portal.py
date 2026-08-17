@@ -1,5 +1,5 @@
 """
-Enrich 2025 transfer portal records with historical recruiting ratings.
+Enrich transfer portal records with historical recruiting ratings.
 
 Primary talent measure:
     CFBD transfer portal rating
@@ -7,7 +7,12 @@ Primary talent measure:
 Fallback talent measure:
     Original CFBD recruiting rating
 
-The recruiting history covers 2019 through 2025.
+Usage:
+    python -m data.enrich_transfer_portal 2025
+    python -m data.enrich_transfer_portal 2026
+
+The module searches recruiting classes from 2019 through the
+specified transfer season.
 
 This module does NOT modify the power-rating model.
 It creates an enriched transfer dataset for later analysis.
@@ -15,19 +20,12 @@ It creates an enriched transfer dataset for later analysis.
 
 import json
 import re
+import sys
 import unicodedata
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
-TRANSFER_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "raw"
-    / "transfer_portal"
-    / "2025.json"
-)
 
 RECRUITING_DIRECTORY = (
     PROJECT_ROOT
@@ -36,18 +34,28 @@ RECRUITING_DIRECTORY = (
     / "recruiting_players"
 )
 
-OUTPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "enriched_transfer_portal_2025.json"
-)
+
+def transfer_file(year):
+    """Return raw transfer portal file for a season."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "raw"
+        / "transfer_portal"
+        / f"{year}.json"
+    )
 
 
-RECRUITING_YEARS = range(
-    2019,
-    2026,
-)
+def output_file(year):
+    """Return enriched transfer portal output file."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / f"enriched_transfer_portal_{year}.json"
+    )
 
 
 def load_json(path):
@@ -98,7 +106,6 @@ def normalize_text(value):
         value
     ).strip()
 
-    # Remove common suffixes.
     parts = value.split()
 
     suffixes = {
@@ -107,6 +114,7 @@ def normalize_text(value):
         "ii",
         "iii",
         "iv",
+        "v",
     }
 
     while (
@@ -135,16 +143,20 @@ def safe_float(value):
 
 
 def portal_player_name(record):
-    """Build the full player name from a portal record."""
+    """Build a transfer player's full name."""
 
-    first_name = record.get(
-        "firstName",
-        ""
+    first_name = (
+        record.get(
+            "firstName"
+        )
+        or ""
     )
 
-    last_name = record.get(
-        "lastName",
-        ""
+    last_name = (
+        record.get(
+            "lastName"
+        )
+        or ""
     )
 
     return (
@@ -152,16 +164,27 @@ def portal_player_name(record):
     ).strip()
 
 
-def load_recruiting_records():
-    """Load all historical recruiting classes."""
+def load_recruiting_records(year):
+    """
+    Load historical recruiting classes through the transfer season.
+
+    Example:
+        2025 portal -> recruiting classes 2019-2025
+        2026 portal -> recruiting classes 2019-2026
+    """
 
     records = []
 
-    for year in RECRUITING_YEARS:
+    loaded_years = []
+
+    for recruiting_year in range(
+        2019,
+        year + 1
+    ):
 
         path = (
             RECRUITING_DIRECTORY
-            / f"{year}.json"
+            / f"{recruiting_year}.json"
         )
 
         if not path.exists():
@@ -175,7 +198,14 @@ def load_recruiting_records():
             year_records
         )
 
-    return records
+        loaded_years.append(
+            recruiting_year
+        )
+
+    return (
+        records,
+        loaded_years,
+    )
 
 
 def build_recruiting_index(
@@ -211,12 +241,12 @@ def candidate_score(
     recruit
 ):
     """
-    Score a recruiting candidate for a transfer.
+    Score one recruiting candidate.
 
-    School match is strongest.
-    Position match is also useful.
+    Origin school match is strongest.
+    Position match is secondary.
 
-    We intentionally avoid fuzzy-name matching here.
+    Fuzzy-name matching is intentionally not used.
     """
 
     score = 0
@@ -267,7 +297,7 @@ def find_recruiting_match(
     transfer,
     recruiting_index
 ):
-    """Find a conservative recruiting match."""
+    """Find a conservative historical recruiting match."""
 
     name = normalize_text(
         portal_player_name(
@@ -281,11 +311,13 @@ def find_recruiting_match(
     )
 
     if not candidates:
-        return None, "unmatched"
+        return (
+            None,
+            "unmatched"
+        )
 
-    # An exact normalized name with only one recruiting
-    # record is safe enough for our initial analysis.
     if len(candidates) == 1:
+
         return (
             candidates[0],
             "unique_name"
@@ -321,18 +353,20 @@ def find_recruiting_match(
         if score == highest_score
     ]
 
-    # For duplicated names, require supporting
-    # position/school information and a unique winner.
     if (
         highest_score >= 3
         and len(highest_candidates) == 1
     ):
+
         return (
             highest_candidates[0],
             "scored_match"
         )
 
-    return None, "ambiguous"
+    return (
+        None,
+        "ambiguous"
+    )
 
 
 def enrich_transfer(
@@ -364,6 +398,7 @@ def enrich_transfer(
     recruiting_school = None
     recruiting_type = None
     recruiting_id = None
+    recruiting_athlete_id = None
 
     if recruiting_match:
 
@@ -403,8 +438,14 @@ def enrich_transfer(
             )
         )
 
-    # Portal rating is preferred because it represents
-    # the player at transfer time.
+        recruiting_athlete_id = (
+            recruiting_match.get(
+                "athleteId"
+            )
+        )
+
+    # Portal rating represents the player at transfer time
+    # and remains our preferred talent measure.
     if portal_rating is not None:
 
         effective_rating = (
@@ -456,6 +497,9 @@ def enrich_transfer(
         "recruiting_id":
             recruiting_id,
 
+        "athlete_id":
+            recruiting_athlete_id,
+
         "year":
             recruiting_year,
 
@@ -497,16 +541,41 @@ def enrich_transfer(
     return enriched
 
 
-def enrich_transfer_portal():
-    """Enrich all transfer portal records."""
+def enrich_transfer_portal(year):
+    """Enrich all portal records for one season."""
+
+    source = transfer_file(
+        year
+    )
+
+    destination = output_file(
+        year
+    )
+
+    if not source.exists():
+
+        raise FileNotFoundError(
+            f"Transfer portal file not found: "
+            f"{source}"
+        )
 
     transfers = load_json(
-        TRANSFER_FILE
+        source
     )
 
-    recruiting_records = (
-        load_recruiting_records()
+    (
+        recruiting_records,
+        loaded_years,
+    ) = load_recruiting_records(
+        year
     )
+
+    if not recruiting_records:
+
+        raise FileNotFoundError(
+            "No recruiting history files were available "
+            f"for transfer season {year}."
+        )
 
     recruiting_index = (
         build_recruiting_index(
@@ -525,12 +594,12 @@ def enrich_transfer_portal():
             )
         )
 
-    OUTPUT_FILE.parent.mkdir(
+    destination.parent.mkdir(
         parents=True,
         exist_ok=True
     )
 
-    with OUTPUT_FILE.open(
+    with destination.open(
         "w",
         encoding="utf-8"
     ) as file:
@@ -608,16 +677,33 @@ def enrich_transfer_portal():
         == "unmatched"
     )
 
-    print("=" * 60)
+    print("=" * 70)
+
     print(
-        "TRANSFER PORTAL TALENT ENRICHMENT"
+        f"{year} TRANSFER PORTAL TALENT ENRICHMENT"
     )
-    print("=" * 60)
+
+    print("=" * 70)
 
     print(
         f"Transfer records: "
         f"{total}"
     )
+
+    print(
+        "Recruiting classes loaded: "
+        + ", ".join(
+            str(value)
+            for value in loaded_years
+        )
+    )
+
+    print(
+        f"Historical recruiting records: "
+        f"{len(recruiting_records)}"
+    )
+
+    print()
 
     print(
         f"Direct portal ratings: "
@@ -639,10 +725,12 @@ def enrich_transfer_portal():
         f"{effective_ratings}"
     )
 
-    print(
-        f"Effective rating coverage: "
-        f"{effective_ratings / total * 100:.1f}%"
-    )
+    if total > 0:
+
+        print(
+            f"Effective rating coverage: "
+            f"{effective_ratings / total * 100:.1f}%"
+        )
 
     print(
         f"Ambiguous recruiting matches: "
@@ -660,15 +748,17 @@ def enrich_transfer_portal():
 
     for record in enriched_records:
 
-        source = record[
+        source_name = record[
             "talent"
         ][
             "effective_rating_source"
         ]
 
-        source_counts[source] = (
+        source_counts[
+            source_name
+        ] = (
             source_counts.get(
-                source,
+                source_name,
                 0
             )
             + 1
@@ -677,17 +767,19 @@ def enrich_transfer_portal():
     print(
         "EFFECTIVE RATING SOURCES"
     )
-    print("-" * 60)
+
+    print("-" * 70)
 
     for (
-        source,
+        source_name,
         count
     ) in sorted(
         source_counts.items()
     ):
 
         print(
-            f"{source}: {count}"
+            f"{source_name}: "
+            f"{count}"
         )
 
     print()
@@ -715,7 +807,8 @@ def enrich_transfer_portal():
     print(
         "TOP 15 TRANSFERS BY EFFECTIVE RATING"
     )
-    print("-" * 60)
+
+    print("-" * 70)
 
     for record in rated_records[:15]:
 
@@ -736,9 +829,20 @@ def enrich_transfer_portal():
     print()
 
     print(
-        f"Saved to {OUTPUT_FILE}"
+        f"Saved to {destination}"
     )
 
 
 if __name__ == "__main__":
-    enrich_transfer_portal()
+
+    year = 2025
+
+    if len(sys.argv) > 1:
+
+        year = int(
+            sys.argv[1]
+        )
+
+    enrich_transfer_portal(
+        year
+    )
