@@ -256,3 +256,11 @@ jobs:
       - name: Validate 2025 NFL draft losses
         run: |
           python -m ratings.validate_draft_losses
+
+      # ============================================================
+      # COMBINED PRESEASON MODEL
+      # ============================================================
+
+      - name: Run combined preseason model validation
+        run: |
+          python -m ratings.preseason_model
