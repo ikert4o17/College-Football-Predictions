@@ -5,23 +5,17 @@ This is a diagnostic downloader for building a QB continuity model.
 
 It collects:
 - Player usage
-- Player season overview
+- Player season overview, when available
 - Player season PPA
 - Team roster data
-
-for the requested season.
 
 Usage:
     python -m data.download_qb_data 2024
     python -m data.download_qb_data 2025
 
-The first goal is to inspect the raw schemas and determine which
-fields can reliably measure:
-- returning starter status
-- passing usage
-- prior production
-- prior efficiency
-- QB experience
+IMPORTANT:
+Some CFBD endpoints may require additional filters.
+A failed optional endpoint will NOT terminate this diagnostic run.
 
 This module does NOT modify any ratings.
 """
@@ -54,6 +48,7 @@ def get_api_key():
     )
 
     if not api_key:
+
         raise ValueError(
             "CFBD_API_KEY environment variable is not set."
         )
@@ -63,14 +58,30 @@ def get_api_key():
 
 def api_get(
     endpoint,
-    params
+    params,
+    required=True
 ):
-    """Run one authenticated CFBD GET request."""
+    """
+    Run one authenticated CFBD GET request.
+
+    Required endpoints raise on failure.
+    Optional endpoints return an empty list.
+    """
 
     headers = {
         "Authorization":
             f"Bearer {get_api_key()}"
     }
+
+    print()
+
+    print(
+        f"GET {endpoint}"
+    )
+
+    print(
+        f"Parameters: {params}"
+    )
 
     response = requests.get(
         f"{BASE_URL}{endpoint}",
@@ -80,17 +91,90 @@ def api_get(
     )
 
     print(
-        f"GET {endpoint}"
-    )
-
-    print(
         f"Status code: "
         f"{response.status_code}"
     )
 
-    response.raise_for_status()
+    if response.status_code >= 400:
 
-    return response.json()
+        print()
+
+        print(
+            "ERROR RESPONSE"
+        )
+
+        print("-" * 72)
+
+        try:
+
+            error_data = response.json()
+
+            print(
+                json.dumps(
+                    error_data,
+                    indent=4
+                )
+            )
+
+        except ValueError:
+
+            print(
+                response.text[:3000]
+            )
+
+        if required:
+
+            response.raise_for_status()
+
+        print()
+
+        print(
+            f"Skipping optional endpoint: "
+            f"{endpoint}"
+        )
+
+        return []
+
+    try:
+
+        data = response.json()
+
+    except ValueError as error:
+
+        if required:
+
+            raise ValueError(
+                f"CFBD returned invalid JSON for "
+                f"{endpoint}"
+            ) from error
+
+        print(
+            f"Invalid JSON returned by optional endpoint "
+            f"{endpoint}. Skipping."
+        )
+
+        return []
+
+    if isinstance(
+        data,
+        list
+    ):
+
+        return data
+
+    print(
+        f"Unexpected response structure from "
+        f"{endpoint}: "
+        f"{type(data).__name__}"
+    )
+
+    if required:
+
+        raise ValueError(
+            f"Expected list response from {endpoint}."
+        )
+
+    return []
 
 
 def save_json(
@@ -138,6 +222,11 @@ def print_first_record(
     )
 
     if not records:
+
+        print(
+            "No records available."
+        )
+
         return
 
     print()
@@ -171,22 +260,24 @@ def print_first_record(
         for key in sorted(
             records[0].keys()
         ):
+
             print(
                 key
             )
 
 
 def quarterback_filter(records):
-    """
-    Keep QB records where position is exposed.
-
-    Some endpoints may not include position. Those records are
-    preserved separately in the raw files.
-    """
+    """Keep records explicitly identified as quarterbacks."""
 
     quarterbacks = []
 
     for record in records:
+
+        if not isinstance(
+            record,
+            dict
+        ):
+            continue
 
         position = (
             record.get(
@@ -195,15 +286,16 @@ def quarterback_filter(records):
             or ""
         )
 
-        if (
+        normalized = (
             str(position)
             .strip()
             .upper()
-            in {
-                "QB",
-                "QUARTERBACK",
-            }
-        ):
+        )
+
+        if normalized in {
+            "QB",
+            "QUARTERBACK",
+        }:
 
             quarterbacks.append(
                 record
@@ -212,32 +304,19 @@ def quarterback_filter(records):
     return quarterbacks
 
 
-def download_qb_data(year):
-    """Download diagnostic QB-related data for one season."""
+def download_usage(year):
+    """Download player usage."""
 
-    print("=" * 72)
-
-    print(
-        f"CFBD QB DATA DIAGNOSTIC - {year}"
-    )
-
-    print("=" * 72)
-
-    print()
-
-    # ------------------------------------------------------------
-    # PLAYER USAGE
-    # ------------------------------------------------------------
-
-    usage = api_get(
+    records = api_get(
         "/player/usage",
         {
             "year": year,
-        }
+        },
+        required=True,
     )
 
     save_json(
-        usage,
+        records,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -247,20 +326,22 @@ def download_qb_data(year):
 
     print_first_record(
         "PLAYER USAGE",
-        usage
+        records
     )
 
-    usage_qbs = quarterback_filter(
-        usage
+    quarterbacks = quarterback_filter(
+        records
     )
+
+    print()
 
     print(
         f"QB usage records identified: "
-        f"{len(usage_qbs)}"
+        f"{len(quarterbacks)}"
     )
 
     save_json(
-        usage_qbs,
+        quarterbacks,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -268,19 +349,30 @@ def download_qb_data(year):
         )
     )
 
-    # ------------------------------------------------------------
-    # PLAYER SEASON OVERVIEW
-    # ------------------------------------------------------------
+    return (
+        records,
+        quarterbacks,
+    )
 
-    overview = api_get(
+
+def download_overview(year):
+    """
+    Attempt to download player season overview.
+
+    This endpoint is optional because CFBD may require filters
+    beyond season/year.
+    """
+
+    records = api_get(
         "/player/season/overview",
         {
             "year": year,
-        }
+        },
+        required=False,
     )
 
     save_json(
-        overview,
+        records,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -290,20 +382,22 @@ def download_qb_data(year):
 
     print_first_record(
         "PLAYER SEASON OVERVIEW",
-        overview
+        records
     )
 
-    overview_qbs = quarterback_filter(
-        overview
+    quarterbacks = quarterback_filter(
+        records
     )
+
+    print()
 
     print(
         f"QB overview records identified: "
-        f"{len(overview_qbs)}"
+        f"{len(quarterbacks)}"
     )
 
     save_json(
-        overview_qbs,
+        quarterbacks,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -311,19 +405,25 @@ def download_qb_data(year):
         )
     )
 
-    # ------------------------------------------------------------
-    # PLAYER SEASON PPA
-    # ------------------------------------------------------------
+    return (
+        records,
+        quarterbacks,
+    )
 
-    ppa = api_get(
+
+def download_ppa(year):
+    """Download player-season PPA data."""
+
+    records = api_get(
         "/ppa/players/season",
         {
             "year": year,
-        }
+        },
+        required=False,
     )
 
     save_json(
-        ppa,
+        records,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -333,20 +433,22 @@ def download_qb_data(year):
 
     print_first_record(
         "PLAYER SEASON PPA",
-        ppa
+        records
     )
 
-    ppa_qbs = quarterback_filter(
-        ppa
+    quarterbacks = quarterback_filter(
+        records
     )
+
+    print()
 
     print(
         f"QB PPA records identified: "
-        f"{len(ppa_qbs)}"
+        f"{len(quarterbacks)}"
     )
 
     save_json(
-        ppa_qbs,
+        quarterbacks,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -354,19 +456,25 @@ def download_qb_data(year):
         )
     )
 
-    # ------------------------------------------------------------
-    # ROSTERS
-    # ------------------------------------------------------------
+    return (
+        records,
+        quarterbacks,
+    )
 
-    roster = api_get(
+
+def download_roster(year):
+    """Download roster data."""
+
+    records = api_get(
         "/roster",
         {
             "year": year,
-        }
+        },
+        required=False,
     )
 
     save_json(
-        roster,
+        records,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -376,20 +484,22 @@ def download_qb_data(year):
 
     print_first_record(
         "TEAM ROSTER",
-        roster
+        records
     )
 
-    roster_qbs = quarterback_filter(
-        roster
+    quarterbacks = quarterback_filter(
+        records
     )
+
+    print()
 
     print(
         f"QB roster records identified: "
-        f"{len(roster_qbs)}"
+        f"{len(quarterbacks)}"
     )
 
     save_json(
-        roster_qbs,
+        quarterbacks,
         (
             OUTPUT_DIRECTORY
             / str(year)
@@ -397,9 +507,50 @@ def download_qb_data(year):
         )
     )
 
-    # ------------------------------------------------------------
-    # SUMMARY
-    # ------------------------------------------------------------
+    return (
+        records,
+        quarterbacks,
+    )
+
+
+def download_qb_data(year):
+    """Download all QB diagnostic datasets for one season."""
+
+    print("=" * 72)
+
+    print(
+        f"CFBD QB DATA DIAGNOSTIC - {year}"
+    )
+
+    print("=" * 72)
+
+    (
+        usage,
+        usage_qbs,
+    ) = download_usage(
+        year
+    )
+
+    (
+        overview,
+        overview_qbs,
+    ) = download_overview(
+        year
+    )
+
+    (
+        ppa,
+        ppa_qbs,
+    ) = download_ppa(
+        year
+    )
+
+    (
+        roster,
+        roster_qbs,
+    ) = download_roster(
+        year
+    )
 
     print()
 
@@ -416,6 +567,8 @@ def download_qb_data(year):
         f"{year}"
     )
 
+    print()
+
     print(
         f"Usage records: "
         f"{len(usage)}"
@@ -425,6 +578,8 @@ def download_qb_data(year):
         f"QB usage records: "
         f"{len(usage_qbs)}"
     )
+
+    print()
 
     print(
         f"Overview records: "
@@ -436,6 +591,8 @@ def download_qb_data(year):
         f"{len(overview_qbs)}"
     )
 
+    print()
+
     print(
         f"PPA records: "
         f"{len(ppa)}"
@@ -445,6 +602,8 @@ def download_qb_data(year):
         f"QB PPA records: "
         f"{len(ppa_qbs)}"
     )
+
+    print()
 
     print(
         f"Roster records: "
@@ -465,6 +624,22 @@ def download_qb_data(year):
     print(
         OUTPUT_DIRECTORY
         / str(year)
+    )
+
+    print()
+
+    print(
+        "IMPORTANT:"
+    )
+
+    print(
+        "A zero count for an optional endpoint does not "
+        "necessarily mean the data does not exist."
+    )
+
+    print(
+        "Check the printed HTTP response to determine whether "
+        "CFBD requires additional filters."
     )
 
 
