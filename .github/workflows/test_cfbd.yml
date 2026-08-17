@@ -81,6 +81,10 @@ jobs:
         run: |
           python -m ratings.team_strength
 
+      - name: Calculate 2025 team results
+        run: |
+          python -m data.process_team_results
+
       - name: Calculate 2025 strength of schedule
         run: |
           python -m ratings.strength_of_schedule
@@ -88,10 +92,6 @@ jobs:
       - name: Calculate 2025 power ratings
         run: |
           python -m ratings.power_rating
-
-      # ============================================================
-      # 2025 PREDICTIONS
-      # ============================================================
 
       - name: Test 2025 game predictions
         run: |
@@ -129,6 +129,10 @@ jobs:
         run: |
           python -m ratings.team_strength_2024
 
+      - name: Calculate 2024 team results
+        run: |
+          python -m data.process_team_results_2024
+
       - name: Calculate 2024 strength of schedule
         run: |
           python -m ratings.strength_of_schedule_2024
@@ -136,10 +140,6 @@ jobs:
       - name: Calculate 2024 power ratings
         run: |
           python -m ratings.power_rating_2024
-
-      # ============================================================
-      # SEASON CONTINUITY
-      # ============================================================
 
       - name: Test season continuity
         run: |
@@ -181,14 +181,16 @@ jobs:
         run: |
           python -m data.process_transfer_portal
 
-      - name: Validate transfer portal
+      - name: Validate 2025 transfer portal
         run: |
           python -m ratings.validate_transfer_portal
 
       # ============================================================
-      # PUNT & RALLY RETURNING SNAPS
+      # HISTORICAL RECRUITING RATINGS
       # ============================================================
 
-      - name: Download 2026 returning snaps
+      - name: Download 2019-2025 recruiting players
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
-          python -m data.download_returning_snaps 2026
+          python -m data.download_recruiting_players 2019 2025
