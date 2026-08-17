@@ -27,56 +27,139 @@ OUTPUT_FILE = (
 )
 
 
+def get_value(record, *names):
+    """
+    Return the first matching value from a CFBD record.
+
+    CFBD field names can change between API versions, so we
+    support several possible naming conventions.
+    """
+
+    for name in names:
+        if name in record and record[name] is not None:
+            return record[name]
+
+    return 0
+
+
+def to_float(value):
+    """Safely convert a value to float."""
+
+    if value is None:
+        return 0.0
+
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def process_team(record):
     """Convert one CFBD record into a standardized team profile."""
 
+    team_name = record.get("team")
+
+    if not team_name:
+        return None
+
     return {
         "season": record.get("season"),
-        "team": record.get("team"),
-        "conference": record.get("conference"),
+        "team": team_name,
 
         "overall": {
-            "percent_ppa":
-                record.get("percentPPA", 0),
-
-            "usage":
-                record.get("usage", 0),
-
-            "total_ppa":
-                record.get("totalPPA", 0),
+            "percent": to_float(
+                get_value(
+                    record,
+                    "percentReturning",
+                    "percent_returning",
+                )
+            ),
+            "usage": to_float(
+                get_value(
+                    record,
+                    "usageReturning",
+                    "usage_returning",
+                )
+            ),
+            "ppa": to_float(
+                get_value(
+                    record,
+                    "ppaReturning",
+                    "ppa_returning",
+                )
+            ),
         },
 
         "passing": {
-            "percent_ppa":
-                record.get("percentPassingPPA", 0),
-
-            "usage":
-                record.get("passingUsage", 0),
-
-            "total_ppa":
-                record.get("totalPassingPPA", 0),
+            "percent": to_float(
+                get_value(
+                    record,
+                    "percentReturningPassing",
+                    "percent_returning_passing",
+                )
+            ),
+            "usage": to_float(
+                get_value(
+                    record,
+                    "usageReturningPassing",
+                    "usage_returning_passing",
+                )
+            ),
+            "ppa": to_float(
+                get_value(
+                    record,
+                    "ppaReturningPassing",
+                    "ppa_returning_passing",
+                )
+            ),
         },
 
         "rushing": {
-            "percent_ppa":
-                record.get("percentRushingPPA", 0),
-
-            "usage":
-                record.get("rushingUsage", 0),
-
-            "total_ppa":
-                record.get("totalRushingPPA", 0),
+            "percent": to_float(
+                get_value(
+                    record,
+                    "percentReturningRushing",
+                    "percent_returning_rushing",
+                )
+            ),
+            "usage": to_float(
+                get_value(
+                    record,
+                    "usageReturningRushing",
+                    "usage_returning_rushing",
+                )
+            ),
+            "ppa": to_float(
+                get_value(
+                    record,
+                    "ppaReturningRushing",
+                    "ppa_returning_rushing",
+                )
+            ),
         },
 
         "receiving": {
-            "percent_ppa":
-                record.get("percentReceivingPPA", 0),
-
-            "usage":
-                record.get("receivingUsage", 0),
-
-            "total_ppa":
-                record.get("totalReceivingPPA", 0),
+            "percent": to_float(
+                get_value(
+                    record,
+                    "percentReturningReceiving",
+                    "percent_returning_receiving",
+                )
+            ),
+            "usage": to_float(
+                get_value(
+                    record,
+                    "usageReturningReceiving",
+                    "usage_returning_receiving",
+                )
+            ),
+            "ppa": to_float(
+                get_value(
+                    record,
+                    "ppaReturningReceiving",
+                    "ppa_returning_receiving",
+                )
+            ),
         },
     }
 
@@ -90,28 +173,14 @@ def process_returning_production():
     ) as file:
         raw_records = json.load(file)
 
-    if not raw_records:
-        raise ValueError(
-            "No returning production records were found."
-        )
-
-    print(
-        "CFBD returning production fields:"
-    )
-
-    for key in sorted(raw_records[0].keys()):
-        print(f"  {key}")
-
     processed = []
 
     for record in raw_records:
 
         team = process_team(record)
 
-        if team["team"] is None:
-            continue
-
-        processed.append(team)
+        if team is not None:
+            processed.append(team)
 
     processed.sort(
         key=lambda team:
@@ -143,17 +212,55 @@ def process_returning_production():
         f"Saved to {OUTPUT_FILE}"
     )
 
-    if processed:
+    # Diagnostic output.
+    # This lets us immediately know whether the API fields
+    # were successfully mapped instead of silently producing
+    # a file full of zeros.
+
+    nonzero_overall = [
+        team["overall"]["percent"]
+        for team in processed
+        if team["overall"]["percent"] != 0
+    ]
+
+    print(
+        f"Teams with non-zero overall returning production: "
+        f"{len(nonzero_overall)}"
+    )
+
+    if nonzero_overall:
         print(
-            "\nSample processed record:"
+            f"Minimum overall returning production: "
+            f"{min(nonzero_overall):.2f}"
         )
 
         print(
-            json.dumps(
-                processed[0],
-                indent=4
-            )
+            f"Maximum overall returning production: "
+            f"{max(nonzero_overall):.2f}"
         )
+
+        print(
+            f"Average overall returning production: "
+            f"{sum(nonzero_overall) / len(nonzero_overall):.2f}"
+        )
+
+    else:
+        print(
+            "WARNING: No non-zero returning production values "
+            "were found."
+        )
+
+        if raw_records:
+            print(
+                "First raw CFBD record:"
+            )
+
+            print(
+                json.dumps(
+                    raw_records[0],
+                    indent=4
+                )
+            )
 
 
 if __name__ == "__main__":
