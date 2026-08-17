@@ -268,6 +268,22 @@ jobs:
           python -m ratings.preseason_model_v3
 
       # ============================================================
+      # QB CONTINUITY DIAGNOSTIC DATA
+      # ============================================================
+
+      - name: Download 2024 QB diagnostic data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_qb_data 2024
+
+      - name: Download 2025 QB diagnostic data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_qb_data 2025
+
+      # ============================================================
       # 2026 PRODUCTION INPUTS
       # ============================================================
 
@@ -297,10 +313,6 @@ jobs:
         run: |
           python -m data.download_recruiting_players 2026 2026
 
-      # ============================================================
-      # 2026 TRANSFER TALENT
-      # ============================================================
-
       - name: Enrich 2026 transfer portal talent
         run: |
           python -m data.enrich_transfer_portal 2026
@@ -308,10 +320,6 @@ jobs:
       - name: Calculate 2026 transfer talent metrics
         run: |
           python -m ratings.transfer_talent 2026
-
-      # ============================================================
-      # 2026 RECRUITING TALENT
-      # ============================================================
 
       - name: Calculate 2026 recruiting talent metrics
         run: |
