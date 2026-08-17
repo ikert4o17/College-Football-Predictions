@@ -9,6 +9,10 @@ jobs:
 
     steps:
 
+      # ============================================================
+      # SETUP
+      # ============================================================
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -21,6 +25,11 @@ jobs:
         run: |
           pip install requests
 
+
+      # ============================================================
+      # TEAM DATA
+      # ============================================================
+
       - name: Download teams
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -31,6 +40,11 @@ jobs:
         run: |
           python -m data.process_teams
 
+
+      # ============================================================
+      # 2026 GAMES
+      # ============================================================
+
       - name: Download 2026 games
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -40,6 +54,11 @@ jobs:
       - name: Process 2026 games
         run: |
           python -m data.process_games 2026
+
+
+      # ============================================================
+      # 2025 HISTORICAL DATA
+      # ============================================================
 
       - name: Download 2025 historical stats
         env:
@@ -61,6 +80,11 @@ jobs:
         run: |
           python -m data.process_historical_games 2025
 
+
+      # ============================================================
+      # 2025 TEAM RATINGS
+      # ============================================================
+
       - name: Calculate 2025 team strength
         run: |
           python -m ratings.team_strength
@@ -77,9 +101,19 @@ jobs:
         run: |
           python -m ratings.power_rating
 
+
+      # ============================================================
+      # 2025 GAME PREDICTIONS
+      # ============================================================
+
       - name: Test 2025 game predictions
         run: |
           python -m predictions.game_predictor
+
+
+      # ============================================================
+      # 2024 HISTORICAL DATA
+      # ============================================================
 
       - name: Download 2024 historical stats
         env:
@@ -89,7 +123,7 @@ jobs:
 
       - name: Process 2024 historical stats
         run: |
-          python -m data.process_historical_stats 2024
+          python -m data.process_historical_stats_2024 2024
 
       - name: Download 2024 historical games
         env:
@@ -99,7 +133,12 @@ jobs:
 
       - name: Process 2024 historical games
         run: |
-          python -m data.process_historical_games 2024
+          python -m data.process_historical_games_2024 2024
+
+
+      # ============================================================
+      # 2024 TEAM RATINGS
+      # ============================================================
 
       - name: Calculate 2024 team strength
         run: |
@@ -117,9 +156,19 @@ jobs:
         run: |
           python -m ratings.power_rating_2024
 
+
+      # ============================================================
+      # SEASON CONTINUITY
+      # ============================================================
+
       - name: Test season continuity
         run: |
           python -m ratings.season_continuity
+
+
+      # ============================================================
+      # RETURNING PRODUCTION
+      # ============================================================
 
       - name: Download 2025 returning production
         env:
@@ -139,6 +188,11 @@ jobs:
         run: |
           python -m ratings.validate_returning_production
 
+
+      # ============================================================
+      # TRANSFER PORTAL
+      # ============================================================
+
       - name: Download 2025 transfer portal
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -148,3 +202,7 @@ jobs:
       - name: Process 2025 transfer portal
         run: |
           python -m data.process_transfer_portal
+
+      - name: Validate 2025 transfer portal
+        run: |
+          python -m ratings.validate_transfer_portal
