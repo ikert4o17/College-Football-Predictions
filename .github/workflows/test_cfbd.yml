@@ -1,13 +1,15 @@
-name: Update FBS Data
+name: Test CFBD Pipeline
 
-"on": workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
-  update-data:
+  test-cfbd:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -16,140 +18,129 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install requests
 
-      - name: Download FBS teams
+      - name: Download teams
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_teams
+        run: |
+          python -m data.download_teams
 
-      - name: Process FBS teams
-        run: python -m data.process_teams
+      - name: Process teams
+        run: |
+          python -m data.process_teams
 
       - name: Download 2026 games
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_games 2026
+        run: |
+          python -m data.download_games 2026
 
       - name: Process 2026 games
-        run: python -m data.process_games
+        run: |
+          python -m data.process_games 2026
 
       - name: Download 2025 historical stats
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_historical_stats 2025
+        run: |
+          python -m data.download_historical_stats 2025
 
       - name: Process 2025 historical stats
-        run: python -m data.process_historical_stats
+        run: |
+          python -m data.process_historical_stats 2025
 
       - name: Download 2025 historical games
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_historical_games 2025
+        run: |
+          python -m data.download_historical_games 2025
 
       - name: Process 2025 historical games
-        run: python -m data.process_historical_games 2025
-
-      - name: Process 2025 team results
-        run: python -m data.process_team_results
+        run: |
+          python -m data.process_historical_games 2025
 
       - name: Calculate 2025 team strength
-        run: python -m ratings.team_strength
+        run: |
+          python -m ratings.team_strength
+
+      - name: Calculate 2025 team results
+        run: |
+          python -m ratings.team_results
 
       - name: Calculate 2025 strength of schedule
-        run: python -m ratings.strength_of_schedule
+        run: |
+          python -m ratings.strength_of_schedule
 
       - name: Calculate 2025 power ratings
-        run: python -m ratings.power_rating
+        run: |
+          python -m ratings.power_rating
+
+      - name: Test 2025 game predictions
+        run: |
+          python -m predictions.game_predictor
 
       - name: Download 2024 historical stats
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_historical_stats 2024
+        run: |
+          python -m data.download_historical_stats 2024
 
       - name: Process 2024 historical stats
-        run: python -m data.process_historical_stats 2024
+        run: |
+          python -m data.process_historical_stats 2024
 
       - name: Download 2024 historical games
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_historical_games 2024
+        run: |
+          python -m data.download_historical_games 2024
 
       - name: Process 2024 historical games
-        run: python -m data.process_historical_games 2024
-
-      - name: Process 2024 team results
-        run: python -m data.process_team_results 2024
+        run: |
+          python -m data.process_historical_games 2024
 
       - name: Calculate 2024 team strength
-        run: python -m ratings.team_strength 2024
+        run: |
+          python -m ratings.team_strength_2024
+
+      - name: Calculate 2024 team results
+        run: |
+          python -m ratings.team_results_2024
 
       - name: Calculate 2024 strength of schedule
-        run: python -m ratings.strength_of_schedule 2024
+        run: |
+          python -m ratings.strength_of_schedule_2024
 
       - name: Calculate 2024 power ratings
-        run: python -m ratings.power_rating 2024
+        run: |
+          python -m ratings.power_rating_2024
 
-      - name: Analyze season continuity
-        run: python -m ratings.season_continuity
+      - name: Test season continuity
+        run: |
+          python -m ratings.season_continuity
 
       - name: Download 2025 returning production
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_returning_production 2025
+        run: |
+          python -m data.download_returning_production 2025
 
       - name: Process 2025 returning production
-        run: python -m data.process_returning_production
+        run: |
+          python -m data.process_returning_production
 
       - name: Analyze returning production
-        run: python -m ratings.analyze_returning_production
+        run: |
+          python -m ratings.analyze_returning_production
 
       - name: Validate returning production
-        run: python -m ratings.validate_returning_production
-
-      - name: Test game predictor
-        run: python -m predictions.game_predictor
-
-      - name: Run baseline backtest
-        run: python -m ratings.backtest
-
-      - name: Display data counts
         run: |
-          python -c "import json; teams=json.load(open('data/processed/teams.json')); games2026=json.load(open('data/processed/games.json')); stats2025=json.load(open('data/processed/historical_stats_2025.json')); games2025=json.load(open('data/processed/historical_games_2025.json')); strength2025=json.load(open('data/processed/team_strength_2025.json')); results2025=json.load(open('data/processed/team_results_2025.json')); sos2025=json.load(open('data/processed/strength_of_schedule_2025.json')); ratings2025=json.load(open('data/processed/power_ratings_2025.json')); returning=json.load(open('data/processed/returning_production_2025.json')); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games2026)}'); print(f'2025 team profiles: {len(stats2025)}'); print(f'2025 FBS games: {len(games2025)}'); print(f'2025 FBS vs FBS: {sum(1 for g in games2025 if g[\"game_classification\"] == \"fbs_vs_fbs\")}'); print(f'2025 FBS vs lower: {sum(1 for g in games2025 if g[\"game_classification\"] == \"fbs_vs_lower\")}'); print(f'2025 team strength profiles: {len(strength2025)}'); print(f'2025 team result profiles: {len(results2025)}'); print(f'2025 SOS profiles: {len(sos2025)}'); print(f'2025 power ratings: {len(ratings2025)}'); print(f'2025 returning production records: {len(returning)}')"
+          python -m ratings.validate_returning_production
 
-      - name: Save data
+      - name: Download 2025 transfer portal
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add data/raw/teams.json \
-                  data/raw/games.json \
-                  data/raw/stats.json \
-                  data/raw/historical_stats/2024.json \
-                  data/raw/historical_stats/2025.json \
-                  data/raw/historical_games/2024.json \
-                  data/raw/historical_games/2025.json \
-                  data/raw/returning_production/2025.json \
-                  data/processed/teams.json \
-                  data/processed/games.json \
-                  data/processed/historical_stats_2024.json \
-                  data/processed/historical_stats_2025.json \
-                  data/processed/historical_games_2024.json \
-                  data/processed/historical_games_2025.json \
-                  data/processed/team_results_2024.json \
-                  data/processed/team_results_2025.json \
-                  data/processed/team_strength_2024.json \
-                  data/processed/team_strength_2025.json \
-                  data/processed/strength_of_schedule_2024.json \
-                  data/processed/strength_of_schedule_2025.json \
-                  data/processed/power_ratings_2024.json \
-                  data/processed/power_ratings_2025.json \
-                  data/processed/returning_production_2025.json \
-                  data/processed/game_predictions_2025.json
-
-          if git diff --cached --quiet; then
-            echo "No changes to data."
-          else
-            git commit -m "Update FBS data"
-            git push
-          fi
+          python -m data.download_transfer_portal 2025
