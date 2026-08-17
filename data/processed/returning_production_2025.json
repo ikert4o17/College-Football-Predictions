@@ -2,3217 +2,3619 @@
     {
         "season": 2025,
         "team": "Air Force",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.63,
+            "usage": 0.556
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.226,
+            "usage": 0.075
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.501,
+            "usage": 0.64
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.818,
+            "usage": 0.828
+        },
+        "raw": {
+            "total_ppa": 132.2,
+            "total_passing_ppa": 2.8,
+            "total_receiving_ppa": 78.1,
+            "total_rushing_ppa": 51.3
         }
     },
     {
         "season": 2025,
         "team": "Akron",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.371,
+            "usage": 0.531
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.788,
+            "usage": 0.909
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.064,
+            "usage": 0.208
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.277,
+            "usage": 0.339
+        },
+        "raw": {
+            "total_ppa": 105.8,
+            "total_passing_ppa": 56.5,
+            "total_receiving_ppa": 46.2,
+            "total_rushing_ppa": 3.0
         }
     },
     {
         "season": 2025,
         "team": "Alabama",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.433,
+            "usage": 0.395
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.394,
+            "usage": 0.098
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.208,
+            "usage": 0.482
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.571,
+            "usage": 0.647
+        },
+        "raw": {
+            "total_ppa": 187.5,
+            "total_passing_ppa": 46.4,
+            "total_receiving_ppa": 118.8,
+            "total_rushing_ppa": 22.3
         }
     },
     {
         "season": 2025,
         "team": "App State",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.141,
+            "usage": 0.127
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.092,
+            "usage": 0.223
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.244,
+            "usage": 0.192
+        },
+        "raw": {
+            "total_ppa": 48.8,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 52.9,
+            "total_rushing_ppa": -4.2
         }
     },
     {
         "season": 2025,
         "team": "Arizona",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.561,
+            "usage": 0.675
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.044,
+            "usage": 0.985
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.089,
+            "usage": 0.41
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.379,
+            "usage": 0.44
+        },
+        "raw": {
+            "total_ppa": 199.6,
+            "total_passing_ppa": 87.8,
+            "total_receiving_ppa": 98.3,
+            "total_rushing_ppa": 13.5
         }
     },
     {
         "season": 2025,
         "team": "Arizona State",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.646,
+            "usage": 0.612
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.905,
+            "usage": 0.982
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.424,
+            "usage": 0.373
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.629,
+            "usage": 0.555
+        },
+        "raw": {
+            "total_ppa": 341.1,
+            "total_passing_ppa": 128.3,
+            "total_receiving_ppa": 150.5,
+            "total_rushing_ppa": 62.3
         }
     },
     {
         "season": 2025,
         "team": "Arkansas",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.361,
+            "usage": 0.553
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.848,
+            "usage": 0.926
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.47,
+            "usage": 0.492
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.048,
+            "usage": 0.091
+        },
+        "raw": {
+            "total_ppa": 204.1,
+            "total_passing_ppa": 131.9,
+            "total_receiving_ppa": 13.6,
+            "total_rushing_ppa": 58.6
         }
     },
     {
         "season": 2025,
         "team": "Arkansas State",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.586,
+            "usage": 0.701
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.896,
+            "usage": 0.945
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.354,
+            "usage": 0.596
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.534,
+            "usage": 0.443
+        },
+        "raw": {
+            "total_ppa": 258.9,
+            "total_passing_ppa": 87.7,
+            "total_receiving_ppa": 146.2,
+            "total_rushing_ppa": 25.0
         }
     },
     {
         "season": 2025,
         "team": "Army",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.252,
+            "usage": 0.297
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.106,
+            "usage": 0.151
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.245,
+            "usage": 0.305
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.354,
+            "usage": 0.451
+        },
+        "raw": {
+            "total_ppa": 92.9,
+            "total_passing_ppa": 5.0,
+            "total_receiving_ppa": 29.7,
+            "total_rushing_ppa": 58.2
         }
     },
     {
         "season": 2025,
         "team": "Auburn",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.218,
+            "usage": 0.19
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.037,
+            "usage": 0.232
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.383,
+            "usage": 0.426
+        },
+        "raw": {
+            "total_ppa": 97.6,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 95.0,
+            "total_rushing_ppa": 2.6
         }
     },
     {
         "season": 2025,
         "team": "BYU",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.375,
+            "usage": 0.278
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.127,
+            "usage": 0.016
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.531,
+            "usage": 0.449
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.417,
+            "usage": 0.398
+        },
+        "raw": {
+            "total_ppa": 148.9,
+            "total_passing_ppa": 11.7,
+            "total_receiving_ppa": 90.4,
+            "total_rushing_ppa": 46.9
         }
     },
     {
         "season": 2025,
         "team": "Ball State",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.082,
+            "usage": 0.097
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.007,
+            "usage": 0.024
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.156,
+            "usage": 0.141
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.146,
+            "usage": 0.161
+        },
+        "raw": {
+            "total_ppa": 28.7,
+            "total_passing_ppa": -0.6,
+            "total_receiving_ppa": 34.2,
+            "total_rushing_ppa": -4.9
         }
     },
     {
         "season": 2025,
         "team": "Baylor",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.825,
+            "usage": 0.782
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.0,
+            "usage": 0.89
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.029,
+            "usage": 0.755
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.677,
+            "usage": 0.659
+        },
+        "raw": {
+            "total_ppa": 428.0,
+            "total_passing_ppa": 147.2,
+            "total_receiving_ppa": 196.0,
+            "total_rushing_ppa": 84.7
         }
     },
     {
         "season": 2025,
         "team": "Boise State",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.579,
+            "usage": 0.545
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.957,
+            "usage": 0.955
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.305,
+            "usage": 0.223
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.518,
+            "usage": 0.521
+        },
+        "raw": {
+            "total_ppa": 363.0,
+            "total_passing_ppa": 160.8,
+            "total_receiving_ppa": 151.4,
+            "total_rushing_ppa": 50.8
         }
     },
     {
         "season": 2025,
         "team": "Boston College",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.62,
+            "usage": 0.448
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.394,
+            "usage": 0.504
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.871,
+            "usage": 0.301
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.675,
+            "usage": 0.682
+        },
+        "raw": {
+            "total_ppa": 257.8,
+            "total_passing_ppa": 44.5,
+            "total_receiving_ppa": 173.5,
+            "total_rushing_ppa": 39.8
         }
     },
     {
         "season": 2025,
         "team": "Bowling Green",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.079,
+            "usage": 0.056
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.024,
+            "usage": 0.03
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.173,
+            "usage": 0.073
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.076,
+            "usage": 0.073
+        },
+        "raw": {
+            "total_ppa": 34.7,
+            "total_passing_ppa": 3.0,
+            "total_receiving_ppa": 18.1,
+            "total_rushing_ppa": 13.6
         }
     },
     {
         "season": 2025,
         "team": "Buffalo",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.659,
+            "usage": 0.684
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.364,
+            "usage": 0.667
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.95,
+            "usage": 0.777
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.616,
+            "usage": 0.517
+        },
+        "raw": {
+            "total_ppa": 165.4,
+            "total_passing_ppa": 14.4,
+            "total_receiving_ppa": 91.8,
+            "total_rushing_ppa": 59.2
         }
     },
     {
         "season": 2025,
         "team": "California",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.063,
+            "usage": 0.073
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.066,
+            "usage": 0.046
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.1,
+            "usage": 0.037
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.121,
+            "usage": 0.146
+        },
+        "raw": {
+            "total_ppa": 23.5,
+            "total_passing_ppa": -7.5,
+            "total_receiving_ppa": 26.7,
+            "total_rushing_ppa": 4.3
         }
     },
     {
         "season": 2025,
         "team": "Central Michigan",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.103,
+            "usage": 0.342
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.572,
+            "usage": 0.77
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.123,
+            "usage": 0.117
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.047,
+            "usage": 0.098
+        },
+        "raw": {
+            "total_ppa": 26.0,
+            "total_passing_ppa": 7.9,
+            "total_receiving_ppa": 6.9,
+            "total_rushing_ppa": 11.3
         }
     },
     {
         "season": 2025,
         "team": "Charlotte",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.238,
+            "usage": 0.095
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.077,
+            "usage": 0.067
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.294,
+            "usage": 0.341
+        },
+        "raw": {
+            "total_ppa": 61.8,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 59.4,
+            "total_rushing_ppa": 2.5
         }
     },
     {
         "season": 2025,
         "team": "Cincinnati",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.497,
+            "usage": 0.636
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.008,
+            "usage": 0.998
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.637,
+            "usage": 0.47
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.253,
+            "usage": 0.303
+        },
+        "raw": {
+            "total_ppa": 211.1,
+            "total_passing_ppa": 101.6,
+            "total_receiving_ppa": 64.1,
+            "total_rushing_ppa": 45.4
         }
     },
     {
         "season": 2025,
         "team": "Clemson",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.826,
+            "usage": 0.753
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.0,
+            "usage": 1.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.696,
+            "usage": 0.478
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.793,
+            "usage": 0.714
+        },
+        "raw": {
+            "total_ppa": 374.4,
+            "total_passing_ppa": 120.1,
+            "total_receiving_ppa": 181.5,
+            "total_rushing_ppa": 72.7
         }
     },
     {
         "season": 2025,
         "team": "Coastal Carolina",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.364,
+            "usage": 0.161
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.029,
+            "usage": 0.087
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.026,
+            "usage": 0.069
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.615,
+            "usage": 0.508
+        },
+        "raw": {
+            "total_ppa": 141.1,
+            "total_passing_ppa": -2.6,
+            "total_receiving_ppa": 141.8,
+            "total_rushing_ppa": 1.8
         }
     },
     {
         "season": 2025,
         "team": "Colorado",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.075,
+            "usage": 0.196
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.026,
+            "usage": 0.01
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.143,
+            "usage": 0.488
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.155,
+            "usage": 0.231
+        },
+        "raw": {
+            "total_ppa": 38.1,
+            "total_passing_ppa": -4.3,
+            "total_receiving_ppa": 47.7,
+            "total_rushing_ppa": -5.3
         }
     },
     {
         "season": 2025,
         "team": "Colorado State",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.504,
+            "usage": 0.649
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.85,
+            "usage": 0.982
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.363,
+            "usage": 0.521
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.354,
+            "usage": 0.353
+        },
+        "raw": {
+            "total_ppa": 194.5,
+            "total_passing_ppa": 98.4,
+            "total_receiving_ppa": 82.6,
+            "total_rushing_ppa": 13.4
         }
     },
     {
         "season": 2025,
         "team": "Duke",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.179,
+            "usage": 0.267
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.017,
+            "usage": 0.101
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.479,
+            "usage": 0.354
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.288,
+            "usage": 0.417
+        },
+        "raw": {
+            "total_ppa": 65.9,
+            "total_passing_ppa": 2.2,
+            "total_receiving_ppa": 76.0,
+            "total_rushing_ppa": -12.3
         }
     },
     {
         "season": 2025,
         "team": "East Carolina",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.506,
+            "usage": 0.453
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.762,
+            "usage": 0.542
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.336,
+            "usage": 0.403
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.438,
+            "usage": 0.394
+        },
+        "raw": {
+            "total_ppa": 225.5,
+            "total_passing_ppa": 87.9,
+            "total_receiving_ppa": 113.5,
+            "total_rushing_ppa": 24.1
         }
     },
     {
         "season": 2025,
         "team": "Eastern Michigan",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.249,
+            "usage": 0.124
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.04,
+            "usage": 0.024
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.036,
+            "usage": 0.131
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.352,
+            "usage": 0.271
+        },
+        "raw": {
+            "total_ppa": 77.6,
+            "total_passing_ppa": 2.8,
+            "total_receiving_ppa": 73.6,
+            "total_rushing_ppa": 1.2
         }
     },
     {
         "season": 2025,
         "team": "Florida",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.537,
+            "usage": 0.639
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.702,
+            "usage": 0.725
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.715,
+            "usage": 0.723
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.36,
+            "usage": 0.393
+        },
+        "raw": {
+            "total_ppa": 194.9,
+            "total_passing_ppa": 63.8,
+            "total_receiving_ppa": 64.5,
+            "total_rushing_ppa": 66.6
         }
     },
     {
         "season": 2025,
         "team": "Florida Atlantic",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.208,
+            "usage": 0.179
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.068,
+            "usage": 0.208
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.273,
+            "usage": 0.165
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.256,
+            "usage": 0.156
+        },
+        "raw": {
+            "total_ppa": 72.8,
+            "total_passing_ppa": -3.9,
+            "total_receiving_ppa": 48.0,
+            "total_rushing_ppa": 28.6
         }
     },
     {
         "season": 2025,
         "team": "Florida International",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.42,
+            "usage": 0.613
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.009,
+            "usage": 0.914
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.955,
+            "usage": 0.572
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.118,
+            "usage": 0.172
+        },
+        "raw": {
+            "total_ppa": 141.9,
+            "total_passing_ppa": 96.3,
+            "total_receiving_ppa": 26.3,
+            "total_rushing_ppa": 19.3
         }
     },
     {
         "season": 2025,
         "team": "Florida State",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.131,
+            "usage": 0.34
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.884,
+            "usage": 0.316
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.07,
+            "usage": 0.44
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.207,
+            "usage": 0.241
+        },
+        "raw": {
+            "total_ppa": 26.1,
+            "total_passing_ppa": -6.1,
+            "total_receiving_ppa": 34.1,
+            "total_rushing_ppa": -1.9
         }
     },
     {
         "season": 2025,
         "team": "Fresno State",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.172,
+            "usage": 0.3
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.037,
+            "usage": 0.026
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.087,
+            "usage": 0.635
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.138,
+            "usage": 0.33
+        },
+        "raw": {
+            "total_ppa": 58.8,
+            "total_passing_ppa": 2.9,
+            "total_receiving_ppa": 33.4,
+            "total_rushing_ppa": 22.4
         }
     },
     {
         "season": 2025,
         "team": "Georgia",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.372,
+            "usage": 0.351
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.132,
+            "usage": 0.132
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.378,
+            "usage": 0.508
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.508,
+            "usage": 0.483
+        },
+        "raw": {
+            "total_ppa": 188.4,
+            "total_passing_ppa": 20.8,
+            "total_receiving_ppa": 139.5,
+            "total_rushing_ppa": 28.1
         }
     },
     {
         "season": 2025,
         "team": "Georgia Southern",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.656,
+            "usage": 0.684
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.846,
+            "usage": 0.933
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.781,
+            "usage": 0.556
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.541,
+            "usage": 0.462
+        },
+        "raw": {
+            "total_ppa": 284.7,
+            "total_passing_ppa": 92.5,
+            "total_receiving_ppa": 137.5,
+            "total_rushing_ppa": 54.8
         }
     },
     {
         "season": 2025,
         "team": "Georgia State",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.449,
+            "usage": 0.377
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.619,
+            "usage": 0.635
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.233,
+            "usage": 0.076
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.409,
+            "usage": 0.303
+        },
+        "raw": {
+            "total_ppa": 179.2,
+            "total_passing_ppa": 62.8,
+            "total_receiving_ppa": 109.2,
+            "total_rushing_ppa": 7.1
         }
     },
     {
         "season": 2025,
         "team": "Georgia Tech",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.669,
+            "usage": 0.736
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.997,
+            "usage": 0.838
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.846,
+            "usage": 0.815
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.419,
+            "usage": 0.46
+        },
+        "raw": {
+            "total_ppa": 323.2,
+            "total_passing_ppa": 148.5,
+            "total_receiving_ppa": 106.1,
+            "total_rushing_ppa": 68.6
         }
     },
     {
         "season": 2025,
         "team": "Hawai'i",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.459,
+            "usage": 0.349
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.438,
+            "usage": 0.14
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.119,
+            "usage": 0.518
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.524,
+            "usage": 0.555
+        },
+        "raw": {
+            "total_ppa": 202.6,
+            "total_passing_ppa": 45.2,
+            "total_receiving_ppa": 151.7,
+            "total_rushing_ppa": 5.7
         }
     },
     {
         "season": 2025,
         "team": "Houston",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.68,
+            "usage": 0.669
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.0,
+            "usage": 0.453
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.61,
+            "usage": 0.813
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.682,
+            "usage": 0.721
+        },
+        "raw": {
+            "total_ppa": 96.6,
+            "total_passing_ppa": 4.7,
+            "total_receiving_ppa": 76.7,
+            "total_rushing_ppa": 15.2
         }
     },
     {
         "season": 2025,
         "team": "Illinois",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.525,
+            "usage": 0.74
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.912,
+            "usage": 0.977
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.518,
+            "usage": 0.707
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.324,
+            "usage": 0.419
+        },
+        "raw": {
+            "total_ppa": 251.6,
+            "total_passing_ppa": 124.8,
+            "total_receiving_ppa": 84.4,
+            "total_rushing_ppa": 42.4
         }
     },
     {
         "season": 2025,
         "team": "Indiana",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.251,
+            "usage": 0.148
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.031,
+            "usage": 0.008
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.099,
+            "usage": 0.146
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.446,
+            "usage": 0.354
+        },
+        "raw": {
+            "total_ppa": 154.3,
+            "total_passing_ppa": 6.3,
+            "total_receiving_ppa": 137.6,
+            "total_rushing_ppa": 10.4
         }
     },
     {
         "season": 2025,
         "team": "Iowa",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.488,
+            "usage": 0.357
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.113,
+            "usage": 0.137
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.202,
+            "usage": 0.373
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.773,
+            "usage": 0.684
+        },
+        "raw": {
+            "total_ppa": 126.8,
+            "total_passing_ppa": 5.3,
+            "total_receiving_ppa": 106.3,
+            "total_rushing_ppa": 15.2
         }
     },
     {
         "season": 2025,
         "team": "Iowa State",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.6,
+            "usage": 0.755
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.953,
+            "usage": 0.99
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.07,
+            "usage": 0.788
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.323,
+            "usage": 0.33
+        },
+        "raw": {
+            "total_ppa": 299.9,
+            "total_passing_ppa": 125.9,
+            "total_receiving_ppa": 94.9,
+            "total_rushing_ppa": 79.1
         }
     },
     {
         "season": 2025,
         "team": "Jacksonville State",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.12,
+            "usage": 0.079
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.025,
+            "usage": 0.003
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.013,
+            "usage": 0.071
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.256,
+            "usage": 0.227
+        },
+        "raw": {
+            "total_ppa": 62.4,
+            "total_passing_ppa": 2.9,
+            "total_receiving_ppa": 57.2,
+            "total_rushing_ppa": 2.3
         }
     },
     {
         "season": 2025,
         "team": "James Madison",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.5,
+            "usage": 0.762
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.71,
+            "usage": 0.93
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.894,
+            "usage": 0.889
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.236,
+            "usage": 0.26
+        },
+        "raw": {
+            "total_ppa": 214.9,
+            "total_passing_ppa": 56.1,
+            "total_receiving_ppa": 55.6,
+            "total_rushing_ppa": 103.1
         }
     },
     {
         "season": 2025,
         "team": "Kansas",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.41,
+            "usage": 0.512
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.952,
+            "usage": 0.997
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.466,
+            "usage": 0.385
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.063,
+            "usage": 0.036
+        },
+        "raw": {
+            "total_ppa": 197.2,
+            "total_passing_ppa": 113.1,
+            "total_receiving_ppa": 13.2,
+            "total_rushing_ppa": 70.9
         }
     },
     {
         "season": 2025,
         "team": "Kansas State",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.69,
+            "usage": 0.691
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.933,
+            "usage": 0.977
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.635,
+            "usage": 0.508
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.597,
+            "usage": 0.551
+        },
+        "raw": {
+            "total_ppa": 349.1,
+            "total_passing_ppa": 116.5,
+            "total_receiving_ppa": 147.5,
+            "total_rushing_ppa": 85.2
         }
     },
     {
         "season": 2025,
         "team": "Kennesaw State",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.458,
+            "usage": 0.511
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.338,
+            "usage": 0.873
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -5.909,
+            "usage": 0.279
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.341,
+            "usage": 0.418
+        },
+        "raw": {
+            "total_ppa": 54.1,
+            "total_passing_ppa": -5.2,
+            "total_receiving_ppa": 46.3,
+            "total_rushing_ppa": 13.0
         }
     },
     {
         "season": 2025,
         "team": "Kent State",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.113,
+            "usage": 0.299
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.052,
+            "usage": 0.384
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.284,
+            "usage": 0.255
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.181,
+            "usage": 0.232
+        },
+        "raw": {
+            "total_ppa": 19.5,
+            "total_passing_ppa": -2.1,
+            "total_receiving_ppa": 27.3,
+            "total_rushing_ppa": -5.6
         }
     },
     {
         "season": 2025,
         "team": "Kentucky",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.27,
+            "usage": 0.253
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.322,
+            "usage": 0.173
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.261,
+            "usage": 0.292
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.365,
+            "usage": 0.317
+        },
+        "raw": {
+            "total_ppa": 71.5,
+            "total_passing_ppa": -9.6,
+            "total_receiving_ppa": 68.8,
+            "total_rushing_ppa": 12.3
         }
     },
     {
         "season": 2025,
         "team": "LSU",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.66,
+            "usage": 0.711
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.951,
+            "usage": 0.976
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.672,
+            "usage": 0.625
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.469,
+            "usage": 0.45
+        },
+        "raw": {
+            "total_ppa": 331.2,
+            "total_passing_ppa": 174.0,
+            "total_receiving_ppa": 131.2,
+            "total_rushing_ppa": 26.0
         }
     },
     {
         "season": 2025,
         "team": "Liberty",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.301,
+            "usage": 0.216
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.021,
+            "usage": 0.073
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.031,
+            "usage": 0.143
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.636,
+            "usage": 0.713
+        },
+        "raw": {
+            "total_ppa": 104.9,
+            "total_passing_ppa": 1.5,
+            "total_receiving_ppa": 99.7,
+            "total_rushing_ppa": 3.7
         }
     },
     {
         "season": 2025,
         "team": "Louisiana",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.145,
+            "usage": 0.347
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.011,
+            "usage": 0.083
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.383,
+            "usage": 0.639
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.143,
+            "usage": 0.281
+        },
+        "raw": {
+            "total_ppa": 82.0,
+            "total_passing_ppa": -1.7,
+            "total_receiving_ppa": 42.8,
+            "total_rushing_ppa": 40.9
         }
     },
     {
         "season": 2025,
         "team": "Louisiana Tech",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.434,
+            "usage": 0.627
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.022,
+            "usage": 0.817
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.027,
+            "usage": 0.611
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.329,
+            "usage": 0.335
+        },
+        "raw": {
+            "total_ppa": 127.7,
+            "total_passing_ppa": 65.3,
+            "total_receiving_ppa": 81.6,
+            "total_rushing_ppa": -19.1
         }
     },
     {
         "season": 2025,
         "team": "Louisville",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.349,
+            "usage": 0.376
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.849,
+            "usage": 0.727
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.4,
+            "usage": 0.46
+        },
+        "raw": {
+            "total_ppa": 192.9,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 116.1,
+            "total_rushing_ppa": 76.8
         }
     },
     {
         "season": 2025,
         "team": "Marshall",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.069,
+            "usage": 0.024
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.135,
+            "usage": 0.115
+        },
+        "raw": {
+            "total_ppa": 26.2,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 26.2,
+            "total_rushing_ppa": 0.0
         }
     },
     {
         "season": 2025,
         "team": "Maryland",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.128,
+            "usage": 0.119
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.05,
+            "usage": 0.004
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.014,
+            "usage": 0.229
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.177,
+            "usage": 0.185
+        },
+        "raw": {
+            "total_ppa": 49.7,
+            "total_passing_ppa": 4.7,
+            "total_receiving_ppa": 45.5,
+            "total_rushing_ppa": -0.5
         }
     },
     {
         "season": 2025,
         "team": "Massachusetts",
+        "conference": "FBS Independents",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.234,
+            "usage": 0.17
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.228,
+            "usage": 0.254
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.011,
+            "usage": 0.068
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.325,
+            "usage": 0.253
+        },
+        "raw": {
+            "total_ppa": 83.0,
+            "total_passing_ppa": 18.6,
+            "total_receiving_ppa": 65.3,
+            "total_rushing_ppa": -0.8
         }
     },
     {
         "season": 2025,
         "team": "Memphis",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.119,
+            "usage": 0.078
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.017,
+            "usage": 0.002
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.173,
+            "usage": 0.13
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.156,
+            "usage": 0.128
+        },
+        "raw": {
+            "total_ppa": 66.7,
+            "total_passing_ppa": 2.8,
+            "total_receiving_ppa": 46.2,
+            "total_rushing_ppa": 17.7
         }
     },
     {
         "season": 2025,
         "team": "Miami",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.125,
+            "usage": 0.189
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.059,
+            "usage": 0.053
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.401,
+            "usage": 0.426
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.041,
+            "usage": 0.118
+        },
+        "raw": {
+            "total_ppa": 94.6,
+            "total_passing_ppa": 13.6,
+            "total_receiving_ppa": 14.9,
+            "total_rushing_ppa": 66.1
         }
     },
     {
         "season": 2025,
         "team": "Miami (OH)",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.079,
+            "usage": 0.104
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.059,
+            "usage": 0.048
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.196,
+            "usage": 0.182
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.064,
+            "usage": 0.084
+        },
+        "raw": {
+            "total_ppa": 28.9,
+            "total_passing_ppa": 5.4,
+            "total_receiving_ppa": 14.7,
+            "total_rushing_ppa": 8.9
         }
     },
     {
         "season": 2025,
         "team": "Michigan",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.41,
+            "usage": 0.36
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.861,
+            "usage": 0.678
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.07,
+            "usage": 0.11
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.428,
+            "usage": 0.424
+        },
+        "raw": {
+            "total_ppa": 102.9,
+            "total_passing_ppa": 35.9,
+            "total_receiving_ppa": 62.4,
+            "total_rushing_ppa": 4.5
         }
     },
     {
         "season": 2025,
         "team": "Michigan State",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.662,
+            "usage": 0.653
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.001,
+            "usage": 0.902
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.891,
+            "usage": 0.389
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.476,
+            "usage": 0.505
+        },
+        "raw": {
+            "total_ppa": 207.2,
+            "total_passing_ppa": 84.8,
+            "total_receiving_ppa": 93.6,
+            "total_rushing_ppa": 28.7
         }
     },
     {
         "season": 2025,
         "team": "Middle Tennessee",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.505,
+            "usage": 0.65
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.0,
+            "usage": 1.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.153,
+            "usage": 0.399
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.298,
+            "usage": 0.333
+        },
+        "raw": {
+            "total_ppa": 177.6,
+            "total_passing_ppa": 83.0,
+            "total_receiving_ppa": 75.0,
+            "total_rushing_ppa": 19.6
         }
     },
     {
         "season": 2025,
         "team": "Minnesota",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.276,
+            "usage": 0.302
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.069,
+            "usage": 0.014
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.575,
+            "usage": 0.556
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.321,
+            "usage": 0.408
+        },
+        "raw": {
+            "total_ppa": 119.0,
+            "total_passing_ppa": 9.0,
+            "total_receiving_ppa": 79.6,
+            "total_rushing_ppa": 30.4
         }
     },
     {
         "season": 2025,
         "team": "Mississippi State",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.416,
+            "usage": 0.495
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.321,
+            "usage": 0.295
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.637,
+            "usage": 0.768
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.385,
+            "usage": 0.399
+        },
+        "raw": {
+            "total_ppa": 156.9,
+            "total_passing_ppa": 28.7,
+            "total_receiving_ppa": 84.1,
+            "total_rushing_ppa": 44.2
         }
     },
     {
         "season": 2025,
         "team": "Missouri",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.201,
+            "usage": 0.131
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.009,
+            "usage": 0.002
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.184,
+            "usage": 0.14
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.303,
+            "usage": 0.312
+        },
+        "raw": {
+            "total_ppa": 80.4,
+            "total_passing_ppa": -0.9,
+            "total_receiving_ppa": 64.5,
+            "total_rushing_ppa": 16.8
         }
     },
     {
         "season": 2025,
         "team": "NC State",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.726,
+            "usage": 0.625
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.83,
+            "usage": 0.799
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.733,
+            "usage": 0.464
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.67,
+            "usage": 0.59
+        },
+        "raw": {
+            "total_ppa": 336.0,
+            "total_passing_ppa": 111.6,
+            "total_receiving_ppa": 174.7,
+            "total_rushing_ppa": 49.7
         }
     },
     {
         "season": 2025,
         "team": "Navy",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.973,
+            "usage": 0.909
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.0,
+            "usage": 1.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.972,
+            "usage": 0.87
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.957,
+            "usage": 0.948
+        },
+        "raw": {
+            "total_ppa": 331.9,
+            "total_passing_ppa": 68.8,
+            "total_receiving_ppa": 121.0,
+            "total_rushing_ppa": 142.1
         }
     },
     {
         "season": 2025,
         "team": "Nebraska",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.472,
+            "usage": 0.651
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.843,
+            "usage": 0.991
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.519,
+            "usage": 0.451
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.295,
+            "usage": 0.438
+        },
+        "raw": {
+            "total_ppa": 173.8,
+            "total_passing_ppa": 73.5,
+            "total_receiving_ppa": 60.3,
+            "total_rushing_ppa": 40.0
         }
     },
     {
         "season": 2025,
         "team": "Nevada",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.218,
+            "usage": 0.178
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.169,
+            "usage": 0.135
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.015,
+            "usage": 0.154
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.333,
+            "usage": 0.291
+        },
+        "raw": {
+            "total_ppa": 93.4,
+            "total_passing_ppa": 16.4,
+            "total_receiving_ppa": 78.5,
+            "total_rushing_ppa": -1.4
         }
     },
     {
         "season": 2025,
         "team": "New Mexico",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.028,
+            "usage": 0.009
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.061,
+            "usage": 0.041
+        },
+        "raw": {
+            "total_ppa": 12.5,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 12.5,
+            "total_rushing_ppa": 0.0
         }
     },
     {
         "season": 2025,
         "team": "New Mexico State",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.555,
+            "usage": 0.339
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -26.167,
+            "usage": 0.499
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.336,
+            "usage": 0.172
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.541,
+            "usage": 0.479
+        },
+        "raw": {
+            "total_ppa": 117.1,
+            "total_passing_ppa": 15.7,
+            "total_receiving_ppa": 79.9,
+            "total_rushing_ppa": 21.5
         }
     },
     {
         "season": 2025,
         "team": "North Carolina",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.159,
+            "usage": 0.173
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.079,
+            "usage": 0.059
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.17,
+            "usage": 0.224
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.238,
+            "usage": 0.267
+        },
+        "raw": {
+            "total_ppa": 68.5,
+            "total_passing_ppa": -6.4,
+            "total_receiving_ppa": 53.9,
+            "total_rushing_ppa": 21.1
         }
     },
     {
         "season": 2025,
         "team": "North Texas",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.237,
+            "usage": 0.26
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.109,
+            "usage": 0.094
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.232,
+            "usage": 0.366
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.3,
+            "usage": 0.415
+        },
+        "raw": {
+            "total_ppa": 138.8,
+            "total_passing_ppa": 17.9,
+            "total_receiving_ppa": 103.5,
+            "total_rushing_ppa": 17.4
         }
     },
     {
         "season": 2025,
         "team": "Northern Illinois",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.18,
+            "usage": 0.315
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.197,
+            "usage": 0.332
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.322,
+            "usage": 0.398
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.09,
+            "usage": 0.12
+        },
+        "raw": {
+            "total_ppa": 67.6,
+            "total_passing_ppa": 17.6,
+            "total_receiving_ppa": 16.4,
+            "total_rushing_ppa": 33.5
         }
     },
     {
         "season": 2025,
         "team": "Northwestern",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.202,
+            "usage": 0.315
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.452,
+            "usage": 0.035
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.333,
+            "usage": 0.712
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.229,
+            "usage": 0.261
+        },
+        "raw": {
+            "total_ppa": 43.0,
+            "total_passing_ppa": -5.7,
+            "total_receiving_ppa": 39.6,
+            "total_rushing_ppa": 9.1
         }
     },
     {
         "season": 2025,
         "team": "Notre Dame",
+        "conference": "FBS Independents",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.367,
+            "usage": 0.382
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.073,
+            "usage": 0.009
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.478,
+            "usage": 0.657
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.425,
+            "usage": 0.463
+        },
+        "raw": {
+            "total_ppa": 195.6,
+            "total_passing_ppa": 8.4,
+            "total_receiving_ppa": 99.7,
+            "total_rushing_ppa": 87.6
         }
     },
     {
         "season": 2025,
         "team": "Ohio",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.648,
+            "usage": 0.606
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.968,
+            "usage": 0.997
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.739,
+            "usage": 0.375
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.458,
+            "usage": 0.523
+        },
+        "raw": {
+            "total_ppa": 282.4,
+            "total_passing_ppa": 81.6,
+            "total_receiving_ppa": 95.9,
+            "total_rushing_ppa": 104.8
         }
     },
     {
         "season": 2025,
         "team": "Ohio State",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.308,
+            "usage": 0.195
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.04,
+            "usage": 0.03
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.053,
+            "usage": 0.131
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.604,
+            "usage": 0.488
+        },
+        "raw": {
+            "total_ppa": 221.2,
+            "total_passing_ppa": 9.6,
+            "total_receiving_ppa": 204.0,
+            "total_rushing_ppa": 7.6
         }
     },
     {
         "season": 2025,
         "team": "Oklahoma",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.528,
+            "usage": 0.489
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.635,
+            "usage": 0.324
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.486,
+            "usage": 0.624
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.523,
+            "usage": 0.509
+        },
+        "raw": {
+            "total_ppa": 145.8,
+            "total_passing_ppa": 23.3,
+            "total_receiving_ppa": 88.6,
+            "total_rushing_ppa": 34.0
         }
     },
     {
         "season": 2025,
         "team": "Oklahoma State",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.132,
+            "usage": 0.151
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.062,
+            "usage": 0.005
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.294,
+            "usage": 0.312
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.145,
+            "usage": 0.186
+        },
+        "raw": {
+            "total_ppa": 56.1,
+            "total_passing_ppa": 8.9,
+            "total_receiving_ppa": 34.9,
+            "total_rushing_ppa": 12.3
         }
     },
     {
         "season": 2025,
         "team": "Old Dominion",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.412,
+            "usage": 0.443
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.85,
+            "usage": 0.758
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.677,
+            "usage": 0.377
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.042,
+            "usage": 0.057
+        },
+        "raw": {
+            "total_ppa": 163.6,
+            "total_passing_ppa": 74.6,
+            "total_receiving_ppa": 8.0,
+            "total_rushing_ppa": 81.0
         }
     },
     {
         "season": 2025,
         "team": "Ole Miss",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.175,
+            "usage": 0.146
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.043,
+            "usage": 0.071
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.061,
+            "usage": 0.108
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.302,
+            "usage": 0.292
+        },
+        "raw": {
+            "total_ppa": 117.2,
+            "total_passing_ppa": 10.1,
+            "total_receiving_ppa": 100.7,
+            "total_rushing_ppa": 6.4
         }
     },
     {
         "season": 2025,
         "team": "Oregon",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.187,
+            "usage": 0.246
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.009,
+            "usage": 0.022
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.113,
+            "usage": 0.368
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.328,
+            "usage": 0.38
+        },
+        "raw": {
+            "total_ppa": 116.9,
+            "total_passing_ppa": 1.8,
+            "total_receiving_ppa": 102.6,
+            "total_rushing_ppa": 12.5
         }
     },
     {
         "season": 2025,
         "team": "Oregon State",
+        "conference": "Pac-12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.522,
+            "usage": 0.498
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.027,
+            "usage": 0.094
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.395,
+            "usage": 0.723
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.695,
+            "usage": 0.751
+        },
+        "raw": {
+            "total_ppa": 179.7,
+            "total_passing_ppa": -1.1,
+            "total_receiving_ppa": 141.1,
+            "total_rushing_ppa": 39.7
         }
     },
     {
         "season": 2025,
         "team": "Penn State",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.564,
+            "usage": 0.767
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.879,
+            "usage": 0.903
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.705,
+            "usage": 0.886
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.314,
+            "usage": 0.36
+        },
+        "raw": {
+            "total_ppa": 343.3,
+            "total_passing_ppa": 153.6,
+            "total_receiving_ppa": 93.5,
+            "total_rushing_ppa": 96.2
         }
     },
     {
         "season": 2025,
         "team": "Pittsburgh",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.592,
+            "usage": 0.674
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.727,
+            "usage": 0.629
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.535,
+            "usage": 0.789
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.565,
+            "usage": 0.619
+        },
+        "raw": {
+            "total_ppa": 274.7,
+            "total_passing_ppa": 67.8,
+            "total_receiving_ppa": 161.2,
+            "total_rushing_ppa": 45.8
         }
     },
     {
         "season": 2025,
         "team": "Purdue",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.199,
+            "usage": 0.367
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.133,
+            "usage": 0.248
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.496,
+            "usage": 0.628
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.168,
+            "usage": 0.169
+        },
+        "raw": {
+            "total_ppa": 46.2,
+            "total_passing_ppa": 6.0,
+            "total_receiving_ppa": 27.1,
+            "total_rushing_ppa": 13.1
         }
     },
     {
         "season": 2025,
         "team": "Rice",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.107,
+            "usage": 0.146
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.067,
+            "usage": 0.088
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.23,
+            "usage": 0.203
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.137,
+            "usage": 0.183
+        },
+        "raw": {
+            "total_ppa": 30.1,
+            "total_passing_ppa": -3.7,
+            "total_receiving_ppa": 26.9,
+            "total_rushing_ppa": 6.9
         }
     },
     {
         "season": 2025,
         "team": "Rutgers",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.672,
+            "usage": 0.663
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.0,
+            "usage": 1.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.528,
+            "usage": 0.426
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.585,
+            "usage": 0.52
+        },
+        "raw": {
+            "total_ppa": 259.5,
+            "total_passing_ppa": 89.8,
+            "total_receiving_ppa": 140.0,
+            "total_rushing_ppa": 29.8
         }
     },
     {
         "season": 2025,
         "team": "SMU",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.501,
+            "usage": 0.498
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.914,
+            "usage": 0.866
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.244,
+            "usage": 0.236
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.318,
+            "usage": 0.384
+        },
+        "raw": {
+            "total_ppa": 282.3,
+            "total_passing_ppa": 166.7,
+            "total_receiving_ppa": 95.5,
+            "total_rushing_ppa": 20.0
         }
     },
     {
         "season": 2025,
         "team": "Sam Houston",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.519,
+            "usage": 0.439
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.776,
+            "usage": 0.802
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.679,
+            "usage": 0.289
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.384,
+            "usage": 0.185
+        },
+        "raw": {
+            "total_ppa": 138.6,
+            "total_passing_ppa": 35.7,
+            "total_receiving_ppa": 60.9,
+            "total_rushing_ppa": 42.0
         }
     },
     {
         "season": 2025,
         "team": "San Diego State",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.109,
+            "usage": 0.065
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.13,
+            "usage": 0.01
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.007,
+            "usage": 0.026
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.129,
+            "usage": 0.202
+        },
+        "raw": {
+            "total_ppa": 31.0,
+            "total_passing_ppa": 8.4,
+            "total_receiving_ppa": 22.9,
+            "total_rushing_ppa": -0.3
         }
     },
     {
         "season": 2025,
         "team": "San Jos\u00e9 State",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.33,
+            "usage": 0.591
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.504,
+            "usage": 0.601
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.767,
+            "usage": 0.928
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.187,
+            "usage": 0.256
+        },
+        "raw": {
+            "total_ppa": 185.5,
+            "total_passing_ppa": 84.6,
+            "total_receiving_ppa": 70.5,
+            "total_rushing_ppa": 30.4
         }
     },
     {
         "season": 2025,
         "team": "South Alabama",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.254,
+            "usage": 0.332
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.24,
+            "usage": 0.207
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.319,
+            "usage": 0.5
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.223,
+            "usage": 0.248
+        },
+        "raw": {
+            "total_ppa": 135.4,
+            "total_passing_ppa": 31.6,
+            "total_receiving_ppa": 57.2,
+            "total_rushing_ppa": 46.6
         }
     },
     {
         "season": 2025,
         "team": "South Carolina",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.625,
+            "usage": 0.634
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.837,
+            "usage": 0.879
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.534,
+            "usage": 0.522
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.552,
+            "usage": 0.507
+        },
+        "raw": {
+            "total_ppa": 283.6,
+            "total_passing_ppa": 101.5,
+            "total_receiving_ppa": 129.4,
+            "total_rushing_ppa": 52.7
         }
     },
     {
         "season": 2025,
         "team": "South Florida",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.296,
+            "usage": 0.231
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.189,
+            "usage": 0.309
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.291,
+            "usage": 0.152
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.33,
+            "usage": 0.226
+        },
+        "raw": {
+            "total_ppa": 115.9,
+            "total_passing_ppa": 13.2,
+            "total_receiving_ppa": 75.7,
+            "total_rushing_ppa": 26.9
         }
     },
     {
         "season": 2025,
         "team": "Southern Miss",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.167,
+            "usage": 0.085
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.429,
+            "usage": 0.104
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.013,
+            "usage": 0.014
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.239,
+            "usage": 0.194
+        },
+        "raw": {
+            "total_ppa": 24.5,
+            "total_passing_ppa": -11.5,
+            "total_receiving_ppa": 36.2,
+            "total_rushing_ppa": -0.3
         }
     },
     {
         "season": 2025,
         "team": "Stanford",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.189,
+            "usage": 0.321
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.236,
+            "usage": 0.137
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.15,
+            "usage": 0.48
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.25,
+            "usage": 0.346
+        },
+        "raw": {
+            "total_ppa": 38.6,
+            "total_passing_ppa": 8.9,
+            "total_receiving_ppa": 37.1,
+            "total_rushing_ppa": -7.3
         }
     },
     {
         "season": 2025,
         "team": "Syracuse",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.131,
+            "usage": 0.124
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.013,
+            "usage": 0.002
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.298,
+            "usage": 0.21
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.237,
+            "usage": 0.221
+        },
+        "raw": {
+            "total_ppa": 88.6,
+            "total_passing_ppa": 3.0,
+            "total_receiving_ppa": 96.8,
+            "total_rushing_ppa": -11.3
         }
     },
     {
         "season": 2025,
         "team": "TCU",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.574,
+            "usage": 0.595
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.956,
+            "usage": 0.988
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.282,
+            "usage": 0.403
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.343,
+            "usage": 0.274
+        },
+        "raw": {
+            "total_ppa": 331.9,
+            "total_passing_ppa": 213.4,
+            "total_receiving_ppa": 103.8,
+            "total_rushing_ppa": 14.7
         }
     },
     {
         "season": 2025,
         "team": "Temple",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.409,
+            "usage": 0.585
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.078,
+            "usage": 0.739
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 2.0,
+            "usage": 0.61
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.143,
+            "usage": 0.312
+        },
+        "raw": {
+            "total_ppa": 101.1,
+            "total_passing_ppa": 62.3,
+            "total_receiving_ppa": 26.1,
+            "total_rushing_ppa": 12.6
         }
     },
     {
         "season": 2025,
         "team": "Tennessee",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.221,
+            "usage": 0.225
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.025,
+            "usage": 0.028
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.237,
+            "usage": 0.278
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.312,
+            "usage": 0.385
+        },
+        "raw": {
+            "total_ppa": 95.0,
+            "total_passing_ppa": 2.5,
+            "total_receiving_ppa": 62.3,
+            "total_rushing_ppa": 30.2
         }
     },
     {
         "season": 2025,
         "team": "Texas",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.283,
+            "usage": 0.395
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.266,
+            "usage": 0.172
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.614,
+            "usage": 0.675
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.207,
+            "usage": 0.352
+        },
+        "raw": {
+            "total_ppa": 172.5,
+            "total_passing_ppa": 55.1,
+            "total_receiving_ppa": 66.0,
+            "total_rushing_ppa": 51.4
         }
     },
     {
         "season": 2025,
         "team": "Texas A&M",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.532,
+            "usage": 0.695
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.679,
+            "usage": 0.676
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.906,
+            "usage": 0.929
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.267,
+            "usage": 0.28
+        },
+        "raw": {
+            "total_ppa": 213.3,
+            "total_passing_ppa": 58.8,
+            "total_receiving_ppa": 54.6,
+            "total_rushing_ppa": 99.9
         }
     },
     {
         "season": 2025,
         "team": "Texas State",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.22,
+            "usage": 0.234
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.021,
+            "usage": 0.033
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.409,
+            "usage": 0.366
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.268,
+            "usage": 0.298
+        },
+        "raw": {
+            "total_ppa": 117.3,
+            "total_passing_ppa": 3.4,
+            "total_receiving_ppa": 71.9,
+            "total_rushing_ppa": 42.0
         }
     },
     {
         "season": 2025,
         "team": "Texas Tech",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.589,
+            "usage": 0.622
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.962,
+            "usage": 0.974
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.304,
+            "usage": 0.295
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.498,
+            "usage": 0.487
+        },
+        "raw": {
+            "total_ppa": 332.6,
+            "total_passing_ppa": 147.9,
+            "total_receiving_ppa": 153.7,
+            "total_rushing_ppa": 31.1
         }
     },
     {
         "season": 2025,
         "team": "Toledo",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.685,
+            "usage": 0.756
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.81,
+            "usage": 0.982
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -2.175,
+            "usage": 0.669
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.55,
+            "usage": 0.532
+        },
+        "raw": {
+            "total_ppa": 266.6,
+            "total_passing_ppa": 110.7,
+            "total_receiving_ppa": 142.2,
+            "total_rushing_ppa": 13.7
         }
     },
     {
         "season": 2025,
         "team": "Troy",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.239,
+            "usage": 0.267
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.274,
+            "usage": 0.331
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.14,
+            "usage": 0.184
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.251,
+            "usage": 0.316
+        },
+        "raw": {
+            "total_ppa": 100.2,
+            "total_passing_ppa": 31.3,
+            "total_receiving_ppa": 59.3,
+            "total_rushing_ppa": 9.6
         }
     },
     {
         "season": 2025,
         "team": "Tulane",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.146,
+            "usage": 0.203
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.017,
+            "usage": 0.118
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.388,
+            "usage": 0.293
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.102,
+            "usage": 0.126
+        },
+        "raw": {
+            "total_ppa": 75.2,
+            "total_passing_ppa": 2.7,
+            "total_receiving_ppa": 23.8,
+            "total_rushing_ppa": 48.8
         }
     },
     {
         "season": 2025,
         "team": "Tulsa",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.235,
+            "usage": 0.296
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.388,
+            "usage": 0.564
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.111,
+            "usage": 0.072
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.223,
+            "usage": 0.197
+        },
+        "raw": {
+            "total_ppa": 73.8,
+            "total_passing_ppa": 21.4,
+            "total_receiving_ppa": 47.1,
+            "total_rushing_ppa": 5.3
         }
     },
     {
         "season": 2025,
         "team": "UAB",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.332,
+            "usage": 0.438
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.805,
+            "usage": 0.744
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.069,
+            "usage": 0.259
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.2,
+            "usage": 0.176
+        },
+        "raw": {
+            "total_ppa": 149.0,
+            "total_passing_ppa": 97.7,
+            "total_receiving_ppa": 55.0,
+            "total_rushing_ppa": -3.7
         }
     },
     {
         "season": 2025,
         "team": "UCF",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.101,
+            "usage": 0.175
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.427,
+            "usage": 0.216
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.264,
+            "usage": 0.206
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.033,
+            "usage": 0.031
+        },
+        "raw": {
+            "total_ppa": 37.9,
+            "total_passing_ppa": -13.4,
+            "total_receiving_ppa": 5.8,
+            "total_rushing_ppa": 45.4
         }
     },
     {
         "season": 2025,
         "team": "UCLA",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.219,
+            "usage": 0.213
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": -0.339,
+            "usage": 0.388
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.357,
+            "usage": 0.467
+        },
+        "raw": {
+            "total_ppa": 76.3,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 80.2,
+            "total_rushing_ppa": -3.9
         }
     },
     {
         "season": 2025,
         "team": "UConn",
+        "conference": "FBS Independents",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.68,
+            "usage": 0.757
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.963,
+            "usage": 0.985
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.492,
+            "usage": 0.668
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.646,
+            "usage": 0.504
+        },
+        "raw": {
+            "total_ppa": 258.5,
+            "total_passing_ppa": 81.4,
+            "total_receiving_ppa": 132.3,
+            "total_rushing_ppa": 44.8
         }
     },
     {
         "season": 2025,
         "team": "UL Monroe",
+        "conference": "Sun Belt",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.594,
+            "usage": 0.393
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.922,
+            "usage": 0.779
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.437,
+            "usage": 0.11
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.593,
+            "usage": 0.53
+        },
+        "raw": {
+            "total_ppa": 144.9,
+            "total_passing_ppa": 30.9,
+            "total_receiving_ppa": 84.6,
+            "total_rushing_ppa": 29.4
         }
     },
     {
         "season": 2025,
         "team": "UNLV",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.152,
+            "usage": 0.195
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.14,
+            "usage": 0.021
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.222,
+            "usage": 0.314
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.104,
+            "usage": 0.146
+        },
+        "raw": {
+            "total_ppa": 64.3,
+            "total_passing_ppa": 10.1,
+            "total_receiving_ppa": 20.8,
+            "total_rushing_ppa": 33.5
         }
     },
     {
         "season": 2025,
         "team": "USC",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.368,
+            "usage": 0.29
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.151,
+            "usage": 0.31
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.222,
+            "usage": 0.147
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.492,
+            "usage": 0.399
+        },
+        "raw": {
+            "total_ppa": 192.5,
+            "total_passing_ppa": 17.9,
+            "total_receiving_ppa": 154.3,
+            "total_rushing_ppa": 20.2
         }
     },
     {
         "season": 2025,
         "team": "UTEP",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.715,
+            "usage": 0.537
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.244,
+            "usage": 0.845
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.295,
+            "usage": 0.253
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.636,
+            "usage": 0.532
+        },
+        "raw": {
+            "total_ppa": 156.5,
+            "total_passing_ppa": 48.4,
+            "total_receiving_ppa": 102.4,
+            "total_rushing_ppa": 5.6
         }
     },
     {
         "season": 2025,
         "team": "UTSA",
+        "conference": "American Athletic",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.842,
+            "usage": 0.749
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.083,
+            "usage": 0.923
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.759,
+            "usage": 0.551
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.767,
+            "usage": 0.74
+        },
+        "raw": {
+            "total_ppa": 377.3,
+            "total_passing_ppa": 116.8,
+            "total_receiving_ppa": 196.4,
+            "total_rushing_ppa": 64.1
         }
     },
     {
         "season": 2025,
         "team": "Utah",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.14,
+            "usage": 0.303
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.116,
+            "usage": 0.626
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.092,
+            "usage": 0.113
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.154,
+            "usage": 0.07
+        },
+        "raw": {
+            "total_ppa": 36.0,
+            "total_passing_ppa": 6.8,
+            "total_receiving_ppa": 27.2,
+            "total_rushing_ppa": 2.0
         }
     },
     {
         "season": 2025,
         "team": "Utah State",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.246,
+            "usage": 0.23
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.208,
+            "usage": 0.32
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.484,
+            "usage": 0.199
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.176,
+            "usage": 0.136
+        },
+        "raw": {
+            "total_ppa": 113.5,
+            "total_passing_ppa": 24.3,
+            "total_receiving_ppa": 44.8,
+            "total_rushing_ppa": 44.4
         }
     },
     {
         "season": 2025,
         "team": "Vanderbilt",
+        "conference": "SEC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.859,
+            "usage": 0.924
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.992,
+            "usage": 0.991
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.906,
+            "usage": 0.955
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.784,
+            "usage": 0.745
+        },
+        "raw": {
+            "total_ppa": 318.7,
+            "total_passing_ppa": 105.3,
+            "total_receiving_ppa": 169.8,
+            "total_rushing_ppa": 43.6
         }
     },
     {
         "season": 2025,
         "team": "Virginia",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.28,
+            "usage": 0.202
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.133,
+            "usage": 0.005
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.315,
+            "usage": 0.344
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.292,
+            "usage": 0.332
+        },
+        "raw": {
+            "total_ppa": 88.4,
+            "total_passing_ppa": 4.6,
+            "total_receiving_ppa": 62.4,
+            "total_rushing_ppa": 21.4
         }
     },
     {
         "season": 2025,
         "team": "Virginia Tech",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.403,
+            "usage": 0.52
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.031,
+            "usage": 0.832
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.418,
+            "usage": 0.374
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.217,
+            "usage": 0.309
+        },
+        "raw": {
+            "total_ppa": 123.6,
+            "total_passing_ppa": 47.3,
+            "total_receiving_ppa": 35.3,
+            "total_rushing_ppa": 41.0
         }
     },
     {
         "season": 2025,
         "team": "Wake Forest",
+        "conference": "ACC",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.262,
+            "usage": 0.359
         },
         "passing": {
             "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "usage": 0.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.575,
+            "usage": 0.834
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.268,
+            "usage": 0.245
+        },
+        "raw": {
+            "total_ppa": 97.5,
+            "total_passing_ppa": 0.0,
+            "total_receiving_ppa": 62.0,
+            "total_rushing_ppa": 35.5
         }
     },
     {
         "season": 2025,
         "team": "Washington",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.424,
+            "usage": 0.491
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.237,
+            "usage": 0.288
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.818,
+            "usage": 0.801
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.442,
+            "usage": 0.405
+        },
+        "raw": {
+            "total_ppa": 206.8,
+            "total_passing_ppa": 34.8,
+            "total_receiving_ppa": 125.8,
+            "total_rushing_ppa": 46.3
         }
     },
     {
         "season": 2025,
         "team": "Washington State",
+        "conference": "Pac-12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.182,
+            "usage": 0.178
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.189,
+            "usage": 0.123
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.108,
+            "usage": 0.201
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.204,
+            "usage": 0.228
+        },
+        "raw": {
+            "total_ppa": 103.8,
+            "total_passing_ppa": 31.2,
+            "total_receiving_ppa": 61.7,
+            "total_rushing_ppa": 10.9
         }
     },
     {
         "season": 2025,
         "team": "West Virginia",
+        "conference": "Big 12",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.176,
+            "usage": 0.291
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.157,
+            "usage": 0.156
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.207,
+            "usage": 0.411
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.17,
+            "usage": 0.265
+        },
+        "raw": {
+            "total_ppa": 85.3,
+            "total_passing_ppa": 17.2,
+            "total_receiving_ppa": 45.5,
+            "total_rushing_ppa": 22.6
         }
     },
     {
         "season": 2025,
         "team": "Western Kentucky",
+        "conference": "Conference USA",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.13,
+            "usage": 0.098
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.056,
+            "usage": 0.004
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.218,
+            "usage": 0.153
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.167,
+            "usage": 0.167
+        },
+        "raw": {
+            "total_ppa": 63.4,
+            "total_passing_ppa": 9.4,
+            "total_receiving_ppa": 49.7,
+            "total_rushing_ppa": 4.3
         }
     },
     {
         "season": 2025,
         "team": "Western Michigan",
+        "conference": "Mid-American",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.319,
+            "usage": 0.235
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.047,
+            "usage": 0.036
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.658,
+            "usage": 0.351
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.323,
+            "usage": 0.304
+        },
+        "raw": {
+            "total_ppa": 121.4,
+            "total_passing_ppa": 4.9,
+            "total_receiving_ppa": 63.0,
+            "total_rushing_ppa": 53.5
         }
     },
     {
         "season": 2025,
         "team": "Wisconsin",
+        "conference": "Big Ten",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.402,
+            "usage": 0.248
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.061,
+            "usage": 0.003
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.324,
+            "usage": 0.333
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.564,
+            "usage": 0.516
+        },
+        "raw": {
+            "total_ppa": 132.3,
+            "total_passing_ppa": 4.6,
+            "total_receiving_ppa": 107.3,
+            "total_rushing_ppa": 20.4
         }
     },
     {
         "season": 2025,
         "team": "Wyoming",
+        "conference": "Mountain West",
         "overall": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.749,
+            "usage": 0.689
         },
         "passing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.0,
+            "usage": 1.0
         },
         "rushing": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 1.46,
+            "usage": 0.468
         },
         "receiving": {
-            "percent": 0.0,
-            "usage": 0.0,
-            "ppa": 0.0
+            "percent": 0.63,
+            "usage": 0.561
+        },
+        "raw": {
+            "total_ppa": 189.6,
+            "total_passing_ppa": 34.1,
+            "total_receiving_ppa": 124.8,
+            "total_rushing_ppa": 30.8
         }
     }
 ]
