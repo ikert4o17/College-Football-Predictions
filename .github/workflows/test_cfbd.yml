@@ -226,3 +226,11 @@ jobs:
       - name: Calculate 2025 recruiting talent metrics
         run: |
           python -m ratings.recruiting_talent
+
+      # ============================================================
+      # RECRUITING TALENT VALIDATION
+      # ============================================================
+
+      - name: Validate 2025 recruiting talent
+        run: |
+          python -m ratings.validate_recruiting_talent
