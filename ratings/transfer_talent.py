@@ -1,6 +1,16 @@
 """
-Build team-level transfer talent metrics from the enriched
-2025 transfer portal dataset.
+Build team-level transfer talent metrics from enriched
+transfer portal datasets.
+
+Usage:
+    python -m ratings.transfer_talent 2025
+    python -m ratings.transfer_talent 2026
+
+Input:
+    data/processed/enriched_transfer_portal_<year>.json
+
+Output:
+    data/processed/transfer_talent_<year>.json
 
 The goal is to measure transfer QUALITY, not just transfer volume.
 
@@ -11,29 +21,36 @@ This module does NOT modify the existing power-rating system.
 """
 
 import json
+import sys
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-INPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "enriched_transfer_portal_2025.json"
-)
 
-OUTPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "transfer_talent_2025.json"
-)
-
-
-# This is only a descriptive threshold for diagnostics.
-# It is NOT yet a model weight or replacement-level cutoff.
 HIGH_END_RATING = 0.9000
+
+
+def input_file(year):
+    """Return enriched transfer portal input path."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / f"enriched_transfer_portal_{year}.json"
+    )
+
+
+def output_file(year):
+    """Return team-level transfer talent output path."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / f"transfer_talent_{year}.json"
+    )
 
 
 def load_json(path):
@@ -86,11 +103,14 @@ def create_side_profile():
     }
 
 
-def create_team_profile(team):
+def create_team_profile(
+    team,
+    season
+):
     """Create an empty team transfer talent profile."""
 
     return {
-        "season": 2025,
+        "season": season,
 
         "team": team,
 
@@ -114,7 +134,8 @@ def create_team_profile(team):
 
 def ensure_team(
     profiles,
-    team
+    team,
+    season
 ):
     """Create a team profile if needed."""
 
@@ -122,10 +143,12 @@ def ensure_team(
         return
 
     if team not in profiles:
-        profiles[team] = (
-            create_team_profile(
-                team
-            )
+
+        profiles[
+            team
+        ] = create_team_profile(
+            team,
+            season
         )
 
 
@@ -135,7 +158,9 @@ def add_transfer(
 ):
     """Add one transfer to an incoming/outgoing profile."""
 
-    side["count"] += 1
+    side[
+        "count"
+    ] += 1
 
     position = (
         transfer.get(
@@ -196,7 +221,8 @@ def add_transfer(
 
     elif (
         source
-        == "recruiting_fallback"
+        ==
+        "recruiting_fallback"
     ):
 
         side[
@@ -269,9 +295,13 @@ def finalize_team(profile):
         "net"
     ] = {
         "transfer_count":
-            incoming["count"]
+            incoming[
+                "count"
+            ]
             -
-            outgoing["count"],
+            outgoing[
+                "count"
+            ],
 
         "rated_count":
             incoming[
@@ -319,11 +349,26 @@ def finalize_team(profile):
     return profile
 
 
-def calculate_transfer_talent():
-    """Build team-level transfer talent metrics."""
+def calculate_transfer_talent(year):
+    """Build team-level transfer talent metrics for one season."""
+
+    source = input_file(
+        year
+    )
+
+    destination = output_file(
+        year
+    )
+
+    if not source.exists():
+
+        raise FileNotFoundError(
+            f"Enriched transfer portal input not found: "
+            f"{source}"
+        )
 
     records = load_json(
-        INPUT_FILE
+        source
     )
 
     profiles = {}
@@ -334,18 +379,20 @@ def calculate_transfer_talent():
             "origin"
         )
 
-        destination = transfer.get(
+        destination_team = transfer.get(
             "destination"
         )
 
         ensure_team(
             profiles,
-            origin
+            origin,
+            year
         )
 
         ensure_team(
             profiles,
-            destination
+            destination_team,
+            year
         )
 
         if origin:
@@ -359,11 +406,11 @@ def calculate_transfer_talent():
                 transfer
             )
 
-        if destination:
+        if destination_team:
 
             add_transfer(
                 profiles[
-                    destination
+                    destination_team
                 ][
                     "incoming"
                 ],
@@ -382,15 +429,17 @@ def calculate_transfer_talent():
 
     processed.sort(
         key=lambda team:
-            team["team"]
+            team[
+                "team"
+            ]
     )
 
-    OUTPUT_FILE.parent.mkdir(
+    destination.parent.mkdir(
         parents=True,
         exist_ok=True
     )
 
-    with OUTPUT_FILE.open(
+    with destination.open(
         "w",
         encoding="utf-8"
     ) as file:
@@ -401,13 +450,18 @@ def calculate_transfer_talent():
             indent=4
         )
 
-    print("=" * 60)
+    print("=" * 70)
 
     print(
-        "TEAM TRANSFER TALENT METRICS"
+        f"{year} TEAM TRANSFER TALENT METRICS"
     )
 
-    print("=" * 60)
+    print("=" * 70)
+
+    print(
+        f"Transfer records loaded: "
+        f"{len(records)}"
+    )
 
     print(
         f"Team profiles created: "
@@ -450,6 +504,24 @@ def calculate_transfer_talent():
         for team in processed
     )
 
+    incoming_high_end = sum(
+        team[
+            "incoming"
+        ][
+            "high_end_count"
+        ]
+        for team in processed
+    )
+
+    outgoing_high_end = sum(
+        team[
+            "outgoing"
+        ][
+            "high_end_count"
+        ]
+        for team in processed
+    )
+
     print(
         f"Incoming transfers: "
         f"{total_incoming}"
@@ -458,6 +530,11 @@ def calculate_transfer_talent():
     print(
         f"Incoming rated transfers: "
         f"{incoming_rated}"
+    )
+
+    print(
+        f"Incoming 0.90+ transfers: "
+        f"{incoming_high_end}"
     )
 
     print(
@@ -470,85 +547,165 @@ def calculate_transfer_talent():
         f"{outgoing_rated}"
     )
 
+    print(
+        f"Outgoing 0.90+ transfers: "
+        f"{outgoing_high_end}"
+    )
+
     print()
 
     print(
-        "TOP 15 TEAMS BY NET RATING SUM"
+        "TOP 15 TEAMS BY INCOMING 0.90+ TRANSFERS"
     )
 
-    print("-" * 60)
+    print("-" * 70)
 
-    top_teams = sorted(
+    incoming_elite = sorted(
+        processed,
+        key=lambda team:
+            (
+                team[
+                    "incoming"
+                ][
+                    "high_end_count"
+                ],
+                team[
+                    "incoming"
+                ][
+                    "average_rating"
+                ],
+            ),
+        reverse=True,
+    )
+
+    for team in incoming_elite[:15]:
+
+        print(
+            f"{team['team']}: "
+            f"high_end="
+            f"{team['incoming']['high_end_count']}, "
+            f"in="
+            f"{team['incoming']['count']}, "
+            f"avg="
+            f"{team['incoming']['average_rating']:.4f}"
+        )
+
+    print()
+
+    print(
+        "TOP 15 TEAMS BY OUTGOING 0.90+ TRANSFERS"
+    )
+
+    print("-" * 70)
+
+    outgoing_elite = sorted(
+        processed,
+        key=lambda team:
+            (
+                team[
+                    "outgoing"
+                ][
+                    "high_end_count"
+                ],
+                team[
+                    "outgoing"
+                ][
+                    "average_rating"
+                ],
+            ),
+        reverse=True,
+    )
+
+    for team in outgoing_elite[:15]:
+
+        print(
+            f"{team['team']}: "
+            f"high_end="
+            f"{team['outgoing']['high_end_count']}, "
+            f"out="
+            f"{team['outgoing']['count']}, "
+            f"avg="
+            f"{team['outgoing']['average_rating']:.4f}"
+        )
+
+    print()
+
+    print(
+        "TOP 15 TEAMS BY NET HIGH-END TRANSFERS"
+    )
+
+    print("-" * 70)
+
+    net_elite = sorted(
         processed,
         key=lambda team:
             team[
                 "net"
             ][
-                "rating_sum"
+                "high_end_count"
             ],
         reverse=True,
     )
 
-    for team in top_teams[:15]:
+    for team in net_elite[:15]:
 
         print(
             f"{team['team']}: "
-            f"net_rating="
-            f"{team['net']['rating_sum']:+.4f}, "
-            f"in="
-            f"{team['incoming']['count']}, "
-            f"out="
-            f"{team['outgoing']['count']}, "
-            f"in_avg="
-            f"{team['incoming']['average_rating']:.4f}, "
-            f"out_avg="
-            f"{team['outgoing']['average_rating']:.4f}, "
-            f"high_end_net="
-            f"{team['net']['high_end_count']:+d}"
+            f"net_high_end="
+            f"{team['net']['high_end_count']:+d}, "
+            f"in_high_end="
+            f"{team['incoming']['high_end_count']}, "
+            f"out_high_end="
+            f"{team['outgoing']['high_end_count']}"
         )
 
     print()
 
     print(
-        "BOTTOM 15 TEAMS BY NET RATING SUM"
+        "BOTTOM 15 TEAMS BY NET HIGH-END TRANSFERS"
     )
 
-    print("-" * 60)
+    print("-" * 70)
 
-    bottom_teams = sorted(
+    bottom_elite = sorted(
         processed,
         key=lambda team:
             team[
                 "net"
             ][
-                "rating_sum"
-            ],
+                "high_end_count"
+            ]
     )
 
-    for team in bottom_teams[:15]:
+    for team in bottom_elite[:15]:
 
         print(
             f"{team['team']}: "
-            f"net_rating="
-            f"{team['net']['rating_sum']:+.4f}, "
-            f"in="
-            f"{team['incoming']['count']}, "
-            f"out="
-            f"{team['outgoing']['count']}, "
-            f"in_avg="
-            f"{team['incoming']['average_rating']:.4f}, "
-            f"out_avg="
-            f"{team['outgoing']['average_rating']:.4f}, "
-            f"high_end_net="
-            f"{team['net']['high_end_count']:+d}"
+            f"net_high_end="
+            f"{team['net']['high_end_count']:+d}, "
+            f"in_high_end="
+            f"{team['incoming']['high_end_count']}, "
+            f"out_high_end="
+            f"{team['outgoing']['high_end_count']}"
         )
 
     print()
 
     print(
-        f"Saved to {OUTPUT_FILE}"
+        f"Saved to {destination}"
     )
 
 
 if __name__ == "__main__":
-    calculate_transfer_talent()
+
+    year = 2025
+
+    if len(sys.argv) > 1:
+
+        year = int(
+            sys.argv[1]
+        )
+
+    calculate_transfer_talent(
+        year
+    )
