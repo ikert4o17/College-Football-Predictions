@@ -274,3 +274,11 @@ jobs:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python -m data.download_sp_ratings 2024 2025
+
+      # ============================================================
+      # SP+ BASELINE VALIDATION
+      # ============================================================
+
+      - name: Validate SP+ baseline blend
+        run: |
+          python -m ratings.validate_sp_baseline
