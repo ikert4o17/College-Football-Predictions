@@ -194,3 +194,11 @@ jobs:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python -m data.download_recruiting_players 2019 2025
+
+      # ============================================================
+      # TRANSFER TALENT ENRICHMENT
+      # ============================================================
+
+      - name: Enrich 2025 transfer portal talent
+        run: |
+          python -m data.enrich_transfer_portal
