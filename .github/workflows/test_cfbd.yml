@@ -50,6 +50,49 @@ jobs:
       - name: Process 2025 historical games
         run: python -m data.process_historical_games 2025
 
+      - name: Process 2025 team results
+        run: python -m data.process_team_results
+
+      - name: Calculate 2025 team strength
+        run: python -m ratings.team_strength
+
+      - name: Calculate 2025 strength of schedule
+        run: python -m ratings.strength_of_schedule
+
+      - name: Calculate 2025 power ratings
+        run: python -m ratings.power_rating
+
+      - name: Download 2024 historical stats
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python -m data.download_historical_stats 2024
+
+      - name: Process 2024 historical stats
+        run: python -m data.process_historical_stats 2024
+
+      - name: Download 2024 historical games
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python -m data.download_historical_games 2024
+
+      - name: Process 2024 historical games
+        run: python -m data.process_historical_games 2024
+
+      - name: Process 2024 team results
+        run: python -m data.process_team_results 2024
+
+      - name: Calculate 2024 team strength
+        run: python -m ratings.team_strength 2024
+
+      - name: Calculate 2024 strength of schedule
+        run: python -m ratings.strength_of_schedule 2024
+
+      - name: Calculate 2024 power ratings
+        run: python -m ratings.power_rating 2024
+
+      - name: Analyze season continuity
+        run: python -m ratings.season_continuity
+
       - name: Download 2025 returning production
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -58,51 +101,11 @@ jobs:
       - name: Process 2025 returning production
         run: python -m data.process_returning_production
 
-      - name: Download 2024 historical stats
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_historical_stats 2024
-
-      - name: Process 2024 historical stats
-        run: python -m data.process_historical_stats_2024
-
-      - name: Download 2024 historical games
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: python -m data.download_historical_games 2024
-
-      - name: Process 2024 historical games
-        run: python -m data.process_historical_games_2024
-
-      - name: Process 2025 team results
-        run: python -m data.process_team_results
-
-      - name: Process 2024 team results
-        run: python -m data.process_team_results_2024
-
-      - name: Calculate 2025 team strength
-        run: python -m ratings.team_strength
-
-      - name: Calculate 2024 team strength
-        run: python -m ratings.team_strength_2024
-
-      - name: Calculate 2025 strength of schedule
-        run: python -m ratings.strength_of_schedule
-
-      - name: Calculate 2024 strength of schedule
-        run: python -m ratings.strength_of_schedule_2024
-
-      - name: Calculate 2025 power ratings
-        run: python -m ratings.power_rating
-
-      - name: Calculate 2024 power ratings
-        run: python -m ratings.power_rating_2024
-
-      - name: Analyze 2024 to 2025 continuity
-        run: python -m ratings.season_continuity
-
       - name: Analyze returning production
         run: python -m ratings.analyze_returning_production
+
+      - name: Validate returning production
+        run: python -m ratings.validate_returning_production
 
       - name: Test game predictor
         run: python -m predictions.game_predictor
@@ -112,184 +115,42 @@ jobs:
 
       - name: Display data counts
         run: |
-          python <<'PY'
-          import json
-
-          def load(path):
-              with open(path, "r", encoding="utf-8") as file:
-                  return json.load(file)
-
-          teams = load("data/processed/teams.json")
-          games2026 = load("data/processed/games.json")
-
-          stats2025 = load(
-              "data/processed/historical_stats_2025.json"
-          )
-
-          stats2024 = load(
-              "data/processed/historical_stats_2024.json"
-          )
-
-          games2025 = load(
-              "data/processed/historical_games_2025.json"
-          )
-
-          games2024 = load(
-              "data/processed/historical_games_2024.json"
-          )
-
-          strength2025 = load(
-              "data/processed/team_strength_2025.json"
-          )
-
-          strength2024 = load(
-              "data/processed/team_strength_2024.json"
-          )
-
-          results2025 = load(
-              "data/processed/team_results_2025.json"
-          )
-
-          results2024 = load(
-              "data/processed/team_results_2024.json"
-          )
-
-          sos2025 = load(
-              "data/processed/strength_of_schedule_2025.json"
-          )
-
-          sos2024 = load(
-              "data/processed/strength_of_schedule_2024.json"
-          )
-
-          ratings2025 = load(
-              "data/processed/power_ratings_2025.json"
-          )
-
-          ratings2024 = load(
-              "data/processed/power_ratings_2024.json"
-          )
-
-          returning2025 = load(
-              "data/processed/returning_production_2025.json"
-          )
-
-          predictions2025 = load(
-              "data/processed/game_predictions_2025.json"
-          )
-
-          fbs2025 = sum(
-              1
-              for game in games2025
-              if game["game_classification"] == "fbs_vs_fbs"
-          )
-
-          lower2025 = sum(
-              1
-              for game in games2025
-              if game["game_classification"] == "fbs_vs_lower"
-          )
-
-          fbs2024 = sum(
-              1
-              for game in games2024
-              if game["game_classification"] == "fbs_vs_fbs"
-          )
-
-          lower2024 = sum(
-              1
-              for game in games2024
-              if game["game_classification"] == "fbs_vs_lower"
-          )
-
-          print(f"Processed teams: {len(teams)}")
-          print(f"2026 games: {len(games2026)}")
-
-          print(f"2025 team profiles: {len(stats2025)}")
-          print(f"2025 FBS games: {len(games2025)}")
-          print(f"2025 FBS vs FBS: {fbs2025}")
-          print(f"2025 FBS vs lower: {lower2025}")
-          print(
-              f"2025 team strength profiles: "
-              f"{len(strength2025)}"
-          )
-          print(
-              f"2025 team result profiles: "
-              f"{len(results2025)}"
-          )
-          print(
-              f"2025 SOS profiles: "
-              f"{len(sos2025)}"
-          )
-          print(
-              f"2025 power ratings: "
-              f"{len(ratings2025)}"
-          )
-          print(
-              f"2025 returning production profiles: "
-              f"{len(returning2025)}"
-          )
-          print(
-              f"2025 game predictions: "
-              f"{len(predictions2025)}"
-          )
-
-          print(f"2024 team profiles: {len(stats2024)}")
-          print(f"2024 processed games: {len(games2024)}")
-          print(f"2024 FBS vs FBS: {fbs2024}")
-          print(f"2024 FBS vs lower: {lower2024}")
-          print(
-              f"2024 team strength profiles: "
-              f"{len(strength2024)}"
-          )
-          print(
-              f"2024 team result profiles: "
-              f"{len(results2024)}"
-          )
-          print(
-              f"2024 SOS profiles: "
-              f"{len(sos2024)}"
-          )
-          print(
-              f"2024 power ratings: "
-              f"{len(ratings2024)}"
-          )
-          PY
+          python -c "import json; teams=json.load(open('data/processed/teams.json')); games2026=json.load(open('data/processed/games.json')); stats2025=json.load(open('data/processed/historical_stats_2025.json')); games2025=json.load(open('data/processed/historical_games_2025.json')); strength2025=json.load(open('data/processed/team_strength_2025.json')); results2025=json.load(open('data/processed/team_results_2025.json')); sos2025=json.load(open('data/processed/strength_of_schedule_2025.json')); ratings2025=json.load(open('data/processed/power_ratings_2025.json')); returning=json.load(open('data/processed/returning_production_2025.json')); print(f'Processed teams: {len(teams)}'); print(f'2026 games: {len(games2026)}'); print(f'2025 team profiles: {len(stats2025)}'); print(f'2025 FBS games: {len(games2025)}'); print(f'2025 FBS vs FBS: {sum(1 for g in games2025 if g[\"game_classification\"] == \"fbs_vs_fbs\")}'); print(f'2025 FBS vs lower: {sum(1 for g in games2025 if g[\"game_classification\"] == \"fbs_vs_lower\")}'); print(f'2025 team strength profiles: {len(strength2025)}'); print(f'2025 team result profiles: {len(results2025)}'); print(f'2025 SOS profiles: {len(sos2025)}'); print(f'2025 power ratings: {len(ratings2025)}'); print(f'2025 returning production records: {len(returning)}')"
 
       - name: Save data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add \
-            data/raw/teams.json \
-            data/raw/games.json \
-            data/raw/stats.json \
-            data/raw/historical_stats/2025.json \
-            data/raw/historical_stats/2024.json \
-            data/raw/historical_games/2025.json \
-            data/raw/historical_games/2024.json \
-            data/raw/returning_production/2025.json \
-            data/processed/teams.json \
-            data/processed/games.json \
-            data/processed/historical_stats_2025.json \
-            data/processed/historical_stats_2024.json \
-            data/processed/historical_games_2025.json \
-            data/processed/historical_games_2024.json \
-            data/processed/returning_production_2025.json \
-            data/processed/team_strength_2025.json \
-            data/processed/team_strength_2024.json \
-            data/processed/team_results_2025.json \
-            data/processed/team_results_2024.json \
-            data/processed/strength_of_schedule_2025.json \
-            data/processed/strength_of_schedule_2024.json \
-            data/processed/power_ratings_2025.json \
-            data/processed/power_ratings_2024.json \
-            data/processed/game_predictions_2025.json
+          git add data/raw/teams.json \
+                  data/raw/games.json \
+                  data/raw/stats.json \
+                  data/raw/historical_stats/2024.json \
+                  data/raw/historical_stats/2025.json \
+                  data/raw/historical_games/2024.json \
+                  data/raw/historical_games/2025.json \
+                  data/raw/returning_production/2025.json \
+                  data/processed/teams.json \
+                  data/processed/games.json \
+                  data/processed/historical_stats_2024.json \
+                  data/processed/historical_stats_2025.json \
+                  data/processed/historical_games_2024.json \
+                  data/processed/historical_games_2025.json \
+                  data/processed/team_results_2024.json \
+                  data/processed/team_results_2025.json \
+                  data/processed/team_strength_2024.json \
+                  data/processed/team_strength_2025.json \
+                  data/processed/strength_of_schedule_2024.json \
+                  data/processed/strength_of_schedule_2025.json \
+                  data/processed/power_ratings_2024.json \
+                  data/processed/power_ratings_2025.json \
+                  data/processed/returning_production_2025.json \
+                  data/processed/game_predictions_2025.json
 
           if git diff --cached --quiet; then
             echo "No changes to data."
           else
-            git commit -m "Analyze returning production"
+            git commit -m "Update FBS data"
             git push
           fi
+```
