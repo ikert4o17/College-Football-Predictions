@@ -67,7 +67,7 @@ jobs:
 
       - name: Calculate 2025 team results
         run: |
-          python -m ratings.team_results
+          python -m data.process_team_results
 
       - name: Calculate 2025 strength of schedule
         run: |
@@ -107,7 +107,7 @@ jobs:
 
       - name: Calculate 2024 team results
         run: |
-          python -m ratings.team_results_2024
+          python -m data.process_team_results_2024
 
       - name: Calculate 2024 strength of schedule
         run: |
