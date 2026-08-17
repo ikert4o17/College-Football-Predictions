@@ -202,3 +202,11 @@ jobs:
       - name: Enrich 2025 transfer portal talent
         run: |
           python -m data.enrich_transfer_portal
+
+      # ============================================================
+      # TEAM TRANSFER TALENT METRICS
+      # ============================================================
+
+      - name: Calculate 2025 transfer talent metrics
+        run: |
+          python -m ratings.transfer_talent
