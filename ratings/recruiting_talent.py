@@ -1,42 +1,54 @@
 """
-Build team-level recruiting talent metrics for the 2025 recruiting class.
+Build team-level recruiting talent metrics for a specified recruiting class.
 
-This module measures incoming recruiting talent separately from
-transfer portal talent.
+Usage:
+    python -m ratings.recruiting_talent 2025
+    python -m ratings.recruiting_talent 2026
 
-Recruiting will eventually receive a relatively small preseason
-weight because incoming recruits have little or no proven college
-production.
+Input:
+    data/raw/recruiting_players/<year>.json
 
-This module does NOT modify the existing power-rating system.
+Output:
+    data/processed/recruiting_talent_<year>.json
+
+Recruiting is measured separately from transfer talent.
+
+This module does NOT modify the production power-rating system.
 """
 
 import json
+import sys
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-INPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "raw"
-    / "recruiting_players"
-    / "2025.json"
-)
 
-OUTPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "recruiting_talent_2025.json"
-)
-
-
-# Diagnostic thresholds only.
-# We will validate them before using them in the model.
 BLUE_CHIP_RATING = 0.8900
 ELITE_RATING = 0.9500
+
+
+def input_file(year):
+    """Return recruiting-player input path."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "raw"
+        / "recruiting_players"
+        / f"{year}.json"
+    )
+
+
+def output_file(year):
+    """Return recruiting-talent output path."""
+
+    return (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / f"recruiting_talent_{year}.json"
+    )
 
 
 def load_json(path):
@@ -65,11 +77,14 @@ def safe_float(value):
         return None
 
 
-def create_team_profile(team):
+def create_team_profile(
+    team,
+    season
+):
     """Create an empty team recruiting profile."""
 
     return {
-        "season": 2025,
+        "season": season,
         "team": team,
 
         "total_recruits": 0,
@@ -108,7 +123,8 @@ def create_team_profile(team):
 
 def ensure_team(
     profiles,
-    team
+    team,
+    season
 ):
     """Create a team profile if needed."""
 
@@ -117,10 +133,11 @@ def ensure_team(
 
     if team not in profiles:
 
-        profiles[team] = (
-            create_team_profile(
-                team
-            )
+        profiles[
+            team
+        ] = create_team_profile(
+            team,
+            season
         )
 
 
@@ -359,11 +376,26 @@ def finalize_team(
     return profile
 
 
-def calculate_recruiting_talent():
-    """Build team-level recruiting talent profiles."""
+def calculate_recruiting_talent(year):
+    """Build team-level recruiting talent profiles for one class."""
+
+    source = input_file(
+        year
+    )
+
+    destination = output_file(
+        year
+    )
+
+    if not source.exists():
+
+        raise FileNotFoundError(
+            f"Recruiting input file not found: "
+            f"{source}"
+        )
 
     recruits = load_json(
-        INPUT_FILE
+        source
     )
 
     profiles = {}
@@ -381,7 +413,8 @@ def calculate_recruiting_talent():
 
         ensure_team(
             profiles,
-            team
+            team,
+            year
         )
 
         recruits_by_team.setdefault(
@@ -416,15 +449,17 @@ def calculate_recruiting_talent():
 
     processed.sort(
         key=lambda team:
-            team["team"]
+            team[
+                "team"
+            ]
     )
 
-    OUTPUT_FILE.parent.mkdir(
+    destination.parent.mkdir(
         parents=True,
         exist_ok=True
     )
 
-    with OUTPUT_FILE.open(
+    with destination.open(
         "w",
         encoding="utf-8"
     ) as file:
@@ -435,13 +470,13 @@ def calculate_recruiting_talent():
             indent=4
         )
 
-    print("=" * 60)
+    print("=" * 70)
 
     print(
-        "2025 RECRUITING TALENT METRICS"
+        f"{year} RECRUITING TALENT METRICS"
     )
 
-    print("=" * 60)
+    print("=" * 70)
 
     print(
         f"Recruiting records loaded: "
@@ -459,7 +494,7 @@ def calculate_recruiting_talent():
         "TOP 15 BY TOP-10 AVERAGE RATING"
     )
 
-    print("-" * 60)
+    print("-" * 70)
 
     top_teams = sorted(
         processed,
@@ -494,7 +529,7 @@ def calculate_recruiting_talent():
         "TOP 15 BY BLUE-CHIP COUNT"
     )
 
-    print("-" * 60)
+    print("-" * 70)
 
     blue_chip_teams = sorted(
         processed,
@@ -527,9 +562,20 @@ def calculate_recruiting_talent():
     print()
 
     print(
-        f"Saved to {OUTPUT_FILE}"
+        f"Saved to {destination}"
     )
 
 
 if __name__ == "__main__":
-    calculate_recruiting_talent()
+
+    year = 2025
+
+    if len(sys.argv) > 1:
+
+        year = int(
+            sys.argv[1]
+        )
+
+    calculate_recruiting_talent(
+        year
+    )
