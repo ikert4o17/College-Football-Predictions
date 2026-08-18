@@ -1,0 +1,205 @@
+name: Generate 2026 Provisional Predictions
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-predictions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify required inputs
+        run: |
+          echo "Checking provisional prediction inputs..."
+          echo ""
+
+          REQUIRED_FILES=(
+            "data/processed/power_ratings_2026.json"
+            "data/raw/games.json"
+          )
+
+          MISSING=0
+
+          for FILE in "${REQUIRED_FILES[@]}"; do
+            if [ -f "$FILE" ]; then
+              echo "FOUND:   $FILE"
+            else
+              echo "MISSING: $FILE"
+              MISSING=1
+            fi
+          done
+
+          if [ "$MISSING" -ne 0 ]; then
+            echo ""
+            echo "One or more required prediction inputs are missing."
+            exit 1
+          fi
+
+      - name: Generate provisional 2026 predictions
+        run: |
+          python -m predictions.provisional_2026_predictions
+
+      - name: Validate prediction output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path(
+              "data/processed/provisional_game_predictions_2026.json"
+          )
+
+          if not path.exists():
+              raise SystemExit(
+                  "Prediction output file was not created."
+              )
+
+          with path.open(
+              "r",
+              encoding="utf-8"
+          ) as file:
+              predictions = json.load(file)
+
+          print("=" * 80)
+          print("2026 PROVISIONAL PREDICTION OUTPUT CHECK")
+          print("=" * 80)
+          print()
+
+          print(
+              f"Predictions generated: "
+              f"{len(predictions)}"
+          )
+
+          required_fields = {
+              "season",
+              "game_id",
+              "home_team",
+              "away_team",
+              "home_rating",
+              "away_rating",
+              "projected_home_margin",
+              "projected_winner",
+              "projected_margin",
+              "provisional",
+          }
+
+          problems = []
+
+          for record in predictions:
+
+              missing = (
+                  required_fields
+                  -
+                  set(record)
+              )
+
+              if missing:
+                  problems.append(
+                      {
+                          "game_id":
+                              record.get(
+                                  "game_id"
+                              ),
+
+                          "missing":
+                              sorted(
+                                  missing
+                              ),
+                      }
+                  )
+
+          if problems:
+
+              print()
+              print(
+                  "ERROR: Prediction records "
+                  "are missing required fields."
+              )
+
+              for item in problems[:20]:
+
+                  print(
+                      f"game_id="
+                      f"{item['game_id']}: "
+                      f"{item['missing']}"
+                  )
+
+              raise SystemExit(1)
+
+          print()
+
+          print(
+              "PROJECTED GAMES"
+          )
+
+          print("-" * 80)
+
+          for record in predictions:
+
+              winner = (
+                  record.get(
+                      "projected_winner"
+                  )
+                  or "Pick'em"
+              )
+
+              print(
+                  f"{record['away_team']} "
+                  f"@ "
+                  f"{record['home_team']}"
+              )
+
+              print(
+                  f"  {winner} "
+                  f"by "
+                  f"{record['projected_margin']:.1f}"
+              )
+
+              print(
+                  f"  projected home margin: "
+                  f"{record['projected_home_margin']:+.2f}"
+              )
+
+              print()
+
+          print(
+              "Output validation: PASS"
+          )
+          PY
+
+      - name: Show generated prediction file
+        run: |
+          echo "Generated file:"
+          ls -lh \
+            data/processed/provisional_game_predictions_2026.json
+
+      - name: Commit provisional predictions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            data/processed/provisional_game_predictions_2026.json
+
+          if git diff --cached --quiet; then
+            echo "No prediction changes to commit."
+          else
+            git commit -m \
+              "Generate 2026 provisional game predictions"
+
+            git push
+          fi
