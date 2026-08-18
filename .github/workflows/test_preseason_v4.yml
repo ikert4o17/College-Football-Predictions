@@ -9,6 +9,10 @@ jobs:
 
     steps:
 
+      # ============================================================
+      # SETUP
+      # ============================================================
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -22,26 +26,65 @@ jobs:
           pip install requests
 
       # ============================================================
-      # VERIFY REQUIRED HISTORICAL FILES
+      # VERIFY REQUIRED V4 INPUTS
       # ============================================================
 
       - name: Verify V4 input files
         run: |
           echo "Checking required Project Gridiron V4 inputs..."
+          echo ""
 
-          test -f data/raw/sp_ratings/2024.json
-          test -f data/processed/power_ratings_2024.json
-          test -f data/processed/power_ratings_2025.json
+          FILES=(
+            "data/raw/sp_ratings/2024.json"
+            "data/processed/power_ratings_2024.json"
+            "data/processed/power_ratings_2025.json"
+          )
 
-          echo "Core SP+ and rating files found."
+          MISSING=0
+
+          for FILE in "${FILES[@]}"; do
+            if [ -f "$FILE" ]; then
+              echo "FOUND:   $FILE"
+            else
+              echo "MISSING: $FILE"
+              MISSING=1
+            fi
+          done
 
           echo ""
-          echo "Processed files currently available:"
-          find data/processed -maxdepth 1 -type f -print | sort
+          echo "Files under data/raw/sp_ratings:"
+          find data/raw/sp_ratings -maxdepth 1 -type f -print 2>/dev/null | sort || true
+
+          echo ""
+          echo "Files under data/raw/returning_production:"
+          find data/raw/returning_production -maxdepth 1 -type f -print 2>/dev/null | sort || true
+
+          echo ""
+          echo "Files under data/raw/coaching:"
+          find data/raw/coaching -maxdepth 3 -type f -print 2>/dev/null | sort || true
+
+          echo ""
+          echo "Files under data/raw/qb_data:"
+          find data/raw/qb_data -maxdepth 3 -type f -print 2>/dev/null | sort || true
+
+          echo ""
+          echo "Files under data/processed:"
+          find data/processed -maxdepth 1 -type f -print 2>/dev/null | sort || true
+
+          echo ""
+
+          if [ "$MISSING" -ne 0 ]; then
+            echo "One or more required V4 core files are missing."
+            exit 1
+          fi
+
+          echo "All core V4 files found."
 
       # ============================================================
       # REBUILD HISTORICAL DERIVED FEATURES
-      # NO CFBD DOWNLOADS
+      #
+      # THESE STEPS USE EXISTING RAW FILES ONLY.
+      # NO CFBD API CALLS.
       # ============================================================
 
       - name: Process 2025 returning production
@@ -65,7 +108,7 @@ jobs:
           python -m ratings.coaching_continuity_v2 2025
 
       # ============================================================
-      # OPTIONAL SANITY VALIDATORS
+      # SANITY VALIDATION
       # ============================================================
 
       - name: Validate returning production
@@ -97,15 +140,28 @@ jobs:
           python -m ratings.preseason_model_v4
 
       # ============================================================
-      # SHOW OUTPUT
+      # OUTPUT CHECK
       # ============================================================
 
-      - name: Show V4 output file
+      - name: Verify V4 output
         run: |
-          echo "V4 output:"
-          ls -lh data/processed/preseason_model_v4_validation_2025.json
+          echo "Checking V4 output file..."
+          echo ""
+
+          if [ -f "data/processed/preseason_model_v4_validation_2025.json" ]; then
+            echo "FOUND: data/processed/preseason_model_v4_validation_2025.json"
+            ls -lh data/processed/preseason_model_v4_validation_2025.json
+          else
+            echo "MISSING: data/processed/preseason_model_v4_validation_2025.json"
+            exit 1
+          fi
+
+      # ============================================================
+      # FINAL FILE LIST
+      # ============================================================
 
       - name: Show final processed files
         run: |
           echo "Processed files:"
+          echo ""
           find data/processed -maxdepth 1 -type f -print | sort
