@@ -1,14 +1,16 @@
-name: Test CFBD Pipeline
+name: Update FBS Data
 
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  test-cfbd:
+  update-data:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -19,161 +21,48 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install requests
 
-      # ============================================================
-      # TEAMS
-      # ============================================================
-
-      - name: Download teams
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_teams
-
-      - name: Process teams
-        run: |
-          python -m data.process_teams
-
-      # ============================================================
-      # 2026 GAMES
-      # ============================================================
-
-      - name: Download 2026 games
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_games 2026
-
-      - name: Process 2026 games
-        run: |
-          python -m data.process_games 2026
-
-      # ============================================================
-      # 2025 HISTORICAL DATA
-      # ============================================================
-
-      - name: Download 2025 historical stats
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_historical_stats 2025
-
-      - name: Process 2025 historical stats
-        run: |
-          python -m data.process_historical_stats 2025
-
-      - name: Download 2025 historical games
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_historical_games 2025
-
-      - name: Process 2025 historical games
-        run: |
-          python -m data.process_historical_games 2025
-
-      # ============================================================
-      # 2025 RATINGS
-      # ============================================================
-
-      - name: Calculate 2025 team strength
-        run: |
-          python -m ratings.team_strength
-
-      - name: Calculate 2025 team results
-        run: |
-          python -m data.process_team_results
-
-      - name: Calculate 2025 strength of schedule
-        run: |
-          python -m ratings.strength_of_schedule
-
-      - name: Calculate 2025 power ratings
-        run: |
-          python -m ratings.power_rating
-
-      - name: Test 2025 game predictions
-        run: |
-          python -m predictions.game_predictor
-
-      # ============================================================
-      # 2024 HISTORICAL DATA
-      # ============================================================
-
-      - name: Download 2024 historical stats
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_historical_stats 2024
-
-      - name: Process 2024 historical stats
-        run: |
-          python -m data.process_historical_stats 2024
-
-      - name: Download 2024 historical games
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_historical_games 2024
-
-      - name: Process 2024 historical games
-        run: |
-          python -m data.process_historical_games 2024
-
-      # ============================================================
-      # 2024 RATINGS
-      # ============================================================
-
-      - name: Calculate 2024 team strength
-        run: |
-          python -m ratings.team_strength_2024
-
-      - name: Calculate 2024 team results
-        run: |
-          python -m data.process_team_results_2024
-
-      - name: Calculate 2024 strength of schedule
-        run: |
-          python -m ratings.strength_of_schedule_2024
-
-      - name: Calculate 2024 power ratings
-        run: |
-          python -m ratings.power_rating_2024
-
-      - name: Test season continuity
-        run: |
-          python -m ratings.season_continuity
-
-      # ============================================================
-      # PLAYER / ROSTER DATA
-      # ============================================================
-
-      - name: Download 2024 player diagnostic data
+      - name: Download 2024 QB data
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python -m data.download_qb_data 2024
 
-      - name: Download 2025 player diagnostic data
+      - name: Download 2025 QB data
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python -m data.download_qb_data 2025
 
-      # ============================================================
-      # SP+ DATA
-      # ============================================================
-
-      - name: Download 2024-2025 SP+ ratings
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+      - name: Calculate 2025 QB continuity
         run: |
-          python -m data.download_sp_ratings 2024 2025
+          python -m ratings.qb_continuity 2025
 
-      # ============================================================
-      # COACHING DATA
-      # ============================================================
+      - name: Validate 2025 QB continuity
+        run: |
+          python -m ratings.validate_qb_continuity
+
+      - name: Calculate 2025 transfer production
+        run: |
+          python -m ratings.transfer_production 2025
+
+      - name: Calculate 2025 transfer production V2
+        run: |
+          python -m ratings.transfer_production_v2 2025
+
+      - name: Validate 2025 transfer production V2
+        run: |
+          python -m ratings.validate_transfer_production_v2
+
+      - name: Calculate 2024 team talent composition
+        run: |
+          python -m ratings.team_talent_composition 2024
+
+      - name: Validate team talent composition
+        run: |
+          python -m ratings.validate_team_talent_composition
 
       - name: Download 2024 coaching data
         env:
@@ -191,220 +80,26 @@ jobs:
         run: |
           python -m ratings.coaching_continuity_v2 2025
 
-      # ============================================================
-      # 2025 RETURNING PRODUCTION
-      # ============================================================
-
-      - name: Download 2025 returning production
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+      - name: Validate 2025 coaching continuity V2
         run: |
-          python -m data.download_returning_production 2025
+          python -m ratings.validate_coaching_continuity_v2
 
-      - name: Process 2025 returning production
+      - name: Show generated processed files
         run: |
-          python -m data.process_returning_production 2025
+          echo "Processed files:"
+          find data/processed -maxdepth 1 -type f -print | sort
 
-      - name: Analyze returning production
+      - name: Commit updated data
         run: |
-          python -m ratings.analyze_returning_production
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Validate returning production
-        run: |
-          python -m ratings.validate_returning_production
+          git add data/raw
+          git add data/processed
 
-      # ============================================================
-      # 2025 TRANSFER PORTAL
-      # ============================================================
-
-      - name: Download 2025 transfer portal
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_transfer_portal 2025
-
-      - name: Process 2025 transfer portal
-        run: |
-          python -m data.process_transfer_portal 2025
-
-      - name: Validate 2025 transfer portal
-        run: |
-          python -m ratings.validate_transfer_portal
-
-      # ============================================================
-      # HISTORICAL RECRUITING
-      # ============================================================
-
-      - name: Download 2019-2025 recruiting players
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_recruiting_players 2019 2025
-
-      # ============================================================
-      # 2024 TEAM TALENT COMPOSITION
-      # ============================================================
-
-      - name: Calculate 2024 team talent composition
-        run: |
-          python -m ratings.team_talent_composition 2024
-
-      - name: Validate 2024 team talent composition
-        run: |
-          python -m ratings.validate_team_talent_composition
-
-      # ============================================================
-      # 2025 TRANSFER TALENT
-      # ============================================================
-
-      - name: Enrich 2025 transfer portal talent
-        run: |
-          python -m data.enrich_transfer_portal 2025
-
-      - name: Calculate 2025 transfer talent metrics
-        run: |
-          python -m ratings.transfer_talent 2025
-
-      - name: Validate composite-weighted transfer talent
-        run: |
-          python -m ratings.validate_transfer_talent
-
-      # ============================================================
-      # 2025 TRANSFER PRODUCTION V2
-      # ============================================================
-
-      - name: Calculate 2025 transfer production metrics V2
-        run: |
-          python -m ratings.transfer_production_v2 2025
-
-      - name: Validate 2025 transfer production V2
-        run: |
-          python -m ratings.validate_transfer_production_v2
-
-      # ============================================================
-      # QB CONTINUITY
-      # ============================================================
-
-      - name: Calculate 2025 QB continuity metrics
-        run: |
-          python -m ratings.qb_continuity 2025
-
-      - name: Validate 2025 QB continuity
-        run: |
-          python -m ratings.validate_qb_continuity
-
-      # ============================================================
-      # 2025 RECRUITING TALENT
-      # ============================================================
-
-      - name: Calculate 2025 recruiting talent metrics
-        run: |
-          python -m ratings.recruiting_talent 2025
-
-      - name: Validate 2025 recruiting talent
-        run: |
-          python -m ratings.validate_recruiting_talent
-
-      # ============================================================
-      # NFL DRAFT LOSSES
-      # ============================================================
-
-      - name: Download 2025 NFL draft picks
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_draft_picks 2025
-
-      - name: Calculate 2025 NFL draft loss metrics
-        run: |
-          python -m ratings.draft_losses
-
-      - name: Validate 2025 NFL draft losses
-        run: |
-          python -m ratings.validate_draft_losses
-
-      # ============================================================
-      # HISTORICAL PRESEASON MODEL
-      # ============================================================
-
-      - name: Run combined preseason model V2
-        run: |
-          python -m ratings.preseason_model
-
-      # ============================================================
-      # SP+ BASELINE VALIDATION
-      # ============================================================
-
-      - name: Validate SP+ baseline blend
-        run: |
-          python -m ratings.validate_sp_baseline
-
-      - name: Run SP+ anchored preseason model V3
-        run: |
-          python -m ratings.preseason_model_v3
-
-      # ============================================================
-      # 2026 RETURNING PRODUCTION
-      # ============================================================
-
-      - name: Download 2026 returning production
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_returning_production 2026
-
-      - name: Process 2026 returning production
-        run: |
-          python -m data.process_returning_production 2026
-
-      # ============================================================
-      # 2026 TRANSFER PORTAL
-      # ============================================================
-
-      - name: Download 2026 transfer portal
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_transfer_portal 2026
-
-      - name: Process 2026 transfer portal
-        run: |
-          python -m data.process_transfer_portal 2026
-
-      # ============================================================
-      # 2026 RECRUITING
-      # ============================================================
-
-      - name: Download 2026 recruiting players
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_recruiting_players 2026 2026
-
-      # ============================================================
-      # 2026 TRANSFER TALENT
-      # ============================================================
-
-      - name: Enrich 2026 transfer portal talent
-        run: |
-          python -m data.enrich_transfer_portal 2026
-
-      - name: Calculate 2026 transfer talent metrics
-        run: |
-          python -m ratings.transfer_talent 2026
-
-      # ============================================================
-      # 2026 RECRUITING TALENT
-      # ============================================================
-
-      - name: Calculate 2026 recruiting talent metrics
-        run: |
-          python -m ratings.recruiting_talent 2026
-
-      # ============================================================
-      # 2026 PRESEASON POWER RATINGS
-      # ============================================================
-
-      - name: Generate 2026 Project Gridiron preseason ratings
-        run: |
-          python -m ratings.preseason_rating_2026
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Update preseason model data"
+            git push
+          fi
