@@ -1,0 +1,130 @@
+name: Inspect 2026 Rating Inputs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect-2026-inputs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Inspect likely 2026 rating inputs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path(".")
+
+          candidates = [
+              root / "data/processed/power_ratings_2025.json",
+              root / "data/processed/power_ratings_2026.json",
+              root / "data/processed/returning_production_2026.json",
+              root / "data/processed/transfer_talent_2026.json",
+              root / "data/processed/transfer_production_v2_2026.json",
+              root / "data/processed/qb_continuity_2026.json",
+              root / "data/processed/coaching_continuity_v2_2026.json",
+              root / "data/processed/recruiting_talent_2026.json",
+              root / "data/processed/team_talent_composition_2026.json",
+              root / "data/processed/teams.json",
+              root / "data/raw/returning_production/2026.json",
+              root / "data/raw/transfer_portal/2026.json",
+              root / "data/raw/recruiting_players/2026.json",
+              root / "data/raw/games.json",
+          ]
+
+          print("=" * 80)
+          print("PROJECT GRIDIRON 2026 RATING INPUT INSPECTION")
+          print("=" * 80)
+          print()
+
+          for path in candidates:
+              print("-" * 80)
+              print(path)
+
+              if not path.exists():
+                  print("STATUS: MISSING")
+                  print()
+                  continue
+
+              print("STATUS: FOUND")
+
+              try:
+                  with path.open("r", encoding="utf-8") as f:
+                      data = json.load(f)
+              except Exception as exc:
+                  print(f"JSON ERROR: {exc}")
+                  print()
+                  continue
+
+              print(f"TYPE: {type(data).__name__}")
+
+              if isinstance(data, list):
+                  print(f"RECORDS: {len(data)}")
+
+                  if data:
+                      first = data[0]
+                      print("FIRST RECORD:")
+                      print(json.dumps(first, indent=2))
+
+                      if isinstance(first, dict):
+                          print("TOP-LEVEL KEYS:")
+                          for key in sorted(first.keys()):
+                              print(f"  {key}")
+
+              elif isinstance(data, dict):
+                  print(f"TOP-LEVEL KEYS: {len(data)}")
+
+                  for key in list(data.keys())[:25]:
+                      print(f"  {key}")
+
+                  sample_key = next(iter(data), None)
+
+                  if sample_key is not None:
+                      print(f"SAMPLE KEY: {sample_key}")
+                      print("SAMPLE VALUE:")
+                      print(json.dumps(data[sample_key], indent=2))
+
+              print()
+
+          PY
+
+      - name: List all 2026-related raw and processed files
+        run: |
+          echo "============================================================================"
+          echo "ALL 2026-RELATED FILES"
+          echo "============================================================================"
+          echo ""
+
+          echo "Processed:"
+          find data/processed -maxdepth 1 -type f -iname "*2026*" -print 2>/dev/null | sort || true
+
+          echo ""
+          echo "Raw:"
+          find data/raw -type f -iname "*2026*" -print 2>/dev/null | sort || true
+
+      - name: List likely rating/model modules
+        run: |
+          echo "============================================================================"
+          echo "RATING / PRESEASON MODULES"
+          echo "============================================================================"
+          echo ""
+
+          find ratings -maxdepth 1 -type f \
+            \( \
+              -iname "*preseason*" \
+              -o -iname "*rating*" \
+              -o -iname "*return*" \
+              -o -iname "*transfer*" \
+              -o -iname "*qb*" \
+              -o -iname "*coach*" \
+            \) \
+            -print | sort || true
