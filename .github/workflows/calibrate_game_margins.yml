@@ -44,10 +44,10 @@ jobs:
             MISSING=1
           fi
 
-          if [ -f "ratings/calibrate_game_margins_v2.py" ]; then
-            echo "FOUND: ratings/calibrate_game_margins_v2.py"
+          if [ -f "ratings/calibrate_game_margins_v3.py" ]; then
+            echo "FOUND: ratings/calibrate_game_margins_v3.py"
           else
-            echo "MISSING: ratings/calibrate_game_margins_v2.py"
+            echo "MISSING: ratings/calibrate_game_margins_v3.py"
             MISSING=1
           fi
 
@@ -67,24 +67,24 @@ jobs:
           echo "============================================================"
           echo ""
 
-          ls -lh ratings/calibrate_game_margins_v2.py
+          ls -lh ratings/calibrate_game_margins_v3.py
 
           echo ""
           echo "Last 25 lines:"
           echo "------------------------------------------------------------"
 
-          tail -n 25 ratings/calibrate_game_margins_v2.py
+          tail -n 25 ratings/calibrate_game_margins_v3.py
 
-      - name: Run 2025 game margin calibration
+      - name: Run 2025 game margin calibration V3
         run: |
           set -o pipefail
 
           echo "============================================================"
-          echo "RUNNING PROJECT GRIDIRON CALIBRATION V2"
+          echo "RUNNING PROJECT GRIDIRON CALIBRATION V3"
           echo "============================================================"
           echo ""
 
-          python -u -m ratings.calibrate_game_margins_v2
+          python -u -m ratings.calibrate_game_margins_v3
 
           STATUS=$?
 
@@ -98,12 +98,12 @@ jobs:
 
           echo ""
           echo "Expected output:"
-          echo "data/processed/game_margin_calibration_2025.json"
+          echo "data/processed/game_margin_calibration_v3_2025.json"
           echo ""
 
-          if [ -f "data/processed/game_margin_calibration_2025.json" ]; then
+          if [ -f "data/processed/game_margin_calibration_v3_2025.json" ]; then
             echo "OUTPUT CREATED"
-            ls -lh data/processed/game_margin_calibration_2025.json
+            ls -lh data/processed/game_margin_calibration_v3_2025.json
           else
             echo "OUTPUT NOT CREATED"
           fi
@@ -117,17 +117,17 @@ jobs:
           from pathlib import Path
 
           path = Path(
-              "data/processed/game_margin_calibration_2025.json"
+              "data/processed/game_margin_calibration_v3_2025.json"
           )
 
           print("=" * 78)
-          print("GAME MARGIN CALIBRATION OUTPUT CHECK")
+          print("GAME MARGIN CALIBRATION V3 OUTPUT CHECK")
           print("=" * 78)
           print()
 
           if not path.exists():
               raise SystemExit(
-                  "Calibration output file was not created."
+                  "Calibration V3 output file was not created."
               )
 
           with path.open(
@@ -138,9 +138,11 @@ jobs:
 
           required_top_level = {
               "season",
+              "model_version",
               "games_tested",
               "model",
               "metrics",
+              "skipped",
           }
 
           missing = (
@@ -158,9 +160,8 @@ jobs:
           metrics = data["metrics"]
 
           required_model_fields = {
-              "intercept",
               "rating_gap_coefficient",
-              "home_field_coefficient",
+              "home_field_advantage",
           }
 
           missing_model = (
@@ -176,7 +177,7 @@ jobs:
 
           print(
               f"Model version: "
-              f"{data.get('model_version', 'unknown')}"
+              f"{data['model_version']}"
           )
 
           print(
@@ -190,18 +191,13 @@ jobs:
           print("-" * 78)
 
           print(
-              f"Intercept: "
-              f"{model['intercept']:+.4f}"
-          )
-
-          print(
               f"Rating gap coefficient: "
               f"{model['rating_gap_coefficient']:.4f}"
           )
 
           print(
-              f"Home-field coefficient: "
-              f"{model['home_field_coefficient']:.4f}"
+              f"Home-field advantage: "
+              f"{model['home_field_advantage']:.4f}"
           )
 
           print()
@@ -215,9 +211,13 @@ jobs:
               "mae",
               "rmse",
               "actual_margin_mean",
-              "actual_margin_std",
               "prediction_mean",
+              "actual_margin_std",
               "prediction_std",
+              "neutral_games",
+              "non_neutral_games",
+              "neutral_actual_margin_mean",
+              "non_neutral_actual_margin_mean",
           ]:
 
               value = metrics.get(key)
@@ -226,6 +226,12 @@ jobs:
                   print(
                       f"{key}: N/A"
                   )
+
+              elif isinstance(value, int):
+                  print(
+                      f"{key}: {value}"
+                  )
+
               else:
                   print(
                       f"{key}: {value:.4f}"
@@ -233,15 +239,10 @@ jobs:
 
           print()
 
-          skipped = data.get(
-              "skipped",
-              {}
-          )
-
           print("SKIPPED RECORDS")
           print("-" * 78)
 
-          for key, value in skipped.items():
+          for key, value in data["skipped"].items():
               print(
                   f"{key}: {value}"
               )
@@ -259,7 +260,7 @@ jobs:
 
           git status --short
 
-      - name: Commit calibration output
+      - name: Commit calibration V3 output
         run: |
           git config \
             user.name \
@@ -270,17 +271,13 @@ jobs:
             "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add \
-            data/processed/game_margin_calibration_2025.json
+            data/processed/game_margin_calibration_v3_2025.json
 
           if git diff --cached --quiet; then
-
-            echo "No calibration changes to commit."
-
+            echo "No calibration V3 changes to commit."
           else
-
             git commit -m \
-              "Calibrate Project Gridiron game margins"
+              "Calibrate Project Gridiron game margins V3"
 
             git push
-
           fi
