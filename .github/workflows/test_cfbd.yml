@@ -146,6 +146,22 @@ jobs:
           python -m ratings.season_continuity
 
       # ============================================================
+      # PLAYER DATA FOR QB + TRANSFER PRODUCTION
+      # ============================================================
+
+      - name: Download 2024 player diagnostic data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_qb_data 2024
+
+      - name: Download 2025 player diagnostic data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_qb_data 2025
+
+      # ============================================================
       # 2025 RETURNING PRODUCTION VALIDATION
       # ============================================================
 
@@ -216,6 +232,18 @@ jobs:
           python -m ratings.validate_transfer_talent
 
       # ============================================================
+      # QB CONTINUITY
+      # ============================================================
+
+      - name: Calculate 2025 QB continuity metrics
+        run: |
+          python -m ratings.qb_continuity 2025
+
+      - name: Validate 2025 QB continuity
+        run: |
+          python -m ratings.validate_qb_continuity
+
+      # ============================================================
       # 2025 RECRUITING TALENT VALIDATION
       # ============================================================
 
@@ -270,30 +298,6 @@ jobs:
       - name: Run SP+ anchored preseason model V3
         run: |
           python -m ratings.preseason_model_v3
-
-      # ============================================================
-      # QB CONTINUITY
-      # ============================================================
-
-      - name: Download 2024 QB diagnostic data
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_qb_data 2024
-
-      - name: Download 2025 QB diagnostic data
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_qb_data 2025
-
-      - name: Calculate 2025 QB continuity metrics
-        run: |
-          python -m ratings.qb_continuity 2025
-
-      - name: Validate 2025 QB continuity
-        run: |
-          python -m ratings.validate_qb_continuity
 
       # ============================================================
       # 2026 PRODUCTION INPUTS
