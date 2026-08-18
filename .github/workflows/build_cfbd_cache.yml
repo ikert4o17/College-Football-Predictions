@@ -1,0 +1,223 @@
+name: Build CFBD Cache
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-cache:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ============================================================
+      # SETUP
+      # ============================================================
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # ============================================================
+      # QUOTA CHECK
+      # ============================================================
+
+      - name: Check CFBD usage
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.check_cfbd_usage
+
+      # ============================================================
+      # STATIC / HISTORICAL DATA
+      # THESE SHOULD BECOME CACHE HITS AFTER FIRST SUCCESSFUL RUN
+      # ============================================================
+
+      - name: Download teams
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_teams
+
+      - name: Download 2024 player data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_qb_data 2024
+
+      - name: Download 2025 player data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_qb_data 2025
+
+      - name: Download 2024-2025 SP+ ratings
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_sp_ratings 2024 2025
+
+      - name: Download 2024 coaching data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_coaching_data 2024
+
+      - name: Download 2025 coaching data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_coaching_data 2025
+
+      - name: Download 2025 returning production
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_returning_production 2025
+
+      - name: Download 2025 transfer portal
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_transfer_portal 2025
+
+      - name: Download 2019-2025 recruiting players
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_recruiting_players 2019 2025
+
+      - name: Download 2025 NFL draft picks
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_draft_picks 2025
+
+      # ============================================================
+      # 2026 DATA
+      # ============================================================
+
+      - name: Download 2026 games
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_games 2026
+
+      - name: Download 2026 returning production
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_returning_production 2026
+
+      - name: Download 2026 transfer portal
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_transfer_portal 2026
+
+      - name: Download 2026 recruiting players
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_recruiting_players 2026 2026
+
+      # ============================================================
+      # PROCESS EXISTING RAW DATA
+      # NO EXTRA CFBD CALLS EXPECTED
+      # ============================================================
+
+      - name: Process teams
+        run: |
+          python -m data.process_teams
+
+      - name: Process 2025 returning production
+        run: |
+          python -m data.process_returning_production 2025
+
+      - name: Process 2026 returning production
+        run: |
+          python -m data.process_returning_production 2026
+
+      - name: Process 2025 transfer portal
+        run: |
+          python -m data.process_transfer_portal 2025
+
+      - name: Process 2026 transfer portal
+        run: |
+          python -m data.process_transfer_portal 2026
+
+      - name: Enrich 2025 transfer portal
+        run: |
+          python -m data.enrich_transfer_portal 2025
+
+      - name: Enrich 2026 transfer portal
+        run: |
+          python -m data.enrich_transfer_portal 2026
+
+      - name: Calculate 2025 QB continuity
+        run: |
+          python -m ratings.qb_continuity 2025
+
+      - name: Calculate 2025 transfer talent
+        run: |
+          python -m ratings.transfer_talent 2025
+
+      - name: Calculate 2025 transfer production V2
+        run: |
+          python -m ratings.transfer_production_v2 2025
+
+      - name: Calculate 2025 coaching continuity V2
+        run: |
+          python -m ratings.coaching_continuity_v2 2025
+
+      # ============================================================
+      # INSPECT WHAT WILL BE PERSISTED
+      # ============================================================
+
+      - name: Show CFBD cache
+        run: |
+          echo "CFBD cache files:"
+          find data/cache/cfbd -type f -print 2>/dev/null | sort || true
+
+      - name: Show raw data files
+        run: |
+          echo "Raw data files:"
+          find data/raw -type f -print 2>/dev/null | sort || true
+
+      - name: Show processed data files
+        run: |
+          echo "Processed data files:"
+          find data/processed -type f -print 2>/dev/null | sort || true
+
+      # ============================================================
+      # PERSIST CACHE + DATA
+      # ============================================================
+
+      - name: Commit CFBD cache and model data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/cache/cfbd
+          git add data/raw
+          git add data/processed
+
+          if git diff --cached --quiet; then
+            echo "No cache or data changes to commit."
+          else
+            git commit -m "Persist CFBD cache and model data"
+            git push
+          fi
