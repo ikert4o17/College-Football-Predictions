@@ -4,16 +4,14 @@ Shared CFBD API Client
 
 Centralized CollegeFootballData API access.
 
-Goals:
-    - avoid unnecessary repeat API calls
-    - cache successful GET responses
-    - reuse historical data indefinitely
-    - use a short cache for current/no-year requests
-    - expose FORCE_CFBD_REFRESH override
-    - detect exhausted API quota before wasting requests
-    - retry temporary 429 / server failures
-    - enforce a per-run CFBD request budget
-    - print whether data came from CACHE or CFBD
+Responsibilities:
+    - authenticated CFBD GET requests
+    - persistent response caching
+    - cache freshness policy
+    - monthly quota protection
+    - per-run request-budget protection
+    - retry handling
+    - useful diagnostics
 
 Existing usage remains supported:
 
@@ -37,24 +35,31 @@ Environment options:
         Ignore cache and request fresh data.
 
     CFBD_USE_CACHE=0
-        Disable request caching.
-
-    CFBD_CACHE_TTL_SECONDS=3600
-        Cache lifetime for current-season / non-season requests.
+        Disable response caching.
 
     CFBD_MAX_CALLS_THIS_RUN=20
-        Maximum real CFBD data requests allowed during this process.
+        Maximum real CFBD HTTP attempts allowed during the workflow run.
 
-Historical requests where year < current calendar year are treated
-as effectively permanent unless FORCE_CFBD_REFRESH is enabled.
+Cache freshness is defined in:
 
-Cache directory:
+    data/cfbd_cache_policy.py
 
-    data/cache/cfbd/
+Examples:
 
-IMPORTANT:
-For GitHub Actions to reuse this cache between workflow runs,
-data/cache/cfbd must be committed or otherwise persisted.
+    historical data
+        -> permanent cache
+
+    current-season games/stats
+        -> short TTL
+
+    current-season roster/player metrics
+        -> seasonal TTL
+
+    current-season preseason/static inputs
+        -> long TTL
+
+    /info
+        -> never cached
 """
 
 import hashlib
@@ -67,7 +72,14 @@ from pathlib import Path
 
 import requests
 
-from data.cfbd_request_budget import register_request
+from data.cfbd_cache_policy import (
+    cache_policy,
+    cache_ttl_seconds,
+)
+
+from data.cfbd_request_budget import (
+    register_request,
+)
 
 
 # ============================================================
@@ -94,8 +106,6 @@ CACHE_DIRECTORY = (
 
 INFO_ENDPOINT = "/info"
 
-DEFAULT_CURRENT_CACHE_TTL = 3600
-
 MAX_ATTEMPTS = 5
 
 BACKOFF_SECONDS = [
@@ -111,8 +121,11 @@ BACKOFF_SECONDS = [
 # ENVIRONMENT HELPERS
 # ============================================================
 
-def env_truthy(name, default=False):
-    """Read a boolean-style environment variable."""
+def env_truthy(
+    name,
+    default=False
+):
+    """Read boolean-style environment variable."""
 
     value = os.getenv(
         name
@@ -157,32 +170,6 @@ def cache_enabled():
     return env_truthy(
         "CFBD_USE_CACHE",
         default=True,
-    )
-
-
-def current_cache_ttl():
-    """Return cache TTL for current/no-year requests."""
-
-    value = os.getenv(
-        "CFBD_CACHE_TTL_SECONDS"
-    )
-
-    if not value:
-        return DEFAULT_CURRENT_CACHE_TTL
-
-    try:
-
-        ttl = int(
-            value
-        )
-
-    except ValueError:
-
-        return DEFAULT_CURRENT_CACHE_TTL
-
-    return max(
-        ttl,
-        0
     )
 
 
@@ -236,11 +223,14 @@ def safe_json(response):
         return None
 
 
-def safe_int(value):
+def safe_int(
+    value,
+    default=0
+):
     """Safely convert value to integer."""
 
     if value is None:
-        return 0
+        return default
 
     try:
 
@@ -253,11 +243,11 @@ def safe_int(value):
         ValueError
     ):
 
-        return 0
+        return default
 
 
 # ============================================================
-# CACHE
+# CACHE KEY / PATH
 # ============================================================
 
 def cache_key(
@@ -303,88 +293,43 @@ def cache_path(
     endpoint,
     params
 ):
-    """Return path for cached response."""
-
-    key = cache_key(
-        endpoint,
-        params
-    )
+    """Return path for cached request."""
 
     return (
         CACHE_DIRECTORY
         /
-        f"{key}.json"
+        f"{cache_key(endpoint, params)}.json"
     )
 
 
-def request_year(params):
-    """Attempt to identify season year from request."""
-
-    for key in (
-        "year",
-        "season",
-    ):
-
-        value = params.get(
-            key
-        )
-
-        if value is None:
-            continue
-
-        try:
-
-            return int(
-                value
-            )
-
-        except (
-            TypeError,
-            ValueError
-        ):
-
-            continue
-
-    return None
-
-
-def historical_request(params):
-    """
-    Return whether request is for a completed calendar season.
-
-    Historical season data is considered stable and may be cached
-    indefinitely.
-    """
-
-    year = request_year(
-        params
-    )
-
-    if year is None:
-        return False
-
-    current_year = datetime.now(
-        timezone.utc
-    ).year
-
-    return (
-        year
-        <
-        current_year
-    )
-
+# ============================================================
+# CACHE READ
+# ============================================================
 
 def read_cache(
     endpoint,
     params
 ):
-    """Read valid cached response if available."""
+    """
+    Read cached response if valid under current cache policy.
+    """
 
     if not cache_enabled():
 
         return None
 
     if force_refresh_enabled():
+
+        return None
+
+    ttl = cache_ttl_seconds(
+        endpoint,
+        params,
+    )
+
+    # TTL = 0 means never cache this endpoint.
+
+    if ttl == 0:
 
         return None
 
@@ -426,13 +371,19 @@ def read_cache(
 
         return None
 
-    if historical_request(
-        params
-    ):
+    # --------------------------------------------------------
+    # PERMANENT CACHE
+    # --------------------------------------------------------
+
+    if ttl is None:
 
         return payload[
             "data"
         ]
+
+    # --------------------------------------------------------
+    # TTL CACHE
+    # --------------------------------------------------------
 
     saved_at = payload.get(
         "saved_at"
@@ -461,11 +412,28 @@ def read_cache(
         saved_at
     )
 
-    if (
-        age
-        >
-        current_cache_ttl()
-    ):
+    if age > ttl:
+
+        print(
+            f"CACHE EXPIRED: "
+            f"{endpoint}"
+        )
+
+        if params:
+
+            print(
+                f"  params={params}"
+            )
+
+        print(
+            f"  age_seconds="
+            f"{int(age)}"
+        )
+
+        print(
+            f"  ttl_seconds="
+            f"{ttl}"
+        )
 
         return None
 
@@ -474,18 +442,29 @@ def read_cache(
     ]
 
 
+# ============================================================
+# CACHE WRITE
+# ============================================================
+
 def write_cache(
     endpoint,
     params,
     data
 ):
-    """Persist successful CFBD response."""
+    """
+    Persist successful CFBD response according to policy.
+    """
 
     if not cache_enabled():
 
         return
 
-    if endpoint == INFO_ENDPOINT:
+    ttl = cache_ttl_seconds(
+        endpoint,
+        params,
+    )
+
+    if ttl == 0:
 
         return
 
@@ -505,6 +484,15 @@ def write_cache(
 
         "params":
             params,
+
+        "cache_policy":
+            cache_policy(
+                endpoint,
+                params,
+            ),
+
+        "ttl_seconds":
+            ttl,
 
         "saved_at":
             time.time(),
@@ -527,6 +515,45 @@ def write_cache(
             payload,
             file,
             indent=2,
+        )
+
+
+# ============================================================
+# CACHE DIAGNOSTICS
+# ============================================================
+
+def print_cache_policy(
+    endpoint,
+    params
+):
+    """Print cache policy for request."""
+
+    policy = cache_policy(
+        endpoint,
+        params,
+    )
+
+    ttl = cache_ttl_seconds(
+        endpoint,
+        params,
+    )
+
+    print(
+        f"CACHE POLICY: "
+        f"{policy}"
+    )
+
+    if ttl is None:
+
+        print(
+            "  ttl=permanent"
+        )
+
+    else:
+
+        print(
+            f"  ttl_seconds="
+            f"{ttl}"
         )
 
 
@@ -687,7 +714,9 @@ class CFBDClient:
         """
         Fetch current API usage information.
 
-        This bypasses the per-run data-request budget.
+        /info:
+            - bypasses response cache
+            - bypasses per-run request budget
         """
 
         url = (
@@ -740,7 +769,7 @@ class CFBDClient:
 
     def ensure_quota_available(self):
         """
-        Check monthly quota before making a real CFBD data request.
+        Check monthly quota before a real CFBD data request.
 
         Cache hits never reach this method.
         """
@@ -754,8 +783,13 @@ class CFBDClient:
         remaining = safe_int(
             usage.get(
                 "remainingCalls"
-            )
+            ),
+            default=None,
         )
+
+        if remaining is None:
+
+            return
 
         if remaining <= 0:
 
@@ -790,7 +824,7 @@ class CFBDClient:
         """
         Perform authenticated CFBD GET request.
 
-        Backward-compatible examples:
+        Supported patterns:
 
             client.get("/teams/fbs")
 
@@ -827,7 +861,7 @@ class CFBDClient:
             )
 
         # ----------------------------------------------------
-        # INFO endpoint
+        # INFO
         # ----------------------------------------------------
 
         if endpoint == INFO_ENDPOINT:
@@ -843,6 +877,15 @@ class CFBDClient:
             return usage
 
         # ----------------------------------------------------
+        # CACHE POLICY DIAGNOSTIC
+        # ----------------------------------------------------
+
+        print_cache_policy(
+            endpoint,
+            params,
+        )
+
+        # ----------------------------------------------------
         # CACHE
         # ----------------------------------------------------
 
@@ -850,7 +893,7 @@ class CFBDClient:
 
             cached = read_cache(
                 endpoint,
-                params
+                params,
             )
 
             if cached is not None:
@@ -863,7 +906,8 @@ class CFBDClient:
                 if params:
 
                     print(
-                        f"  params={params}"
+                        f"  params="
+                        f"{params}"
                     )
 
                 return cached
@@ -875,7 +919,7 @@ class CFBDClient:
         self.ensure_quota_available()
 
         # ----------------------------------------------------
-        # REAL REQUEST
+        # REAL HTTP REQUEST
         # ----------------------------------------------------
 
         url = (
@@ -889,8 +933,8 @@ class CFBDClient:
             MAX_ATTEMPTS + 1
         ):
 
-            # Every actual HTTP attempt counts against the
-            # per-run budget, including retries.
+            # Every real HTTP attempt counts against the
+            # persisted per-run request budget.
 
             register_request(
                 endpoint,
@@ -905,12 +949,14 @@ class CFBDClient:
             if params:
 
                 print(
-                    f"  params={params}"
+                    f"  params="
+                    f"{params}"
                 )
 
             print(
                 f"  attempt="
-                f"{attempt}/{MAX_ATTEMPTS}"
+                f"{attempt}/"
+                f"{MAX_ATTEMPTS}"
             )
 
             try:
@@ -985,7 +1031,7 @@ class CFBDClient:
                     write_cache(
                         endpoint,
                         params,
-                        data
+                        data,
                     )
 
                 return data
@@ -1029,33 +1075,37 @@ class CFBDClient:
 
                 usage = self.get_usage()
 
-                if (
-                    isinstance(
-                        usage,
-                        dict
-                    )
-                    and
-                    safe_int(
-                        usage.get(
-                            "remainingCalls"
-                        )
-                    )
-                    <= 0
+                if isinstance(
+                    usage,
+                    dict
                 ):
 
-                    raise RuntimeError(
-                        "\n"
-                        "CFBD API MONTHLY QUOTA EXHAUSTED\n"
-                        "--------------------------------\n"
-                        f"Monthly limit: "
-                        f"{usage.get('monthlyLimit')}\n"
-                        f"Used calls: "
-                        f"{usage.get('usedCalls')}\n"
-                        f"Remaining calls: "
-                        f"{usage.get('remainingCalls')}\n"
-                        f"Reset at: "
-                        f"{usage.get('resetAt')}\n"
+                    remaining_calls = safe_int(
+                        usage.get(
+                            "remainingCalls"
+                        ),
+                        default=None,
                     )
+
+                    if (
+                        remaining_calls is not None
+                        and
+                        remaining_calls <= 0
+                    ):
+
+                        raise RuntimeError(
+                            "\n"
+                            "CFBD API MONTHLY QUOTA EXHAUSTED\n"
+                            "--------------------------------\n"
+                            f"Monthly limit: "
+                            f"{usage.get('monthlyLimit')}\n"
+                            f"Used calls: "
+                            f"{usage.get('usedCalls')}\n"
+                            f"Remaining calls: "
+                            f"{usage.get('remainingCalls')}\n"
+                            f"Reset at: "
+                            f"{usage.get('resetAt')}\n"
+                        )
 
                 if attempt >= MAX_ATTEMPTS:
 
@@ -1068,7 +1118,8 @@ class CFBDClient:
 
                 print(
                     f"Temporary rate limit. "
-                    f"Retrying in {delay} seconds."
+                    f"Retrying in "
+                    f"{delay} seconds."
                 )
 
                 time.sleep(
@@ -1081,10 +1132,7 @@ class CFBDClient:
             # SERVER ERROR
             # ------------------------------------------------
 
-            if (
-                response.status_code
-                >= 500
-            ):
+            if response.status_code >= 500:
 
                 if attempt >= MAX_ATTEMPTS:
 
@@ -1098,7 +1146,8 @@ class CFBDClient:
                 print(
                     f"CFBD server error "
                     f"{response.status_code}. "
-                    f"Retrying in {delay} seconds."
+                    f"Retrying in "
+                    f"{delay} seconds."
                 )
 
                 time.sleep(
