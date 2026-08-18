@@ -12,6 +12,7 @@ Goals:
     - expose FORCE_CFBD_REFRESH override
     - detect exhausted API quota before wasting requests
     - retry temporary 429 / server failures
+    - enforce a per-run CFBD request budget
     - print whether data came from CACHE or CFBD
 
 Existing usage remains supported:
@@ -41,6 +42,9 @@ Environment options:
     CFBD_CACHE_TTL_SECONDS=3600
         Cache lifetime for current-season / non-season requests.
 
+    CFBD_MAX_CALLS_THIS_RUN=20
+        Maximum real CFBD data requests allowed during this process.
+
 Historical requests where year < current calendar year are treated
 as effectively permanent unless FORCE_CFBD_REFRESH is enabled.
 
@@ -50,7 +54,7 @@ Cache directory:
 
 IMPORTANT:
 For GitHub Actions to reuse this cache between workflow runs,
-data/cache/cfbd must eventually be committed or otherwise persisted.
+data/cache/cfbd must be committed or otherwise persisted.
 """
 
 import hashlib
@@ -62,6 +66,8 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 import requests
+
+from data.cfbd_request_budget import register_request
 
 
 # ============================================================
@@ -228,6 +234,26 @@ def safe_json(response):
     except ValueError:
 
         return None
+
+
+def safe_int(value):
+    """Safely convert value to integer."""
+
+    if value is None:
+        return 0
+
+    try:
+
+        return int(
+            value
+        )
+
+    except (
+        TypeError,
+        ValueError
+    ):
+
+        return 0
 
 
 # ============================================================
@@ -399,8 +425,6 @@ def read_cache(
     if "data" not in payload:
 
         return None
-
-    # Historical requests do not expire.
 
     if historical_request(
         params
@@ -625,16 +649,6 @@ class CFBDClient:
             requests.Session()
         )
 
-        self._usage_checked = False
-
-        self._remaining_calls = None
-
-        self._monthly_limit = None
-
-        self._used_calls = None
-
-        self._reset_at = None
-
     # ========================================================
     # AUTH
     # ========================================================
@@ -673,7 +687,7 @@ class CFBDClient:
         """
         Fetch current API usage information.
 
-        This request bypasses normal response caching.
+        This bypasses the per-run data-request budget.
         """
 
         url = (
@@ -722,29 +736,11 @@ class CFBDClient:
 
             return None
 
-        self._usage_checked = True
-
-        self._remaining_calls = data.get(
-            "remainingCalls"
-        )
-
-        self._monthly_limit = data.get(
-            "monthlyLimit"
-        )
-
-        self._used_calls = data.get(
-            "usedCalls"
-        )
-
-        self._reset_at = data.get(
-            "resetAt"
-        )
-
         return data
 
     def ensure_quota_available(self):
         """
-        Check API quota before making a real CFBD request.
+        Check monthly quota before making a real CFBD data request.
 
         Cache hits never reach this method.
         """
@@ -755,51 +751,28 @@ class CFBDClient:
 
             return
 
-        remaining = usage.get(
-            "remainingCalls"
+        remaining = safe_int(
+            usage.get(
+                "remainingCalls"
+            )
         )
 
-        if remaining is None:
-
-            return
-
-        try:
-
-            remaining = int(
-                remaining
-            )
-
-        except (
-            TypeError,
-            ValueError
-        ):
-
-            return
-
         if remaining <= 0:
-
-            reset_at = usage.get(
-                "resetAt"
-            )
-
-            monthly_limit = usage.get(
-                "monthlyLimit"
-            )
-
-            used_calls = usage.get(
-                "usedCalls"
-            )
 
             raise RuntimeError(
                 "\n"
                 "CFBD API MONTHLY QUOTA EXHAUSTED\n"
                 "--------------------------------\n"
-                f"Monthly limit: {monthly_limit}\n"
-                f"Used calls: {used_calls}\n"
-                f"Remaining calls: {remaining}\n"
-                f"Reset at: {reset_at}\n"
+                f"Monthly limit: "
+                f"{usage.get('monthlyLimit')}\n"
+                f"Used calls: "
+                f"{usage.get('usedCalls')}\n"
+                f"Remaining calls: "
+                f"{usage.get('remainingCalls')}\n"
+                f"Reset at: "
+                f"{usage.get('resetAt')}\n"
                 "\n"
-                "No CFBD data request was attempted.\n"
+                "No football-data request was attempted.\n"
                 "Use cached data or wait for the quota reset."
             )
 
@@ -896,13 +869,13 @@ class CFBDClient:
                 return cached
 
         # ----------------------------------------------------
-        # QUOTA CHECK
+        # MONTHLY QUOTA CHECK
         # ----------------------------------------------------
 
         self.ensure_quota_available()
 
         # ----------------------------------------------------
-        # REQUEST
+        # REAL REQUEST
         # ----------------------------------------------------
 
         url = (
@@ -915,6 +888,14 @@ class CFBDClient:
             1,
             MAX_ATTEMPTS + 1
         ):
+
+            # Every actual HTTP attempt counts against the
+            # per-run budget, including retries.
+
+            register_request(
+                endpoint,
+                params,
+            )
 
             print(
                 f"CFBD REQUEST: "
@@ -1046,8 +1027,6 @@ class CFBDClient:
                         )
                     )
 
-                # Re-check actual quota before retrying.
-
                 usage = self.get_usage()
 
                 if (
@@ -1150,30 +1129,6 @@ class CFBDClient:
         raise RuntimeError(
             "CFBD request ended unexpectedly."
         )
-
-
-# ============================================================
-# SMALL SAFE INTEGER HELPER
-# ============================================================
-
-def safe_int(value):
-    """Safely convert value to integer."""
-
-    if value is None:
-        return 0
-
-    try:
-
-        return int(
-            value
-        )
-
-    except (
-        TypeError,
-        ValueError
-    ):
-
-        return 0
 
 
 # ============================================================
