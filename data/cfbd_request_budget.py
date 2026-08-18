@@ -1,43 +1,41 @@
 """
 Project Gridiron
-CFBD Per-Run Request Budget
+Persistent CFBD Per-Run Request Budget
 
 Purpose
 -------
-Protect a single GitHub Actions run from consuming too many CFBD calls.
+Protect an entire GitHub Actions workflow run from consuming too many
+real CFBD API calls.
 
-This module tracks REAL CFBD data requests during the current process/job.
+Unlike an in-memory counter, this version persists state to disk so
+separate Python processes/steps share the same request count.
 
-Cache hits should NOT count against this budget.
-
-Environment variable:
+Environment variables:
 
     CFBD_MAX_CALLS_THIS_RUN
+        Maximum real CFBD data requests allowed during the workflow.
+        Default: 20
 
-Default:
-    20
+    CFBD_REQUEST_BUDGET_RUN_ID
+        Optional run identifier.
 
-Examples:
+        In GitHub Actions we should set this to:
+            ${{ github.run_id }}
 
-    CFBD_MAX_CALLS_THIS_RUN=10
-    CFBD_MAX_CALLS_THIS_RUN=25
+        This prevents one workflow run from inheriting the count from
+        another workflow run.
 
-The request budget is separate from the monthly quota reserve.
+State file:
+    data/cache/cfbd/request_budget_state.json
 
-We therefore have two protections:
-
-1. Monthly reserve guard
-       Example: preserve final 100 monthly calls
-
-2. Per-run request budget
-       Example: never let one workflow spend more than 20 calls
-
-The shared CFBD client will use this module before every real
-football-data request.
-
-The /info usage endpoint is NOT counted against this budget.
+Important:
+    - Cache hits count as 0
+    - /info usage checks count as 0
+    - Every real HTTP request attempt counts as 1
+    - Retries count too
 """
 
+import json
 import os
 from pathlib import Path
 
@@ -55,14 +53,13 @@ PROJECT_ROOT = (
     .parent
 )
 
-
-# ============================================================
-# INTERNAL STATE
-# ============================================================
-
-_requests_used = 0
-
-_request_log = []
+STATE_FILE = (
+    PROJECT_ROOT
+    / "data"
+    / "cache"
+    / "cfbd"
+    / "request_budget_state.json"
+)
 
 
 # ============================================================
@@ -70,34 +67,27 @@ _request_log = []
 # ============================================================
 
 def max_calls_this_run():
-    """Return configured request budget."""
+    """Return configured per-run request budget."""
 
     value = os.getenv(
         "CFBD_MAX_CALLS_THIS_RUN"
     )
 
     if not value:
-
         return DEFAULT_MAX_CALLS_THIS_RUN
 
     try:
-
         limit = int(
             value
         )
 
     except ValueError:
-
         print(
-            "WARNING:"
+            "WARNING: CFBD_MAX_CALLS_THIS_RUN is invalid."
         )
 
         print(
-            "CFBD_MAX_CALLS_THIS_RUN is not a valid integer."
-        )
-
-        print(
-            f"Using default per-run budget: "
+            f"Using default budget: "
             f"{DEFAULT_MAX_CALLS_THIS_RUN}"
         )
 
@@ -109,23 +99,157 @@ def max_calls_this_run():
     )
 
 
+def run_id():
+    """Return current workflow/run identifier."""
+
+    value = os.getenv(
+        "CFBD_REQUEST_BUDGET_RUN_ID"
+    )
+
+    if value:
+        return str(
+            value
+        )
+
+    # Local/manual fallback.
+    return "local"
+
+
 # ============================================================
 # STATE
 # ============================================================
 
-def requests_used():
-    """Return number of real CFBD requests used this run."""
+def default_state():
+    """Return fresh request-budget state."""
 
-    return _requests_used
+    return {
+        "run_id":
+            run_id(),
+
+        "requests_used":
+            0,
+
+        "request_log":
+            [],
+    }
+
+
+def load_state():
+    """
+    Load state from disk.
+
+    If the saved state belongs to another workflow run, reset it.
+    """
+
+    if not STATE_FILE.exists():
+        return default_state()
+
+    try:
+        with STATE_FILE.open(
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            state = json.load(
+                file
+            )
+
+    except (
+        OSError,
+        json.JSONDecodeError
+    ):
+        return default_state()
+
+    if not isinstance(
+        state,
+        dict
+    ):
+        return default_state()
+
+    if (
+        str(
+            state.get(
+                "run_id"
+            )
+        )
+        !=
+        run_id()
+    ):
+        return default_state()
+
+    if not isinstance(
+        state.get(
+            "request_log"
+        ),
+        list
+    ):
+        state[
+            "request_log"
+        ] = []
+
+    try:
+        state[
+            "requests_used"
+        ] = int(
+            state.get(
+                "requests_used",
+                0
+            )
+        )
+
+    except (
+        TypeError,
+        ValueError
+    ):
+        state[
+            "requests_used"
+        ] = 0
+
+    return state
+
+
+def save_state(state):
+    """Persist state to disk."""
+
+    STATE_FILE.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    with STATE_FILE.open(
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            state,
+            file,
+            indent=2,
+        )
+
+
+# ============================================================
+# COUNTERS
+# ============================================================
+
+def requests_used():
+    """Return number of real requests used in this workflow run."""
+
+    state = load_state()
+
+    return int(
+        state.get(
+            "requests_used",
+            0
+        )
+    )
 
 
 def requests_remaining():
-    """Return remaining per-run request allowance."""
-
-    limit = max_calls_this_run()
+    """Return remaining per-run allowance."""
 
     return max(
-        limit
+        max_calls_this_run()
         -
         requests_used(),
         0
@@ -133,10 +257,15 @@ def requests_remaining():
 
 
 def request_log():
-    """Return copy of current request log."""
+    """Return a copy of current request log."""
+
+    state = load_state()
 
     return list(
-        _request_log
+        state.get(
+            "request_log",
+            []
+        )
     )
 
 
@@ -151,80 +280,73 @@ def ensure_request_available(
     """
     Ensure another real CFBD request is allowed.
 
-    Call this immediately before sending a football-data HTTP request.
+    Call immediately before sending a football-data HTTP request.
     """
 
     used = requests_used()
 
     limit = max_calls_this_run()
 
-    if used >= limit:
+    if used < limit:
+        return
 
+    print()
+    print("=" * 76)
+    print("CFBD PER-RUN REQUEST BUDGET EXHAUSTED")
+    print("=" * 76)
+    print()
+
+    print(
+        f"Workflow run ID: "
+        f"{run_id()}"
+    )
+
+    print(
+        f"Configured budget: "
+        f"{limit}"
+    )
+
+    print(
+        f"Requests already used: "
+        f"{used}"
+    )
+
+    print(
+        "Requests remaining: 0"
+    )
+
+    if endpoint:
         print()
-
-        print("=" * 76)
-
+        print("Blocked request:")
         print(
-            "CFBD PER-RUN REQUEST BUDGET EXHAUSTED"
+            f"  endpoint: "
+            f"{endpoint}"
         )
 
-        print("=" * 76)
-
-        print()
-
-        print(
-            f"Configured budget: "
-            f"{limit}"
-        )
-
-        print(
-            f"Requests already used: "
-            f"{used}"
-        )
-
-        print(
-            "Requests remaining: 0"
-        )
-
-        if endpoint:
-
-            print()
-
+        if params:
             print(
-                "Blocked request:"
+                f"  params: "
+                f"{params}"
             )
 
-            print(
-                f"  endpoint: {endpoint}"
-            )
+    print()
+    print(
+        "The request was blocked before reaching CFBD."
+    )
 
-            if params:
+    print()
+    print(
+        "Increase CFBD_MAX_CALLS_THIS_RUN only when "
+        "additional usage is intentional."
+    )
 
-                print(
-                    f"  params: {params}"
-                )
-
-        print()
-
-        print(
-            "The workflow is stopping before another CFBD "
-            "data call is consumed."
-        )
-
-        print()
-
-        print(
-            "Increase CFBD_MAX_CALLS_THIS_RUN only when "
-            "the additional API usage is intentional."
-        )
-
-        raise RuntimeError(
-            "CFBD per-run request budget exhausted."
-        )
+    raise RuntimeError(
+        "CFBD per-run request budget exhausted."
+    )
 
 
 # ============================================================
-# REGISTER REQUEST
+# REGISTER REAL REQUEST
 # ============================================================
 
 def register_request(
@@ -232,48 +354,67 @@ def register_request(
     params=None
 ):
     """
-    Record one real CFBD data request.
+    Register one real HTTP request attempt.
 
-    This should be called immediately before requests.get() is sent.
-
-    Retries count as additional real requests because they still reach
-    CFBD and may consume request quota.
+    Retries count because they still reach CFBD.
     """
 
-    global _requests_used
+    state = load_state()
 
-    ensure_request_available(
-        endpoint,
-        params
+    used = int(
+        state.get(
+            "requests_used",
+            0
+        )
     )
 
-    _requests_used += 1
+    limit = max_calls_this_run()
 
-    entry = {
-        "number":
-            _requests_used,
-
-        "endpoint":
+    if used >= limit:
+        ensure_request_available(
             endpoint,
+            params
+        )
 
-        "params":
-            params or {},
-    }
+    used += 1
 
-    _request_log.append(
-        entry
+    state[
+        "requests_used"
+    ] = used
+
+    log = state.setdefault(
+        "request_log",
+        []
+    )
+
+    log.append(
+        {
+            "number":
+                used,
+
+            "endpoint":
+                endpoint,
+
+            "params":
+                params or {},
+        }
+    )
+
+    save_state(
+        state
     )
 
     print()
-
+    print("CFBD REQUEST BUDGET")
     print(
-        "CFBD REQUEST BUDGET"
+        f"  run_id: "
+        f"{run_id()}"
     )
 
     print(
         f"  request "
-        f"{_requests_used}/"
-        f"{max_calls_this_run()}"
+        f"{used}/"
+        f"{limit}"
     )
 
     print(
@@ -282,7 +423,6 @@ def register_request(
     )
 
     if params:
-
         print(
             f"  params: "
             f"{params}"
@@ -290,27 +430,81 @@ def register_request(
 
 
 # ============================================================
+# INITIALIZE / RESET
+# ============================================================
+
+def initialize_budget():
+    """
+    Initialize the request budget for the current workflow run.
+
+    Safe to call at workflow start.
+    """
+
+    state = load_state()
+
+    # load_state already resets automatically when run_id changes.
+    save_state(
+        state
+    )
+
+    print("=" * 76)
+    print("PROJECT GRIDIRON CFBD REQUEST BUDGET INITIALIZED")
+    print("=" * 76)
+    print()
+
+    print(
+        f"Run ID: "
+        f"{run_id()}"
+    )
+
+    print(
+        f"Maximum calls this run: "
+        f"{max_calls_this_run()}"
+    )
+
+    print(
+        f"Calls currently used: "
+        f"{state['requests_used']}"
+    )
+
+
+def reset_budget():
+    """Explicitly reset current run state."""
+
+    state = default_state()
+
+    save_state(
+        state
+    )
+
+
+# ============================================================
 # SUMMARY
 # ============================================================
 
 def print_budget_summary():
-    """Print current request-budget status."""
+    """Print current persisted budget status."""
+
+    state = load_state()
+
+    used = int(
+        state.get(
+            "requests_used",
+            0
+        )
+    )
 
     limit = max_calls_this_run()
 
-    used = requests_used()
-
-    remaining = requests_remaining()
-
     print("=" * 76)
+    print("PROJECT GRIDIRON CFBD REQUEST BUDGET")
+    print("=" * 76)
+    print()
 
     print(
-        "PROJECT GRIDIRON CFBD REQUEST BUDGET"
+        f"Run ID: "
+        f"{run_id()}"
     )
-
-    print("=" * 76)
-
-    print()
 
     print(
         f"Configured budget: "
@@ -324,58 +518,41 @@ def print_budget_summary():
 
     print(
         f"Requests remaining: "
-        f"{remaining}"
+        f"{max(limit - used, 0)}"
     )
 
-    print()
+    log = state.get(
+        "request_log",
+        []
+    )
 
-    if not _request_log:
-
+    if not log:
+        print()
         print(
             "No real CFBD data requests have been made "
-            "in this process."
+            "during this workflow run."
         )
 
         return
 
-    print(
-        "REQUEST LOG"
-    )
-
+    print()
+    print("REQUEST LOG")
     print("-" * 76)
 
-    for entry in _request_log:
-
+    for entry in log:
         print(
-            f"{entry['number']}. "
-            f"{entry['endpoint']}"
+            f"{entry.get('number')}. "
+            f"{entry.get('endpoint')}"
         )
 
-        if entry[
+        params = entry.get(
             "params"
-        ]:
+        )
 
+        if params:
             print(
-                f"   {entry['params']}"
+                f"   {params}"
             )
-
-
-# ============================================================
-# RESET
-# ============================================================
-
-def reset_budget():
-    """
-    Reset in-process counters.
-
-    Primarily useful for tests.
-    """
-
-    global _requests_used
-
-    _requests_used = 0
-
-    _request_log.clear()
 
 
 # ============================================================
@@ -383,5 +560,9 @@ def reset_budget():
 # ============================================================
 
 if __name__ == "__main__":
+
+    initialize_budget()
+
+    print()
 
     print_budget_summary()
