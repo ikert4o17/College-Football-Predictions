@@ -1,1 +1,291 @@
+name: Inspect 2025 Calibration Games
 
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Inspect historical game schema
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          candidates = [
+              Path("data/processed/historical_games_2025.json"),
+              Path("data/raw/historical_games/2025.json"),
+          ]
+
+          path = None
+
+          for candidate in candidates:
+              if candidate.exists():
+                  path = candidate
+                  break
+
+          if path is None:
+              raise SystemExit("No 2025 historical game file found.")
+
+          print("=" * 80)
+          print("2025 HISTORICAL GAME SCHEMA")
+          print("=" * 80)
+          print()
+          print(f"File: {path}")
+          print()
+
+          with path.open("r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          print(f"Top-level type: {type(data).__name__}")
+
+          if isinstance(data, list):
+              print(f"Records: {len(data)}")
+          elif isinstance(data, dict):
+              print(f"Top-level keys: {list(data.keys())}")
+          else:
+              raise SystemExit("Unexpected JSON structure.")
+
+          print()
+
+          if isinstance(data, list):
+              records = data
+          else:
+              records = None
+
+              for key in [
+                  "games",
+                  "records",
+                  "data",
+                  "results",
+              ]:
+                  value = data.get(key)
+
+                  if isinstance(value, list):
+                      records = value
+                      print(f"Using list under key: {key}")
+                      break
+
+              if records is None:
+                  raise SystemExit(
+                      "Could not locate a game-record list."
+                  )
+
+          print()
+          print(f"Game records found: {len(records)}")
+          print()
+
+          for index, record in enumerate(records[:5], start=1):
+              print("-" * 80)
+              print(f"RECORD {index}")
+              print("-" * 80)
+              print(json.dumps(record, indent=2))
+              print()
+
+              if isinstance(record, dict):
+                  print("TOP-LEVEL KEYS:")
+                  for key in sorted(record.keys()):
+                      print(f"  {key}")
+
+              print()
+
+      - name: Test current calibration field extraction
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/processed/historical_games_2025.json")
+
+          if not path.exists():
+              path = Path("data/raw/historical_games/2025.json")
+
+          with path.open("r", encoding="utf-8") as f:
+              games = json.load(f)
+
+          if isinstance(games, dict):
+              for key in ["games", "records", "data", "results"]:
+                  if isinstance(games.get(key), list):
+                      games = games[key]
+                      break
+
+          def first_available(record, keys):
+              for key in keys:
+                  if key in record and record[key] is not None:
+                      return record[key]
+              return None
+
+          extractable = 0
+          missing_home = 0
+          missing_away = 0
+          missing_home_points = 0
+          missing_away_points = 0
+
+          examples = []
+
+          for game in games:
+              if not isinstance(game, dict):
+                  continue
+
+              home = first_available(
+                  game,
+                  ["home_team", "homeTeam", "home"],
+              )
+
+              away = first_available(
+                  game,
+                  ["away_team", "awayTeam", "away"],
+              )
+
+              home_points = first_available(
+                  game,
+                  ["home_points", "homePoints", "home_score"],
+              )
+
+              away_points = first_available(
+                  game,
+                  ["away_points", "awayPoints", "away_score"],
+              )
+
+              if home is None:
+                  missing_home += 1
+
+              if away is None:
+                  missing_away += 1
+
+              if home_points is None:
+                  missing_home_points += 1
+
+              if away_points is None:
+                  missing_away_points += 1
+
+              if (
+                  home is not None
+                  and away is not None
+                  and home_points is not None
+                  and away_points is not None
+              ):
+                  extractable += 1
+
+              elif len(examples) < 10:
+                  examples.append(game)
+
+          print("=" * 80)
+          print("CURRENT FIELD EXTRACTION TEST")
+          print("=" * 80)
+          print()
+
+          print(f"Total records: {len(games)}")
+          print(f"Fully extractable: {extractable}")
+          print(f"Missing home team: {missing_home}")
+          print(f"Missing away team: {missing_away}")
+          print(f"Missing home points: {missing_home_points}")
+          print(f"Missing away points: {missing_away_points}")
+
+          print()
+
+          print("SAMPLE RECORDS THAT FAIL CURRENT EXTRACTION")
+          print("-" * 80)
+
+          for record in examples:
+              print(json.dumps(record, indent=2))
+              print()
+          PY
+
+      - name: Compare team-name coverage with ratings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          ratings_path = Path(
+              "data/processed/power_ratings_2025.json"
+          )
+
+          games_path = Path(
+              "data/processed/historical_games_2025.json"
+          )
+
+          if not games_path.exists():
+              games_path = Path(
+                  "data/raw/historical_games/2025.json"
+              )
+
+          with ratings_path.open("r", encoding="utf-8") as f:
+              ratings = json.load(f)
+
+          with games_path.open("r", encoding="utf-8") as f:
+              games = json.load(f)
+
+          if isinstance(games, dict):
+              for key in ["games", "records", "data", "results"]:
+                  if isinstance(games.get(key), list):
+                      games = games[key]
+                      break
+
+          rating_teams = {
+              record.get("team")
+              for record in ratings
+              if isinstance(record, dict)
+              and record.get("team")
+          }
+
+          game_team_strings = set()
+
+          for game in games:
+              if not isinstance(game, dict):
+                  continue
+
+              for key in [
+                  "home_team",
+                  "homeTeam",
+                  "home",
+                  "away_team",
+                  "awayTeam",
+                  "away",
+              ]:
+                  value = game.get(key)
+
+                  if isinstance(value, str):
+                      game_team_strings.add(value)
+
+          print("=" * 80)
+          print("TEAM-NAME COVERAGE")
+          print("=" * 80)
+          print()
+
+          print(f"Rating teams: {len(rating_teams)}")
+          print(
+              f"Directly discoverable game team strings: "
+              f"{len(game_team_strings)}"
+          )
+
+          matches = sorted(
+              rating_teams
+              &
+              game_team_strings
+          )
+
+          print(
+              f"Exact team-name matches: "
+              f"{len(matches)}"
+          )
+
+          print()
+
+          print("FIRST 30 GAME TEAM STRINGS")
+          print("-" * 80)
+
+          for team in sorted(game_team_strings)[:30]:
+              print(team)
+          PY
