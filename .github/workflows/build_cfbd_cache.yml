@@ -16,6 +16,10 @@ jobs:
   build-cache:
     runs-on: ubuntu-latest
 
+    env:
+      CFBD_MAX_CALLS_THIS_RUN: "75"
+      CFBD_REQUEST_BUDGET_RUN_ID: ${{ github.run_id }}
+
     steps:
 
       # ============================================================
@@ -38,7 +42,15 @@ jobs:
           pip install requests
 
       # ============================================================
-      # CFBD QUOTA PROTECTION
+      # REQUEST BUDGET
+      # ============================================================
+
+      - name: Initialize CFBD request budget
+        run: |
+          python -m data.cfbd_request_budget
+
+      # ============================================================
+      # MONTHLY QUOTA PROTECTION
       # ============================================================
 
       - name: Check CFBD quota guard
@@ -57,9 +69,6 @@ jobs:
 
       # ============================================================
       # STATIC / HISTORICAL DATA
-      #
-      # These should become cache hits after the first successful
-      # persisted run.
       # ============================================================
 
       - name: Download teams
@@ -203,6 +212,15 @@ jobs:
           python -m ratings.coaching_continuity_v2 2025
 
       # ============================================================
+      # REQUEST BUDGET SUMMARY
+      # ============================================================
+
+      - name: Show CFBD request budget
+        if: always()
+        run: |
+          python -m data.cfbd_request_budget
+
+      # ============================================================
       # INSPECT PERSISTED DATA
       # ============================================================
 
@@ -251,3 +269,14 @@ jobs:
             git commit -m "Persist CFBD cache and model data"
             git push
           fi
+
+      # ============================================================
+      # FINAL QUOTA REPORT
+      # ============================================================
+
+      - name: Show remaining CFBD usage
+        if: always()
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.check_cfbd_usage
