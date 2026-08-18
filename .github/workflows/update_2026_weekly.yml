@@ -136,6 +136,14 @@ jobs:
           python -m ratings.preseason_rating_2026
 
       # ============================================================
+      # BUILD CACHE MANIFEST
+      # ============================================================
+
+      - name: Build CFBD cache manifest
+        run: |
+          python -m data.build_cfbd_cache_manifest
+
+      # ============================================================
       # INSPECT OUTPUTS
       # ============================================================
 
