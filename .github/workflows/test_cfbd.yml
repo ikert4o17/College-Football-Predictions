@@ -196,7 +196,7 @@ jobs:
           python -m data.download_recruiting_players 2019 2025
 
       # ============================================================
-      # 2025 TRANSFER TALENT VALIDATION
+      # 2025 TRANSFER TALENT + PRODUCTION
       # ============================================================
 
       - name: Enrich 2025 transfer portal talent
@@ -206,6 +206,10 @@ jobs:
       - name: Calculate 2025 transfer talent metrics
         run: |
           python -m ratings.transfer_talent 2025
+
+      - name: Calculate 2025 transfer production metrics
+        run: |
+          python -m ratings.transfer_production 2025
 
       - name: Validate composite-weighted transfer talent
         run: |
