@@ -18,15 +18,20 @@ Primary goals:
 
 - identify each team's head coach
 - determine whether the head coach returned the following season
-- measure head-coach tenure
+- measure tenure / continuity where possible
 - identify first-year / second-year coaches
-- preserve coach season record and historical context
-- support later 2024 -> 2025 validation
+- preserve coach season record and team context
+- support later historical validation
 
-CFBD currently exposes:
+CFBD endpoints used:
     GET /coaches
     GET /coaches/seasons
+
+Optional:
     GET /coaches/tenures
+
+The tenure endpoint requires coachId or team, so a year-only request
+is treated as optional and will not stop the pipeline.
 
 This module is diagnostic only and does NOT modify ratings.
 """
@@ -75,7 +80,8 @@ def api_get(
     """
     Run authenticated CFBD GET request.
 
-    Optional requests return an empty list on failure.
+    Required endpoints raise on failure.
+    Optional endpoints print the error and return an empty list.
     """
 
     headers = {
@@ -134,6 +140,8 @@ def api_get(
 
             response.raise_for_status()
 
+        print()
+
         print(
             f"Skipping optional endpoint: "
             f"{endpoint}"
@@ -153,12 +161,21 @@ def api_get(
                 f"Invalid JSON returned by {endpoint}"
             ) from error
 
+        print()
+
+        print(
+            f"Invalid JSON returned by optional endpoint "
+            f"{endpoint}. Skipping."
+        )
+
         return []
 
     if not isinstance(
         data,
         list
     ):
+
+        print()
 
         print(
             f"Unexpected response type from "
@@ -269,8 +286,6 @@ def print_dataset(
 def download_coaches(year):
     """
     Download historical head-coach records for a season.
-
-    CFBD supports year filtering directly.
     """
 
     records = api_get(
@@ -304,7 +319,7 @@ def download_coach_seasons(year):
     """
     Download detailed coach-season records.
 
-    These contain season-specific results and team context.
+    This is the main historical dataset for continuity analysis.
     """
 
     records = api_get(
@@ -336,10 +351,10 @@ def download_coach_seasons(year):
 
 def download_coach_tenures(year):
     """
-    Download coaching tenures containing the requested season.
+    Attempt year-only tenure request.
 
-    CFBD defines the year parameter here as:
-        season year contained within the tenure.
+    CFBD currently requires coachId or team for this endpoint.
+    Therefore this call is optional and will not stop the run.
     """
 
     records = api_get(
@@ -347,7 +362,7 @@ def download_coach_tenures(year):
         {
             "year": year,
         },
-        required=True,
+        required=False,
     )
 
     path = (
@@ -369,23 +384,42 @@ def download_coach_tenures(year):
     return records
 
 
-def extract_team(record):
+def extract_team_from_coach_record(record):
     """
-    Attempt to extract team name across possible CFBD schemas.
+    Extract team from /coaches response.
 
-    This is only used for diagnostic counting.
+    /coaches usually stores team context inside seasons.
     """
+
+    seasons = record.get(
+        "seasons"
+    )
+
+    if isinstance(
+        seasons,
+        list
+    ) and seasons:
+
+        latest = seasons[-1]
+
+        if isinstance(
+            latest,
+            dict
+        ):
+
+            return latest.get(
+                "school"
+            )
+
+    return None
+
+
+def extract_team_from_season_record(record):
+    """Extract team from /coaches/seasons response."""
 
     team = record.get(
         "team"
     )
-
-    if isinstance(
-        team,
-        str
-    ):
-
-        return team
 
     if isinstance(
         team,
@@ -402,50 +436,59 @@ def extract_team(record):
             )
         )
 
-    teams = record.get(
-        "teams"
-    )
-
     if isinstance(
-        teams,
-        list
-    ) and teams:
+        team,
+        str
+    ):
 
-        first = teams[0]
-
-        if isinstance(
-            first,
-            str
-        ):
-
-            return first
-
-        if isinstance(
-            first,
-            dict
-        ):
-
-            return (
-                first.get(
-                    "school"
-                )
-                or
-                first.get(
-                    "name"
-                )
-            )
+        return team
 
     return None
 
 
-def summarize_unique_teams(records):
-    """Count unique team names in dataset."""
+def extract_team_from_tenure_record(record):
+    """Extract team from tenure response where available."""
+
+    team = record.get(
+        "team"
+    )
+
+    if isinstance(
+        team,
+        dict
+    ):
+
+        return (
+            team.get(
+                "school"
+            )
+            or
+            team.get(
+                "name"
+            )
+        )
+
+    if isinstance(
+        team,
+        str
+    ):
+
+        return team
+
+    return None
+
+
+def summarize_unique_teams(
+    records,
+    extractor
+):
+    """Count unique team names."""
 
     teams = set()
 
     for record in records:
 
-        team = extract_team(
+        team = extractor(
             record
         )
 
@@ -457,6 +500,39 @@ def summarize_unique_teams(records):
 
     return len(
         teams
+    )
+
+
+def summarize_coach_ids(records):
+    """Count unique coach IDs in season records."""
+
+    ids = set()
+
+    for record in records:
+
+        coach = record.get(
+            "coach"
+        )
+
+        if not isinstance(
+            coach,
+            dict
+        ):
+
+            continue
+
+        coach_id = coach.get(
+            "id"
+        )
+
+        if coach_id is not None:
+
+            ids.add(
+                coach_id
+            )
+
+    return len(
+        ids
     )
 
 
@@ -518,21 +594,44 @@ def download_coaching_data(year):
     print()
 
     print(
+        f"Unique coaches in season data: "
+        f"{summarize_coach_ids(coach_seasons)}"
+    )
+
+    print()
+
+    print(
         f"Teams identifiable in coaches: "
-        f"{summarize_unique_teams(coaches)}"
+        f"{summarize_unique_teams(coaches, extract_team_from_coach_record)}"
     )
 
     print(
         f"Teams identifiable in coach seasons: "
-        f"{summarize_unique_teams(coach_seasons)}"
+        f"{summarize_unique_teams(coach_seasons, extract_team_from_season_record)}"
     )
 
     print(
         f"Teams identifiable in coach tenures: "
-        f"{summarize_unique_teams(coach_tenures)}"
+        f"{summarize_unique_teams(coach_tenures, extract_team_from_tenure_record)}"
     )
 
     print()
+
+    if not coach_tenures:
+
+        print(
+            "NOTE:"
+        )
+
+        print(
+            "Coach tenure data was unavailable from a year-only request."
+        )
+
+        print(
+            "Continuity will be derived from coach-season records instead."
+        )
+
+        print()
 
     print(
         "Saved under:"
