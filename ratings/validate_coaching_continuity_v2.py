@@ -41,6 +41,9 @@ A coaching adjustment is considered valid only if it improves:
 
 versus SP+ alone.
 
+Constant metrics are skipped safely because Pearson correlation is
+undefined when a variable has zero variance.
+
 This module does NOT modify production ratings.
 """
 
@@ -102,6 +105,10 @@ ADJUSTMENT_WEIGHTS = [
 ]
 
 
+# ============================================================
+# GENERAL HELPERS
+# ============================================================
+
 def load_json(path):
     """Load JSON."""
 
@@ -109,7 +116,10 @@ def load_json(path):
         "r",
         encoding="utf-8"
     ) as file:
-        return json.load(file)
+
+        return json.load(
+            file
+        )
 
 
 def build_lookup(records):
@@ -132,6 +142,7 @@ def safe_float(value):
         value,
         bool
     ):
+
         return (
             1.0
             if value
@@ -139,12 +150,16 @@ def safe_float(value):
         )
 
     try:
-        return float(value)
+
+        return float(
+            value
+        )
 
     except (
         TypeError,
         ValueError
     ):
+
         return 0.0
 
 
@@ -154,7 +169,11 @@ def mean(values):
     if not values:
         return 0.0
 
-    return sum(values) / len(values)
+    return (
+        sum(values)
+        /
+        len(values)
+    )
 
 
 def standard_deviation(values):
@@ -186,6 +205,20 @@ def standard_deviation(values):
     )
 
 
+def is_constant(values):
+    """Return whether metric has zero variance."""
+
+    if not values:
+        return True
+
+    return (
+        standard_deviation(
+            values
+        )
+        == 0
+    )
+
+
 def pearson_correlation(
     x_values,
     y_values
@@ -208,11 +241,15 @@ def pearson_correlation(
 
     numerator = sum(
         (
-            x - x_mean
+            x
+            -
+            x_mean
         )
         *
         (
-            y - y_mean
+            y
+            -
+            y_mean
         )
         for x, y in zip(
             x_values,
@@ -222,7 +259,9 @@ def pearson_correlation(
 
     x_variance = sum(
         (
-            x - x_mean
+            x
+            -
+            x_mean
         )
         ** 2
         for x in x_values
@@ -230,7 +269,9 @@ def pearson_correlation(
 
     y_variance = sum(
         (
-            y - y_mean
+            y
+            -
+            y_mean
         )
         ** 2
         for y in y_values
@@ -326,8 +367,21 @@ def z_score(
     ) / std
 
 
+def format_correlation(value):
+    """Format correlation safely."""
+
+    if value is None:
+        return "N/A"
+
+    return f"{value:+.4f}"
+
+
+# ============================================================
+# DATA BUILD
+# ============================================================
+
 def build_records():
-    """Build matching FBS historical records."""
+    """Build matching historical team records."""
 
     coaching_records = load_json(
         COACHING_FILE
@@ -404,120 +458,6 @@ def build_records():
             )
         )
 
-        same_head_coach = safe_float(
-            coaching.get(
-                "same_head_coach"
-            )
-        )
-
-        new_head_coach = safe_float(
-            coaching.get(
-                "new_head_coach"
-            )
-        )
-
-        first_year = safe_float(
-            coaching.get(
-                "first_year_current_program"
-            )
-        )
-
-        second_year = safe_float(
-            coaching.get(
-                "second_year_current_program"
-            )
-        )
-
-        tenure_years = safe_float(
-            coaching.get(
-                "tenure_years"
-            )
-        )
-
-        established = safe_float(
-            coaching.get(
-                "established_coach"
-            )
-        )
-
-        long_tenure = safe_float(
-            coaching.get(
-                "long_tenure"
-            )
-        )
-
-        prior_win_pct = safe_float(
-            coaching.get(
-                "prior_coach_win_percentage"
-            )
-        )
-
-        prior_srs = safe_float(
-            coaching.get(
-                "prior_coach_srs"
-            )
-        )
-
-        prior_sp = safe_float(
-            coaching.get(
-                "prior_coach_sp_overall"
-            )
-        )
-
-        prior_point_diff = safe_float(
-            coaching.get(
-                "prior_coach_point_differential"
-            )
-        )
-
-        change_after_bad_sp = safe_float(
-            coaching.get(
-                "change_after_bad_sp"
-            )
-        )
-
-        change_after_good_sp = safe_float(
-            coaching.get(
-                "change_after_good_sp"
-            )
-        )
-
-        change_after_losing = safe_float(
-            coaching.get(
-                "change_after_losing_season"
-            )
-        )
-
-        change_after_winning = safe_float(
-            coaching.get(
-                "change_after_winning_season"
-            )
-        )
-
-        change_x_prior_sp = safe_float(
-            coaching.get(
-                "change_x_prior_sp"
-            )
-        )
-
-        change_x_prior_srs = safe_float(
-            coaching.get(
-                "change_x_prior_srs"
-            )
-        )
-
-        change_x_prior_win_pct = safe_float(
-            coaching.get(
-                "change_x_prior_win_pct"
-            )
-        )
-
-        change_x_prior_point_diff = safe_float(
-            coaching.get(
-                "change_x_prior_point_diff"
-            )
-        )
-
         teams.append(
             {
                 "team":
@@ -538,66 +478,146 @@ def build_records():
                     gridiron_2024_rating,
 
                 "same_head_coach":
-                    same_head_coach,
+                    safe_float(
+                        coaching.get(
+                            "same_head_coach"
+                        )
+                    ),
 
                 "new_head_coach":
-                    new_head_coach,
+                    safe_float(
+                        coaching.get(
+                            "new_head_coach"
+                        )
+                    ),
 
                 "first_year":
-                    first_year,
+                    safe_float(
+                        coaching.get(
+                            "first_year_current_program"
+                        )
+                    ),
 
                 "second_year":
-                    second_year,
+                    safe_float(
+                        coaching.get(
+                            "second_year_current_program"
+                        )
+                    ),
 
                 "tenure_years":
-                    tenure_years,
+                    safe_float(
+                        coaching.get(
+                            "tenure_years"
+                        )
+                    ),
 
                 "established_coach":
-                    established,
+                    safe_float(
+                        coaching.get(
+                            "established_coach"
+                        )
+                    ),
 
                 "long_tenure":
-                    long_tenure,
+                    safe_float(
+                        coaching.get(
+                            "long_tenure"
+                        )
+                    ),
 
                 "prior_win_pct":
-                    prior_win_pct,
+                    safe_float(
+                        coaching.get(
+                            "prior_coach_win_percentage"
+                        )
+                    ),
 
                 "prior_srs":
-                    prior_srs,
+                    safe_float(
+                        coaching.get(
+                            "prior_coach_srs"
+                        )
+                    ),
 
                 "prior_sp":
-                    prior_sp,
+                    safe_float(
+                        coaching.get(
+                            "prior_coach_sp_overall"
+                        )
+                    ),
 
                 "prior_point_diff":
-                    prior_point_diff,
+                    safe_float(
+                        coaching.get(
+                            "prior_coach_point_differential"
+                        )
+                    ),
 
                 "change_after_bad_sp":
-                    change_after_bad_sp,
+                    safe_float(
+                        coaching.get(
+                            "change_after_bad_sp"
+                        )
+                    ),
 
                 "change_after_good_sp":
-                    change_after_good_sp,
+                    safe_float(
+                        coaching.get(
+                            "change_after_good_sp"
+                        )
+                    ),
 
                 "change_after_losing":
-                    change_after_losing,
+                    safe_float(
+                        coaching.get(
+                            "change_after_losing_season"
+                        )
+                    ),
 
                 "change_after_winning":
-                    change_after_winning,
+                    safe_float(
+                        coaching.get(
+                            "change_after_winning_season"
+                        )
+                    ),
 
                 "change_x_prior_sp":
-                    change_x_prior_sp,
+                    safe_float(
+                        coaching.get(
+                            "change_x_prior_sp"
+                        )
+                    ),
 
                 "change_x_prior_srs":
-                    change_x_prior_srs,
+                    safe_float(
+                        coaching.get(
+                            "change_x_prior_srs"
+                        )
+                    ),
 
                 "change_x_prior_win_pct":
-                    change_x_prior_win_pct,
+                    safe_float(
+                        coaching.get(
+                            "change_x_prior_win_pct"
+                        )
+                    ),
 
                 "change_x_prior_point_diff":
-                    change_x_prior_point_diff,
+                    safe_float(
+                        coaching.get(
+                            "change_x_prior_point_diff"
+                        )
+                    ),
             }
         )
 
     return teams
 
+
+# ============================================================
+# SP+ BASELINE
+# ============================================================
 
 def calculate_sp_context(teams):
     """Calculate SP+ mapping context."""
@@ -670,18 +690,34 @@ def map_sp_to_gridiron(
     )
 
 
+# ============================================================
+# METRIC ANALYSIS
+# ============================================================
+
+def metric_values(
+    teams,
+    metric_key
+):
+    """Return values for one metric."""
+
+    return [
+        team[
+            metric_key
+        ]
+        for team in teams
+    ]
+
+
 def metric_correlation(
     teams,
     metric_key
 ):
     """Correlation between coaching metric and rating change."""
 
-    x_values = [
-        team[
-            metric_key
-        ]
-        for team in teams
-    ]
+    x_values = metric_values(
+        teams,
+        metric_key
+    )
 
     y_values = [
         team[
@@ -689,6 +725,12 @@ def metric_correlation(
         ]
         for team in teams
     ]
+
+    if is_constant(
+        x_values
+    ):
+
+        return None
 
     return pearson_correlation(
         x_values,
@@ -704,20 +746,22 @@ def evaluate_adjustment(
 ):
     """Add standardized coaching adjustment to SP+ baseline."""
 
-    metric_values = [
-        team[
-            metric_key
-        ]
-        for team in teams
-    ]
+    values = metric_values(
+        teams,
+        metric_key
+    )
 
     metric_mean = mean(
-        metric_values
+        values
     )
 
     metric_std = standard_deviation(
-        metric_values
+        values
     )
+
+    if metric_std == 0:
+
+        return None
 
     predictions = []
 
@@ -795,6 +839,10 @@ def evaluate_adjustment(
     }
 
 
+# ============================================================
+# MAIN ANALYSIS
+# ============================================================
+
 def analyze():
     """Run coaching continuity validation."""
 
@@ -805,6 +853,7 @@ def analyze():
         print(
             "No matching teams found."
         )
+
         return
 
     context = calculate_sp_context(
@@ -956,10 +1005,44 @@ def analyze():
 
     metric_results = []
 
+    constant_metrics = []
+
     for (
         key,
         label
     ) in metrics:
+
+        values = metric_values(
+            teams,
+            key
+        )
+
+        if is_constant(
+            values
+        ):
+
+            constant_metrics.append(
+                {
+                    "key":
+                        key,
+
+                    "label":
+                        label,
+
+                    "value":
+                        values[0]
+                        if values
+                        else None,
+                }
+            )
+
+            print(
+                f"{label}: "
+                f"N/A "
+                f"(constant metric)"
+            )
+
+            continue
 
         correlation = metric_correlation(
             teams,
@@ -981,7 +1064,7 @@ def analyze():
 
         print(
             f"{label}: "
-            f"{correlation:+.4f}"
+            f"{format_correlation(correlation)}"
         )
 
     metric_results.sort(
@@ -990,7 +1073,11 @@ def analyze():
                 result[
                     "correlation"
                 ]
-            ),
+            )
+            if result[
+                "correlation"
+            ] is not None
+            else -1.0,
         reverse=True,
     )
 
@@ -1006,8 +1093,26 @@ def analyze():
 
         print(
             f"{result['label']}: "
-            f"{result['correlation']:+.4f}"
+            f"{format_correlation(result['correlation'])}"
         )
+
+    if constant_metrics:
+
+        print()
+
+        print(
+            "CONSTANT / UNTESTABLE METRICS"
+        )
+
+        print("-" * 76)
+
+        for result in constant_metrics:
+
+            print(
+                f"{result['label']}: "
+                f"constant value="
+                f"{result['value']}"
+            )
 
     print()
 
@@ -1031,6 +1136,15 @@ def analyze():
                 ],
                 weight
             )
+
+            if result is None:
+                continue
+
+            if result[
+                "correlation"
+            ] is None:
+
+                continue
 
             result[
                 "label"
@@ -1143,7 +1257,8 @@ def analyze():
         print(
             f"{rank}. "
             f"{result['label']} "
-            f"@ {result['points_per_std']:.2f} pts/std: "
+            f"@ "
+            f"{result['points_per_std']:.2f} pts/std: "
             f"corr="
             f"{result['correlation']:.4f}, "
             f"MAE="
@@ -1255,6 +1370,9 @@ def analyze():
         "metric_correlations":
             metric_results,
 
+        "constant_metrics":
+            constant_metrics,
+
         "valid_models":
             valid_models,
 
@@ -1286,4 +1404,5 @@ def analyze():
 
 
 if __name__ == "__main__":
+
     analyze()
