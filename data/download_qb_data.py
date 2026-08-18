@@ -33,7 +33,7 @@ def _is_guard_error(error):
     )
 
 
-def api_get(endpoint, params, required=True):
+def fetch_records(endpoint, params, required=True):
     """
     Fetch a CFBD list through the shared client.
 
@@ -141,14 +141,14 @@ def _save_dataset(year, filename, title, records):
 def download_usage(year):
     """Download player usage."""
 
-    records = api_get("/player/usage", {"year": year}, required=True)
+    records = fetch_records("/player/usage", {"year": year}, required=True)
     return _save_dataset(year, "player_usage", "PLAYER USAGE", records)
 
 
 def download_overview(year):
     """Attempt to download optional player season overview data."""
 
-    records = api_get(
+    records = fetch_records(
         "/player/season/overview",
         {"year": year},
         required=False,
@@ -164,7 +164,7 @@ def download_overview(year):
 def download_ppa(year):
     """Download optional player-season PPA data."""
 
-    records = api_get(
+    records = fetch_records(
         "/ppa/players/season",
         {"year": year},
         required=False,
@@ -175,7 +175,7 @@ def download_ppa(year):
 def download_roster(year):
     """Download optional roster data."""
 
-    records = api_get("/roster", {"year": year}, required=False)
+    records = fetch_records("/roster", {"year": year}, required=False)
     return _save_dataset(year, "roster", "TEAM ROSTER", records)
 
 
