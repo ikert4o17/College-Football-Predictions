@@ -36,7 +36,7 @@ def _is_guard_error(error):
     )
 
 
-def api_get(endpoint, params, required=True):
+def fetch_records(endpoint, params, required=True):
     """
     Fetch a CFBD list through the shared client.
 
@@ -112,7 +112,7 @@ def print_dataset(title, records):
 def download_coaches(year):
     """Download historical head-coach records for a season."""
 
-    records = api_get("/coaches", {"year": year}, required=True)
+    records = fetch_records("/coaches", {"year": year}, required=True)
     path = OUTPUT_DIRECTORY / str(year) / "coaches.json"
     save_json(records, path)
     print_dataset("COACHES", records)
@@ -122,7 +122,7 @@ def download_coaches(year):
 def download_coach_seasons(year):
     """Download detailed coach-season records."""
 
-    records = api_get("/coaches/seasons", {"year": year}, required=True)
+    records = fetch_records("/coaches/seasons", {"year": year}, required=True)
     path = OUTPUT_DIRECTORY / str(year) / "coach_seasons.json"
     save_json(records, path)
     print_dataset("COACH SEASONS", records)
@@ -132,7 +132,7 @@ def download_coach_seasons(year):
 def download_coach_tenures(year):
     """Attempt the optional year-only tenure request."""
 
-    records = api_get("/coaches/tenures", {"year": year}, required=False)
+    records = fetch_records("/coaches/tenures", {"year": year}, required=False)
     path = OUTPUT_DIRECTORY / str(year) / "coach_tenures.json"
     save_json(records, path)
     print_dataset("COACH TENURES", records)
