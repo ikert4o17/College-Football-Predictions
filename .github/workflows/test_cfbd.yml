@@ -146,7 +146,8 @@ jobs:
           python -m ratings.season_continuity
 
       # ============================================================
-      # PLAYER DATA FOR QB + TRANSFER PRODUCTION
+      # PLAYER DATA
+      # Required by QB continuity and transfer production
       # ============================================================
 
       - name: Download 2024 player diagnostic data
@@ -163,6 +164,7 @@ jobs:
 
       # ============================================================
       # SP+ DATA
+      # Must exist before QB/transfer validation
       # ============================================================
 
       - name: Download 2024-2025 SP+ ratings
@@ -172,7 +174,7 @@ jobs:
           python -m data.download_sp_ratings 2024 2025
 
       # ============================================================
-      # 2025 RETURNING PRODUCTION VALIDATION
+      # 2025 RETURNING PRODUCTION
       # ============================================================
 
       - name: Download 2025 returning production
@@ -194,7 +196,7 @@ jobs:
           python -m ratings.validate_returning_production
 
       # ============================================================
-      # 2025 TRANSFER PORTAL VALIDATION
+      # 2025 TRANSFER PORTAL
       # ============================================================
 
       - name: Download 2025 transfer portal
@@ -212,7 +214,8 @@ jobs:
           python -m ratings.validate_transfer_portal
 
       # ============================================================
-      # HISTORICAL RECRUITING DATA
+      # HISTORICAL RECRUITING
+      # Used to enrich transfer talent
       # ============================================================
 
       - name: Download 2019-2025 recruiting players
@@ -222,7 +225,7 @@ jobs:
           python -m data.download_recruiting_players 2019 2025
 
       # ============================================================
-      # 2025 TRANSFER TALENT + PRODUCTION
+      # 2025 TRANSFER TALENT
       # ============================================================
 
       - name: Enrich 2025 transfer portal talent
@@ -233,13 +236,29 @@ jobs:
         run: |
           python -m ratings.transfer_talent 2025
 
+      - name: Validate composite-weighted transfer talent
+        run: |
+          python -m ratings.validate_transfer_talent
+
+      # ============================================================
+      # 2025 TRANSFER PRODUCTION V2
+      #
+      # V2 intentionally restricts PPA-based production to:
+      # QB
+      # RB
+      # WR
+      # TE
+      #
+      # OL/defense are not assigned offensive PPA production.
+      # ============================================================
+
       - name: Calculate 2025 transfer production metrics V2
         run: |
           python -m ratings.transfer_production_v2 2025
 
-      - name: Validate composite-weighted transfer talent
+      - name: Validate 2025 transfer production V2
         run: |
-          python -m ratings.validate_transfer_talent
+          python -m ratings.validate_transfer_production_v2
 
       # ============================================================
       # QB CONTINUITY
@@ -254,7 +273,7 @@ jobs:
           python -m ratings.validate_qb_continuity
 
       # ============================================================
-      # 2025 RECRUITING TALENT VALIDATION
+      # 2025 RECRUITING TALENT
       # ============================================================
 
       - name: Calculate 2025 recruiting talent metrics
@@ -266,7 +285,7 @@ jobs:
           python -m ratings.validate_recruiting_talent
 
       # ============================================================
-      # NFL DRAFT LOSS VALIDATION
+      # NFL DRAFT LOSSES
       # ============================================================
 
       - name: Download 2025 NFL draft picks
@@ -284,7 +303,7 @@ jobs:
           python -m ratings.validate_draft_losses
 
       # ============================================================
-      # HISTORICAL PRESEASON MODEL VALIDATION
+      # HISTORICAL PRESEASON MODEL
       # ============================================================
 
       - name: Run combined preseason model V2
@@ -292,7 +311,7 @@ jobs:
           python -m ratings.preseason_model
 
       # ============================================================
-      # SP+ VALIDATION
+      # SP+ BASELINE VALIDATION
       # ============================================================
 
       - name: Validate SP+ baseline blend
@@ -304,7 +323,7 @@ jobs:
           python -m ratings.preseason_model_v3
 
       # ============================================================
-      # 2026 PRODUCTION INPUTS
+      # 2026 RETURNING PRODUCTION
       # ============================================================
 
       - name: Download 2026 returning production
@@ -317,6 +336,10 @@ jobs:
         run: |
           python -m data.process_returning_production 2026
 
+      # ============================================================
+      # 2026 TRANSFER PORTAL
+      # ============================================================
+
       - name: Download 2026 transfer portal
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
@@ -327,11 +350,19 @@ jobs:
         run: |
           python -m data.process_transfer_portal 2026
 
+      # ============================================================
+      # 2026 RECRUITING
+      # ============================================================
+
       - name: Download 2026 recruiting players
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python -m data.download_recruiting_players 2026 2026
+
+      # ============================================================
+      # 2026 TRANSFER TALENT
+      # ============================================================
 
       - name: Enrich 2026 transfer portal talent
         run: |
@@ -340,6 +371,10 @@ jobs:
       - name: Calculate 2026 transfer talent metrics
         run: |
           python -m ratings.transfer_talent 2026
+
+      # ============================================================
+      # 2026 RECRUITING TALENT
+      # ============================================================
 
       - name: Calculate 2026 recruiting talent metrics
         run: |
