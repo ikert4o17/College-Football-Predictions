@@ -1,0 +1,129 @@
+name: Recover V4 Inputs From Git History
+
+on:
+  workflow_dispatch:
+
+jobs:
+  recover-v4-history:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout full repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Search Git history for missing V4 inputs
+        run: |
+          set +e
+
+          FILES=(
+            "data/raw/sp_ratings/2024.json"
+            "data/processed/transfer_talent_2025.json"
+            "data/processed/transfer_production_v2_2025.json"
+            "data/processed/qb_continuity_2025.json"
+            "data/processed/coaching_continuity_v2_2025.json"
+          )
+
+          echo "============================================================================"
+          echo "PROJECT GRIDIRON V4 HISTORY RECOVERY SEARCH"
+          echo "============================================================================"
+          echo ""
+
+          for FILE in "${FILES[@]}"; do
+            echo "----------------------------------------------------------------------------"
+            echo "$FILE"
+            echo "----------------------------------------------------------------------------"
+
+            if [ -f "$FILE" ]; then
+              echo "STATUS: PRESENT ON CURRENT BRANCH"
+              echo ""
+              continue
+            fi
+
+            COMMITS=$(git log --all --format="%H" -- "$FILE")
+
+            if [ -z "$COMMITS" ]; then
+              echo "STATUS: NEVER FOUND IN GIT HISTORY"
+              echo ""
+              continue
+            fi
+
+            echo "STATUS: FOUND IN GIT HISTORY"
+            echo ""
+
+            COUNT=0
+
+            for COMMIT in $COMMITS; do
+              COUNT=$((COUNT + 1))
+
+              echo "Commit $COUNT:"
+              echo "  SHA: $COMMIT"
+
+              git show -s \
+                --format="  Date: %cI%n  Message: %s" \
+                "$COMMIT"
+
+              echo ""
+
+              if [ "$COUNT" -ge 5 ]; then
+                break
+              fi
+            done
+
+            echo ""
+            echo "Most recent commit containing file:"
+            LATEST=$(echo "$COMMITS" | head -n 1)
+            echo "  $LATEST"
+            echo ""
+
+            echo "File metadata from latest matching commit:"
+
+            git ls-tree -r "$LATEST" -- "$FILE"
+
+            echo ""
+          done
+
+      - name: Search repository history for related filenames
+        run: |
+          echo "============================================================================"
+          echo "RELATED HISTORICAL FILES"
+          echo "============================================================================"
+          echo ""
+
+          PATTERNS=(
+            "sp_rating"
+            "transfer_talent"
+            "transfer_production"
+            "qb_continuity"
+            "coaching_continuity"
+          )
+
+          for PATTERN in "${PATTERNS[@]}"; do
+            echo "----------------------------------------------------------------------------"
+            echo "Pattern: $PATTERN"
+            echo "----------------------------------------------------------------------------"
+
+            git log --all \
+              --name-only \
+              --pretty=format: \
+              | grep -i "$PATTERN" \
+              | sort -u \
+              | head -n 100
+
+            echo ""
+          done
+
+      - name: Search deleted files in history
+        run: |
+          echo "============================================================================"
+          echo "DELETED V4-RELATED FILES"
+          echo "============================================================================"
+          echo ""
+
+          git log --all \
+            --diff-filter=D \
+            --summary \
+            | grep -Ei \
+              "sp_rating|transfer_talent|transfer_production|qb_continuity|coaching_continuity" \
+            || true
