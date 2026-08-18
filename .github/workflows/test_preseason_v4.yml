@@ -1,0 +1,111 @@
+name: Test Preseason Model V4
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-v4:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      # ============================================================
+      # VERIFY REQUIRED HISTORICAL FILES
+      # ============================================================
+
+      - name: Verify V4 input files
+        run: |
+          echo "Checking required Project Gridiron V4 inputs..."
+
+          test -f data/raw/sp_ratings/2024.json
+          test -f data/processed/power_ratings_2024.json
+          test -f data/processed/power_ratings_2025.json
+
+          echo "Core SP+ and rating files found."
+
+          echo ""
+          echo "Processed files currently available:"
+          find data/processed -maxdepth 1 -type f -print | sort
+
+      # ============================================================
+      # REBUILD HISTORICAL DERIVED FEATURES
+      # NO CFBD DOWNLOADS
+      # ============================================================
+
+      - name: Process 2025 returning production
+        run: |
+          python -m data.process_returning_production 2025
+
+      - name: Calculate 2025 transfer talent
+        run: |
+          python -m ratings.transfer_talent 2025
+
+      - name: Calculate 2025 transfer production V2
+        run: |
+          python -m ratings.transfer_production_v2 2025
+
+      - name: Calculate 2025 QB continuity
+        run: |
+          python -m ratings.qb_continuity 2025
+
+      - name: Calculate 2025 coaching continuity V2
+        run: |
+          python -m ratings.coaching_continuity_v2 2025
+
+      # ============================================================
+      # OPTIONAL SANITY VALIDATORS
+      # ============================================================
+
+      - name: Validate returning production
+        run: |
+          python -m ratings.validate_returning_production
+
+      - name: Validate transfer talent
+        run: |
+          python -m ratings.validate_transfer_talent
+
+      - name: Validate transfer production V2
+        run: |
+          python -m ratings.validate_transfer_production_v2
+
+      - name: Validate QB continuity
+        run: |
+          python -m ratings.validate_qb_continuity
+
+      - name: Validate coaching continuity V2
+        run: |
+          python -m ratings.validate_coaching_continuity_v2
+
+      # ============================================================
+      # COMBINED PRESEASON MODEL V4
+      # ============================================================
+
+      - name: Run combined preseason model V4
+        run: |
+          python -m ratings.preseason_model_v4
+
+      # ============================================================
+      # SHOW OUTPUT
+      # ============================================================
+
+      - name: Show V4 output file
+        run: |
+          echo "V4 output:"
+          ls -lh data/processed/preseason_model_v4_validation_2025.json
+
+      - name: Show final processed files
+        run: |
+          echo "Processed files:"
+          find data/processed -maxdepth 1 -type f -print | sort
