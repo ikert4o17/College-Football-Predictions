@@ -19,6 +19,7 @@ jobs:
     env:
       CFBD_MAX_CALLS_THIS_RUN: "20"
       CFBD_REQUEST_BUDGET_RUN_ID: ${{ github.run_id }}
+      CFBD_MIN_REMAINING_CALLS: "100"
 
     steps:
 
@@ -56,12 +57,21 @@ jobs:
       - name: Check CFBD quota guard
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-          CFBD_MIN_REMAINING_CALLS: "100"
           CFBD_ALLOW_RESERVE_USE: ${{ inputs.allow_reserve_use }}
         run: |
           python -m data.check_cfbd_quota_guard
 
-      - name: Show CFBD usage
+      # ============================================================
+      # DRY-RUN REQUEST PLAN
+      # ============================================================
+
+      - name: Plan weekly CFBD requests
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.plan_cfbd_requests weekly
+
+      - name: Show CFBD usage before downloads
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
@@ -136,7 +146,7 @@ jobs:
           python -m ratings.preseason_rating_2026
 
       # ============================================================
-      # BUILD CACHE MANIFEST
+      # CACHE MANIFEST
       # ============================================================
 
       - name: Build CFBD cache manifest
