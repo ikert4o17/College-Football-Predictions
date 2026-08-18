@@ -1,6 +1,6 @@
 """
 Project Gridiron
-2026 Provisional Preseason Ratings
+2026 Provisional Preseason Ratings V2
 
 Purpose
 -------
@@ -13,19 +13,22 @@ Current provisional model:
         +
     2026 returning-snaps adjustment
         =
-    2026 provisional preseason rating
+    2026 provisional preseason power rating
 
-This model is intentionally conservative.
+For totals modeling, this version also carries forward:
 
-It does NOT yet include:
-    - transfer talent
-    - transfer production / experience
-    - QB continuity
-    - coaching continuity
-    - recruiting talent
-    - full V4 combined weighting
+    2025 offense_score
+    2025 defense_score
 
-Those inputs will be added after the CFBD data refresh.
+with the same conservative regression toward the FBS mean.
+
+Important
+---------
+Returning snaps currently adjust ONLY the overall power rating.
+
+They do not directly alter offense_score or defense_score because we have
+not yet validated how returning continuity should be split between offense
+and defense.
 
 Inputs
 ------
@@ -88,22 +91,9 @@ OUTPUT_FILE = (
 # MODEL SETTINGS
 # ============================================================
 
-# Returning-snaps adjustment in rating points per standard deviation.
-#
-# This is deliberately conservative because this provisional model has
-# not yet been validated as a complete combined preseason system.
-
 RETURNING_SNAPS_WEIGHT = 1.25
 
-
-# Prevent returning continuity from overpowering the prior-year team
-# strength anchor.
-
 MAX_RETURNING_ADJUSTMENT = 3.0
-
-
-# Small regression toward the FBS mean to avoid simply cloning the
-# prior year's final rankings into the new season.
 
 REGRESSION_TO_MEAN = 0.10
 
@@ -122,7 +112,10 @@ def load_json(path):
         return json.load(file)
 
 
-def safe_float(value, default=0.0):
+def safe_float(
+    value,
+    default=0.0
+):
     """Safely convert value to float."""
 
     if value is None:
@@ -144,7 +137,11 @@ def mean(values):
     if not values:
         return 0.0
 
-    return sum(values) / len(values)
+    return (
+        sum(values)
+        /
+        len(values)
+    )
 
 
 def standard_deviation(values):
@@ -153,18 +150,27 @@ def standard_deviation(values):
     if not values:
         return 0.0
 
-    average = mean(values)
+    average = mean(
+        values
+    )
 
     variance = (
         sum(
-            (value - average) ** 2
+            (
+                value
+                -
+                average
+            )
+            ** 2
             for value in values
         )
         /
         len(values)
     )
 
-    return math.sqrt(variance)
+    return math.sqrt(
+        variance
+    )
 
 
 def z_score(
@@ -172,7 +178,7 @@ def z_score(
     average,
     std
 ):
-    """Convert a value to a z-score."""
+    """Convert value to z-score."""
 
     if std == 0:
         return 0.0
@@ -184,49 +190,90 @@ def z_score(
     ) / std
 
 
+def regress_to_mean(
+    value,
+    average
+):
+    """Regress prior-season value toward FBS mean."""
+
+    return (
+        value
+        *
+        (
+            1.0
+            -
+            REGRESSION_TO_MEAN
+        )
+        +
+        average
+        *
+        REGRESSION_TO_MEAN
+    )
+
+
 def build_lookup(
     records,
     team_key="team"
 ):
-    """Build dictionary keyed by team name."""
+    """Build lookup keyed by team."""
 
     lookup = {}
 
-    if not isinstance(records, list):
+    if not isinstance(
+        records,
+        list
+    ):
         return lookup
 
     for record in records:
 
-        if not isinstance(record, dict):
+        if not isinstance(
+            record,
+            dict
+        ):
             continue
 
-        team = record.get(team_key)
+        team = record.get(
+            team_key
+        )
 
         if team:
-            lookup[team] = record
+            lookup[
+                team
+            ] = record
 
     return lookup
 
 
 def build_team_metadata_lookup(records):
-    """Build team metadata lookup from teams.json."""
+    """Build team metadata lookup."""
 
     lookup = {}
 
-    if not isinstance(records, list):
+    if not isinstance(
+        records,
+        list
+    ):
         return lookup
 
     for record in records:
 
-        if not isinstance(record, dict):
+        if not isinstance(
+            record,
+            dict
+        ):
             continue
 
-        name = record.get("name")
+        name = record.get(
+            "name"
+        )
 
         if not name:
             continue
 
-        lookup[name] = record
+        lookup[
+            name
+        ] = record
 
     return lookup
 
@@ -296,7 +343,7 @@ def validate_inputs():
 
 
 # ============================================================
-# MODEL
+# RETURNING-SNAPS CONTEXT
 # ============================================================
 
 def calculate_returning_context(
@@ -318,61 +365,56 @@ def calculate_returning_context(
         if percent is None:
             continue
 
-        values.append(percent)
+        values.append(
+            percent
+        )
 
     return {
         "mean":
-            mean(values),
+            mean(
+                values
+            ),
 
         "std":
-            standard_deviation(values),
+            standard_deviation(
+                values
+            ),
 
         "min":
-            min(values)
+            min(
+                values
+            )
             if values
             else 0.0,
 
         "max":
-            max(values)
+            max(
+                values
+            )
             if values
             else 0.0,
 
         "count":
-            len(values),
+            len(
+                values
+            ),
     }
-
-
-def regress_prior_rating(
-    rating,
-    rating_mean
-):
-    """Regress prior-season rating slightly toward mean."""
-
-    return (
-        rating
-        *
-        (
-            1.0
-            -
-            REGRESSION_TO_MEAN
-        )
-        +
-        rating_mean
-        *
-        REGRESSION_TO_MEAN
-    )
 
 
 def calculate_returning_adjustment(
     returning_percent,
     context
 ):
-    """Calculate returning-snaps continuity adjustment."""
+    """Calculate returning-snaps adjustment."""
 
     standardized = z_score(
         returning_percent,
-        context["mean"],
-        context["std"],
+        context[
+            "mean"
+        ],
+        context[
+            "std"
+        ],
     )
 
     adjustment = (
@@ -397,7 +439,7 @@ def calculate_returning_adjustment(
 # ============================================================
 
 def build_provisional_ratings():
-    """Generate 2026 provisional preseason ratings."""
+    """Generate 2026 provisional ratings."""
 
     validate_inputs()
 
@@ -425,7 +467,11 @@ def build_provisional_ratings():
         team_records
     )
 
-    prior_values = [
+    # --------------------------------------------------------
+    # PRIOR-YEAR CONTEXT
+    # --------------------------------------------------------
+
+    prior_power_values = [
         safe_float(
             record.get(
                 "power_rating"
@@ -434,16 +480,44 @@ def build_provisional_ratings():
         for record in prior_lookup.values()
     ]
 
-    prior_mean = mean(
-        prior_values
+    prior_offense_values = [
+        safe_float(
+            record.get(
+                "offense_score"
+            )
+        )
+        for record in prior_lookup.values()
+    ]
+
+    prior_defense_values = [
+        safe_float(
+            record.get(
+                "defense_score"
+            )
+        )
+        for record in prior_lookup.values()
+    ]
+
+    prior_power_mean = mean(
+        prior_power_values
     )
 
-    returning_context = calculate_returning_context(
-        returning_lookup
+    prior_offense_mean = mean(
+        prior_offense_values
+    )
+
+    prior_defense_mean = mean(
+        prior_defense_values
+    )
+
+    returning_context = (
+        calculate_returning_context(
+            returning_lookup
+        )
     )
 
     print("=" * 78)
-    print("PROJECT GRIDIRON 2026 PROVISIONAL PRESEASON RATINGS")
+    print("PROJECT GRIDIRON 2026 PROVISIONAL PRESEASON RATINGS V2")
     print("=" * 78)
     print()
 
@@ -460,6 +534,29 @@ def build_provisional_ratings():
     print(
         f"2026 FBS teams: "
         f"{len(metadata_lookup)}"
+    )
+
+    print()
+
+    print(
+        "2025 COMPONENT MEANS"
+    )
+
+    print("-" * 78)
+
+    print(
+        f"Power rating mean: "
+        f"{prior_power_mean:.2f}"
+    )
+
+    print(
+        f"Offense score mean: "
+        f"{prior_offense_mean:.2f}"
+    )
+
+    print(
+        f"Defense score mean: "
+        f"{prior_defense_mean:.2f}"
     )
 
     print()
@@ -513,17 +610,31 @@ def build_provisional_ratings():
             team_name
         )
 
+        # ----------------------------------------------------
+        # PRIOR-YEAR BASELINE
+        # ----------------------------------------------------
+
         if prior:
 
-            prior_rating = safe_float(
+            prior_power_rating = safe_float(
                 prior.get(
                     "power_rating"
-                )
+                ),
+                prior_power_mean,
             )
 
-            regressed_rating = regress_prior_rating(
-                prior_rating,
-                prior_mean,
+            prior_offense_score = safe_float(
+                prior.get(
+                    "offense_score"
+                ),
+                prior_offense_mean,
+            )
+
+            prior_defense_score = safe_float(
+                prior.get(
+                    "defense_score"
+                ),
+                prior_defense_mean,
             )
 
             prior_rank = prior.get(
@@ -532,18 +643,52 @@ def build_provisional_ratings():
 
         else:
 
-            # New / unmatched FBS team.
-            #
-            # Use the prior-year FBS mean as a neutral provisional
-            # starting point rather than inventing team strength.
+            prior_power_rating = (
+                prior_power_mean
+            )
 
-            prior_rating = prior_mean
-            regressed_rating = prior_mean
+            prior_offense_score = (
+                prior_offense_mean
+            )
+
+            prior_defense_score = (
+                prior_defense_mean
+            )
+
             prior_rank = None
 
             unmatched_prior.append(
                 team_name
             )
+
+        # ----------------------------------------------------
+        # REGRESSION
+        # ----------------------------------------------------
+
+        regressed_power_rating = (
+            regress_to_mean(
+                prior_power_rating,
+                prior_power_mean,
+            )
+        )
+
+        regressed_offense_score = (
+            regress_to_mean(
+                prior_offense_score,
+                prior_offense_mean,
+            )
+        )
+
+        regressed_defense_score = (
+            regress_to_mean(
+                prior_defense_score,
+                prior_defense_mean,
+            )
+        )
+
+        # ----------------------------------------------------
+        # RETURNING SNAPS
+        # ----------------------------------------------------
 
         if returning:
 
@@ -551,7 +696,9 @@ def build_provisional_ratings():
                 returning.get(
                     "returning_snap_percent"
                 ),
-                default=returning_context["mean"],
+                returning_context[
+                    "mean"
+                ],
             )
 
             returning_rank = returning.get(
@@ -571,18 +718,20 @@ def build_provisional_ratings():
 
         else:
 
-            # Missing returning data gets a neutral adjustment.
-
-            returning_percent = returning_context[
-                "mean"
-            ]
+            returning_percent = (
+                returning_context[
+                    "mean"
+                ]
+            )
 
             returning_rank = None
+
             returning_snaps = None
+
             returning_adjustment = 0.0
 
-        provisional_rating = (
-            regressed_rating
+        provisional_power_rating = (
+            regressed_power_rating
             +
             returning_adjustment
         )
@@ -609,11 +758,23 @@ def build_provisional_ratings():
                     True,
 
                 "model_version":
-                    "2026_preseason_provisional_v1",
+                    "2026_preseason_provisional_v2",
 
                 "prior_2025_power_rating":
                     round(
-                        prior_rating,
+                        prior_power_rating,
+                        4,
+                    ),
+
+                "prior_2025_offense_score":
+                    round(
+                        prior_offense_score,
+                        4,
+                    ),
+
+                "prior_2025_defense_score":
+                    round(
+                        prior_defense_score,
                         4,
                     ),
 
@@ -622,7 +783,19 @@ def build_provisional_ratings():
 
                 "regressed_baseline":
                     round(
-                        regressed_rating,
+                        regressed_power_rating,
+                        4,
+                    ),
+
+                "offense_score":
+                    round(
+                        regressed_offense_score,
+                        4,
+                    ),
+
+                "defense_score":
+                    round(
+                        regressed_defense_score,
                         4,
                     ),
 
@@ -643,7 +816,7 @@ def build_provisional_ratings():
 
                 "power_rating":
                     round(
-                        provisional_rating,
+                        provisional_power_rating,
                         4,
                     ),
             }
@@ -728,59 +901,10 @@ def build_provisional_ratings():
         print(
             f"{record['rank']:>3}. "
             f"{record['team']:<24} "
-            f"{record['power_rating']:>7.2f}  "
-            f"2025={record['prior_2025_power_rating']:>6.2f}  "
-            f"return={record['returning_snap_percent']:>5.1f}%  "
-            f"adj={record['returning_adjustment']:+.2f}"
-        )
-
-    print()
-
-    print(
-        "BIGGEST POSITIVE RETURNING ADJUSTMENTS"
-    )
-
-    print("-" * 78)
-
-    positive = sorted(
-        ratings,
-        key=lambda record:
-            record[
-                "returning_adjustment"
-            ],
-        reverse=True,
-    )
-
-    for record in positive[:15]:
-
-        print(
-            f"{record['team']}: "
-            f"{record['returning_adjustment']:+.2f}, "
-            f"return={record['returning_snap_percent']:.1f}%"
-        )
-
-    print()
-
-    print(
-        "BIGGEST NEGATIVE RETURNING ADJUSTMENTS"
-    )
-
-    print("-" * 78)
-
-    negative = sorted(
-        ratings,
-        key=lambda record:
-            record[
-                "returning_adjustment"
-            ],
-    )
-
-    for record in negative[:15]:
-
-        print(
-            f"{record['team']}: "
-            f"{record['returning_adjustment']:+.2f}, "
-            f"return={record['returning_snap_percent']:.1f}%"
+            f"PR={record['power_rating']:>7.2f}  "
+            f"OFF={record['offense_score']:>6.2f}  "
+            f"DEF={record['defense_score']:>6.2f}  "
+            f"ret={record['returning_snap_percent']:>5.1f}%"
         )
 
     if unmatched_prior:
@@ -825,15 +949,19 @@ def build_provisional_ratings():
     )
 
     print(
-        "They are not the final V4 ratings."
+        "Overall power includes returning-snaps adjustment."
+    )
+
+    print(
+        "Offense/defense components are regressed 2025 values only."
+    )
+
+    print(
+        "They are not final V4 ratings."
     )
 
     return ratings
 
-
-# ============================================================
-# CLI
-# ============================================================
 
 if __name__ == "__main__":
 
