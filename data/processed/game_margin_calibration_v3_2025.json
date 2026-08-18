@@ -1,0 +1,29 @@
+{
+    "season": 2025,
+    "model_version": "game_margin_calibration_v3",
+    "games_tested": 762,
+    "model": {
+        "rating_gap_coefficient": 0.8991446169859761,
+        "home_field_advantage": 3.9524110293738497
+    },
+    "metrics": {
+        "raw_rating_gap_correlation": 0.7457011285535953,
+        "prediction_correlation": 0.7450792242316999,
+        "mae": 10.829047532444262,
+        "rmse": 13.603863746107875,
+        "actual_margin_mean": 5.051181102362205,
+        "prediction_mean": 4.9411843762915035,
+        "actual_margin_std": 20.395595606093657,
+        "prediction_std": 15.232016898395056,
+        "neutral_games": 23,
+        "non_neutral_games": 739,
+        "neutral_actual_margin_mean": -0.21739130434782608,
+        "non_neutral_actual_margin_mean": 5.2151556156968875
+    },
+    "skipped": {
+        "non_fbs": 126,
+        "incomplete": 0,
+        "missing_rating": 0,
+        "bad_schema": 0
+    }
+}
