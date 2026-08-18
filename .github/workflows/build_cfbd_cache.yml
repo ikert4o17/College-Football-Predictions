@@ -2,6 +2,12 @@ name: Build CFBD Cache
 
 on:
   workflow_dispatch:
+    inputs:
+      allow_reserve_use:
+        description: "Allow use of protected CFBD reserve"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -32,10 +38,18 @@ jobs:
           pip install requests
 
       # ============================================================
-      # QUOTA CHECK
+      # CFBD QUOTA PROTECTION
       # ============================================================
 
-      - name: Check CFBD usage
+      - name: Check CFBD quota guard
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          CFBD_MIN_REMAINING_CALLS: "100"
+          CFBD_ALLOW_RESERVE_USE: ${{ inputs.allow_reserve_use }}
+        run: |
+          python -m data.check_cfbd_quota_guard
+
+      - name: Show CFBD usage
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
@@ -43,7 +57,9 @@ jobs:
 
       # ============================================================
       # STATIC / HISTORICAL DATA
-      # THESE SHOULD BECOME CACHE HITS AFTER FIRST SUCCESSFUL RUN
+      #
+      # These should become cache hits after the first successful
+      # persisted run.
       # ============================================================
 
       - name: Download teams
@@ -135,8 +151,7 @@ jobs:
           python -m data.download_recruiting_players 2026 2026
 
       # ============================================================
-      # PROCESS EXISTING RAW DATA
-      # NO EXTRA CFBD CALLS EXPECTED
+      # PROCESS RAW DATA
       # ============================================================
 
       - name: Process teams
@@ -167,6 +182,10 @@ jobs:
         run: |
           python -m data.enrich_transfer_portal 2026
 
+      # ============================================================
+      # DERIVED MODEL FEATURES
+      # ============================================================
+
       - name: Calculate 2025 QB continuity
         run: |
           python -m ratings.qb_continuity 2025
@@ -184,22 +203,25 @@ jobs:
           python -m ratings.coaching_continuity_v2 2025
 
       # ============================================================
-      # INSPECT WHAT WILL BE PERSISTED
+      # INSPECT PERSISTED DATA
       # ============================================================
 
       - name: Show CFBD cache
         run: |
           echo "CFBD cache files:"
+          echo ""
           find data/cache/cfbd -type f -print 2>/dev/null | sort || true
 
       - name: Show raw data files
         run: |
           echo "Raw data files:"
+          echo ""
           find data/raw -type f -print 2>/dev/null | sort || true
 
       - name: Show processed data files
         run: |
           echo "Processed data files:"
+          echo ""
           find data/processed -type f -print 2>/dev/null | sort || true
 
       # ============================================================
@@ -211,9 +233,17 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/cache/cfbd
-          git add data/raw
-          git add data/processed
+          if [ -d "data/cache/cfbd" ]; then
+            git add data/cache/cfbd
+          fi
+
+          if [ -d "data/raw" ]; then
+            git add data/raw
+          fi
+
+          if [ -d "data/processed" ]; then
+            git add data/processed
+          fi
 
           if git diff --cached --quiet; then
             echo "No cache or data changes to commit."
