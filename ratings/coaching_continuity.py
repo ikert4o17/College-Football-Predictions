@@ -146,7 +146,11 @@ def parse_date(value):
             )
         )
 
-    except ValueError:
+    except (
+        ValueError,
+        TypeError,
+        AttributeError
+    ):
         return None
 
 
@@ -156,6 +160,12 @@ def build_coach_metadata_lookup(records):
     lookup = {}
 
     for record in records:
+
+        if not isinstance(
+            record,
+            dict
+        ):
+            continue
 
         coach_id = normalize_coach_id(
             record.get(
@@ -172,6 +182,12 @@ def build_coach_metadata_lookup(records):
             )
             or []
         )
+
+        if not isinstance(
+            seasons,
+            list
+        ):
+            seasons = []
 
         lookup[
             coach_id
@@ -208,9 +224,17 @@ def group_season_records_by_team(records):
 
     for record in records:
 
-        team = record.get(
-            "team",
-            {}
+        if not isinstance(
+            record,
+            dict
+        ):
+            continue
+
+        team = (
+            record.get(
+                "team"
+            )
+            or {}
         )
 
         if not isinstance(
@@ -262,9 +286,11 @@ def choose_primary_coach(records):
                     )
                 ),
                 normalize_coach_id(
-                    record.get(
-                        "coach",
-                        {}
+                    (
+                        record.get(
+                            "coach"
+                        )
+                        or {}
                     ).get(
                         "id"
                     )
@@ -282,9 +308,11 @@ def coach_id_from_season(record):
     if not record:
         return None
 
-    coach = record.get(
-        "coach",
-        {}
+    coach = (
+        record.get(
+            "coach"
+        )
+        or {}
     )
 
     if not isinstance(
@@ -306,9 +334,11 @@ def coach_name_from_season(record):
     if not record:
         return None
 
-    coach = record.get(
-        "coach",
-        {}
+    coach = (
+        record.get(
+            "coach"
+        )
+        or {}
     )
 
     if not isinstance(
@@ -317,10 +347,25 @@ def coach_name_from_season(record):
     ):
         return None
 
-    return (
-        f"{coach.get('firstName', '')} "
-        f"{coach.get('lastName', '')}"
+    first_name = (
+        coach.get(
+            "firstName"
+        )
+        or ""
+    )
+
+    last_name = (
+        coach.get(
+            "lastName"
+        )
+        or ""
+    )
+
+    name = (
+        f"{first_name} {last_name}"
     ).strip()
+
+    return name or None
 
 
 def calculate_tenure_years(
@@ -392,10 +437,26 @@ def prior_head_coach_history(
     prior_total_wins = 0
     prior_total_losses = 0
 
-    for season in metadata.get(
-        "seasons",
-        []
+    seasons = (
+        metadata.get(
+            "seasons"
+        )
+        or []
+    )
+
+    if not isinstance(
+        seasons,
+        list
     ):
+        seasons = []
+
+    for season in seasons:
+
+        if not isinstance(
+            season,
+            dict
+        ):
+            continue
 
         year = safe_int(
             season.get(
@@ -442,7 +503,12 @@ def prior_head_coach_history(
 
 
 def extract_prior_performance(record):
-    """Extract prior-season coaching performance."""
+    """
+    Extract prior-season coaching performance.
+
+    Some CFBD records contain nested keys with explicit null values,
+    so all nested dictionaries are normalized before use.
+    """
 
     if not record:
         return {
@@ -474,10 +540,25 @@ def extract_prior_performance(record):
                 0.0,
         }
 
-    scoring = record.get(
-        "scoring",
-        {}
+    # CFBD can return:
+    #
+    # "scoring": null
+    #
+    # Using record.get("scoring", {}) would therefore still produce
+    # None. The "or {}" ensures .get() below is always safe.
+
+    scoring = (
+        record.get(
+            "scoring"
+        )
+        or {}
     )
+
+    if not isinstance(
+        scoring,
+        dict
+    ):
+        scoring = {}
 
     return {
         "games":
