@@ -147,7 +147,8 @@ jobs:
 
       # ============================================================
       # PLAYER DATA
-      # Required by QB continuity and transfer production
+      # Used by QB continuity, transfer production,
+      # and roster talent composition.
       # ============================================================
 
       - name: Download 2024 player diagnostic data
@@ -164,7 +165,6 @@ jobs:
 
       # ============================================================
       # SP+ DATA
-      # Must exist before QB/transfer validation
       # ============================================================
 
       - name: Download 2024-2025 SP+ ratings
@@ -215,7 +215,6 @@ jobs:
 
       # ============================================================
       # HISTORICAL RECRUITING
-      # Used to enrich transfer talent
       # ============================================================
 
       - name: Download 2019-2025 recruiting players
@@ -223,6 +222,14 @@ jobs:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python -m data.download_recruiting_players 2019 2025
+
+      # ============================================================
+      # 2024 TEAM TALENT COMPOSITION
+      # ============================================================
+
+      - name: Calculate 2024 team talent composition
+        run: |
+          python -m ratings.team_talent_composition 2024
 
       # ============================================================
       # 2025 TRANSFER TALENT
@@ -242,14 +249,6 @@ jobs:
 
       # ============================================================
       # 2025 TRANSFER PRODUCTION V2
-      #
-      # V2 intentionally restricts PPA-based production to:
-      # QB
-      # RB
-      # WR
-      # TE
-      #
-      # OL/defense are not assigned offensive PPA production.
       # ============================================================
 
       - name: Calculate 2025 transfer production metrics V2
