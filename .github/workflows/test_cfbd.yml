@@ -187,9 +187,9 @@ jobs:
         run: |
           python -m data.download_coaching_data 2025
 
-      - name: Calculate 2025 coaching continuity
+      - name: Calculate 2025 coaching continuity V2
         run: |
-          python -m ratings.coaching_continuity 2025
+          python -m ratings.coaching_continuity_v2 2025
 
       # ============================================================
       # 2025 RETURNING PRODUCTION
