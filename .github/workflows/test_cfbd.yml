@@ -172,6 +172,22 @@ jobs:
           python -m data.download_sp_ratings 2024 2025
 
       # ============================================================
+      # COACHING DATA
+      # ============================================================
+
+      - name: Download 2024 coaching data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_coaching_data 2024
+
+      - name: Download 2025 coaching data
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_coaching_data 2025
+
+      # ============================================================
       # 2025 RETURNING PRODUCTION
       # ============================================================
 
