@@ -233,9 +233,9 @@ jobs:
         run: |
           python -m ratings.transfer_talent 2025
 
-      - name: Calculate 2025 transfer production metrics
+      - name: Calculate 2025 transfer production metrics V2
         run: |
-          python -m ratings.transfer_production 2025
+          python -m ratings.transfer_production_v2 2025
 
       - name: Validate composite-weighted transfer talent
         run: |
