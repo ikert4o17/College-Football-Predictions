@@ -1,0 +1,122 @@
+name: Find V4 Workflow Artifacts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  find-artifacts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: List recent workflow runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "============================================================================"
+          echo "RECENT WORKFLOW RUNS"
+          echo "============================================================================"
+          echo ""
+
+          gh run list \
+            --limit 100 \
+            --json databaseId,name,workflowName,status,conclusion,createdAt,headBranch,headSha \
+            --jq '.[] | [
+              .databaseId,
+              .workflowName,
+              .status,
+              .conclusion,
+              .createdAt,
+              .headBranch
+            ] | @tsv'
+
+      - name: Find workflow artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "============================================================================"
+          echo "PROJECT GRIDIRON WORKFLOW ARTIFACT SEARCH"
+          echo "============================================================================"
+          echo ""
+
+          RUN_IDS=$(gh run list \
+            --limit 100 \
+            --json databaseId \
+            --jq '.[].databaseId')
+
+          FOUND=0
+
+          for RUN_ID in $RUN_IDS; do
+            ARTIFACTS=$(gh api \
+              "repos/${{ github.repository }}/actions/runs/$RUN_ID/artifacts" \
+              --jq '.artifacts[]? | [.id, .name, .size_in_bytes, .expired] | @tsv')
+
+            if [ -z "$ARTIFACTS" ]; then
+              continue
+            fi
+
+            echo "----------------------------------------------------------------------------"
+            echo "RUN ID: $RUN_ID"
+            echo "----------------------------------------------------------------------------"
+
+            gh run view "$RUN_ID" \
+              --json workflowName,createdAt,conclusion,headBranch \
+              --jq '"Workflow: \(.workflowName)\nCreated: \(.createdAt)\nConclusion: \(.conclusion)\nBranch: \(.headBranch)"'
+
+            echo ""
+            echo "Artifacts:"
+            echo "$ARTIFACTS"
+            echo ""
+
+            FOUND=$((FOUND + 1))
+          done
+
+          echo "============================================================================"
+          echo "SUMMARY"
+          echo "============================================================================"
+          echo ""
+
+          if [ "$FOUND" -eq 0 ]; then
+            echo "No workflow artifacts were found in the last 100 runs."
+          else
+            echo "Runs containing artifacts: $FOUND"
+          fi
+
+      - name: Search artifact names for V4-related terms
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "============================================================================"
+          echo "V4-RELATED ARTIFACT NAMES"
+          echo "============================================================================"
+          echo ""
+
+          gh api \
+            "repos/${{ github.repository }}/actions/artifacts?per_page=100" \
+            --paginate \
+            --jq '.artifacts[] |
+              select(
+                (.name | ascii_downcase | contains("sp")) or
+                (.name | ascii_downcase | contains("transfer")) or
+                (.name | ascii_downcase | contains("qb")) or
+                (.name | ascii_downcase | contains("coach")) or
+                (.name | ascii_downcase | contains("rating")) or
+                (.name | ascii_downcase | contains("processed")) or
+                (.name | ascii_downcase | contains("data")) or
+                (.name | ascii_downcase | contains("v4"))
+              ) |
+              [
+                .id,
+                .name,
+                .size_in_bytes,
+                .expired,
+                .workflow_run.id
+              ] | @tsv' || true
