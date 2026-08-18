@@ -162,6 +162,16 @@ jobs:
           python -m data.download_qb_data 2025
 
       # ============================================================
+      # SP+ DATA
+      # ============================================================
+
+      - name: Download 2024-2025 SP+ ratings
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python -m data.download_sp_ratings 2024 2025
+
+      # ============================================================
       # 2025 RETURNING PRODUCTION VALIDATION
       # ============================================================
 
@@ -282,14 +292,8 @@ jobs:
           python -m ratings.preseason_model
 
       # ============================================================
-      # SP+ DATA + VALIDATION
+      # SP+ VALIDATION
       # ============================================================
-
-      - name: Download 2024-2025 SP+ ratings
-        env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
-        run: |
-          python -m data.download_sp_ratings 2024 2025
 
       - name: Validate SP+ baseline blend
         run: |
