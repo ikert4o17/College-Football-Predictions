@@ -16,6 +16,10 @@ jobs:
   update-2026:
     runs-on: ubuntu-latest
 
+    env:
+      CFBD_MAX_CALLS_THIS_RUN: "20"
+      CFBD_REQUEST_BUDGET_RUN_ID: ${{ github.run_id }}
+
     steps:
 
       # ============================================================
@@ -38,7 +42,15 @@ jobs:
           pip install requests
 
       # ============================================================
-      # QUOTA PROTECTION
+      # REQUEST BUDGET
+      # ============================================================
+
+      - name: Initialize CFBD request budget
+        run: |
+          python -m data.cfbd_request_budget
+
+      # ============================================================
+      # MONTHLY QUOTA PROTECTION
       # ============================================================
 
       - name: Check CFBD quota guard
@@ -146,6 +158,15 @@ jobs:
           find data/cache/cfbd -type f -print 2>/dev/null | sort || true
 
       # ============================================================
+      # REQUEST BUDGET SUMMARY
+      # ============================================================
+
+      - name: Show CFBD request budget
+        if: always()
+        run: |
+          python -m data.cfbd_request_budget
+
+      # ============================================================
       # PERSIST UPDATED DATA
       # ============================================================
 
@@ -174,7 +195,7 @@ jobs:
           fi
 
       # ============================================================
-      # FINAL QUOTA REPORT
+      # FINAL CFBD USAGE REPORT
       # ============================================================
 
       - name: Show remaining CFBD usage
