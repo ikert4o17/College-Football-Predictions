@@ -1,55 +1,45 @@
 """
 Project Gridiron
-2026 Preseason Power Ratings
+2026 Provisional Preseason Ratings
 
-Build the actual 2026 preseason rating from:
+Purpose
+-------
+Generate a usable 2026 preseason power-rating set before the full
+Project Gridiron V4 preseason inputs are available.
 
-    2025 final SP+ baseline
+Current provisional model:
+
+    2025 Project Gridiron power rating
         +
-    2026 returning production
-        +
-    2026 roster / portal snap experience
-        +
-    2026 incoming elite transfer talent
-        -
-    2026 outgoing elite transfer talent
+    2026 returning-snaps adjustment
+        =
+    2026 provisional preseason rating
 
-Recruiting is retained in the output for diagnostics, but the
-historical V3 validation showed no incremental benefit from a
-separate recruiting adjustment once SP+ and transfer talent were
-already included.
+This model is intentionally conservative.
 
-Historical V3 evidence:
+It does NOT yet include:
+    - transfer talent
+    - transfer production / experience
+    - QB continuity
+    - coaching continuity
+    - recruiting talent
+    - full V4 combined weighting
 
-    SP+ baseline:
-        correlation = 0.6429
-        MAE = 8.65
-        RMSE = 10.55
+Those inputs will be added after the CFBD data refresh.
 
-    SP+ + roster adjustments:
-        correlation = 0.6607
-        MAE = 8.52
-        RMSE = 10.34
+Inputs
+------
+data/processed/power_ratings_2025.json
+data/raw/returning_production/2026.json
+data/processed/teams.json
 
-A lower-error V3 configuration suggested approximately:
+Output
+------
+data/processed/power_ratings_2026.json
 
-    Returning production:
-        +/- 1.00 point
-
-    Incoming 0.90+ transfers:
-        +0.75 points per player
-
-    Outgoing 0.90+ transfers:
-        -1.25 points per player
-
-    Recruiting:
-        0 independent points
-
-The 2026 snap metric is new and has not been historically
-validated. Therefore its effect is intentionally conservative.
-
-This module DOES create the 2026 preseason rating file, but does
-not overwrite the final 2025 power ratings.
+Usage
+-----
+python -m ratings.preseason_rating_2026
 """
 
 import json
@@ -61,97 +51,69 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 # ============================================================
-# INPUT FILES
+# FILES
 # ============================================================
 
-SP_2025_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "raw"
-    / "sp_ratings"
-    / "2025.json"
-)
-
-GRIDIRON_2025_FILE = (
+POWER_RATINGS_2025_FILE = (
     PROJECT_ROOT
     / "data"
     / "processed"
     / "power_ratings_2025.json"
 )
 
-RETURNING_2026_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "returning_production_2026.json"
-)
-
-TRANSFER_2026_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "transfer_talent_2026.json"
-)
-
-RECRUITING_2026_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "recruiting_talent_2026.json"
-)
-
-SNAPS_2026_FILE = (
+RETURNING_SNAPS_2026_FILE = (
     PROJECT_ROOT
     / "data"
     / "raw"
-    / "returning_snaps"
+    / "returning_production"
     / "2026.json"
 )
 
+TEAMS_FILE = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "teams.json"
+)
 
 OUTPUT_FILE = (
     PROJECT_ROOT
     / "data"
     / "processed"
-    / "preseason_ratings_2026.json"
+    / "power_ratings_2026.json"
 )
 
 
 # ============================================================
-# MODEL PARAMETERS
+# MODEL SETTINGS
 # ============================================================
 
-# Historical V3 result.
-RETURNING_MAX_POINTS = 1.00
-
-# Lower-error V3 transfer configuration.
-INCOMING_ELITE_POINTS = 0.75
-OUTGOING_ELITE_POINTS = 1.25
-
-# Recruiting did not add incremental predictive value in V3.
-RECRUITING_MAX_POINTS = 0.00
-
-# Punt & Rally roster snap data is useful conceptually but
-# does not yet have historical validation in our model.
+# Returning-snaps adjustment in rating points per standard deviation.
 #
-# Keep this deliberately small until we have more seasons.
-SNAP_MAX_POINTS = 0.50
+# This is deliberately conservative because this provisional model has
+# not yet been validated as a complete combined preseason system.
+
+RETURNING_SNAPS_WEIGHT = 1.25
 
 
-RETURNING_CAP = 1.00
-TRANSFER_CAP = 5.00
-SNAP_CAP = 0.50
+# Prevent returning continuity from overpowering the prior-year team
+# strength anchor.
+
+MAX_RETURNING_ADJUSTMENT = 3.0
 
 
-ELITE_TRANSFER_RATING = 0.90
+# Small regression toward the FBS mean to avoid simply cloning the
+# prior year's final rankings into the new season.
+
+REGRESSION_TO_MEAN = 0.10
 
 
 # ============================================================
-# GENERAL HELPERS
+# HELPERS
 # ============================================================
 
 def load_json(path):
-    """Load JSON data."""
+    """Load JSON file."""
 
     with path.open(
         "r",
@@ -160,11 +122,11 @@ def load_json(path):
         return json.load(file)
 
 
-def safe_float(value):
-    """Safely convert a value to float."""
+def safe_float(value, default=0.0):
+    """Safely convert value to float."""
 
     if value is None:
-        return None
+        return default
 
     try:
         return float(value)
@@ -173,75 +135,36 @@ def safe_float(value):
         TypeError,
         ValueError
     ):
-        return None
+        return default
 
 
 def mean(values):
-    """Calculate arithmetic mean."""
+    """Arithmetic mean."""
 
     if not values:
         return 0.0
 
-    return (
-        sum(values)
-        /
-        len(values)
-    )
+    return sum(values) / len(values)
 
 
 def standard_deviation(values):
-    """Calculate population standard deviation."""
+    """Population standard deviation."""
 
     if not values:
         return 0.0
 
-    average = mean(
-        values
-    )
+    average = mean(values)
 
     variance = (
         sum(
-            (
-                value
-                -
-                average
-            )
-            ** 2
+            (value - average) ** 2
             for value in values
         )
         /
         len(values)
     )
 
-    return math.sqrt(
-        variance
-    )
-
-
-def clamp(
-    value,
-    minimum,
-    maximum
-):
-    """Clamp a value to a range."""
-
-    return max(
-        minimum,
-        min(
-            value,
-            maximum
-        )
-    )
-
-
-def build_lookup(records):
-    """Build lookup by team."""
-
-    return {
-        record["team"]: record
-        for record in records
-        if record.get("team")
-    }
+    return math.sqrt(variance)
 
 
 def z_score(
@@ -249,7 +172,7 @@ def z_score(
     average,
     std
 ):
-    """Standardize a value."""
+    """Convert a value to a z-score."""
 
     if std == 0:
         return 0.0
@@ -261,864 +184,499 @@ def z_score(
     ) / std
 
 
+def build_lookup(
+    records,
+    team_key="team"
+):
+    """Build dictionary keyed by team name."""
+
+    lookup = {}
+
+    if not isinstance(records, list):
+        return lookup
+
+    for record in records:
+
+        if not isinstance(record, dict):
+            continue
+
+        team = record.get(team_key)
+
+        if team:
+            lookup[team] = record
+
+    return lookup
+
+
+def build_team_metadata_lookup(records):
+    """Build team metadata lookup from teams.json."""
+
+    lookup = {}
+
+    if not isinstance(records, list):
+        return lookup
+
+    for record in records:
+
+        if not isinstance(record, dict):
+            continue
+
+        name = record.get("name")
+
+        if not name:
+            continue
+
+        lookup[name] = record
+
+    return lookup
+
+
 # ============================================================
 # INPUT VALIDATION
 # ============================================================
 
-def check_required_files():
-    """Check that all required 2026 inputs exist."""
+def validate_inputs():
+    """Verify required files exist."""
 
-    required_files = [
-        (
-            "2025 SP+ ratings",
-            SP_2025_FILE,
-        ),
-        (
-            "2025 Project Gridiron ratings",
-            GRIDIRON_2025_FILE,
-        ),
-        (
-            "2026 returning production",
-            RETURNING_2026_FILE,
-        ),
-        (
-            "2026 transfer talent",
-            TRANSFER_2026_FILE,
-        ),
-        (
-            "2026 recruiting talent",
-            RECRUITING_2026_FILE,
-        ),
-        (
-            "2026 roster snap data",
-            SNAPS_2026_FILE,
-        ),
-    ]
+    required = {
+        "2025 power ratings":
+            POWER_RATINGS_2025_FILE,
+
+        "2026 returning snaps":
+            RETURNING_SNAPS_2026_FILE,
+
+        "team metadata":
+            TEAMS_FILE,
+    }
 
     missing = []
 
-    for (
-        description,
-        path
-    ) in required_files:
+    print("=" * 78)
+    print("PROJECT GRIDIRON 2026 PROVISIONAL INPUT CHECK")
+    print("=" * 78)
+    print()
 
-        if not path.exists():
+    for name, path in required.items():
+
+        if path.exists():
+
+            print(
+                f"FOUND:   "
+                f"{name}"
+            )
+
+            print(
+                f"         "
+                f"{path}"
+            )
+
+        else:
+
+            print(
+                f"MISSING: "
+                f"{name}"
+            )
+
+            print(
+                f"         "
+                f"{path}"
+            )
 
             missing.append(
-                (
-                    description,
-                    path,
-                )
+                path
             )
+
+    print()
 
     if missing:
 
-        print("=" * 72)
-
-        print(
-            "2026 PRESEASON MODEL INPUTS MISSING"
+        raise FileNotFoundError(
+            "One or more provisional 2026 rating inputs are missing."
         )
-
-        print("=" * 72)
-
-        print()
-
-        for (
-            description,
-            path
-        ) in missing:
-
-            print(
-                f"MISSING: {description}"
-            )
-
-            print(
-                f"  {path}"
-            )
-
-        print()
-
-        print(
-            "The model will not substitute 2025 roster data "
-            "for missing 2026 data."
-        )
-
-        return False
-
-    return True
 
 
 # ============================================================
-# SNAP DATA
+# MODEL
 # ============================================================
 
-def load_snap_records():
-    """
-    Load the manually captured Punt & Rally 2026 snap dataset.
+def calculate_returning_context(
+    returning_lookup
+):
+    """Calculate returning-snap percentage distribution."""
 
-    Supports either:
+    values = []
 
-        [
-            {...},
-            {...}
-        ]
+    for record in returning_lookup.values():
 
-    or:
-
-        {
-            "records": [...]
-        }
-    """
-
-    data = load_json(
-        SNAPS_2026_FILE
-    )
-
-    if isinstance(
-        data,
-        list
-    ):
-        return data
-
-    if isinstance(
-        data,
-        dict
-    ):
-
-        records = data.get(
-            "records"
-        )
-
-        if isinstance(
-            records,
-            list
-        ):
-            return records
-
-    raise ValueError(
-        "Unsupported 2026 snap JSON structure."
-    )
-
-
-def get_snap_percent(record):
-    """Get the roster snap percentage."""
-
-    if not record:
-        return 0.0
-
-    possible_keys = [
-        "returning_snap_percent",
-        "snapback_percent",
-        "snap_percent",
-        "percent",
-    ]
-
-    for key in possible_keys:
-
-        value = safe_float(
+        percent = safe_float(
             record.get(
-                key
-            )
+                "returning_snap_percent"
+            ),
+            default=None,
         )
 
-        if value is None:
+        if percent is None:
             continue
 
-        # Some versions store 74 rather than .74.
-        if value > 1.0:
-            value = (
-                value
-                /
-                100.0
-            )
+        values.append(percent)
 
-        return value
+    return {
+        "mean":
+            mean(values),
 
-    return 0.0
+        "std":
+            standard_deviation(values),
+
+        "min":
+            min(values)
+            if values
+            else 0.0,
+
+        "max":
+            max(values)
+            if values
+            else 0.0,
+
+        "count":
+            len(values),
+    }
 
 
-def get_snap_total(record):
-    """Get total roster snaps represented by Punt & Rally."""
+def regress_prior_rating(
+    rating,
+    rating_mean
+):
+    """Regress prior-season rating slightly toward mean."""
 
-    if not record:
-        return 0.0
-
-    possible_keys = [
-        "returning_snaps",
-        "snaps",
-        "total_snaps",
-    ]
-
-    for key in possible_keys:
-
-        value = safe_float(
-            record.get(
-                key
-            )
+    return (
+        rating
+        *
+        (
+            1.0
+            -
+            REGRESSION_TO_MEAN
         )
+        +
+        rating_mean
+        *
+        REGRESSION_TO_MEAN
+    )
 
-        if value is not None:
-            return value
 
-    return 0.0
+def calculate_returning_adjustment(
+    returning_percent,
+    context
+):
+    """Calculate returning-snaps continuity adjustment."""
+
+    standardized = z_score(
+        returning_percent,
+        context["mean"],
+        context["std"],
+    )
+
+    adjustment = (
+        standardized
+        *
+        RETURNING_SNAPS_WEIGHT
+    )
+
+    adjustment = max(
+        -MAX_RETURNING_ADJUSTMENT,
+        min(
+            adjustment,
+            MAX_RETURNING_ADJUSTMENT,
+        ),
+    )
+
+    return adjustment
 
 
 # ============================================================
-# RETURNING PRODUCTION
+# BUILD RATINGS
 # ============================================================
 
-def get_returning_percent(record):
-    """Read overall CFBD returning production percentage."""
+def build_provisional_ratings():
+    """Generate 2026 provisional preseason ratings."""
 
-    if not record:
-        return 0.0
+    validate_inputs()
 
-    overall = record.get(
-        "overall",
-        {}
+    prior_records = load_json(
+        POWER_RATINGS_2025_FILE
     )
 
-    value = safe_float(
-        overall.get(
-            "percent"
-        )
+    returning_records = load_json(
+        RETURNING_SNAPS_2026_FILE
     )
 
-    if value is None:
-        return 0.0
-
-    return value
-
-
-# ============================================================
-# BUILD TEAM RECORDS
-# ============================================================
-
-def build_team_records():
-    """Combine all 2026 model inputs."""
-
-    sp_2025 = load_json(
-        SP_2025_FILE
+    team_records = load_json(
+        TEAMS_FILE
     )
 
-    gridiron_2025 = load_json(
-        GRIDIRON_2025_FILE
-    )
-
-    returning_2026 = load_json(
-        RETURNING_2026_FILE
-    )
-
-    transfer_2026 = load_json(
-        TRANSFER_2026_FILE
-    )
-
-    recruiting_2026 = load_json(
-        RECRUITING_2026_FILE
-    )
-
-    snaps_2026 = load_snap_records()
-
-    sp_lookup = build_lookup(
-        sp_2025
-    )
-
-    gridiron_lookup = build_lookup(
-        gridiron_2025
+    prior_lookup = build_lookup(
+        prior_records
     )
 
     returning_lookup = build_lookup(
-        returning_2026
+        returning_records
     )
 
-    transfer_lookup = build_lookup(
-        transfer_2026
+    metadata_lookup = build_team_metadata_lookup(
+        team_records
     )
 
-    recruiting_lookup = build_lookup(
-        recruiting_2026
-    )
-
-    snap_lookup = build_lookup(
-        snaps_2026
-    )
-
-    teams = []
-
-    for team_name in sorted(
-        gridiron_lookup
-    ):
-
-        if team_name not in sp_lookup:
-            continue
-
-        sp_rating = safe_float(
-            sp_lookup[
-                team_name
-            ].get(
-                "rating"
-            )
-        )
-
-        gridiron_rating = safe_float(
-            gridiron_lookup[
-                team_name
-            ].get(
+    prior_values = [
+        safe_float(
+            record.get(
                 "power_rating"
             )
         )
+        for record in prior_lookup.values()
+    ]
 
-        if (
-            sp_rating is None
-            or gridiron_rating is None
-        ):
-            continue
+    prior_mean = mean(
+        prior_values
+    )
+
+    returning_context = calculate_returning_context(
+        returning_lookup
+    )
+
+    print("=" * 78)
+    print("PROJECT GRIDIRON 2026 PROVISIONAL PRESEASON RATINGS")
+    print("=" * 78)
+    print()
+
+    print(
+        f"2025 rated teams: "
+        f"{len(prior_lookup)}"
+    )
+
+    print(
+        f"2026 returning-snap teams: "
+        f"{len(returning_lookup)}"
+    )
+
+    print(
+        f"2026 FBS teams: "
+        f"{len(metadata_lookup)}"
+    )
+
+    print()
+
+    print(
+        "RETURNING-SNAPS CONTEXT"
+    )
+
+    print("-" * 78)
+
+    print(
+        f"Teams: "
+        f"{returning_context['count']}"
+    )
+
+    print(
+        f"Mean returning snaps %: "
+        f"{returning_context['mean']:.2f}"
+    )
+
+    print(
+        f"Std dev: "
+        f"{returning_context['std']:.2f}"
+    )
+
+    print(
+        f"Min: "
+        f"{returning_context['min']:.2f}"
+    )
+
+    print(
+        f"Max: "
+        f"{returning_context['max']:.2f}"
+    )
+
+    print()
+
+    ratings = []
+
+    unmatched_prior = []
+
+    for team_name in sorted(
+        metadata_lookup
+    ):
+
+        prior = prior_lookup.get(
+            team_name
+        )
 
         returning = returning_lookup.get(
+            team_name
+        )
+
+        if prior:
+
+            prior_rating = safe_float(
+                prior.get(
+                    "power_rating"
+                )
+            )
+
+            regressed_rating = regress_prior_rating(
+                prior_rating,
+                prior_mean,
+            )
+
+            prior_rank = prior.get(
+                "rank"
+            )
+
+        else:
+
+            # New / unmatched FBS team.
+            #
+            # Use the prior-year FBS mean as a neutral provisional
+            # starting point rather than inventing team strength.
+
+            prior_rating = prior_mean
+            regressed_rating = prior_mean
+            prior_rank = None
+
+            unmatched_prior.append(
+                team_name
+            )
+
+        if returning:
+
+            returning_percent = safe_float(
+                returning.get(
+                    "returning_snap_percent"
+                ),
+                default=returning_context["mean"],
+            )
+
+            returning_rank = returning.get(
+                "rank_by_returning_snaps"
+            )
+
+            returning_snaps = returning.get(
+                "returning_snaps"
+            )
+
+            returning_adjustment = (
+                calculate_returning_adjustment(
+                    returning_percent,
+                    returning_context,
+                )
+            )
+
+        else:
+
+            # Missing returning data gets a neutral adjustment.
+
+            returning_percent = returning_context[
+                "mean"
+            ]
+
+            returning_rank = None
+            returning_snaps = None
+            returning_adjustment = 0.0
+
+        provisional_rating = (
+            regressed_rating
+            +
+            returning_adjustment
+        )
+
+        metadata = metadata_lookup.get(
             team_name,
-            {}
+            {},
         )
 
-        transfer = transfer_lookup.get(
-            team_name,
-            {}
-        )
-
-        recruiting = recruiting_lookup.get(
-            team_name,
-            {}
-        )
-
-        snaps = snap_lookup.get(
-            team_name,
-            {}
-        )
-
-        incoming = transfer.get(
-            "incoming",
-            {}
-        )
-
-        outgoing = transfer.get(
-            "outgoing",
-            {}
-        )
-
-        teams.append(
+        ratings.append(
             {
+                "season":
+                    2026,
+
                 "team":
                     team_name,
 
-                "sp_2025":
-                    sp_rating,
-
-                "gridiron_2025":
-                    gridiron_rating,
-
-                "returning_percent":
-                    get_returning_percent(
-                        returning
+                "conference":
+                    metadata.get(
+                        "conference"
                     ),
 
-                "roster_snap_percent":
-                    get_snap_percent(
-                        snaps
+                "provisional":
+                    True,
+
+                "model_version":
+                    "2026_preseason_provisional_v1",
+
+                "prior_2025_power_rating":
+                    round(
+                        prior_rating,
+                        4,
                     ),
 
-                "roster_snaps":
-                    get_snap_total(
-                        snaps
+                "prior_2025_rank":
+                    prior_rank,
+
+                "regressed_baseline":
+                    round(
+                        regressed_rating,
+                        4,
                     ),
 
-                "incoming_high_end":
-                    safe_float(
-                        incoming.get(
-                            "high_end_count"
-                        )
-                    )
-                    or 0.0,
+                "returning_snap_percent":
+                    returning_percent,
 
-                "outgoing_high_end":
-                    safe_float(
-                        outgoing.get(
-                            "high_end_count"
-                        )
-                    )
-                    or 0.0,
+                "returning_snaps":
+                    returning_snaps,
 
-                "incoming_average_rating":
-                    safe_float(
-                        incoming.get(
-                            "average_rating"
-                        )
-                    )
-                    or 0.0,
+                "returning_snap_rank":
+                    returning_rank,
 
-                "outgoing_average_rating":
-                    safe_float(
-                        outgoing.get(
-                            "average_rating"
-                        )
-                    )
-                    or 0.0,
+                "returning_adjustment":
+                    round(
+                        returning_adjustment,
+                        4,
+                    ),
 
-                "four_star_count":
-                    safe_float(
-                        recruiting.get(
-                            "four_star_count"
-                        )
-                    )
-                    or 0.0,
-
-                "top_10_recruiting":
-                    safe_float(
-                        recruiting.get(
-                            "top_10_average_rating"
-                        )
-                    )
-                    or 0.0,
+                "power_rating":
+                    round(
+                        provisional_rating,
+                        4,
+                    ),
             }
         )
 
-    return teams
-
-
-# ============================================================
-# MODEL CONTEXT
-# ============================================================
-
-def calculate_context(teams):
-    """Calculate population values used for scaling."""
-
-    gridiron_values = [
-        team[
-            "gridiron_2025"
-        ]
-        for team in teams
-    ]
-
-    sp_values = [
-        team[
-            "sp_2025"
-        ]
-        for team in teams
-    ]
-
-    returning_values = [
-        team[
-            "returning_percent"
-        ]
-        for team in teams
-    ]
-
-    snap_values = [
-        team[
-            "roster_snap_percent"
-        ]
-        for team in teams
-    ]
-
-    return {
-        "gridiron_mean":
-            mean(
-                gridiron_values
-            ),
-
-        "gridiron_std":
-            standard_deviation(
-                gridiron_values
-            ),
-
-        "sp_mean":
-            mean(
-                sp_values
-            ),
-
-        "sp_std":
-            standard_deviation(
-                sp_values
-            ),
-
-        "returning_mean":
-            mean(
-                returning_values
-            ),
-
-        "returning_std":
-            standard_deviation(
-                returning_values
-            ),
-
-        "snap_mean":
-            mean(
-                snap_values
-            ),
-
-        "snap_std":
-            standard_deviation(
-                snap_values
-            ),
-    }
-
-
-# ============================================================
-# BASELINE
-# ============================================================
-
-def map_sp_to_gridiron_scale(
-    team,
-    context
-):
-    """
-    Map final 2025 SP+ onto Project Gridiron's rating scale.
-
-    Historical validation showed SP+ was a stronger next-season
-    anchor than Project Gridiron's prior-year rating.
-    """
-
-    standardized = z_score(
-        team[
-            "sp_2025"
-        ],
-        context[
-            "sp_mean"
-        ],
-        context[
-            "sp_std"
-        ],
-    )
-
-    return (
-        context[
-            "gridiron_mean"
-        ]
-        +
-        standardized
-        *
-        context[
-            "gridiron_std"
-        ]
-    )
-
-
-# ============================================================
-# ADJUSTMENTS
-# ============================================================
-
-def calculate_returning_adjustment(
-    team,
-    context
-):
-    """Apply historically validated returning-production effect."""
-
-    std = context[
-        "returning_std"
-    ]
-
-    if std == 0:
-        return 0.0
-
-    standardized = (
-        (
-            team[
-                "returning_percent"
-            ]
-            -
-            context[
-                "returning_mean"
-            ]
-        )
-        /
-        std
-    )
-
-    adjustment = (
-        standardized
-        *
-        RETURNING_MAX_POINTS
-    )
-
-    return clamp(
-        adjustment,
-        -RETURNING_CAP,
-        RETURNING_CAP
-    )
-
-
-def calculate_snap_adjustment(
-    team,
-    context
-):
-    """
-    Apply conservative 2026 roster-snap adjustment.
-
-    This metric includes the experienced snaps represented on
-    the new roster, including portal experience in the captured
-    Punt & Rally data.
-
-    It has NOT been historically validated by Project Gridiron,
-    so its maximum effect is only +/- 0.50 points.
-    """
-
-    std = context[
-        "snap_std"
-    ]
-
-    if std == 0:
-        return 0.0
-
-    standardized = (
-        (
-            team[
-                "roster_snap_percent"
-            ]
-            -
-            context[
-                "snap_mean"
-            ]
-        )
-        /
-        std
-    )
-
-    adjustment = (
-        standardized
-        *
-        SNAP_MAX_POINTS
-    )
-
-    return clamp(
-        adjustment,
-        -SNAP_CAP,
-        SNAP_CAP
-    )
-
-
-def calculate_incoming_transfer_adjustment(
-    team
-):
-    """Bonus for incoming 0.90+ portal players."""
-
-    adjustment = (
-        team[
-            "incoming_high_end"
-        ]
-        *
-        INCOMING_ELITE_POINTS
-    )
-
-    return clamp(
-        adjustment,
-        0.0,
-        TRANSFER_CAP
-    )
-
-
-def calculate_outgoing_transfer_adjustment(
-    team
-):
-    """Penalty for outgoing 0.90+ portal players."""
-
-    adjustment = (
-        -team[
-            "outgoing_high_end"
-        ]
-        *
-        OUTGOING_ELITE_POINTS
-    )
-
-    return clamp(
-        adjustment,
-        -TRANSFER_CAP,
-        0.0
-    )
-
-
-def calculate_recruiting_adjustment(
-    team
-):
-    """
-    Recruiting adjustment.
-
-    Currently zero because V3 found no incremental value once
-    SP+ and portal talent were already included.
-
-    The data remains in the output for diagnostics.
-    """
-
-    return 0.0
-
-
-# ============================================================
-# PROJECT RATING
-# ============================================================
-
-def calculate_team_rating(
-    team,
-    context
-):
-    """Calculate one team's 2026 preseason rating."""
-
-    baseline = map_sp_to_gridiron_scale(
-        team,
-        context
-    )
-
-    returning_adjustment = (
-        calculate_returning_adjustment(
-            team,
-            context
-        )
-    )
-
-    snap_adjustment = (
-        calculate_snap_adjustment(
-            team,
-            context
-        )
-    )
-
-    incoming_adjustment = (
-        calculate_incoming_transfer_adjustment(
-            team
-        )
-    )
-
-    outgoing_adjustment = (
-        calculate_outgoing_transfer_adjustment(
-            team
-        )
-    )
-
-    recruiting_adjustment = (
-        calculate_recruiting_adjustment(
-            team
-        )
-    )
-
-    total_adjustment = (
-        returning_adjustment
-        +
-        snap_adjustment
-        +
-        incoming_adjustment
-        +
-        outgoing_adjustment
-        +
-        recruiting_adjustment
-    )
-
-    preseason_rating = (
-        baseline
-        +
-        total_adjustment
-    )
-
-    return {
-        **team,
-
-        "baseline_rating":
-            round(
-                baseline,
-                2
-            ),
-
-        "adjustments": {
-            "returning_production":
-                round(
-                    returning_adjustment,
-                    2
-                ),
-
-            "roster_snaps":
-                round(
-                    snap_adjustment,
-                    2
-                ),
-
-            "incoming_transfer_talent":
-                round(
-                    incoming_adjustment,
-                    2
-                ),
-
-            "outgoing_transfer_talent":
-                round(
-                    outgoing_adjustment,
-                    2
-                ),
-
-            "recruiting":
-                round(
-                    recruiting_adjustment,
-                    2
-                ),
-
-            "total":
-                round(
-                    total_adjustment,
-                    2
-                ),
-        },
-
-        "preseason_rating":
-            round(
-                preseason_rating,
-                2
-            ),
-    }
-
-
-def calculate_preseason_ratings():
-    """Build all 2026 preseason ratings."""
-
-    if not check_required_files():
-        raise FileNotFoundError(
-            "Required 2026 preseason model inputs are missing."
-        )
-
-    teams = build_team_records()
-
-    if not teams:
-        raise ValueError(
-            "No matching teams were available for the 2026 model."
-        )
-
-    context = calculate_context(
-        teams
-    )
-
-    results = []
-
-    for team in teams:
-
-        results.append(
-            calculate_team_rating(
-                team,
-                context
-            )
-        )
-
-    results.sort(
-        key=lambda team:
-            team[
-                "preseason_rating"
+    # --------------------------------------------------------
+    # RANK
+    # --------------------------------------------------------
+
+    ratings.sort(
+        key=lambda record:
+            record[
+                "power_rating"
             ],
         reverse=True,
     )
 
-    for rank, team in enumerate(
-        results,
-        start=1
+    for rank, record in enumerate(
+        ratings,
+        start=1,
     ):
 
-        team[
-            "preseason_rank"
+        record[
+            "rank"
         ] = rank
+
+    # --------------------------------------------------------
+    # SAVE
+    # --------------------------------------------------------
 
     OUTPUT_FILE.parent.mkdir(
         parents=True,
-        exist_ok=True
+        exist_ok=True,
     )
 
     with OUTPUT_FILE.open(
@@ -1127,156 +685,156 @@ def calculate_preseason_ratings():
     ) as file:
 
         json.dump(
-            results,
+            ratings,
             file,
-            indent=4
+            indent=4,
         )
 
-    print("=" * 80)
+    # --------------------------------------------------------
+    # OUTPUT
+    # --------------------------------------------------------
 
     print(
-        "PROJECT GRIDIRON 2026 PRESEASON POWER RATINGS"
+        "MODEL SETTINGS"
     )
 
-    print("=" * 80)
+    print("-" * 78)
 
     print(
-        f"Teams rated: "
-        f"{len(results)}"
-    )
-
-    print()
-
-    print(
-        "MODEL"
-    )
-
-    print("-" * 80)
-
-    print(
-        "Baseline: final 2025 SP+ mapped to "
-        "Project Gridiron scale"
+        f"Regression to mean: "
+        f"{REGRESSION_TO_MEAN:.2%}"
     )
 
     print(
-        f"Returning production: "
-        f"+/- {RETURNING_MAX_POINTS:.2f} point scale"
+        f"Returning-snaps weight: "
+        f"{RETURNING_SNAPS_WEIGHT:.2f} pts/std"
     )
 
     print(
-        f"Roster snaps: "
-        f"+/- {SNAP_MAX_POINTS:.2f} point experimental scale"
-    )
-
-    print(
-        f"Incoming 0.90+ transfer: "
-        f"+{INCOMING_ELITE_POINTS:.2f} points/player"
-    )
-
-    print(
-        f"Outgoing 0.90+ transfer: "
-        f"-{OUTGOING_ELITE_POINTS:.2f} points/player"
-    )
-
-    print(
-        "Recruiting: diagnostic only / 0 direct points"
+        f"Maximum returning adjustment: "
+        f"{MAX_RETURNING_ADJUSTMENT:.2f}"
     )
 
     print()
 
     print(
-        "TOP 25"
+        "TOP 25 2026 PROVISIONAL RATINGS"
     )
 
-    print("-" * 80)
+    print("-" * 78)
 
-    for team in results[:25]:
-
-        adjustments = team[
-            "adjustments"
-        ]
+    for record in ratings[:25]:
 
         print(
-            f"{team['preseason_rank']:>2}. "
-            f"{team['team']:<22} "
-            f"{team['preseason_rating']:>6.2f} "
-            f"(base="
-            f"{team['baseline_rating']:.2f}, "
-            f"RP="
-            f"{adjustments['returning_production']:+.2f}, "
-            f"snaps="
-            f"{adjustments['roster_snaps']:+.2f}, "
-            f"in="
-            f"{adjustments['incoming_transfer_talent']:+.2f}, "
-            f"out="
-            f"{adjustments['outgoing_transfer_talent']:+.2f})"
+            f"{record['rank']:>3}. "
+            f"{record['team']:<24} "
+            f"{record['power_rating']:>7.2f}  "
+            f"2025={record['prior_2025_power_rating']:>6.2f}  "
+            f"return={record['returning_snap_percent']:>5.1f}%  "
+            f"adj={record['returning_adjustment']:+.2f}"
         )
 
     print()
 
     print(
-        "BIGGEST POSITIVE ROSTER ADJUSTMENTS"
+        "BIGGEST POSITIVE RETURNING ADJUSTMENTS"
     )
 
-    print("-" * 80)
+    print("-" * 78)
 
     positive = sorted(
-        results,
-        key=lambda team:
-            team[
-                "adjustments"
-            ][
-                "total"
+        ratings,
+        key=lambda record:
+            record[
+                "returning_adjustment"
             ],
         reverse=True,
     )
 
-    for team in positive[:15]:
+    for record in positive[:15]:
 
         print(
-            f"{team['team']}: "
-            f"{team['baseline_rating']:.2f} -> "
-            f"{team['preseason_rating']:.2f} "
-            f"("
-            f"{team['adjustments']['total']:+.2f}"
-            f")"
+            f"{record['team']}: "
+            f"{record['returning_adjustment']:+.2f}, "
+            f"return={record['returning_snap_percent']:.1f}%"
         )
 
     print()
 
     print(
-        "BIGGEST NEGATIVE ROSTER ADJUSTMENTS"
+        "BIGGEST NEGATIVE RETURNING ADJUSTMENTS"
     )
 
-    print("-" * 80)
+    print("-" * 78)
 
     negative = sorted(
-        results,
-        key=lambda team:
-            team[
-                "adjustments"
-            ][
-                "total"
+        ratings,
+        key=lambda record:
+            record[
+                "returning_adjustment"
             ],
     )
 
-    for team in negative[:15]:
+    for record in negative[:15]:
 
         print(
-            f"{team['team']}: "
-            f"{team['baseline_rating']:.2f} -> "
-            f"{team['preseason_rating']:.2f} "
-            f"("
-            f"{team['adjustments']['total']:+.2f}"
-            f")"
+            f"{record['team']}: "
+            f"{record['returning_adjustment']:+.2f}, "
+            f"return={record['returning_snap_percent']:.1f}%"
         )
+
+    if unmatched_prior:
+
+        print()
+
+        print(
+            "TEAMS WITHOUT 2025 PROJECT GRIDIRON RATING"
+        )
+
+        print("-" * 78)
+
+        for team in unmatched_prior:
+
+            print(
+                team
+            )
 
     print()
 
     print(
-        f"Saved to {OUTPUT_FILE}"
+        f"Ratings generated: "
+        f"{len(ratings)}"
     )
 
+    print(
+        "Saved to:"
+    )
+
+    print(
+        OUTPUT_FILE
+    )
+
+    print()
+
+    print(
+        "IMPORTANT:"
+    )
+
+    print(
+        "These are provisional Week 0 preseason ratings."
+    )
+
+    print(
+        "They are not the final V4 ratings."
+    )
+
+    return ratings
+
+
+# ============================================================
+# CLI
+# ============================================================
 
 if __name__ == "__main__":
-    calculate_preseason_ratings()
+
+    build_provisional_ratings()
