@@ -1,0 +1,131 @@
+name: Generate 2026 Provisional Ratings
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-ratings:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate 2026 provisional preseason ratings
+        run: |
+          python -m ratings.preseason_rating_2026
+
+      - name: Verify output file
+        run: |
+          echo "Checking generated ratings..."
+          echo ""
+
+          if [ ! -f "data/processed/power_ratings_2026.json" ]; then
+            echo "ERROR: data/processed/power_ratings_2026.json was not created."
+            exit 1
+          fi
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/processed/power_ratings_2026.json")
+
+          with path.open("r", encoding="utf-8") as f:
+              ratings = json.load(f)
+
+          print("=" * 78)
+          print("2026 PROVISIONAL RATING OUTPUT CHECK")
+          print("=" * 78)
+          print()
+
+          print(f"Ratings generated: {len(ratings)}")
+
+          if not ratings:
+              raise SystemExit("No ratings were generated.")
+
+          required = {
+              "season",
+              "team",
+              "power_rating",
+              "rank",
+              "provisional",
+              "model_version",
+          }
+
+          missing_fields = []
+
+          for record in ratings:
+              missing = required - set(record)
+
+              if missing:
+                  missing_fields.append(
+                      (
+                          record.get("team"),
+                          sorted(missing),
+                      )
+                  )
+
+          if missing_fields:
+              print()
+              print("ERROR: Missing required fields.")
+
+              for team, fields in missing_fields[:20]:
+                  print(f"{team}: {fields}")
+
+              raise SystemExit(1)
+
+          ranks = [
+              record["rank"]
+              for record in ratings
+          ]
+
+          if ranks != list(range(1, len(ratings) + 1)):
+              raise SystemExit(
+                  "Ratings are not ranked sequentially from 1 through N."
+              )
+
+          print()
+          print("TOP 25")
+          print("-" * 78)
+
+          for record in ratings[:25]:
+              print(
+                  f"{record['rank']:>3}. "
+                  f"{record['team']:<24} "
+                  f"{record['power_rating']:>7.2f} "
+                  f"adj={record['returning_adjustment']:+.2f}"
+              )
+
+          print()
+          print("Output validation: PASS")
+          PY
+
+      - name: Show generated file
+        run: |
+          echo "Generated file:"
+          ls -lh data/processed/power_ratings_2026.json
+
+      - name: Commit 2026 provisional ratings
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/processed/power_ratings_2026.json
+
+          if git diff --cached --quiet; then
+            echo "No ratings changes to commit."
+          else
+            git commit -m "Generate 2026 provisional preseason ratings"
+            git push
+          fi
