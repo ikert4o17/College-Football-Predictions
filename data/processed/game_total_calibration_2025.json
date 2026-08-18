@@ -1,0 +1,25 @@
+{
+    "season": 2025,
+    "model_version": "game_total_calibration_v1",
+    "games_tested": 762,
+    "model": {
+        "intercept": 49.65757703896167,
+        "home_offense_coefficient": 0.3544814985910107,
+        "away_offense_coefficient": 0.26047103119787623,
+        "home_defense_coefficient": -0.24679536931415325,
+        "away_defense_coefficient": -0.31663381211967173
+    },
+    "metrics": {
+        "correlation": 0.47948971598406276,
+        "mae": 11.491195657278244,
+        "rmse": 14.299749785517756,
+        "actual_total_mean": 52.45275590551181,
+        "prediction_mean": 52.45275590551182
+    },
+    "skipped": {
+        "non_fbs": 126,
+        "incomplete": 0,
+        "missing_rating": 0,
+        "bad_schema": 0
+    }
+}
