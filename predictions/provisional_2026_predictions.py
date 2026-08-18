@@ -1,57 +1,41 @@
 """
 Project Gridiron
-2026 Provisional Game Predictions V2
+2026 Provisional Game Predictions V3
 
 Purpose
 -------
 Generate provisional 2026 game projections using:
 
     1. 2026 provisional Project Gridiron power ratings
-    2. 2025 V3 rating-to-margin calibration
+    2. 2025 V3 margin calibration
+    3. 2025 game-total calibration
+
+Outputs
+-------
+For each eligible game:
+
+    - projected spread
+    - projected total
+    - projected home score
+    - projected away score
 
 Inputs
 ------
 data/processed/power_ratings_2026.json
 data/raw/games.json
 data/processed/game_margin_calibration_v3_2025.json
+data/processed/game_total_calibration_2025.json
 
 Output
 ------
 data/processed/provisional_game_predictions_2026.json
 
-Model
------
-Projected home margin:
-
-    rating_gap_coefficient
-        * (home_rating - away_rating)
-        +
-    home_field_advantage
-        * home_field_indicator
-
-Where:
-
-    home_field_indicator = 0 for neutral-site games
-    home_field_indicator = 1 otherwise
-
-The coefficients are loaded from:
-
-    data/processed/game_margin_calibration_v3_2025.json
-
-Current calibration:
-
-    approximately 0.899 scoreboard points
-    per Project Gridiron rating point
-
-    approximately 3.95 points
-    of non-neutral home-field advantage
-
-This remains a provisional preseason prediction layer.
-It will later be upgraded when full V4 preseason ratings become available.
-
 Usage
 -----
 python -m predictions.provisional_2026_predictions
+
+This remains a provisional preseason model.
+It will later be upgraded when full V4 preseason ratings are available.
 """
 
 import json
@@ -80,11 +64,18 @@ GAMES_FILE = (
     / "games.json"
 )
 
-CALIBRATION_FILE = (
+MARGIN_CALIBRATION_FILE = (
     PROJECT_ROOT
     / "data"
     / "processed"
     / "game_margin_calibration_v3_2025.json"
+)
+
+TOTAL_CALIBRATION_FILE = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "game_total_calibration_2025.json"
 )
 
 OUTPUT_FILE = (
@@ -199,99 +190,23 @@ def build_rating_lookup(records):
             "team"
         )
 
-        rating = safe_float(
+        if not team:
+            continue
+
+        power_rating = safe_float(
             record.get(
                 "power_rating"
             )
         )
 
-        if (
-            team
-            and
-            rating is not None
-        ):
+        if power_rating is None:
+            continue
 
-            lookup[
-                team
-            ] = record
+        lookup[
+            team
+        ] = record
 
     return lookup
-
-
-def load_calibration():
-    """Load V3 margin calibration."""
-
-    if not CALIBRATION_FILE.exists():
-
-        raise FileNotFoundError(
-            f"Missing calibration file: "
-            f"{CALIBRATION_FILE}"
-        )
-
-    data = load_json(
-        CALIBRATION_FILE
-    )
-
-    model = data.get(
-        "model"
-    )
-
-    if not isinstance(
-        model,
-        dict
-    ):
-
-        raise ValueError(
-            "Calibration file does not contain a model object."
-        )
-
-    rating_gap_coefficient = safe_float(
-        model.get(
-            "rating_gap_coefficient"
-        )
-    )
-
-    home_field_advantage = safe_float(
-        model.get(
-            "home_field_advantage"
-        )
-    )
-
-    if rating_gap_coefficient is None:
-
-        raise ValueError(
-            "Calibration rating_gap_coefficient is missing."
-        )
-
-    if home_field_advantage is None:
-
-        raise ValueError(
-            "Calibration home_field_advantage is missing."
-        )
-
-    return {
-        "model_version":
-            data.get(
-                "model_version",
-                "game_margin_calibration_v3",
-            ),
-
-        "season":
-            data.get(
-                "season"
-            ),
-
-        "games_tested":
-            data.get(
-                "games_tested"
-            ),
-
-        "rating_gap_coefficient":
-            rating_gap_coefficient,
-
-        "home_field_advantage":
-            home_field_advantage,
-    }
 
 
 def is_fbs_team(
@@ -319,7 +234,7 @@ def is_fbs_team(
 
 
 def is_pre_september_game(game):
-    """Return whether game starts before September 1 UTC."""
+    """Return whether game occurs before Sept. 1 UTC."""
 
     start_date = parse_datetime(
         game.get(
@@ -338,7 +253,132 @@ def is_pre_september_game(game):
 
 
 # ============================================================
-# PROJECTION MODEL
+# CALIBRATION LOADERS
+# ============================================================
+
+def load_margin_calibration():
+    """Load V3 margin calibration."""
+
+    data = load_json(
+        MARGIN_CALIBRATION_FILE
+    )
+
+    model = data.get(
+        "model"
+    )
+
+    if not isinstance(
+        model,
+        dict
+    ):
+        raise ValueError(
+            "Margin calibration file is missing model object."
+        )
+
+    rating_gap_coefficient = safe_float(
+        model.get(
+            "rating_gap_coefficient"
+        )
+    )
+
+    home_field_advantage = safe_float(
+        model.get(
+            "home_field_advantage"
+        )
+    )
+
+    if rating_gap_coefficient is None:
+        raise ValueError(
+            "Margin rating-gap coefficient is missing."
+        )
+
+    if home_field_advantage is None:
+        raise ValueError(
+            "Margin home-field coefficient is missing."
+        )
+
+    return {
+        "model_version":
+            data.get(
+                "model_version",
+                "game_margin_calibration_v3",
+            ),
+
+        "games_tested":
+            data.get(
+                "games_tested"
+            ),
+
+        "rating_gap_coefficient":
+            rating_gap_coefficient,
+
+        "home_field_advantage":
+            home_field_advantage,
+    }
+
+
+def load_total_calibration():
+    """Load game-total calibration."""
+
+    data = load_json(
+        TOTAL_CALIBRATION_FILE
+    )
+
+    model = data.get(
+        "model"
+    )
+
+    if not isinstance(
+        model,
+        dict
+    ):
+        raise ValueError(
+            "Total calibration file is missing model object."
+        )
+
+    required = [
+        "intercept",
+        "home_offense_coefficient",
+        "away_offense_coefficient",
+        "home_defense_coefficient",
+        "away_defense_coefficient",
+    ]
+
+    output = {
+        "model_version":
+            data.get(
+                "model_version",
+                "game_total_calibration_v1",
+            ),
+
+        "games_tested":
+            data.get(
+                "games_tested"
+            ),
+    }
+
+    for key in required:
+
+        value = safe_float(
+            model.get(
+                key
+            )
+        )
+
+        if value is None:
+            raise ValueError(
+                f"Total calibration field missing: {key}"
+            )
+
+        output[
+            key
+        ] = value
+
+    return output
+
+
+# ============================================================
+# MARGIN MODEL
 # ============================================================
 
 def calculate_projected_home_margin(
@@ -347,7 +387,7 @@ def calculate_projected_home_margin(
     neutral_site,
     calibration,
 ):
-    """Calculate calibrated projected home margin."""
+    """Calculate calibrated home margin."""
 
     rating_gap = (
         home_rating
@@ -390,10 +430,7 @@ def calculate_projected_home_margin(
         "rating_margin":
             rating_margin,
 
-        "home_field_indicator":
-            home_field_indicator,
-
-        "home_field_margin":
+        "home_field_component":
             home_field_margin,
 
         "projected_home_margin":
@@ -401,12 +438,142 @@ def calculate_projected_home_margin(
     }
 
 
+# ============================================================
+# TOTAL MODEL
+# ============================================================
+
+def calculate_projected_total(
+    home_record,
+    away_record,
+    calibration,
+):
+    """Calculate calibrated projected total."""
+
+    home_offense = safe_float(
+        home_record.get(
+            "offense_score"
+        )
+    )
+
+    away_offense = safe_float(
+        away_record.get(
+            "offense_score"
+        )
+    )
+
+    home_defense = safe_float(
+        home_record.get(
+            "defense_score"
+        )
+    )
+
+    away_defense = safe_float(
+        away_record.get(
+            "defense_score"
+        )
+    )
+
+    if (
+        home_offense is None
+        or
+        away_offense is None
+        or
+        home_defense is None
+        or
+        away_defense is None
+    ):
+        return None
+
+    projected_total = (
+        calibration[
+            "intercept"
+        ]
+        +
+        calibration[
+            "home_offense_coefficient"
+        ]
+        *
+        home_offense
+        +
+        calibration[
+            "away_offense_coefficient"
+        ]
+        *
+        away_offense
+        +
+        calibration[
+            "home_defense_coefficient"
+        ]
+        *
+        home_defense
+        +
+        calibration[
+            "away_defense_coefficient"
+        ]
+        *
+        away_defense
+    )
+
+    return {
+        "home_offense":
+            home_offense,
+
+        "away_offense":
+            away_offense,
+
+        "home_defense":
+            home_defense,
+
+        "away_defense":
+            away_defense,
+
+        "projected_total":
+            projected_total,
+    }
+
+
+# ============================================================
+# IMPLIED SCORES
+# ============================================================
+
+def calculate_implied_scores(
+    projected_total,
+    projected_home_margin,
+):
+    """Calculate implied scores from total and margin."""
+
+    projected_home_score = (
+        projected_total
+        +
+        projected_home_margin
+    ) / 2.0
+
+    projected_away_score = (
+        projected_total
+        -
+        projected_home_margin
+    ) / 2.0
+
+    return {
+        "projected_home_score":
+            projected_home_score,
+
+        "projected_away_score":
+            projected_away_score,
+    }
+
+
+# ============================================================
+# GAME PROJECTION
+# ============================================================
+
 def project_game(
     game,
     rating_lookup,
-    calibration,
+    margin_calibration,
+    total_calibration,
 ):
-    """Project one 2026 game."""
+    """Project one game."""
 
     home_team = game.get(
         "homeTeam"
@@ -458,18 +625,44 @@ def project_game(
         )
     )
 
-    components = (
+    margin_components = (
         calculate_projected_home_margin(
             home_rating,
             away_rating,
             neutral_site,
-            calibration,
+            margin_calibration,
         )
     )
 
-    projected_home_margin = components[
-        "projected_home_margin"
-    ]
+    total_components = (
+        calculate_projected_total(
+            home_record,
+            away_record,
+            total_calibration,
+        )
+    )
+
+    if total_components is None:
+        return None
+
+    projected_home_margin = (
+        margin_components[
+            "projected_home_margin"
+        ]
+    )
+
+    projected_total = (
+        total_components[
+            "projected_total"
+        ]
+    )
+
+    implied_scores = (
+        calculate_implied_scores(
+            projected_total,
+            projected_home_margin,
+        )
+    )
 
     if projected_home_margin > 0:
 
@@ -511,11 +704,6 @@ def project_game(
                 "startDate"
             ),
 
-        "start_time_tbd":
-            game.get(
-                "startTimeTBD"
-            ),
-
         "neutral_site":
             neutral_site,
 
@@ -544,40 +732,24 @@ def project_game(
 
         "raw_rating_gap":
             round(
-                components[
+                margin_components[
                     "rating_gap"
                 ],
                 4,
             ),
 
-        "rating_gap_coefficient":
-            round(
-                calibration[
-                    "rating_gap_coefficient"
-                ],
-                6,
-            ),
-
         "rating_margin_component":
             round(
-                components[
+                margin_components[
                     "rating_margin"
-                ],
-                4,
-            ),
-
-        "home_field_advantage":
-            round(
-                calibration[
-                    "home_field_advantage"
                 ],
                 4,
             ),
 
         "home_field_component":
             round(
-                components[
-                    "home_field_margin"
+                margin_components[
+                    "home_field_component"
                 ],
                 4,
             ),
@@ -597,14 +769,73 @@ def project_game(
                 2,
             ),
 
+        "projected_total":
+            round(
+                projected_total,
+                2,
+            ),
+
+        "projected_home_score":
+            round(
+                implied_scores[
+                    "projected_home_score"
+                ],
+                2,
+            ),
+
+        "projected_away_score":
+            round(
+                implied_scores[
+                    "projected_away_score"
+                ],
+                2,
+            ),
+
+        "home_offense_score":
+            round(
+                total_components[
+                    "home_offense"
+                ],
+                4,
+            ),
+
+        "away_offense_score":
+            round(
+                total_components[
+                    "away_offense"
+                ],
+                4,
+            ),
+
+        "home_defense_score":
+            round(
+                total_components[
+                    "home_defense"
+                ],
+                4,
+            ),
+
+        "away_defense_score":
+            round(
+                total_components[
+                    "away_defense"
+                ],
+                4,
+            ),
+
         "rating_model":
             home_record.get(
                 "model_version",
                 "2026_preseason_provisional_v1",
             ),
 
-        "calibration_model":
-            calibration[
+        "margin_calibration_model":
+            margin_calibration[
+                "model_version"
+            ],
+
+        "total_calibration_model":
+            total_calibration[
                 "model_version"
             ],
 
@@ -618,12 +849,13 @@ def project_game(
 # ============================================================
 
 def build_predictions():
-    """Generate calibrated provisional predictions."""
+    """Generate calibrated provisional spread + total predictions."""
 
     required_files = [
         RATINGS_FILE,
         GAMES_FILE,
-        CALIBRATION_FILE,
+        MARGIN_CALIBRATION_FILE,
+        TOTAL_CALIBRATION_FILE,
     ]
 
     for path in required_files:
@@ -631,8 +863,7 @@ def build_predictions():
         if not path.exists():
 
             raise FileNotFoundError(
-                f"Missing required file: "
-                f"{path}"
+                f"Missing required file: {path}"
             )
 
     ratings = load_json(
@@ -643,7 +874,13 @@ def build_predictions():
         GAMES_FILE
     )
 
-    calibration = load_calibration()
+    margin_calibration = (
+        load_margin_calibration()
+    )
+
+    total_calibration = (
+        load_total_calibration()
+    )
 
     rating_lookup = build_rating_lookup(
         ratings
@@ -651,9 +888,8 @@ def build_predictions():
 
     predictions = []
 
-    skipped_missing_rating = []
-
     skipped_non_fbs = 0
+    skipped_missing_data = 0
 
     eligible_games = 0
 
@@ -700,30 +936,13 @@ def build_predictions():
         projection = project_game(
             game,
             rating_lookup,
-            calibration,
+            margin_calibration,
+            total_calibration,
         )
 
         if projection is None:
 
-            skipped_missing_rating.append(
-                {
-                    "game_id":
-                        game.get(
-                            "id"
-                        ),
-
-                    "home":
-                        game.get(
-                            "homeTeam"
-                        ),
-
-                    "away":
-                        game.get(
-                            "awayTeam"
-                        ),
-                }
-            )
-
+            skipped_missing_data += 1
             continue
 
         predictions.append(
@@ -767,7 +986,7 @@ def build_predictions():
     print("=" * 80)
 
     print(
-        "PROJECT GRIDIRON 2026 CALIBRATED PROVISIONAL PREDICTIONS"
+        "PROJECT GRIDIRON 2026 PROVISIONAL SPREAD + TOTAL PREDICTIONS"
     )
 
     print("=" * 80)
@@ -775,29 +994,52 @@ def build_predictions():
     print()
 
     print(
-        "CALIBRATION"
+        "MARGIN CALIBRATION"
     )
 
     print("-" * 80)
 
     print(
-        f"Model: "
-        f"{calibration['model_version']}"
-    )
-
-    print(
-        f"2025 games used: "
-        f"{calibration['games_tested']}"
-    )
-
-    print(
-        f"Rating-to-margin coefficient: "
-        f"{calibration['rating_gap_coefficient']:.4f}"
+        f"Rating coefficient: "
+        f"{margin_calibration['rating_gap_coefficient']:.4f}"
     )
 
     print(
         f"Home-field advantage: "
-        f"{calibration['home_field_advantage']:.4f}"
+        f"{margin_calibration['home_field_advantage']:.4f}"
+    )
+
+    print()
+
+    print(
+        "TOTAL CALIBRATION"
+    )
+
+    print("-" * 80)
+
+    print(
+        f"Intercept: "
+        f"{total_calibration['intercept']:.4f}"
+    )
+
+    print(
+        f"Home offense: "
+        f"{total_calibration['home_offense_coefficient']:+.4f}"
+    )
+
+    print(
+        f"Away offense: "
+        f"{total_calibration['away_offense_coefficient']:+.4f}"
+    )
+
+    print(
+        f"Home defense: "
+        f"{total_calibration['home_defense_coefficient']:+.4f}"
+    )
+
+    print(
+        f"Away defense: "
+        f"{total_calibration['away_defense_coefficient']:+.4f}"
     )
 
     print()
@@ -814,7 +1056,7 @@ def build_predictions():
     )
 
     print(
-        f"Eligible FBS-vs-FBS games: "
+        f"Eligible games: "
         f"{eligible_games}"
     )
 
@@ -824,13 +1066,13 @@ def build_predictions():
     )
 
     print(
-        f"Non-FBS matchups skipped: "
+        f"Non-FBS games skipped: "
         f"{skipped_non_fbs}"
     )
 
     print(
-        f"Games skipped for missing ratings: "
-        f"{len(skipped_missing_rating)}"
+        f"Games skipped for missing data: "
+        f"{skipped_missing_data}"
     )
 
     print()
@@ -857,53 +1099,24 @@ def build_predictions():
         )
 
         print(
-            f"  ratings: "
-            f"{record['away_rating']:.2f} "
-            f"vs "
-            f"{record['home_rating']:.2f}"
-        )
-
-        print(
-            f"  raw rating gap: "
-            f"{record['raw_rating_gap']:+.2f}"
-        )
-
-        print(
-            f"  rating component: "
-            f"{record['rating_margin_component']:+.2f}"
-        )
-
-        print(
-            f"  home-field component: "
-            f"{record['home_field_component']:+.2f}"
-        )
-
-        print(
-            f"  projection: "
+            f"  spread: "
             f"{winner} "
             f"by "
             f"{record['projected_margin']:.1f}"
         )
 
-        print()
-
-    if skipped_missing_rating:
-
         print(
-            "MISSING-RATING MATCHUPS"
+            f"  total: "
+            f"{record['projected_total']:.1f}"
         )
 
-        print("-" * 80)
-
-        for record in skipped_missing_rating:
-
-            print(
-                f"{record['away']} "
-                f"@ "
-                f"{record['home']} "
-                f"(game_id="
-                f"{record['game_id']})"
-            )
+        print(
+            f"  projected score: "
+            f"{record['away_team']} "
+            f"{record['projected_away_score']:.1f}, "
+            f"{record['home_team']} "
+            f"{record['projected_home_score']:.1f}"
+        )
 
         print()
 
