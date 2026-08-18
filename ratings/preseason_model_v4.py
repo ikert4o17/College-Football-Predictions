@@ -543,7 +543,7 @@ def resolve_existing_file(
 
 
 def resolve_input_files():
-    """Resolve required processed inputs."""
+    """Resolve required inputs and print a precise dependency report."""
 
     returning = resolve_existing_file(
         RETURNING_PRODUCTION_FILE,
@@ -581,70 +581,90 @@ def resolve_input_files():
     )
 
     files = {
-        "sp_2024":
-            SP_2024_FILE,
-
-        "gridiron_2024":
-            GRIDIRON_2024_FILE,
-
-        "gridiron_2025":
-            GRIDIRON_2025_FILE,
-
-        "returning":
-            returning,
-
-        "transfer_talent":
-            transfer_talent,
-
-        "transfer_production":
-            TRANSFER_PRODUCTION_FILE,
-
-        "qb":
-            qb,
-
-        "coaching":
-            COACHING_FILE,
+        "sp_2024": SP_2024_FILE,
+        "gridiron_2024": GRIDIRON_2024_FILE,
+        "gridiron_2025": GRIDIRON_2025_FILE,
+        "returning": returning,
+        "transfer_talent": transfer_talent,
+        "transfer_production": TRANSFER_PRODUCTION_FILE,
+        "qb": qb,
+        "coaching": COACHING_FILE,
     }
 
+    descriptions = {
+        "sp_2024": "2024 SP+ baseline",
+        "gridiron_2024": "2024 Project Gridiron ratings",
+        "gridiron_2025": "2025 Project Gridiron validation target",
+        "returning": "2025 returning production",
+        "transfer_talent": "2025 transfer talent",
+        "transfer_production": "2025 transfer production V2",
+        "qb": "2025 QB continuity",
+        "coaching": "2025 coaching continuity V2",
+    }
+
+    available = [
+        (name, path)
+        for name, path in files.items()
+        if path.exists()
+    ]
+
     missing = [
-        (
-            name,
-            path
-        )
+        (name, path)
         for name, path in files.items()
         if not path.exists()
     ]
 
-    if missing:
+    print("=" * 78)
+    print("PRESEASON MODEL V4 INPUT STATUS")
+    print("=" * 78)
 
-        print("=" * 78)
+    print()
+    print("AVAILABLE")
+    print("-" * 78)
 
-        print(
-            "PRESEASON MODEL V4 INPUTS MISSING"
-        )
-
-        print("=" * 78)
-
-        for (
-            name,
-            path
-        ) in missing:
-
-            print()
-
+    if available:
+        for name, path in available:
             print(
-                f"{name}:"
+                f"FOUND: {descriptions[name]}"
             )
-
             print(
                 f"  {path}"
             )
+    else:
+        print("No required V4 inputs are currently available.")
 
-        raise FileNotFoundError(
-            "One or more V4 model inputs are missing."
+    print()
+    print("MISSING")
+    print("-" * 78)
+
+    if not missing:
+        print("None. Full V4 validation can run.")
+        print()
+        return files
+
+    for name, path in missing:
+        print(
+            f"MISSING: {descriptions[name]}"
+        )
+        print(
+            f"  {path}"
         )
 
-    return files
+    print()
+    print("V4 STATUS")
+    print("-" * 78)
+    print(
+        "Full V4 validation is blocked until every required historical "
+        "input above is available."
+    )
+    print(
+        "The statistical model has NOT been weakened or silently changed "
+        "to work around missing data."
+    )
+
+    raise FileNotFoundError(
+        "Full preseason model V4 validation is blocked by missing inputs."
+    )
 
 
 # ============================================================
@@ -653,14 +673,19 @@ def resolve_input_files():
 
 def extract_returning_production(record):
     """
-    Extract overall returning-production value.
+    Extract overall returning-production percentage.
 
-    Supports several historical field names.
+    The current processed schema stores this at ``overall.percent``.
+    Older candidate field names remain supported for backward compatibility.
     """
 
     return first_available(
         record,
         [
+            (
+                "overall",
+                "percent",
+            ),
             (
                 "overall_returning_percentage",
             ),
@@ -669,9 +694,6 @@ def extract_returning_production(record):
             ),
             (
                 "returning_production",
-            ),
-            (
-                "overall",
             ),
             (
                 "overall_returning",
