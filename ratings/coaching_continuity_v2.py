@@ -22,11 +22,10 @@ Output:
     data/processed/coaching_continuity_v2_2025.json
 
 Important:
-This version is designed specifically for a PRESEASON model.
+This module is designed specifically for a PRESEASON model.
 
-It attempts to identify the head coach in place entering the target
-season, rather than accidentally selecting an interim or replacement
-coach hired later during that season.
+It prevents in-season coaching changes from leaking into preseason
+features.
 
 This module does NOT modify production ratings.
 """
@@ -43,14 +42,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # ============================================================
 # PRESEASON CUTOFF
 # ============================================================
-
-# We use August 1 as a conservative preseason cutoff.
-#
-# A coach hired after this date is assumed NOT to have been the
-# preseason head coach for modeling purposes.
-#
-# This protects the historical validation from leaking in-season
-# coaching changes into preseason inputs.
 
 PRESEASON_CUTOFF_MONTH = 8
 PRESEASON_CUTOFF_DAY = 1
@@ -101,7 +92,7 @@ def load_json(path):
 
 
 def safe_float(value):
-    """Safely convert value to float."""
+    """Safely convert to float."""
 
     if value is None:
         return 0.0
@@ -121,7 +112,7 @@ def safe_float(value):
 
 
 def safe_int(value):
-    """Safely convert value to int."""
+    """Safely convert to int."""
 
     if value is None:
         return 0
@@ -176,7 +167,7 @@ def parse_date(value):
 
 
 def preseason_cutoff(year):
-    """Return target-season preseason cutoff."""
+    """Return preseason cutoff datetime."""
 
     return datetime(
         year,
@@ -276,6 +267,10 @@ def build_coach_metadata_lookup(records):
         if not coach_id:
             continue
 
+        hire_date = record.get(
+            "hireDate"
+        )
+
         lookup[
             coach_id
         ] = {
@@ -288,15 +283,11 @@ def build_coach_metadata_lookup(records):
                 ),
 
             "hire_date":
-                record.get(
-                    "hireDate"
-                ),
+                hire_date,
 
             "hire_datetime":
                 parse_date(
-                    record.get(
-                        "hireDate"
-                    )
+                    hire_date
                 ),
 
             "seasons":
@@ -385,14 +376,14 @@ def coach_id_from_season(record):
 
 
 # ============================================================
-# PRIMARY / PRESEASON COACH SELECTION
+# PRIOR-SEASON PRIMARY COACH
 # ============================================================
 
 def choose_prior_primary_coach(records):
     """
-    Choose prior-season primary coach.
+    Choose primary coach for completed prior season.
 
-    For the completed prior season, using games coached is fine.
+    Highest number of games coached wins.
     """
 
     if not records:
@@ -419,14 +410,16 @@ def choose_prior_primary_coach(records):
     return ranked[0]
 
 
-def coach_was_hired_before_preseason(
+# ============================================================
+# PRESEASON COACH SELECTION
+# ============================================================
+
+def coach_hired_before_cutoff(
     coach_id,
     metadata_lookup,
     target_year
 ):
-    """
-    Return whether coach was hired before target preseason cutoff.
-    """
+    """Return whether coach was hired before preseason cutoff."""
 
     metadata = metadata_lookup.get(
         coach_id,
@@ -449,29 +442,51 @@ def coach_was_hired_before_preseason(
     )
 
 
-def choose_preseason_current_coach(
+def find_current_record_for_coach(
     records,
-    metadata_lookup,
+    coach_id
+):
+    """Find target-season record for specific coach ID."""
+
+    for record in records:
+
+        if (
+            coach_id_from_season(
+                record
+            )
+            ==
+            coach_id
+        ):
+
+            return record
+
+    return None
+
+
+def choose_preseason_current_coach(
+    current_records,
+    prior_record,
+    current_metadata_lookup,
     target_year
 ):
     """
-    Identify coach in place entering target season.
+    Identify the head coach entering target season.
 
     Rules:
 
-    1. Keep coaches hired on/before August 1.
-    2. Exclude later in-season hires.
-    3. If multiple candidates remain, prefer the one with the
-       earliest hire date.
-    4. Fall back to most games only if hire-date metadata is missing.
+    1. Exclude coaches hired after August 1 of target year.
+    2. If an eligible coach exists, select the earliest-hired coach.
+    3. If NO eligible current-season coach exists, preserve the
+       prior-season incumbent rather than selecting an in-season
+       replacement.
     """
 
-    if not records:
-        return None
+    if not current_records:
+        return prior_record
 
     eligible = []
 
-    for record in records:
+    for record in current_records:
 
         coach_id = coach_id_from_season(
             record
@@ -480,9 +495,9 @@ def choose_preseason_current_coach(
         if not coach_id:
             continue
 
-        if coach_was_hired_before_preseason(
+        if coach_hired_before_cutoff(
             coach_id,
-            metadata_lookup,
+            current_metadata_lookup,
             target_year
         ):
 
@@ -492,14 +507,12 @@ def choose_preseason_current_coach(
 
     if not eligible:
 
-        # Conservative fallback.
+        # Critical preseason-safe fallback:
         #
-        # If metadata is incomplete, use the record with the most games,
-        # but this should be rare and will be visible in diagnostics.
+        # If every target-season coach was hired after the preseason
+        # cutoff, the coach entering the season was the prior incumbent.
 
-        return choose_prior_primary_coach(
-            records
-        )
+        return prior_record
 
     def sort_key(record):
 
@@ -507,7 +520,7 @@ def choose_preseason_current_coach(
             record
         )
 
-        metadata = metadata_lookup.get(
+        metadata = current_metadata_lookup.get(
             coach_id,
             {}
         )
@@ -546,39 +559,77 @@ def choose_preseason_current_coach(
 
 
 # ============================================================
-# TENURE
+# FOOTBALL-SEASON TENURE
 # ============================================================
 
-def calculate_tenure_years(
-    metadata,
-    target_year
+def first_football_season(
+    metadata
 ):
     """
-    Estimate years at current program from hire date.
+    Determine first football season under a coach.
+
+    Rule:
+
+    hired on/before Aug 1 of year X
+        -> first football season = X
+
+    hired after Aug 1 of year X
+        -> first football season = X + 1
+
+    Example:
+        hired Dec 2024
+        -> first season = 2025
     """
 
     if not metadata:
-        return 0
+
+        return None
 
     hire_datetime = metadata.get(
         "hire_datetime"
     )
 
     if not hire_datetime:
-        return 0
+        return None
 
     hire_year = hire_datetime.year
 
-    tenure = (
-        target_year
-        -
+    cutoff = preseason_cutoff(
+        hire_year
+    )
+
+    if hire_datetime <= cutoff:
+
+        return hire_year
+
+    return (
         hire_year
         +
         1
     )
 
-    return max(
-        tenure,
+
+def calculate_tenure_years(
+    metadata,
+    target_year
+):
+    """Calculate football-season tenure."""
+
+    first_season = first_football_season(
+        metadata
+    )
+
+    if first_season is None:
+        return 0
+
+    if first_season > target_year:
+        return 0
+
+    return (
+        target_year
+        -
+        first_season
+        +
         1
     )
 
@@ -588,7 +639,7 @@ def calculate_tenure_years(
 # ============================================================
 
 def extract_prior_performance(record):
-    """Extract completed prior-season context."""
+    """Extract prior-season coaching context."""
 
     if not record:
 
@@ -712,7 +763,7 @@ def build_team_profile(
     current_metadata_lookup,
     target_year
 ):
-    """Build preseason-safe coaching profile."""
+    """Build preseason coaching profile."""
 
     prior_coach_id = coach_id_from_season(
         prior_record
@@ -739,6 +790,19 @@ def build_team_profile(
         if current_coach_id
         else {}
     )
+
+    # If preseason fallback preserved prior coach but current-year metadata
+    # does not contain that coach, use prior metadata.
+
+    if (
+        current_coach_id
+        ==
+        prior_coach_id
+        and
+        not current_metadata
+    ):
+
+        current_metadata = prior_metadata
 
     same_head_coach = (
         prior_coach_id is not None
@@ -785,9 +849,9 @@ def build_team_profile(
         prior_record
     )
 
-    # ------------------------------------------------------------
-    # INTERACTION VARIABLES
-    # ------------------------------------------------------------
+    # ============================================================
+    # CHANGE INTERACTIONS
+    # ============================================================
 
     change_after_bad_sp = (
         1.0
@@ -796,7 +860,8 @@ def build_team_profile(
             and
             prior_performance[
                 "sp_overall"
-            ] < -10.0
+            ]
+            < -10.0
         )
         else 0.0
     )
@@ -808,7 +873,8 @@ def build_team_profile(
             and
             prior_performance[
                 "sp_overall"
-            ] > 10.0
+            ]
+            > 10.0
         )
         else 0.0
     )
@@ -820,7 +886,8 @@ def build_team_profile(
             and
             prior_performance[
                 "win_percentage"
-            ] < 0.500
+            ]
+            < 0.500
         )
         else 0.0
     )
@@ -832,7 +899,8 @@ def build_team_profile(
             and
             prior_performance[
                 "win_percentage"
-            ] >= 0.500
+            ]
+            >= 0.500
         )
         else 0.0
     )
@@ -845,9 +913,25 @@ def build_team_profile(
         else 0.0
     )
 
+    change_x_prior_srs = (
+        prior_performance[
+            "srs"
+        ]
+        if new_head_coach
+        else 0.0
+    )
+
     change_x_prior_win_pct = (
         prior_performance[
             "win_percentage"
+        ]
+        if new_head_coach
+        else 0.0
+    )
+
+    change_x_prior_point_diff = (
+        prior_performance[
+            "point_differential"
         ]
         if new_head_coach
         else 0.0
@@ -971,8 +1055,14 @@ def build_team_profile(
         "change_x_prior_sp":
             change_x_prior_sp,
 
+        "change_x_prior_srs":
+            change_x_prior_srs,
+
         "change_x_prior_win_pct":
             change_x_prior_win_pct,
+
+        "change_x_prior_point_diff":
+            change_x_prior_point_diff,
     }
 
 
@@ -1087,6 +1177,8 @@ def calculate_coaching_continuity_v2(
 
     profiles = []
 
+    fallback_count = 0
+
     for team in teams:
 
         prior_record = choose_prior_primary_coach(
@@ -1095,21 +1187,50 @@ def calculate_coaching_continuity_v2(
             ]
         )
 
+        if not prior_record:
+            continue
+
         current_record = (
             choose_preseason_current_coach(
                 current_by_team[
                     team
                 ],
+                prior_record,
                 current_metadata_lookup,
                 target_year
             )
         )
 
-        if not prior_record:
-            continue
-
         if not current_record:
             continue
+
+        prior_coach_id = coach_id_from_season(
+            prior_record
+        )
+
+        current_coach_id = coach_id_from_season(
+            current_record
+        )
+
+        current_year_ids = {
+            coach_id_from_season(
+                record
+            )
+            for record in current_by_team[
+                team
+            ]
+        }
+
+        if (
+            current_coach_id
+            ==
+            prior_coach_id
+            and
+            prior_coach_id
+            not in current_year_ids
+        ):
+
+            fallback_count += 1
 
         profile = build_team_profile(
             team,
@@ -1176,6 +1297,14 @@ def calculate_coaching_continuity_v2(
         ]
     )
 
+    established_count = sum(
+        1
+        for profile in profiles
+        if profile[
+            "established_coach"
+        ]
+    )
+
     change_after_bad = sum(
         1
         for profile in profiles
@@ -1226,6 +1355,16 @@ def calculate_coaching_continuity_v2(
     )
 
     print(
+        f"Established coaches (3+ seasons): "
+        f"{established_count}"
+    )
+
+    print(
+        f"Prior-incumbent preseason fallbacks: "
+        f"{fallback_count}"
+    )
+
+    print(
         f"Coaching changes after SP+ < -10: "
         f"{change_after_bad}"
     )
@@ -1268,6 +1407,8 @@ def calculate_coaching_continuity_v2(
             f"{profile['prior_coach_sp_overall']:+.1f}, "
             f"prior_win%="
             f"{profile['prior_coach_win_percentage']:.3f}, "
+            f"tenure="
+            f"{profile['tenure_years']}, "
             f"hire_date="
             f"{profile['current_head_coach']['hire_date']}"
         )
