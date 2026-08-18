@@ -1,0 +1,186 @@
+name: Calibrate Game Margins
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  calibrate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify calibration inputs
+        run: |
+          echo "Checking calibration inputs..."
+          echo ""
+
+          REQUIRED_FILES=(
+            "data/processed/power_ratings_2025.json"
+          )
+
+          MISSING=0
+
+          for FILE in "${REQUIRED_FILES[@]}"; do
+            if [ -f "$FILE" ]; then
+              echo "FOUND:   $FILE"
+            else
+              echo "MISSING: $FILE"
+              MISSING=1
+            fi
+          done
+
+          if [ -f "data/processed/historical_games_2025.json" ]; then
+            echo "FOUND:   data/processed/historical_games_2025.json"
+          elif [ -f "data/raw/historical_games/2025.json" ]; then
+            echo "FOUND:   data/raw/historical_games/2025.json"
+          else
+            echo "MISSING: 2025 historical games file"
+            MISSING=1
+          fi
+
+          if [ "$MISSING" -ne 0 ]; then
+            echo ""
+            echo "One or more required calibration inputs are missing."
+            exit 1
+          fi
+
+      - name: Run 2025 game margin calibration
+        run: |
+          python -m ratings.calibrate_game_margins
+
+      - name: Validate calibration output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path(
+              "data/processed/game_margin_calibration_2025.json"
+          )
+
+          if not path.exists():
+              raise SystemExit(
+                  "Calibration output file was not created."
+              )
+
+          with path.open(
+              "r",
+              encoding="utf-8"
+          ) as file:
+              data = json.load(file)
+
+          required_top_level = {
+              "season",
+              "games_tested",
+              "model",
+              "metrics",
+          }
+
+          missing = (
+              required_top_level
+              -
+              set(data)
+          )
+
+          if missing:
+              raise SystemExit(
+                  f"Missing top-level fields: {sorted(missing)}"
+              )
+
+          model = data["model"]
+
+          required_model_fields = {
+              "intercept",
+              "rating_gap_coefficient",
+              "home_field_coefficient",
+          }
+
+          missing_model = (
+              required_model_fields
+              -
+              set(model)
+          )
+
+          if missing_model:
+              raise SystemExit(
+                  f"Missing model fields: {sorted(missing_model)}"
+              )
+
+          print("=" * 78)
+          print("GAME MARGIN CALIBRATION OUTPUT CHECK")
+          print("=" * 78)
+          print()
+
+          print(
+              f"Games tested: "
+              f"{data['games_tested']}"
+          )
+
+          print()
+          print("MODEL")
+          print("-" * 78)
+
+          print(
+              f"Intercept: "
+              f"{model['intercept']:+.4f}"
+          )
+
+          print(
+              f"Rating gap coefficient: "
+              f"{model['rating_gap_coefficient']:.4f}"
+          )
+
+          print(
+              f"Home-field coefficient: "
+              f"{model['home_field_coefficient']:.4f}"
+          )
+
+          print()
+          print("METRICS")
+          print("-" * 78)
+
+          for key, value in data["metrics"].items():
+              if isinstance(value, (int, float)):
+                  print(
+                      f"{key}: "
+                      f"{value:.4f}"
+                  )
+              else:
+                  print(
+                      f"{key}: "
+                      f"{value}"
+                  )
+
+          print()
+          print("Output validation: PASS")
+          PY
+
+      - name: Commit calibration output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            data/processed/game_margin_calibration_2025.json
+
+          if git diff --cached --quiet; then
+            echo "No calibration changes to commit."
+          else
+            git commit -m \
+              "Calibrate Project Gridiron game margins"
+
+            git push
+          fi
