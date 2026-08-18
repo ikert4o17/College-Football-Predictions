@@ -146,9 +146,7 @@ jobs:
           python -m ratings.season_continuity
 
       # ============================================================
-      # PLAYER DATA
-      # Used by QB continuity, transfer production,
-      # and roster talent composition.
+      # PLAYER / ROSTER DATA
       # ============================================================
 
       - name: Download 2024 player diagnostic data
@@ -230,6 +228,10 @@ jobs:
       - name: Calculate 2024 team talent composition
         run: |
           python -m ratings.team_talent_composition 2024
+
+      - name: Validate 2024 team talent composition
+        run: |
+          python -m ratings.validate_team_talent_composition
 
       # ============================================================
       # 2025 TRANSFER TALENT
