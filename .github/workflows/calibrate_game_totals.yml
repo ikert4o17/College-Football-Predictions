@@ -1,0 +1,253 @@
+name: Calibrate Game Totals
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  calibrate-totals:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify totals calibration inputs
+        run: |
+          echo "============================================================"
+          echo "VERIFY TOTALS CALIBRATION INPUTS"
+          echo "============================================================"
+          echo ""
+
+          MISSING=0
+
+          if [ -f "data/processed/power_ratings_2025.json" ]; then
+            echo "FOUND: data/processed/power_ratings_2025.json"
+          else
+            echo "MISSING: data/processed/power_ratings_2025.json"
+            MISSING=1
+          fi
+
+          if [ -f "data/processed/historical_games_2025.json" ]; then
+            echo "FOUND: data/processed/historical_games_2025.json"
+          else
+            echo "MISSING: data/processed/historical_games_2025.json"
+            MISSING=1
+          fi
+
+          if [ -f "ratings/calibrate_game_totals.py" ]; then
+            echo "FOUND: ratings/calibrate_game_totals.py"
+          else
+            echo "MISSING: ratings/calibrate_game_totals.py"
+            MISSING=1
+          fi
+
+          echo ""
+
+          if [ "$MISSING" -ne 0 ]; then
+            echo "ERROR: One or more required files are missing."
+            exit 1
+          fi
+
+          echo "Input check: PASS"
+
+      - name: Run 2025 game total calibration
+        run: |
+          set -o pipefail
+
+          echo "============================================================"
+          echo "RUNNING PROJECT GRIDIRON TOTALS CALIBRATION"
+          echo "============================================================"
+          echo ""
+
+          python -u -m ratings.calibrate_game_totals
+
+          STATUS=$?
+
+          echo ""
+          echo "============================================================"
+          echo "PYTHON RESULT"
+          echo "============================================================"
+          echo ""
+
+          echo "Python exit status: $STATUS"
+
+          echo ""
+          echo "Expected output:"
+          echo "data/processed/game_total_calibration_2025.json"
+          echo ""
+
+          if [ -f "data/processed/game_total_calibration_2025.json" ]; then
+            echo "OUTPUT CREATED"
+            ls -lh data/processed/game_total_calibration_2025.json
+          else
+            echo "OUTPUT NOT CREATED"
+          fi
+
+          exit $STATUS
+
+      - name: Validate totals calibration output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path(
+              "data/processed/game_total_calibration_2025.json"
+          )
+
+          print("=" * 78)
+          print("GAME TOTAL CALIBRATION OUTPUT CHECK")
+          print("=" * 78)
+          print()
+
+          if not path.exists():
+              raise SystemExit(
+                  "Game total calibration output was not created."
+              )
+
+          with path.open(
+              "r",
+              encoding="utf-8"
+          ) as file:
+              data = json.load(file)
+
+          required_top_level = {
+              "season",
+              "model_version",
+              "games_tested",
+              "model",
+              "metrics",
+              "skipped",
+          }
+
+          missing = (
+              required_top_level
+              -
+              set(data)
+          )
+
+          if missing:
+              raise SystemExit(
+                  f"Missing top-level fields: {sorted(missing)}"
+              )
+
+          model = data["model"]
+          metrics = data["metrics"]
+
+          required_model_fields = {
+              "intercept",
+              "home_offense_coefficient",
+              "away_offense_coefficient",
+              "home_defense_coefficient",
+              "away_defense_coefficient",
+          }
+
+          missing_model = (
+              required_model_fields
+              -
+              set(model)
+          )
+
+          if missing_model:
+              raise SystemExit(
+                  f"Missing model fields: {sorted(missing_model)}"
+              )
+
+          print(
+              f"Model version: "
+              f"{data['model_version']}"
+          )
+
+          print(
+              f"Games tested: "
+              f"{data['games_tested']}"
+          )
+
+          print()
+
+          print("TOTAL MODEL")
+          print("-" * 78)
+
+          print(
+              f"Intercept: "
+              f"{model['intercept']:+.4f}"
+          )
+
+          print(
+              f"Home offense coefficient: "
+              f"{model['home_offense_coefficient']:+.4f}"
+          )
+
+          print(
+              f"Away offense coefficient: "
+              f"{model['away_offense_coefficient']:+.4f}"
+          )
+
+          print(
+              f"Home defense coefficient: "
+              f"{model['home_defense_coefficient']:+.4f}"
+          )
+
+          print(
+              f"Away defense coefficient: "
+              f"{model['away_defense_coefficient']:+.4f}"
+          )
+
+          print()
+
+          print("MODEL PERFORMANCE")
+          print("-" * 78)
+
+          for key in [
+              "correlation",
+              "mae",
+              "rmse",
+              "actual_total_mean",
+              "prediction_mean",
+          ]:
+              value = metrics.get(key)
+
+              if value is None:
+                  print(f"{key}: N/A")
+              else:
+                  print(f"{key}: {value:.4f}")
+
+          print()
+
+          print("SKIPPED RECORDS")
+          print("-" * 78)
+
+          for key, value in data["skipped"].items():
+              print(f"{key}: {value}")
+
+          print()
+          print("Output validation: PASS")
+          PY
+
+      - name: Commit totals calibration output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            data/processed/game_total_calibration_2025.json
+
+          if git diff --cached --quiet; then
+            echo "No totals calibration changes to commit."
+          else
+            git commit -m \
+              "Calibrate Project Gridiron game totals"
+
+            git push
+          fi
