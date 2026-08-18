@@ -23,42 +23,92 @@ jobs:
 
       - name: Verify calibration inputs
         run: |
-          echo "Checking calibration inputs..."
+          echo "============================================================"
+          echo "VERIFY CALIBRATION INPUTS"
+          echo "============================================================"
           echo ""
-
-          REQUIRED_FILES=(
-            "data/processed/power_ratings_2025.json"
-          )
 
           MISSING=0
 
-          for FILE in "${REQUIRED_FILES[@]}"; do
-            if [ -f "$FILE" ]; then
-              echo "FOUND:   $FILE"
-            else
-              echo "MISSING: $FILE"
-              MISSING=1
-            fi
-          done
-
-          if [ -f "data/processed/historical_games_2025.json" ]; then
-            echo "FOUND:   data/processed/historical_games_2025.json"
-          elif [ -f "data/raw/historical_games/2025.json" ]; then
-            echo "FOUND:   data/raw/historical_games/2025.json"
+          if [ -f "data/processed/power_ratings_2025.json" ]; then
+            echo "FOUND: data/processed/power_ratings_2025.json"
           else
-            echo "MISSING: 2025 historical games file"
+            echo "MISSING: data/processed/power_ratings_2025.json"
             MISSING=1
           fi
 
+          if [ -f "data/processed/historical_games_2025.json" ]; then
+            echo "FOUND: data/processed/historical_games_2025.json"
+          else
+            echo "MISSING: data/processed/historical_games_2025.json"
+            MISSING=1
+          fi
+
+          if [ -f "ratings/calibrate_game_margins_v2.py" ]; then
+            echo "FOUND: ratings/calibrate_game_margins_v2.py"
+          else
+            echo "MISSING: ratings/calibrate_game_margins_v2.py"
+            MISSING=1
+          fi
+
+          echo ""
+
           if [ "$MISSING" -ne 0 ]; then
-            echo ""
-            echo "One or more required calibration inputs are missing."
+            echo "ERROR: One or more required files are missing."
             exit 1
           fi
 
+          echo "Input check: PASS"
+
+      - name: Inspect calibration module
+        run: |
+          echo "============================================================"
+          echo "CALIBRATION MODULE INSPECTION"
+          echo "============================================================"
+          echo ""
+
+          ls -lh ratings/calibrate_game_margins_v2.py
+
+          echo ""
+          echo "Last 25 lines:"
+          echo "------------------------------------------------------------"
+
+          tail -n 25 ratings/calibrate_game_margins_v2.py
+
       - name: Run 2025 game margin calibration
         run: |
-          python -m ratings.calibrate_game_margins
+          set -o pipefail
+
+          echo "============================================================"
+          echo "RUNNING PROJECT GRIDIRON CALIBRATION V2"
+          echo "============================================================"
+          echo ""
+
+          python -u -m ratings.calibrate_game_margins_v2
+
+          STATUS=$?
+
+          echo ""
+          echo "============================================================"
+          echo "PYTHON RESULT"
+          echo "============================================================"
+          echo ""
+
+          echo "Python exit status: $STATUS"
+
+          echo ""
+          echo "Expected output:"
+          echo "data/processed/game_margin_calibration_2025.json"
+          echo ""
+
+          if [ -f "data/processed/game_margin_calibration_2025.json" ]; then
+            echo "OUTPUT CREATED"
+            ls -lh data/processed/game_margin_calibration_2025.json
+          else
+            echo "OUTPUT NOT CREATED"
+          fi
+
+          exit $STATUS
 
       - name: Validate calibration output
         run: |
@@ -69,6 +119,11 @@ jobs:
           path = Path(
               "data/processed/game_margin_calibration_2025.json"
           )
+
+          print("=" * 78)
+          print("GAME MARGIN CALIBRATION OUTPUT CHECK")
+          print("=" * 78)
+          print()
 
           if not path.exists():
               raise SystemExit(
@@ -100,6 +155,7 @@ jobs:
               )
 
           model = data["model"]
+          metrics = data["metrics"]
 
           required_model_fields = {
               "intercept",
@@ -118,10 +174,10 @@ jobs:
                   f"Missing model fields: {sorted(missing_model)}"
               )
 
-          print("=" * 78)
-          print("GAME MARGIN CALIBRATION OUTPUT CHECK")
-          print("=" * 78)
-          print()
+          print(
+              f"Model version: "
+              f"{data.get('model_version', 'unknown')}"
+          )
 
           print(
               f"Games tested: "
@@ -129,7 +185,8 @@ jobs:
           )
 
           print()
-          print("MODEL")
+
+          print("CALIBRATION MODEL")
           print("-" * 78)
 
           print(
@@ -148,39 +205,82 @@ jobs:
           )
 
           print()
-          print("METRICS")
+
+          print("MODEL PERFORMANCE")
           print("-" * 78)
 
-          for key, value in data["metrics"].items():
-              if isinstance(value, (int, float)):
+          for key in [
+              "raw_rating_gap_correlation",
+              "prediction_correlation",
+              "mae",
+              "rmse",
+              "actual_margin_mean",
+              "actual_margin_std",
+              "prediction_mean",
+              "prediction_std",
+          ]:
+
+              value = metrics.get(key)
+
+              if value is None:
                   print(
-                      f"{key}: "
-                      f"{value:.4f}"
+                      f"{key}: N/A"
                   )
               else:
                   print(
-                      f"{key}: "
-                      f"{value}"
+                      f"{key}: {value:.4f}"
                   )
+
+          print()
+
+          skipped = data.get(
+              "skipped",
+              {}
+          )
+
+          print("SKIPPED RECORDS")
+          print("-" * 78)
+
+          for key, value in skipped.items():
+              print(
+                  f"{key}: {value}"
+              )
 
           print()
           print("Output validation: PASS")
           PY
 
+      - name: Show git status
+        run: |
+          echo "============================================================"
+          echo "GIT STATUS"
+          echo "============================================================"
+          echo ""
+
+          git status --short
+
       - name: Commit calibration output
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email \
+          git config \
+            user.name \
+            "github-actions[bot]"
+
+          git config \
+            user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add \
             data/processed/game_margin_calibration_2025.json
 
           if git diff --cached --quiet; then
+
             echo "No calibration changes to commit."
+
           else
+
             git commit -m \
               "Calibrate Project Gridiron game margins"
 
             git push
+
           fi
