@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Project Gridiron college football power ratings and game projections." />
+  <title>Project Gridiron | College Football Predictions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-wrap">
+      <div class="brand-mark" aria-hidden="true">PG</div>
+      <div>
+        <p class="eyebrow">PROJECT GRIDIRON</p>
+        <h1>College Football Forecast</h1>
+      </div>
+    </div>
+    <div class="status-pill" id="modelStatus">Loading model status…</div>
+  </header>
+
+  <main>
+    <section class="hero panel">
+      <div>
+        <p class="eyebrow">2026 PRESEASON</p>
+        <h2>Power ratings, projected spreads, winners and totals — in one place.</h2>
+        <p class="hero-copy">Built from Project Gridiron's rating pipeline. Current outputs are provisional until the final V4 preseason model is validated.</p>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric"><span id="teamCount">—</span><small>Teams tracked</small></div>
+        <div class="metric"><span id="gameCount">—</span><small>Games projected</small></div>
+        <div class="metric"><span id="weekCount">—</span><small>Weeks loaded</small></div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Dashboard views">
+      <button class="tab active" data-view="games">Game Projections</button>
+      <button class="tab" data-view="rankings">Team Rankings</button>
+      <button class="tab" data-view="methodology">Methodology</button>
+    </nav>
+
+    <section id="gamesView" class="view active">
+      <div class="toolbar panel">
+        <div>
+          <label for="weekSelect">Week</label>
+          <select id="weekSelect"><option value="all">All weeks</option></select>
+        </div>
+        <div class="search-wrap">
+          <label for="gameSearch">Team search</label>
+          <input id="gameSearch" type="search" placeholder="Texas, Ohio State, Georgia…" />
+        </div>
+      </div>
+      <div id="gamesGrid" class="games-grid"></div>
+      <div id="gamesEmpty" class="empty-state panel hidden">
+        <h3>No game projections are available yet.</h3>
+        <p>The dashboard is already wired to <code>data/processed/provisional_game_predictions_2026.json</code>. Once the pipeline writes that file, these cards will populate automatically.</p>
+      </div>
+    </section>
+
+    <section id="rankingsView" class="view">
+      <div class="toolbar panel">
+        <div class="search-wrap full">
+          <label for="rankingSearch">Search teams</label>
+          <input id="rankingSearch" type="search" placeholder="Search current 2026 returning-production data…" />
+        </div>
+      </div>
+      <div class="table-wrap panel">
+        <table>
+          <thead>
+            <tr><th>Rank</th><th>Team</th><th>Returning snaps</th><th>Return %</th><th>Source</th></tr>
+          </thead>
+          <tbody id="rankingsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="methodologyView" class="view">
+      <div class="method-grid">
+        <article class="panel method-card">
+          <span class="step">01</span><h3>Rate the teams</h3>
+          <p>Project Gridiron builds team strength from historical performance and preseason information, with SP+ serving as the anchor for the current V4 validation path.</p>
+        </article>
+        <article class="panel method-card">
+          <span class="step">02</span><h3>Calibrate the margin</h3>
+          <p>Rating gaps are translated into projected point margins using the historical game-margin calibration model plus a home-field component when applicable.</p>
+        </article>
+        <article class="panel method-card">
+          <span class="step">03</span><h3>Project the total</h3>
+          <p>Offense and defense scores feed a separately calibrated totals model, producing an expected combined score and implied team scores.</p>
+        </article>
+        <article class="panel method-card">
+          <span class="step">04</span><h3>Publish weekly</h3>
+          <p>Generated JSON is consumed directly by this site, so model updates can refresh rankings and game projections without rebuilding the front end.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Project Gridiron • 2026 College Football Forecast</p>
+    <p class="muted">For analytical and entertainment purposes. Projections are model estimates, not guarantees.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
