@@ -7,6 +7,8 @@ import json
 import sys
 from pathlib import Path
 
+from requests.exceptions import RequestException
+
 from data.cfbd_api import client
 
 
@@ -47,7 +49,7 @@ def fetch_records(endpoint, params, required=True):
 
     try:
         data = client.get(endpoint, params=params)
-    except (RuntimeError, ValueError) as error:
+    except (RuntimeError, ValueError, RequestException) as error:
         if required or _is_guard_error(error):
             raise
 
