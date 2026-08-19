@@ -1,161 +1,78 @@
 """
-Calculate 2025 Strength of Schedule.
+Calculate strength of schedule from team results.
 
-SOS is based on the average 2025 point
-margin per game of each team's FBS opponents.
+Usage:
+    python -m ratings.strength_of_schedule 2023
 """
 
 import json
+import sys
 from pathlib import Path
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-RESULTS_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "team_results_2025.json"
-)
 
-OUTPUT_FILE = (
-    PROJECT_ROOT
-    / "data"
-    / "processed"
-    / "strength_of_schedule_2025.json"
-)
+def results_file(year):
+    return PROJECT_ROOT / "data" / "processed" / f"team_results_{year}.json"
 
 
-def load_results():
-    """Load 2025 team results."""
+def output_file(year):
+    return PROJECT_ROOT / "data" / "processed" / f"strength_of_schedule_{year}.json"
 
-    with RESULTS_FILE.open(
-        "r",
-        encoding="utf-8"
-    ) as file:
+
+def load_results(year):
+    source = results_file(year)
+    if not source.exists():
+        raise FileNotFoundError(f"Team results file not found: {source}")
+    with source.open("r", encoding="utf-8") as file:
         return json.load(file)
 
 
 def build_team_lookup(results):
-    """Create a team-name lookup."""
-
-    return {
-        team["team"]: team
-        for team in results
-    }
+    return {team["team"]: team for team in results}
 
 
 def calculate_sos(team, team_lookup):
-    """Calculate opponent strength for one team."""
-
     opponent_margins = []
-
     for opponent in team["opponents"]:
-
         if opponent["game_classification"] != "fbs_vs_fbs":
             continue
-
-        opponent_name = opponent["team"]
-
-        opponent_data = team_lookup.get(
-            opponent_name
-        )
-
-        if opponent_data is None:
-            continue
-
-        opponent_margins.append(
-            opponent_data["point_margin_per_game"]
-        )
+        opponent_data = team_lookup.get(opponent["team"])
+        if opponent_data is not None:
+            opponent_margins.append(opponent_data["point_margin_per_game"])
 
     if not opponent_margins:
-        return {
-            "games": 0,
-            "average_opponent_margin": 0,
-            "opponents": [],
-        }
+        return {"games": 0, "average_opponent_margin": 0, "opponents": []}
 
     return {
         "games": len(opponent_margins),
-        "average_opponent_margin":
-            sum(opponent_margins)
-            / len(opponent_margins),
+        "average_opponent_margin": sum(opponent_margins) / len(opponent_margins),
         "opponents": [
-            {
-                "team": opponent["team"],
-                "margin":
-                    team_lookup[
-                        opponent["team"]
-                    ]["point_margin_per_game"],
-            }
+            {"team": opponent["team"], "margin": team_lookup[opponent["team"]]["point_margin_per_game"]}
             for opponent in team["opponents"]
-            if (
-                opponent["game_classification"]
-                == "fbs_vs_fbs"
-                and opponent["team"]
-                in team_lookup
-            )
+            if opponent["game_classification"] == "fbs_vs_fbs" and opponent["team"] in team_lookup
         ],
     }
 
 
-def calculate_all_sos():
-    """Calculate SOS for every team."""
-
-    results = load_results()
-
+def calculate_all_sos(year=2025):
+    results = load_results(year)
     team_lookup = build_team_lookup(results)
-
     sos_results = []
-
     for team in results:
-
-        # Only calculate ratings for FBS teams.
         if team["fbs_games"] == 0:
             continue
+        sos_results.append({"season": year, "team": team["team"], "sos": calculate_sos(team, team_lookup)})
 
-        sos = calculate_sos(
-            team,
-            team_lookup
-        )
-
-        sos_results.append(
-            {
-                "season": 2025,
-                "team": team["team"],
-                "sos": sos,
-            }
-        )
-
-    sos_results.sort(
-        key=lambda team: team["sos"]["average_opponent_margin"],
-        reverse=True,
-    )
-
-    OUTPUT_FILE.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    with OUTPUT_FILE.open(
-        "w",
-        encoding="utf-8"
-    ) as file:
-        json.dump(
-            sos_results,
-            file,
-            indent=4
-        )
-
-    print(
-        f"Calculated SOS for "
-        f"{len(sos_results)} FBS teams."
-    )
-
-    print(
-        f"Saved to {OUTPUT_FILE}"
-    )
+    sos_results.sort(key=lambda team: team["sos"]["average_opponent_margin"], reverse=True)
+    destination = output_file(year)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("w", encoding="utf-8") as file:
+        json.dump(sos_results, file, indent=4)
+    print(f"Calculated SOS for {len(sos_results)} FBS teams in {year}.")
+    print(f"Saved to {destination}")
 
 
 if __name__ == "__main__":
-    calculate_all_sos()
+    year = int(sys.argv[1]) if len(sys.argv) > 1 else 2025
+    calculate_all_sos(year)
