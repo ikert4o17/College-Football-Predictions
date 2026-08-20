@@ -30,6 +30,12 @@ function normalizeGames(data) {
   return [];
 }
 
+function normalizeRankings(data) {
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data?.rankings)) return data.rankings;
+  return [];
+}
+
 function renderSummary() {
   byId("teamCount").textContent = state.rankings.length || "—";
   byId("gameCount").textContent = state.games.length || "—";
@@ -38,8 +44,8 @@ function renderSummary() {
 
   const hasGames = state.games.length > 0;
   byId("modelStatus").textContent = hasGames
-    ? "2026 Preseason V4 production model loaded"
-    : "Site ready • awaiting production prediction JSON";
+    ? "2026 V4 production model loaded"
+    : "Site ready • awaiting production JSON";
 }
 
 function renderWeekOptions() {
@@ -69,7 +75,7 @@ function gameCard(game) {
     <article class="game-card panel">
       <div class="game-meta">
         <span>Week ${escapeHtml(game.week ?? "—")} • ${escapeHtml(date)}</span>
-        <span class="${game.provisional ? "provisional" : ""}">${game.provisional ? "PROVISIONAL" : "V4"}</span>
+        <span>${game.provisional ? "PROVISIONAL" : "V4 PRODUCTION"}</span>
       </div>
       <div class="matchup">
         <div class="team away">
@@ -109,15 +115,16 @@ function renderRankings() {
   const query = byId("rankingSearch").value.trim().toLowerCase();
   const rows = state.rankings
     .filter((row) => !query || String(row.team || "").toLowerCase().includes(query))
-    .sort((a, b) => Number(a.rank_by_returning_snaps ?? 9999) - Number(b.rank_by_returning_snaps ?? 9999));
+    .sort((a, b) => Number(a.rank ?? 9999) - Number(b.rank ?? 9999));
 
   byId("rankingsBody").innerHTML = rows.map((row) => `
     <tr>
-      <td>${escapeHtml(row.rank_by_returning_snaps ?? "—")}</td>
+      <td>${escapeHtml(row.rank ?? "—")}</td>
       <td><strong>${escapeHtml(row.team)}</strong></td>
-      <td>${Number(row.returning_snaps || 0).toLocaleString()}</td>
-      <td>${escapeHtml(row.returning_snap_percent ?? "—")}%</td>
-      <td>${escapeHtml(row.source || "—")}</td>
+      <td>${fmt(row.power_rating, 2)}</td>
+      <td>${fmt(row.preseason_v4_adjustment, 2)}</td>
+      <td>${fmt((Number(row.returning_production || 0) * 100), 0)}%</td>
+      <td>${Number(row.transfer_talent || 0) > 0 ? "+" : ""}${fmt(row.transfer_talent, 0)}</td>
     </tr>`).join("");
 }
 
@@ -136,17 +143,18 @@ async function init() {
   setupTabs();
 
   try {
-    state.rankings = await loadJson("2026.json");
+    const rankingData = await loadJson("site_data/rankings_2026.json");
+    state.rankings = normalizeRankings(rankingData);
   } catch (error) {
-    console.warn("Returning-production dataset unavailable", error);
+    console.warn("2026 production rankings unavailable", error);
     state.rankings = [];
   }
 
   try {
-    const gameData = await loadJson("data/processed/game_predictions_2026.json");
+    const gameData = await loadJson("site_data/game_predictions_2026.json");
     state.games = normalizeGames(gameData);
   } catch (error) {
-    console.info("Production prediction JSON not available yet; dashboard remains ready.", error);
+    console.info("2026 production predictions unavailable; dashboard remains ready.", error);
     state.games = [];
   }
 
