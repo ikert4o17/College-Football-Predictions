@@ -27,7 +27,7 @@ def main():
     # untouched for historical comparison.
     pipeline.RATINGS_FILE = RATINGS_FILE
     pipeline.OUTPUT_FILE = OUTPUT_FILE
-    pipeline.main()
+    pipeline.build_predictions()
 
     with OUTPUT_FILE.open("r", encoding="utf-8") as f:
         data = json.load(f)
