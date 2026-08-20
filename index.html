@@ -25,12 +25,12 @@
   <main>
     <section class="hero panel">
       <div>
-        <p class="eyebrow">2026 PRESEASON</p>
+        <p class="eyebrow">2026 • V4 PRODUCTION</p>
         <h2>Power ratings, projected spreads, winners and totals — in one place.</h2>
-        <p class="hero-copy">Built from Project Gridiron's rating pipeline. Current outputs are provisional until the final V4 preseason model is validated.</p>
+        <p class="hero-copy">Project Gridiron V4 is now the active 2026 preseason model. Week 0 projections use the approved preseason ratings with the calibrated margin and totals models.</p>
       </div>
       <div class="hero-metrics">
-        <div class="metric"><span id="teamCount">—</span><small>Teams tracked</small></div>
+        <div class="metric"><span id="teamCount">—</span><small>Teams rated</small></div>
         <div class="metric"><span id="gameCount">—</span><small>Games projected</small></div>
         <div class="metric"><span id="weekCount">—</span><small>Weeks loaded</small></div>
       </div>
@@ -55,8 +55,8 @@
       </div>
       <div id="gamesGrid" class="games-grid"></div>
       <div id="gamesEmpty" class="empty-state panel hidden">
-        <h3>No game projections are available yet.</h3>
-        <p>The dashboard is already wired to <code>data/processed/provisional_game_predictions_2026.json</code>. Once the pipeline writes that file, these cards will populate automatically.</p>
+        <h3>No production game projections are available yet.</h3>
+        <p>The dashboard reads <code>site_data/game_predictions_2026.json</code>. Run the site export after generating predictions to refresh this view.</p>
       </div>
     </section>
 
@@ -64,13 +64,13 @@
       <div class="toolbar panel">
         <div class="search-wrap full">
           <label for="rankingSearch">Search teams</label>
-          <input id="rankingSearch" type="search" placeholder="Search current 2026 returning-production data…" />
+          <input id="rankingSearch" type="search" placeholder="Search 2026 V4 power ratings…" />
         </div>
       </div>
       <div class="table-wrap panel">
         <table>
           <thead>
-            <tr><th>Rank</th><th>Team</th><th>Returning snaps</th><th>Return %</th><th>Source</th></tr>
+            <tr><th>Rank</th><th>Team</th><th>Power rating</th><th>V4 adj.</th><th>Return %</th><th>Net high-end portal</th></tr>
           </thead>
           <tbody id="rankingsBody"></tbody>
         </table>
@@ -80,20 +80,20 @@
     <section id="methodologyView" class="view">
       <div class="method-grid">
         <article class="panel method-card">
-          <span class="step">01</span><h3>Rate the teams</h3>
-          <p>Project Gridiron builds team strength from historical performance and preseason information, with SP+ serving as the anchor for the current V4 validation path.</p>
+          <span class="step">01</span><h3>Anchor the teams</h3>
+          <p>2025 SP+ is mapped to the 2025 Project Gridiron rating scale to establish the entering-2026 baseline.</p>
         </article>
         <article class="panel method-card">
-          <span class="step">02</span><h3>Calibrate the margin</h3>
-          <p>Rating gaps are translated into projected point margins using the historical game-margin calibration model plus a home-field component when applicable.</p>
+          <span class="step">02</span><h3>Apply V4 preseason adjustments</h3>
+          <p>Returning production, transfer talent, quarterback continuity and coaching context are standardized and applied using the frozen multi-year V4 weights, capped at ±6 rating points.</p>
         </article>
         <article class="panel method-card">
-          <span class="step">03</span><h3>Project the total</h3>
-          <p>Offense and defense scores feed a separately calibrated totals model, producing an expected combined score and implied team scores.</p>
+          <span class="step">03</span><h3>Project games</h3>
+          <p>Rating gaps feed the historical margin calibration and offense/defense scores feed the totals calibration to produce spreads, totals and implied scores.</p>
         </article>
         <article class="panel method-card">
-          <span class="step">04</span><h3>Publish weekly</h3>
-          <p>Generated JSON is consumed directly by this site, so model updates can refresh rankings and game projections without rebuilding the front end.</p>
+          <span class="step">04</span><h3>Update in season</h3>
+          <p>Once games begin, the weekly system will blend the preseason prior with current-season performance and progressively shift weight toward observed 2026 results.</p>
         </article>
       </div>
     </section>
