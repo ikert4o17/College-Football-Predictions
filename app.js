@@ -36,10 +36,29 @@ function normalizeRankings(data) {
   return [];
 }
 
+async function loadRankings() {
+  const data = await loadJson("site_data/rankings_2026.json");
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data?.rankings)) return data.rankings;
+  if (Array.isArray(data?.parts)) {
+    const pieces = await Promise.all(data.parts.map((path) => loadJson(path)));
+    return pieces.flatMap(normalizeRankings);
+  }
+  return [];
+}
+
+function displayWeek(game) {
+  if (game?.season === 2026 && game?.start_date) {
+    const date = new Date(game.start_date);
+    if (!Number.isNaN(date.getTime()) && date.getUTCMonth() === 7) return 0;
+  }
+  return game?.week ?? "—";
+}
+
 function renderSummary() {
   byId("teamCount").textContent = state.rankings.length || "—";
   byId("gameCount").textContent = state.games.length || "—";
-  const weeks = new Set(state.games.map((g) => g.week).filter((w) => w !== null && w !== undefined));
+  const weeks = new Set(state.games.map(displayWeek).filter((w) => w !== null && w !== undefined));
   byId("weekCount").textContent = weeks.size || "—";
 
   const hasGames = state.games.length > 0;
@@ -50,7 +69,7 @@ function renderSummary() {
 
 function renderWeekOptions() {
   const select = byId("weekSelect");
-  const weeks = [...new Set(state.games.map((g) => g.week).filter((w) => w !== null && w !== undefined))]
+  const weeks = [...new Set(state.games.map(displayWeek).filter((w) => w !== null && w !== undefined))]
     .sort((a, b) => Number(a) - Number(b));
 
   select.innerHTML = '<option value="all">All weeks</option>' + weeks
@@ -74,7 +93,7 @@ function gameCard(game) {
   return `
     <article class="game-card panel">
       <div class="game-meta">
-        <span>Week ${escapeHtml(game.week ?? "—")} • ${escapeHtml(date)}</span>
+        <span>Week ${escapeHtml(displayWeek(game))} • ${escapeHtml(date)}</span>
         <span>${game.provisional ? "PROVISIONAL" : "V4 PRODUCTION"}</span>
       </div>
       <div class="matchup">
@@ -103,7 +122,7 @@ function renderGames() {
   const filtered = state.games.filter((game) => {
     const matchup = `${game.away_team || ""} ${game.home_team || ""}`.toLowerCase();
     const matchesQuery = !query || matchup.includes(query);
-    const matchesWeek = week === "all" || String(game.week) === week;
+    const matchesWeek = week === "all" || String(displayWeek(game)) === week;
     return matchesQuery && matchesWeek;
   });
 
@@ -143,8 +162,7 @@ async function init() {
   setupTabs();
 
   try {
-    const rankingData = await loadJson("site_data/rankings_2026.json");
-    state.rankings = normalizeRankings(rankingData);
+    state.rankings = await loadRankings();
   } catch (error) {
     console.warn("2026 production rankings unavailable", error);
     state.rankings = [];
