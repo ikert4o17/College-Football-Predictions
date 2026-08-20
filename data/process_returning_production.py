@@ -1,11 +1,10 @@
 """
-Process CFBD returning production data into model-ready team profiles.
+Process returning-production data into model-ready team profiles.
 
-The data represents production returning into the specified season.
-
-Example:
-    2025 returning production describes production returning
-    from the 2024 season into 2025.
+Historical CFBD data uses PPA-based returning-production fields. Beginning
+with the 2026 raw data, the source schema can instead provide returning snaps
+and returning_snap_percent. Both schemas are normalized to the same model
+field: overall.percent on a 0-1 scale.
 
 Usage:
     python -m data.process_returning_production 2025
@@ -21,335 +20,146 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 def input_file(year):
-    """Return raw input path for a season."""
-
-    return (
-        PROJECT_ROOT
-        / "data"
-        / "raw"
-        / "returning_production"
-        / f"{year}.json"
-    )
+    return PROJECT_ROOT / "data" / "raw" / "returning_production" / f"{year}.json"
 
 
 def output_file(year):
-    """Return processed output path for a season."""
-
-    return (
-        PROJECT_ROOT
-        / "data"
-        / "processed"
-        / f"returning_production_{year}.json"
-    )
+    return PROJECT_ROOT / "data" / "processed" / f"returning_production_{year}.json"
 
 
 def safe_float(value):
-    """Safely convert a value to float."""
-
     if value is None:
         return 0.0
-
     try:
         return float(value)
-
-    except (
-        TypeError,
-        ValueError
-    ):
+    except (TypeError, ValueError):
         return 0.0
+
+
+def detect_schema(record):
+    """Identify the returning-production schema used by one raw record."""
+    if "percentPPA" in record:
+        return "ppa"
+    if "returning_snap_percent" in record:
+        return "snaps"
+    return "unknown"
 
 
 def process_team(record):
-    """
-    Convert one CFBD record into a standardized team profile.
+    """Convert one raw record into the standardized team profile."""
+    schema = detect_schema(record)
 
-    CFBD currently returns fields such as:
-        percentPPA
-        percentPassingPPA
-        percentReceivingPPA
-        percentRushingPPA
-        usage
-        passingUsage
-        receivingUsage
-        rushingUsage
-    """
+    if schema == "ppa":
+        return {
+            "season": record.get("season"),
+            "team": record.get("team"),
+            "conference": record.get("conference"),
+            "source_schema": "ppa",
+            "overall": {
+                "percent": safe_float(record.get("percentPPA")),
+                "usage": safe_float(record.get("usage")),
+                "ppa": safe_float(record.get("totalPPA")),
+            },
+            "passing": {
+                "percent": safe_float(record.get("percentPassingPPA")),
+                "usage": safe_float(record.get("passingUsage")),
+                "ppa": safe_float(record.get("totalPassingPPA")),
+            },
+            "rushing": {
+                "percent": safe_float(record.get("percentRushingPPA")),
+                "usage": safe_float(record.get("rushingUsage")),
+                "ppa": safe_float(record.get("totalRushingPPA")),
+            },
+            "receiving": {
+                "percent": safe_float(record.get("percentReceivingPPA")),
+                "usage": safe_float(record.get("receivingUsage")),
+                "ppa": safe_float(record.get("totalReceivingPPA")),
+            },
+        }
 
-    return {
-        "season":
-            record.get(
-                "season"
-            ),
+    if schema == "snaps":
+        snap_percent = safe_float(record.get("returning_snap_percent")) / 100.0
+        return {
+            "season": record.get("season"),
+            "team": record.get("team"),
+            "conference": record.get("conference"),
+            "source_schema": "snaps",
+            "source": record.get("source"),
+            "rank_by_returning_snaps": record.get("rank_by_returning_snaps"),
+            "returning_snaps": safe_float(record.get("returning_snaps")),
+            "overall": {
+                "percent": snap_percent,
+                "usage": 0.0,
+                "ppa": 0.0,
+            },
+            "passing": {"percent": 0.0, "usage": 0.0, "ppa": 0.0},
+            "rushing": {"percent": 0.0, "usage": 0.0, "ppa": 0.0},
+            "receiving": {"percent": 0.0, "usage": 0.0, "ppa": 0.0},
+        }
 
-        "team":
-            record.get(
-                "team"
-            ),
-
-        "conference":
-            record.get(
-                "conference"
-            ),
-
-        "overall": {
-            "percent":
-                safe_float(
-                    record.get(
-                        "percentPPA"
-                    )
-                ),
-
-            "usage":
-                safe_float(
-                    record.get(
-                        "usage"
-                    )
-                ),
-
-            "ppa":
-                safe_float(
-                    record.get(
-                        "totalPPA"
-                    )
-                ),
-        },
-
-        "passing": {
-            "percent":
-                safe_float(
-                    record.get(
-                        "percentPassingPPA"
-                    )
-                ),
-
-            "usage":
-                safe_float(
-                    record.get(
-                        "passingUsage"
-                    )
-                ),
-
-            "ppa":
-                safe_float(
-                    record.get(
-                        "totalPassingPPA"
-                    )
-                ),
-        },
-
-        "rushing": {
-            "percent":
-                safe_float(
-                    record.get(
-                        "percentRushingPPA"
-                    )
-                ),
-
-            "usage":
-                safe_float(
-                    record.get(
-                        "rushingUsage"
-                    )
-                ),
-
-            "ppa":
-                safe_float(
-                    record.get(
-                        "totalRushingPPA"
-                    )
-                ),
-        },
-
-        "receiving": {
-            "percent":
-                safe_float(
-                    record.get(
-                        "percentReceivingPPA"
-                    )
-                ),
-
-            "usage":
-                safe_float(
-                    record.get(
-                        "receivingUsage"
-                    )
-                ),
-
-            "ppa":
-                safe_float(
-                    record.get(
-                        "totalReceivingPPA"
-                    )
-                ),
-        },
-    }
+    raise ValueError(
+        f"Unrecognized returning-production schema for team {record.get('team')!r}. "
+        f"Fields: {sorted(record.keys())}"
+    )
 
 
 def process_returning_production(year):
-    """Process all returning-production records for one season."""
-
-    source = input_file(
-        year
-    )
-
-    destination = output_file(
-        year
-    )
+    source = input_file(year)
+    destination = output_file(year)
 
     if not source.exists():
+        raise FileNotFoundError(f"Returning production input file not found: {source}")
 
-        raise FileNotFoundError(
-            f"Returning production input file not found: "
-            f"{source}"
-        )
-
-    with source.open(
-        "r",
-        encoding="utf-8"
-    ) as file:
-
-        raw_records = json.load(
-            file
-        )
+    with source.open("r", encoding="utf-8") as file:
+        raw_records = json.load(file)
 
     processed = []
+    schema_counts = {}
 
     for record in raw_records:
+        schema = detect_schema(record)
+        schema_counts[schema] = schema_counts.get(schema, 0) + 1
+        team = process_team(record)
+        if team["team"]:
+            processed.append(team)
 
-        team = process_team(
-            record
-        )
+    processed.sort(key=lambda team: team["team"])
+    destination.parent.mkdir(parents=True, exist_ok=True)
 
-        if not team[
-            "team"
-        ]:
-            continue
+    with destination.open("w", encoding="utf-8") as file:
+        json.dump(processed, file, indent=4)
 
-        processed.append(
-            team
-        )
-
-    processed.sort(
-        key=lambda team:
-            team[
-                "team"
-            ]
-    )
-
-    destination.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    with destination.open(
-        "w",
-        encoding="utf-8"
-    ) as file:
-
-        json.dump(
-            processed,
-            file,
-            indent=4
-        )
-
-    non_zero = [
-        team
-        for team in processed
-        if team[
-            "overall"
-        ][
-            "percent"
-        ] > 0
-    ]
-
-    values = [
-        team[
-            "overall"
-        ][
-            "percent"
-        ]
-        for team in processed
-    ]
+    values = [team["overall"]["percent"] for team in processed]
+    non_zero = [value for value in values if value > 0]
 
     print("=" * 70)
-
-    print(
-        f"{year} RETURNING PRODUCTION PROCESSING"
-    )
-
+    print(f"{year} RETURNING PRODUCTION PROCESSING")
     print("=" * 70)
-
-    print(
-        f"Processed "
-        f"{len(processed)} "
-        f"returning production profiles."
-    )
-
-    print(
-        f"Saved to {destination}"
-    )
-
+    print(f"Processed {len(processed)} returning production profiles.")
+    print(f"Saved to {destination}")
     print()
-
-    print(
-        f"Teams with non-zero overall "
-        f"returning production: "
-        f"{len(non_zero)}"
-    )
+    print("SOURCE SCHEMAS")
+    print("-" * 70)
+    for schema, count in sorted(schema_counts.items()):
+        print(f"{schema}: {count}")
+    print()
+    print(f"Teams with non-zero overall returning production: {len(non_zero)}")
 
     if values:
-
-        print(
-            f"Minimum overall returning production: "
-            f"{min(values):.3f}"
-        )
-
-        print(
-            f"Maximum overall returning production: "
-            f"{max(values):.3f}"
-        )
-
-        print(
-            f"Average overall returning production: "
-            f"{sum(values) / len(values):.3f}"
-        )
+        print(f"Minimum overall returning production: {min(values):.3f}")
+        print(f"Maximum overall returning production: {max(values):.3f}")
+        print(f"Average overall returning production: {sum(values) / len(values):.3f}")
 
     print()
-
-    print(
-        "TOP 10 RETURNING PRODUCTION"
-    )
-
+    print("TOP 10 RETURNING PRODUCTION")
     print("-" * 70)
-
-    highest = sorted(
-        processed,
-        key=lambda team:
-            team[
-                "overall"
-            ][
-                "percent"
-            ],
-        reverse=True,
-    )
-
+    highest = sorted(processed, key=lambda team: team["overall"]["percent"], reverse=True)
     for team in highest[:10]:
-
-        print(
-            f"{team['team']}: "
-            f"{team['overall']['percent']:.3f}"
-        )
+        print(f"{team['team']}: {team['overall']['percent']:.3f}")
 
 
 if __name__ == "__main__":
-
     year = 2025
-
     if len(sys.argv) > 1:
-
-        year = int(
-            sys.argv[1]
-        )
-
-    process_returning_production(
-        year
-    )
+        year = int(sys.argv[1])
+    process_returning_production(year)
