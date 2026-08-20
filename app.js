@@ -38,8 +38,8 @@ function renderSummary() {
 
   const hasGames = state.games.length > 0;
   byId("modelStatus").textContent = hasGames
-    ? "2026 provisional model loaded"
-    : "Site ready • awaiting prediction JSON";
+    ? "2026 Preseason V4 production model loaded"
+    : "Site ready • awaiting production prediction JSON";
 }
 
 function renderWeekOptions() {
@@ -69,7 +69,7 @@ function gameCard(game) {
     <article class="game-card panel">
       <div class="game-meta">
         <span>Week ${escapeHtml(game.week ?? "—")} • ${escapeHtml(date)}</span>
-        <span class="${game.provisional ? "provisional" : ""}">${game.provisional ? "PROVISIONAL" : "FINAL"}</span>
+        <span class="${game.provisional ? "provisional" : ""}">${game.provisional ? "PROVISIONAL" : "V4"}</span>
       </div>
       <div class="matchup">
         <div class="team away">
@@ -143,10 +143,10 @@ async function init() {
   }
 
   try {
-    const gameData = await loadJson("data/processed/provisional_game_predictions_2026.json");
+    const gameData = await loadJson("data/processed/game_predictions_2026.json");
     state.games = normalizeGames(gameData);
   } catch (error) {
-    console.info("Prediction JSON not available yet; dashboard remains ready.", error);
+    console.info("Production prediction JSON not available yet; dashboard remains ready.", error);
     state.games = [];
   }
 
