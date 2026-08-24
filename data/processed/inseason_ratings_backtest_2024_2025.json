@@ -1,0 +1,2264 @@
+{
+    "method": "sequential margin-residual update vs static prior-season anchor",
+    "tested_seasons": [
+        2025
+    ],
+    "skipped_seasons": {
+        "2024": {
+            "reason": "missing required historical inputs",
+            "missing": [
+                "data/processed/power_ratings_2023.json"
+            ]
+        }
+    },
+    "caveat": "Historical anchor is weaker/staler than frozen 2026 preseason SP+ + Balanced Light; recommended learning is an upper bound for 2026. Current GitHub history supports 2025; 2024 will be added automatically if power_ratings_2023.json is restored.",
+    "frozen_2026_preseason": "2026 preseason SP+ + Balanced Light (RP 1.25, TT 1.00, QB -0.25, coaching 0.50, cap 4)",
+    "calibration": {
+        "rating_gap_coefficient": 0.8991446169859761,
+        "home_field_advantage": 3.9524110293738497
+    },
+    "parameter_combinations": 900,
+    "valid_candidates_improving_mae_and_rmse_all_available_seasons": 900,
+    "current_v1": {
+        "params": {
+            "base_learning_rate": 0.16,
+            "learning_rate_step": 0.03,
+            "max_learning_rate": 0.34,
+            "max_margin_residual": 28.0,
+            "max_team_delta": 4.0
+        },
+        "seasons": {
+            "2025": {
+                "games_tested": 740,
+                "updated_mae": 13.2733,
+                "static_mae": 15.0915,
+                "mae_improvement": 1.8182,
+                "updated_rmse": 16.9177,
+                "static_rmse": 19.208,
+                "rmse_improvement": 2.2903,
+                "updated_winner_accuracy": 0.7284,
+                "static_winner_accuracy": 0.6541,
+                "by_team_game_number": {
+                    "1": {
+                        "games": 81,
+                        "updated_mae": 13.476,
+                        "static_mae": 13.58,
+                        "avg_abs_team_delta": 1.12
+                    },
+                    "2": {
+                        "games": 71,
+                        "updated_mae": 15.943,
+                        "static_mae": 16.421,
+                        "avg_abs_team_delta": 1.579
+                    },
+                    "3": {
+                        "games": 63,
+                        "updated_mae": 10.612,
+                        "static_mae": 11.204,
+                        "avg_abs_team_delta": 1.264
+                    },
+                    "4": {
+                        "games": 66,
+                        "updated_mae": 14.703,
+                        "static_mae": 15.552,
+                        "avg_abs_team_delta": 1.94
+                    },
+                    "5": {
+                        "games": 68,
+                        "updated_mae": 13.3,
+                        "static_mae": 15.192,
+                        "avg_abs_team_delta": 1.855
+                    },
+                    "6": {
+                        "games": 64,
+                        "updated_mae": 12.775,
+                        "static_mae": 14.422,
+                        "avg_abs_team_delta": 2.024
+                    },
+                    "7": {
+                        "games": 70,
+                        "updated_mae": 12.335,
+                        "static_mae": 16.559,
+                        "avg_abs_team_delta": 2.012
+                    },
+                    "8": {
+                        "games": 69,
+                        "updated_mae": 13.512,
+                        "static_mae": 15.766,
+                        "avg_abs_team_delta": 2.238
+                    },
+                    "9": {
+                        "games": 65,
+                        "updated_mae": 13.141,
+                        "static_mae": 15.664,
+                        "avg_abs_team_delta": 2.29
+                    },
+                    "10": {
+                        "games": 57,
+                        "updated_mae": 13.514,
+                        "static_mae": 15.869,
+                        "avg_abs_team_delta": 2.377
+                    },
+                    "11": {
+                        "games": 57,
+                        "updated_mae": 12.729,
+                        "static_mae": 16.4,
+                        "avg_abs_team_delta": 2.18
+                    },
+                    "12": {
+                        "games": 9,
+                        "updated_mae": 10.215,
+                        "static_mae": 12.121,
+                        "avg_abs_team_delta": 1.931
+                    }
+                }
+            }
+        },
+        "mean_mae_improvement": 1.8182,
+        "mean_rmse_improvement": 2.2903,
+        "improves_mae_and_rmse_all_available_seasons": true
+    },
+    "recommended": {
+        "params": {
+            "base_learning_rate": 0.16,
+            "learning_rate_step": 0.03,
+            "max_learning_rate": 0.28,
+            "max_margin_residual": 35.0,
+            "max_team_delta": 4.0
+        },
+        "seasons": {
+            "2025": {
+                "games_tested": 740,
+                "updated_mae": 13.2165,
+                "static_mae": 15.0915,
+                "mae_improvement": 1.875,
+                "updated_rmse": 16.8642,
+                "static_rmse": 19.208,
+                "rmse_improvement": 2.3438,
+                "updated_winner_accuracy": 0.7338,
+                "static_winner_accuracy": 0.6541,
+                "by_team_game_number": {
+                    "1": {
+                        "games": 81,
+                        "updated_mae": 13.476,
+                        "static_mae": 13.58,
+                        "avg_abs_team_delta": 1.194
+                    },
+                    "2": {
+                        "games": 71,
+                        "updated_mae": 15.891,
+                        "static_mae": 16.421,
+                        "avg_abs_team_delta": 1.677
+                    },
+                    "3": {
+                        "games": 63,
+                        "updated_mae": 10.564,
+                        "static_mae": 11.204,
+                        "avg_abs_team_delta": 1.293
+                    },
+                    "4": {
+                        "games": 66,
+                        "updated_mae": 14.605,
+                        "static_mae": 15.552,
+                        "avg_abs_team_delta": 1.942
+                    },
+                    "5": {
+                        "games": 68,
+                        "updated_mae": 13.229,
+                        "static_mae": 15.192,
+                        "avg_abs_team_delta": 1.823
+                    },
+                    "6": {
+                        "games": 64,
+                        "updated_mae": 12.762,
+                        "static_mae": 14.422,
+                        "avg_abs_team_delta": 1.873
+                    },
+                    "7": {
+                        "games": 70,
+                        "updated_mae": 12.272,
+                        "static_mae": 16.559,
+                        "avg_abs_team_delta": 1.796
+                    },
+                    "8": {
+                        "games": 69,
+                        "updated_mae": 13.409,
+                        "static_mae": 15.766,
+                        "avg_abs_team_delta": 1.951
+                    },
+                    "9": {
+                        "games": 65,
+                        "updated_mae": 13.085,
+                        "static_mae": 15.664,
+                        "avg_abs_team_delta": 1.964
+                    },
+                    "10": {
+                        "games": 57,
+                        "updated_mae": 13.569,
+                        "static_mae": 15.869,
+                        "avg_abs_team_delta": 2.056
+                    },
+                    "11": {
+                        "games": 57,
+                        "updated_mae": 12.49,
+                        "static_mae": 16.4,
+                        "avg_abs_team_delta": 1.868
+                    },
+                    "12": {
+                        "games": 9,
+                        "updated_mae": 10.488,
+                        "static_mae": 12.121,
+                        "avg_abs_team_delta": 1.633
+                    }
+                }
+            }
+        },
+        "mean_mae_improvement": 1.875,
+        "mean_rmse_improvement": 2.3438,
+        "improves_mae_and_rmse_all_available_seasons": true
+    },
+    "recommended_learning_schedule": [
+        {
+            "team_game_number": 1,
+            "learning_rate": 0.16,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 2,
+            "learning_rate": 0.19,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 3,
+            "learning_rate": 0.22,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 4,
+            "learning_rate": 0.25,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 5,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 6,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 7,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 8,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 9,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 10,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 11,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        },
+        {
+            "team_game_number": 12,
+            "learning_rate": 0.28,
+            "max_team_delta": 4.0
+        }
+    ],
+    "top_20": [
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.28,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2165,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.875,
+                    "updated_rmse": 16.8642,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.3438,
+                    "updated_winner_accuracy": 0.7338,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.194
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.677
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.564,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.293
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.605,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.942
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.229,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.823
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.762,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.873
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.272,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.796
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.409,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.951
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.085,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.964
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.569,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.056
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.49,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.868
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.488,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.633
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.875,
+            "mean_rmse_improvement": 2.3438,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.24,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2247,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8668,
+                    "updated_rmse": 16.8748,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.3332,
+                    "updated_winner_accuracy": 0.7378,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.194
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.677
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.564,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.293
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.601,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.848
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.257,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.657
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.738,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.654
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.397,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.606
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.39,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.734
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.081,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.706
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.61,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.796
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.42,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.632
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.532,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.406
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8668,
+            "mean_rmse_improvement": 2.3332,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.34,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2338,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8577,
+                    "updated_rmse": 16.8713,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.3367,
+                    "updated_winner_accuracy": 0.7311,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.194
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.677
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.564,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.293
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.605,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.942
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.226,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.844
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.773,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 2.028
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.256,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 2.004
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.51,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 2.237
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.088,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 2.282
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.504,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.378
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.71,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 2.18
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.202,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.929
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8577,
+            "mean_rmse_improvement": 2.3367,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.02,
+                "max_learning_rate": 0.24,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2502,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8413,
+                    "updated_rmse": 16.9037,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.3042,
+                    "updated_winner_accuracy": 0.7405,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.477,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.182
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.571
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.569,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.181
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.613,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.753
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.315,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.665
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.77,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.656
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.485,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.616
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.415,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.736
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.111,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.71
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.625,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.799
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.447,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.635
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.489,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.4
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8413,
+            "mean_rmse_improvement": 2.3042,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.02,
+                "max_learning_rate": 0.28,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2505,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.841,
+                    "updated_rmse": 16.8988,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.3092,
+                    "updated_winner_accuracy": 0.7338,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.477,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.182
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.571
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.569,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.181
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.613,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.753
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.313,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.683
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.771,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.786
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.461,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.821
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.462,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.958
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.094,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.968
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.561,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.054
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.502,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.868
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.535,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.64
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.841,
+            "mean_rmse_improvement": 2.3092,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.02,
+                "max_learning_rate": 0.34,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2555,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.836,
+                    "updated_rmse": 16.8941,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.3139,
+                    "updated_winner_accuracy": 0.7338,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.477,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.182
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.571
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.569,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.181
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.613,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.753
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.313,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.683
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.771,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.786
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.459,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.838
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.478,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 2.091
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.069,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 2.205
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.535,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.386
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.626,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 2.163
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.395,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.965
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.836,
+            "mean_rmse_improvement": 2.3139,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.28,
+                "max_margin_residual": 28.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2599,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8316,
+                    "updated_rmse": 16.9117,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2962,
+                    "updated_winner_accuracy": 0.7297,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.12
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.943,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.579
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.612,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.264
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.703,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.94
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.303,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.833
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.765,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.869
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.358,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.807
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.425,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.954
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.135,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.973
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.6,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.061
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.519,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.87
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.488,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.633
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8316,
+            "mean_rmse_improvement": 2.2962,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.2,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2722,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8193,
+                    "updated_rmse": 16.9272,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2808,
+                    "updated_winner_accuracy": 0.7324,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.194
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.656
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.559,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.153
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.578,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.585
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.376,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.446
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.759,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.408
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.662,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.391
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.403,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.469
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.116,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.435
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.619,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.515
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.526,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.393
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.455,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.163
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8193,
+            "mean_rmse_improvement": 2.2808,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.34,
+                "max_margin_residual": 28.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2733,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8182,
+                    "updated_rmse": 16.9177,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2903,
+                    "updated_winner_accuracy": 0.7284,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.12
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.943,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.579
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.612,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.264
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.703,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.94
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.3,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.855
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.775,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 2.024
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.335,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 2.012
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.512,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 2.238
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.141,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 2.29
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.514,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.377
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.729,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 2.18
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.215,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.931
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8182,
+            "mean_rmse_improvement": 2.2903,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.24,
+                "max_margin_residual": 28.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.278,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8136,
+                    "updated_rmse": 16.9363,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2716,
+                    "updated_winner_accuracy": 0.7351,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.12
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.943,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.579
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.612,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.264
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.702,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.823
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.347,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.626
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.722,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.63
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.536,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.604
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.416,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.713
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.156,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.709
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.636,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.786
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.471,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.621
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.553,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.408
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8136,
+            "mean_rmse_improvement": 2.2716,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.02,
+                "max_learning_rate": 0.2,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2808,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.8107,
+                    "updated_rmse": 16.9391,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2689,
+                    "updated_winner_accuracy": 0.7338,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.477,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.182
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.571
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.567,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.154
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.598,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.587
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.375,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.445
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.762,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.408
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.697,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.395
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.407,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.469
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.138,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.438
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.623,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.515
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.53,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.394
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.429,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.16
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.8107,
+            "mean_rmse_improvement": 2.2689,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.01,
+                "max_learning_rate": 0.24,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.2999,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7916,
+                    "updated_rmse": 16.958,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2499,
+                    "updated_winner_accuracy": 0.7351,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.478,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.17
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.464
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.578,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.054
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.607,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.523
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.436,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.467
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.821,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.489
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.763,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.545
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.446,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.696
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.1,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.709
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.635,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.798
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.496,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.64
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.565,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.41
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7916,
+            "mean_rmse_improvement": 2.2499,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.01,
+                "max_learning_rate": 0.28,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3008,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7907,
+                    "updated_rmse": 16.9587,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2493,
+                    "updated_winner_accuracy": 0.7351,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.478,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.17
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.464
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.578,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.054
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.607,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.523
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.436,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.467
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.821,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.489
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.763,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.545
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.446,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.696
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.099,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.723
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.642,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.875
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.497,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.756
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.596,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.595
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7907,
+            "mean_rmse_improvement": 2.2493,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.01,
+                "max_learning_rate": 0.34,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3008,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7907,
+                    "updated_rmse": 16.9587,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2493,
+                    "updated_winner_accuracy": 0.7351,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.478,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.17
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.464
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.578,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.054
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.607,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.523
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.436,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.467
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.821,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.489
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.763,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.545
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.446,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.696
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.099,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.723
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.642,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.875
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.497,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.756
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.596,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.595
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7907,
+            "mean_rmse_improvement": 2.2493,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.28,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 3.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3052,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7863,
+                    "updated_rmse": 16.9584,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2496,
+                    "updated_winner_accuracy": 0.7351,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.175
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.9,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.567
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.623,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.21
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.61,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.748
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.424,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.632
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.729,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.671
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.677,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.625
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.448,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.763
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.255,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.836
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.609,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.894
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.633,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.691
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.193,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.561
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7863,
+            "mean_rmse_improvement": 2.2496,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.01,
+                "max_learning_rate": 0.2,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3087,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7828,
+                    "updated_rmse": 16.9728,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2352,
+                    "updated_winner_accuracy": 0.7338,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.478,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.17
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.891,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.464
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.578,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.054
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.607,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.523
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.437,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.451
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.815,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.413
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.794,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.405
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.428,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.471
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.149,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.439
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.646,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.518
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.556,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.396
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.419,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.159
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7828,
+            "mean_rmse_improvement": 2.2352,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.02,
+                "max_learning_rate": 0.28,
+                "max_margin_residual": 28.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3092,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7823,
+                    "updated_rmse": 16.9667,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2413,
+                    "updated_winner_accuracy": 0.727,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.477,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.108
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.942,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.479
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.616,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.14
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.705,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.699
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.432,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.667
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.814,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.789
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.6,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.837
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.493,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.963
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.133,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.974
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.614,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.061
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.537,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.871
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.59,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.649
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7823,
+            "mean_rmse_improvement": 2.2413,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.03,
+                "max_learning_rate": 0.34,
+                "max_margin_residual": 35.0,
+                "max_team_delta": 3.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3116,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7799,
+                    "updated_rmse": 16.9591,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2488,
+                    "updated_winner_accuracy": 0.7311,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.476,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.175
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.9,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.567
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.623,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.21
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.61,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.748
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.423,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.649
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.73,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.785
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.685,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.78
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.52,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.948
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.243,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 2.062
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.523,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.065
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.75,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.885
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.002,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.737
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7799,
+            "mean_rmse_improvement": 2.2488,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.02,
+                "max_learning_rate": 0.34,
+                "max_margin_residual": 28.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3132,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7783,
+                    "updated_rmse": 16.9613,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2466,
+                    "updated_winner_accuracy": 0.7257,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.477,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.108
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.942,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.479
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.616,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.14
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.705,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.699
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.432,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.667
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.814,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.789
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.599,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.855
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.508,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 2.093
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.105,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 2.209
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.586,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 2.39
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.654,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 2.162
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.445,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.975
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7783,
+            "mean_rmse_improvement": 2.2466,
+            "improves_mae_and_rmse_all_available_seasons": true
+        },
+        {
+            "params": {
+                "base_learning_rate": 0.16,
+                "learning_rate_step": 0.02,
+                "max_learning_rate": 0.24,
+                "max_margin_residual": 28.0,
+                "max_team_delta": 4.0
+            },
+            "seasons": {
+                "2025": {
+                    "games_tested": 740,
+                    "updated_mae": 13.3138,
+                    "static_mae": 15.0915,
+                    "mae_improvement": 1.7777,
+                    "updated_rmse": 16.9763,
+                    "static_rmse": 19.208,
+                    "rmse_improvement": 2.2317,
+                    "updated_winner_accuracy": 0.7311,
+                    "static_winner_accuracy": 0.6541,
+                    "by_team_game_number": {
+                        "1": {
+                            "games": 81,
+                            "updated_mae": 13.477,
+                            "static_mae": 13.58,
+                            "avg_abs_team_delta": 1.108
+                        },
+                        "2": {
+                            "games": 71,
+                            "updated_mae": 15.942,
+                            "static_mae": 16.421,
+                            "avg_abs_team_delta": 1.479
+                        },
+                        "3": {
+                            "games": 63,
+                            "updated_mae": 10.616,
+                            "static_mae": 11.204,
+                            "avg_abs_team_delta": 1.14
+                        },
+                        "4": {
+                            "games": 66,
+                            "updated_mae": 14.705,
+                            "static_mae": 15.552,
+                            "avg_abs_team_delta": 1.699
+                        },
+                        "5": {
+                            "games": 68,
+                            "updated_mae": 13.434,
+                            "static_mae": 15.192,
+                            "avg_abs_team_delta": 1.637
+                        },
+                        "6": {
+                            "games": 64,
+                            "updated_mae": 12.799,
+                            "static_mae": 14.422,
+                            "avg_abs_team_delta": 1.637
+                        },
+                        "7": {
+                            "games": 70,
+                            "updated_mae": 12.652,
+                            "static_mae": 16.559,
+                            "avg_abs_team_delta": 1.617
+                        },
+                        "8": {
+                            "games": 69,
+                            "updated_mae": 13.458,
+                            "static_mae": 15.766,
+                            "avg_abs_team_delta": 1.717
+                        },
+                        "9": {
+                            "games": 65,
+                            "updated_mae": 13.168,
+                            "static_mae": 15.664,
+                            "avg_abs_team_delta": 1.711
+                        },
+                        "10": {
+                            "games": 57,
+                            "updated_mae": 13.668,
+                            "static_mae": 15.869,
+                            "avg_abs_team_delta": 1.79
+                        },
+                        "11": {
+                            "games": 57,
+                            "updated_mae": 12.503,
+                            "static_mae": 16.4,
+                            "avg_abs_team_delta": 1.624
+                        },
+                        "12": {
+                            "games": 9,
+                            "updated_mae": 10.544,
+                            "static_mae": 12.121,
+                            "avg_abs_team_delta": 1.407
+                        }
+                    }
+                }
+            },
+            "mean_mae_improvement": 1.7777,
+            "mean_rmse_improvement": 2.2317,
+            "improves_mae_and_rmse_all_available_seasons": true
+        }
+    ]
+}
