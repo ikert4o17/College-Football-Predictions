@@ -36,6 +36,7 @@
     <nav class="tabs" aria-label="Dashboard views">
       <button class="tab active" data-view="games">Game Projections</button>
       <button class="tab" data-view="rankings">Team Rankings</button>
+      <button class="tab" data-view="performance">Model Performance</button>
       <button class="tab" data-view="methodology">Methodology</button>
     </nav>
 
@@ -58,12 +59,28 @@
       </div>
     </section>
 
+    <section id="performanceView" class="view">
+      <div class="hero-metrics panel">
+        <div class="metric"><span id="perfGames">—</span><small>Games graded</small></div>
+        <div class="metric"><span id="perfWinner">—</span><small>Winner accuracy</small></div>
+        <div class="metric"><span id="perfMargin">—</span><small>Margin MAE</small></div>
+        <div class="metric"><span id="perfTotal">—</span><small>Total MAE</small></div>
+      </div>
+      <div class="table-wrap panel">
+        <table>
+          <thead><tr><th>Week</th><th>Games</th><th>Winner %</th><th>Margin MAE</th><th>Total MAE</th><th>Score MAE</th></tr></thead>
+          <tbody id="performanceBody"></tbody>
+        </table>
+      </div>
+      <div id="performanceEmpty" class="empty-state panel hidden"><h3>No completed predictions have been graded yet.</h3><p>This dashboard will populate automatically after the first projected games finish.</p></div>
+    </section>
+
     <section id="methodologyView" class="view">
       <div class="method-grid">
         <article class="panel method-card"><span class="step">01</span><h3>Anchor the teams</h3><p>2026 preseason SP+ is mapped to the Project Gridiron scale to establish the season-opening baseline.</p></article>
         <article class="panel method-card"><span class="step">02</span><h3>Apply Balanced Light</h3><p>The frozen preseason overlay emphasizes returning production and transfer talent, keeps quarterback and coaching effects modest, and caps the total adjustment at ±4 rating points.</p></article>
         <article class="panel method-card"><span class="step">03</span><h3>Learn from results</h3><p>Completed FBS-vs-FBS games update ratings from the difference between expected and actual margin. Early updates are deliberately conservative, with the preseason prior fading as games accumulate.</p></article>
-        <article class="panel method-card"><span class="step">04</span><h3>Publish the next slate</h3><p>The weekly GitHub operating system refreshes results, updates ratings, regenerates upcoming projections, validates the package and publishes the website automatically.</p></article>
+        <article class="panel method-card"><span class="step">04</span><h3>Grade and publish</h3><p>The weekly GitHub operating system grades the previous slate, refreshes results, updates ratings, regenerates projections, validates the package and publishes the website automatically.</p></article>
       </div>
     </section>
   </main>
