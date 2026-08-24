@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "ratings/preseason_model_v4_2026_sp_anchor.py"
+      - "ratings/audit_2026_sp_anchor_v4_effect.py"
       - ".github/workflows/test_2026_sp_anchor.yml"
 
 permissions:
@@ -44,8 +45,11 @@ jobs:
           FORCE_CFBD_REFRESH: "1"
         run: python -m data.download_sp_ratings 2026 2026
 
-      - name: Run same-season SP+ anchor experiment
+      - name: Run same-season SP+ anchor plus full V4 experiment
         run: python -m ratings.preseason_model_v4_2026_sp_anchor
+
+      - name: Audit incremental V4 effect
+        run: python -m ratings.audit_2026_sp_anchor_v4_effect
 
       - name: Commit experiment outputs
         run: |
@@ -53,10 +57,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw/sp_ratings/2026.json \
                   data/processed/preseason_ratings_v4_2026_sp_anchor.json \
-                  data/processed/preseason_2026_anchor_comparison.json
+                  data/processed/preseason_2026_anchor_comparison.json \
+                  data/processed/preseason_2026_sp_anchor_v4_effect.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Test 2026 preseason SP+ anchor"
+            git commit -m "Audit full V4 on 2026 preseason SP+ anchor"
             git push
           fi
