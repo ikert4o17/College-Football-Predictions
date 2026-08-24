@@ -6,6 +6,7 @@ on:
     paths:
       - "ratings/preseason_model_v4_2026_sp_anchor.py"
       - "ratings/audit_2026_sp_anchor_v4_effect.py"
+      - "ratings/test_2026_sp_anchor_light_overlays.py"
       - ".github/workflows/test_2026_sp_anchor.yml"
 
 permissions:
@@ -51,6 +52,9 @@ jobs:
       - name: Audit incremental V4 effect
         run: python -m ratings.audit_2026_sp_anchor_v4_effect
 
+      - name: Test lighter talent-forward overlays
+        run: python -m ratings.test_2026_sp_anchor_light_overlays
+
       - name: Commit experiment outputs
         run: |
           git config user.name "github-actions[bot]"
@@ -58,10 +62,11 @@ jobs:
           git add data/raw/sp_ratings/2026.json \
                   data/processed/preseason_ratings_v4_2026_sp_anchor.json \
                   data/processed/preseason_2026_anchor_comparison.json \
-                  data/processed/preseason_2026_sp_anchor_v4_effect.json
+                  data/processed/preseason_2026_sp_anchor_v4_effect.json \
+                  data/processed/preseason_2026_light_overlay_comparison.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Audit full V4 on 2026 preseason SP+ anchor"
+            git commit -m "Compare light talent-forward 2026 overlays"
             git push
           fi
