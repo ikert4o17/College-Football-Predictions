@@ -3,8 +3,7 @@ name: Update 2026 Production Predictions
 on:
   workflow_dispatch:
   schedule:
-    # GitHub Actions cron is UTC. Run at both possible UTC equivalents,
-    # then gate the job so only the true 4:00 AM America/New_York run proceeds.
+    # Two UTC candidates cover 4:00 AM Eastern across DST changes.
     - cron: "0 8 * * 1"
     - cron: "0 9 * * 1"
 
@@ -22,74 +21,121 @@ jobs:
       CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
 
     steps:
-      - name: Enforce 4 AM Eastern schedule
-        if: github.event_name == 'schedule'
+      - name: Determine whether this is the 4 AM Eastern run
+        id: eastern
         run: |
-          EASTERN_HOUR=$(TZ=America/New_York date +%H)
-          echo "Eastern time: $(TZ=America/New_York date)"
-          if [ "$EASTERN_HOUR" != "04" ]; then
-            echo "This UTC cron occurrence is not 4 AM Eastern; exiting cleanly."
-            exit 0
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif [ "$(TZ=America/New_York date +%H)" = "04" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping duplicate UTC cron occurrence."
           fi
 
       - name: Checkout repository
+        if: steps.eastern.outputs.run == 'true'
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up Python
+        if: steps.eastern.outputs.run == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - name: Install dependencies
+        if: steps.eastern.outputs.run == 'true'
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Verify CFBD secret
+        if: steps.eastern.outputs.run == 'true'
         run: |
           if [ -z "$CFBD_API_KEY" ]; then
             echo "CFBD_API_KEY repository secret is required."
             exit 1
           fi
 
-      - name: Refresh 2026 schedule/results
+      - name: Refresh 2026 schedule and results
+        if: steps.eastern.outputs.run == 'true'
         env:
           FORCE_CFBD_REFRESH: "1"
         run: python -m data.download_games 2026
 
-      - name: Generate production predictions
-        run: python -m predictions.production_2026_predictions
+      - name: Update in-season team ratings
+        if: steps.eastern.outputs.run == 'true'
+        run: python -m ratings.inseason_ratings_2026
 
-      - name: Publish website prediction data
+      - name: Generate upcoming weekly predictions
+        if: steps.eastern.outputs.run == 'true'
+        run: python -m predictions.weekly_2026_predictions
+
+      - name: Publish website data
+        if: steps.eastern.outputs.run == 'true'
         run: |
           cp data/processed/game_predictions_2026.json site_data/game_predictions_2026.json
-
-      - name: Validate published data
-        run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          ratings = Path("data/processed/preseason_ratings_v4_2026.json")
-          predictions = Path("site_data/game_predictions_2026.json")
-          for path in (ratings, predictions):
+          source = Path("data/processed/inseason_ratings_2026.json")
+          target = Path("site_data/rankings_2026.json")
+          with source.open(encoding="utf-8") as f:
+              payload = json.load(f)
+          rows = payload.get("ratings", [])
+          compact = []
+          for r in rows:
+              compact.append({
+                  "rank": r.get("rank"),
+                  "team": r.get("team"),
+                  "power_rating": r.get("power_rating"),
+                  "preseason_v4_adjustment": r.get("preseason_v4_adjustment", 0),
+                  "inseason_adjustment": r.get("inseason_adjustment", 0),
+                  "games_inseason": r.get("games_inseason", 0),
+                  "returning_production": r.get("returning_production", 0),
+                  "transfer_talent": r.get("transfer_talent", 0),
+              })
+          with target.open("w", encoding="utf-8") as f:
+              json.dump({"rankings": compact, "model": "2026_inseason_v1"}, f, indent=2)
+          print(f"Published {len(compact)} in-season rankings")
+          PY
+
+      - name: Validate published data
+        if: steps.eastern.outputs.run == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for name in (
+              "data/processed/inseason_ratings_2026.json",
+              "site_data/rankings_2026.json",
+              "site_data/game_predictions_2026.json",
+          ):
+              path = Path(name)
               if not path.exists():
                   raise SystemExit(f"Missing required file: {path}")
               with path.open(encoding="utf-8") as f:
                   json.load(f)
-          print("Production ratings and website predictions: valid JSON")
+          print("In-season ratings and website prediction data: valid JSON")
           PY
 
-      - name: Commit refreshed schedule and predictions
+      - name: Commit weekly model state
+        if: steps.eastern.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw/games.json data/processed/game_predictions_2026.json site_data/game_predictions_2026.json
+          git add \
+            data/raw/games.json \
+            data/processed/inseason_ratings_2026.json \
+            data/processed/game_predictions_2026.json \
+            site_data/rankings_2026.json \
+            site_data/game_predictions_2026.json
           if git diff --cached --quiet; then
-            echo "No weekly prediction changes to commit."
+            echo "No weekly model changes to commit."
           else
-            git commit -m "Update 2026 weekly production predictions"
+            git commit -m "Update 2026 in-season ratings and weekly predictions"
             git push
           fi
