@@ -45,10 +45,8 @@ jobs:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python -m data.download_games 2026
 
-      # Grade the PREVIOUSLY published slate before game_predictions_2026.json is
-      # replaced with the next set of upcoming forecasts.
-      - name: Grade completed published predictions
-        run: python -m data.grade_weekly_results_2026
+      - name: Grade previously published predictions
+        run: python -m predictions.grade_2026_predictions
 
       - name: Create frozen Balanced Light preseason ratings if missing
         run: |
@@ -67,8 +65,11 @@ jobs:
       - name: Build weekly state and immutable rating snapshot
         run: python -m data.weekly_state_2026
 
-      - name: Package rankings and predictions for website
+      - name: Package rankings, predictions and performance for website
         run: python -m data.publish_weekly_2026
+
+      - name: Run weekly health and completeness audit
+        run: python -m data.weekly_health_2026
 
       - name: Validate complete weekly package
         run: |
@@ -82,36 +83,45 @@ jobs:
           state = json.loads((root/'data/processed/weekly_state_2026.json').read_text())
           manifest = json.loads((root/'site_data/rankings_2026.json').read_text())
           predictions = json.loads((root/'site_data/game_predictions_2026.json').read_text())
-          performance = json.loads((root/'data/processed/model_performance_2026.json').read_text())
-          site_performance = json.loads((root/'site_data/model_performance_2026.json').read_text())
+          performance = json.loads((root/'site_data/model_performance_2026.json').read_text())
+          health = json.loads((root/'data/processed/weekly_health_2026.json').read_text())
           ratings = ratings_doc.get('ratings', [])
           applied = ratings_doc.get('games_applied', [])
 
           assert len(preseason) >= 130, f"Incomplete frozen preseason: {len(preseason)}"
           assert len(ratings) >= 130, f"Incomplete live ratings: {len(ratings)}"
           assert manifest.get('teams') == len(ratings), "Site ranking count mismatch"
+          assert health.get('status') != 'FAIL', "Weekly health audit failed"
           ids = [str(g.get('game_id')) for g in applied if g.get('game_id') is not None]
           assert len(ids) == len(set(ids)), "Duplicate game application detected"
           assert state.get('completed_fbs_vs_fbs_games', 0) >= len(applied), "Weekly state inconsistent"
           for part in manifest.get('parts', []):
               assert (root/part).exists(), f"Missing ranking part: {part}"
           for p in predictions:
-              for key in ('home_team','away_team','projected_winner','projected_margin','projected_total'):
+              for key in ('home_team','away_team','projected_winner','projected_margin','projected_total','model_version'):
                   assert key in p, f"Prediction missing {key}"
-
-          graded = performance.get('games', [])
-          graded_ids = [str(g.get('game_id')) for g in graded if g.get('game_id') is not None]
-          assert len(graded_ids) == len(set(graded_ids)), "Duplicate graded game detected"
-          assert performance.get('cumulative', {}).get('games') == len(graded), "Performance count mismatch"
-          assert site_performance.get('cumulative') == performance.get('cumulative'), "Published performance mismatch"
+          assert 'cumulative' in performance and 'by_week' in performance, "Performance ledger malformed"
+          assert (root/'site_data/rating_movers_2026.json').exists(), "Rating movers missing"
 
           print("Weekly package validated")
           print("Teams:", len(ratings))
-          print("Games applied to ratings:", len(applied))
+          print("Games applied:", len(applied))
           print("Latest completed week:", state.get('latest_completed_week'))
           print("Upcoming predictions:", len(predictions))
-          print("Cumulative predictions graded:", len(graded))
+          print("Graded predictions:", performance.get('cumulative', {}).get('games'))
+          print("Health:", health.get('status'))
           PY
+
+      - name: Upload weekly diagnostics artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-gridiron-weekly-diagnostics-${{ github.run_id }}
+          if-no-files-found: ignore
+          path: |
+            data/processed/weekly_health_2026.json
+            data/processed/weekly_state_2026.json
+            data/processed/model_performance_2026.json
 
       - name: Commit weekly model state and website data
         run: |
@@ -124,11 +134,13 @@ jobs:
             data/processed/game_predictions_2026.json \
             data/processed/weekly_state_2026.json \
             data/processed/model_performance_2026.json \
+            data/processed/weekly_health_2026.json \
             data/snapshots/2026 \
             site_data/rankings_2026.json \
             site_data/rankings_2026_part*.json \
             site_data/game_predictions_2026.json \
-            site_data/model_performance_2026.json
+            site_data/model_performance_2026.json \
+            site_data/rating_movers_2026.json
           if git diff --cached --quiet; then
             echo "No weekly changes to commit."
           else
