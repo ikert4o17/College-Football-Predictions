@@ -63,7 +63,8 @@ jobs:
                   data/processed/preseason_ratings_v4_2026_sp_anchor.json \
                   data/processed/preseason_2026_anchor_comparison.json \
                   data/processed/preseason_2026_sp_anchor_v4_effect.json \
-                  data/processed/preseason_2026_light_overlay_comparison.json
+                  data/processed/preseason_2026_light_overlay_comparison.json \
+                  data/processed/preseason_2026_light_overlay_summary.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
