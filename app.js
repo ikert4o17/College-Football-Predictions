@@ -1,6 +1,7 @@
 const state = {
   rankings: [],
   games: [],
+  performance: null,
 };
 
 const byId = (id) => document.getElementById(id);
@@ -139,6 +140,30 @@ function renderRankings() {
   }).join("");
 }
 
+function renderPerformance() {
+  const cumulative = state.performance?.cumulative || {};
+  const games = Number(cumulative.games || 0);
+  byId("perfGames").textContent = games || "—";
+  byId("perfWinner").textContent = games && Number.isFinite(Number(cumulative.winner_accuracy))
+    ? `${(Number(cumulative.winner_accuracy) * 100).toFixed(1)}%`
+    : "—";
+  byId("perfMargin").textContent = games ? fmt(cumulative.margin_mae, 2) : "—";
+  byId("perfTotal").textContent = games ? fmt(cumulative.total_mae, 2) : "—";
+
+  const weekly = state.performance?.by_week || {};
+  const rows = Object.entries(weekly).sort((a, b) => Number(a[0]) - Number(b[0]));
+  byId("performanceBody").innerHTML = rows.map(([week, row]) => `
+    <tr>
+      <td>${escapeHtml(week)}</td>
+      <td>${escapeHtml(row.games ?? 0)}</td>
+      <td>${Number.isFinite(Number(row.winner_accuracy)) ? `${(Number(row.winner_accuracy) * 100).toFixed(1)}%` : "—"}</td>
+      <td>${fmt(row.margin_mae, 2)}</td>
+      <td>${fmt(row.total_mae, 2)}</td>
+      <td>${fmt(row.score_mae, 2)}</td>
+    </tr>`).join("");
+  byId("performanceEmpty").classList.toggle("hidden", rows.length > 0);
+}
+
 function setupTabs() {
   document.querySelectorAll(".tab").forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -156,11 +181,14 @@ async function init() {
   catch (error) { console.warn("2026 production rankings unavailable", error); state.rankings = []; }
   try { state.games = normalizeGames(await loadJson("site_data/game_predictions_2026.json")); }
   catch (error) { console.info("2026 production predictions unavailable", error); state.games = []; }
+  try { state.performance = await loadJson("site_data/model_performance_2026.json"); }
+  catch (error) { console.info("2026 performance data unavailable", error); state.performance = null; }
 
   renderSummary();
   renderWeekOptions();
   renderGames();
   renderRankings();
+  renderPerformance();
 
   byId("weekSelect").addEventListener("change", renderGames);
   byId("gameSearch").addEventListener("input", renderGames);
