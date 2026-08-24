@@ -19,14 +19,17 @@ PRESEASON = ROOT / "data" / "processed" / "preseason_ratings_2026.json"
 GAMES = ROOT / "data" / "raw" / "games.json"
 OUTPUT = ROOT / "data" / "processed" / "inseason_ratings_2026.json"
 
-# Temporary live-season V1 update parameters. These stay isolated here so the
-# weekly operating system can run while the historical learning-rate backtest is
-# revisited separately.
-MAX_MARGIN_RESIDUAL = 28.0
+# Backtest-informed 2026 learning schedule.
+# Historical 2025 testing favored 16% -> 28%, but that test began from a much
+# staler prior-season anchor. Because the frozen 2026 preseason SP+ + Balanced
+# Light prior is materially stronger, live 2026 learning is intentionally
+# reduced to 12% -> 24% while retaining the historically supported safeguards.
+MAX_MARGIN_RESIDUAL = 35.0
 MAX_TEAM_DELTA_PER_GAME = 4.0
-BASE_LEARNING_RATE = 0.16
+BASE_LEARNING_RATE = 0.12
 LEARNING_RATE_STEP = 0.03
-MAX_LEARNING_RATE = 0.34
+MAX_LEARNING_RATE = 0.24
+MODEL_VERSION = "2026_inseason_v2_balanced_light_backtest_conservative"
 
 
 def load(path):
@@ -85,7 +88,7 @@ def main():
             "power_rating": float(row["power_rating"]),
             "games_inseason": 0,
             "inseason_adjustment": 0.0,
-            "model_version": "2026_inseason_v1_balanced_light_prior",
+            "model_version": MODEL_VERSION,
         }
 
     eligible = []
@@ -147,9 +150,23 @@ def main():
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps({
-        "model_version": "2026_inseason_v1_balanced_light_prior",
+        "model_version": MODEL_VERSION,
         "preseason_source": str(PRESEASON.relative_to(ROOT)),
         "rebuild_mode": "idempotent_from_frozen_preseason",
+        "update_parameters": {
+            "base_learning_rate": BASE_LEARNING_RATE,
+            "learning_rate_step": LEARNING_RATE_STEP,
+            "max_learning_rate": MAX_LEARNING_RATE,
+            "max_margin_residual": MAX_MARGIN_RESIDUAL,
+            "max_team_delta_per_game": MAX_TEAM_DELTA_PER_GAME,
+        },
+        "learning_schedule": {
+            "game_1": 0.12,
+            "game_2": 0.15,
+            "game_3": 0.18,
+            "game_4": 0.21,
+            "game_5_plus": 0.24,
+        },
         "ratings": output,
         "games_applied": audit,
     }, indent=4), encoding="utf-8")
@@ -157,6 +174,8 @@ def main():
     print("=" * 78)
     print("PROJECT GRIDIRON 2026 IN-SEASON RATINGS")
     print("=" * 78)
+    print(f"Model version: {MODEL_VERSION}")
+    print("Learning schedule: 12% -> 15% -> 18% -> 21% -> 24% max")
     print(f"Teams rated: {len(output)}")
     print(f"Completed FBS-vs-FBS games applied: {len(audit)}")
     print(f"Completed games skipped for teams without a preseason anchor: {skipped_new_fbs}")
