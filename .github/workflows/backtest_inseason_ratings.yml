@@ -1,0 +1,55 @@
+name: Backtest In-Season Ratings
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "ratings/backtest_inseason_ratings.py"
+      - ".github/workflows/backtest_inseason_ratings.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run 2024-2025 backtest
+        run: python -m ratings.backtest_inseason_ratings
+
+      - name: Validate result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("data/processed/inseason_ratings_backtest_2024_2025.json")
+          if not path.exists():
+              raise SystemExit("Backtest result missing")
+          with path.open(encoding="utf-8") as f:
+              result = json.load(f)
+          print("Recommended parameters:", result["recommended"]["params"])
+          print("Valid candidates:", result["valid_candidates_improving_mae_and_rmse_both_seasons"])
+          PY
+
+      - name: Commit backtest result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/processed/inseason_ratings_backtest_2024_2025.json
+          if git diff --cached --quiet; then
+            echo "No backtest result changes to commit."
+          else
+            git commit -m "Backtest 2026 in-season rating updater"
+            git push
+          fi
