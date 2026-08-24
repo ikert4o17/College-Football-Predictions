@@ -15,6 +15,8 @@ from predictions.provisional_2026_predictions import load_margin_calibration
 
 ROOT = Path(__file__).resolve().parent.parent
 PRESEASON = ROOT / "data" / "processed" / "preseason_ratings_v4_2026.json"
+SITE_MANIFEST = ROOT / "site_data" / "rankings_2026.json"
+PRIOR_POWER = ROOT / "data" / "processed" / "power_ratings_2025.json"
 GAMES = ROOT / "data" / "raw" / "games.json"
 OUTPUT = ROOT / "data" / "processed" / "inseason_ratings_2026.json"
 
@@ -28,6 +30,27 @@ MAX_LEARNING_RATE = 0.34
 def load(path):
     with path.open(encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_preseason():
+    if PRESEASON.exists():
+        data = load(PRESEASON)
+        return data if isinstance(data, list) else data.get("ratings", [])
+
+    manifest = load(SITE_MANIFEST)
+    rows = []
+    for rel in manifest.get("parts", []):
+        rows.extend(load(ROOT / rel))
+
+    # Website ranking parts intentionally stay compact. Restore the stable
+    # offense/defense scores used by the totals model from the prior canonical
+    # Project Gridiron ratings.
+    prior = {r.get("team"): r for r in load(PRIOR_POWER) if r.get("team")}
+    for row in rows:
+        p = prior.get(row.get("team"), {})
+        row.setdefault("offense_score", p.get("offense_score"))
+        row.setdefault("defense_score", p.get("defense_score"))
+    return rows
 
 
 def parse_date(value):
@@ -55,10 +78,10 @@ def clamp(value, low, high):
 
 
 def main():
-    if not PRESEASON.exists() or not GAMES.exists():
-        raise FileNotFoundError("Preseason ratings and refreshed 2026 games are required.")
+    if not GAMES.exists():
+        raise FileNotFoundError("Refreshed 2026 games are required.")
 
-    preseason = load(PRESEASON)
+    preseason = load_preseason()
     games = load(GAMES)
     calibration = load_margin_calibration()
     coeff = float(calibration["rating_gap_coefficient"])
@@ -67,7 +90,7 @@ def main():
     ratings = {}
     for row in preseason:
         team = row.get("team")
-        if not team:
+        if not team or row.get("power_rating") is None:
             continue
         ratings[team] = {
             **row,
@@ -79,6 +102,7 @@ def main():
         }
 
     eligible = []
+    skipped_new_fbs = 0
     for game in games:
         if not isinstance(game, dict) or game.get("season") != 2026:
             continue
@@ -87,6 +111,7 @@ def main():
         if not (fbs(game, "home") and fbs(game, "away")):
             continue
         if game.get("homeTeam") not in ratings or game.get("awayTeam") not in ratings:
+            skipped_new_fbs += 1
             continue
         eligible.append(game)
 
@@ -136,7 +161,7 @@ def main():
     print("=" * 78)
     print(f"Teams rated: {len(output)}")
     print(f"Completed FBS-vs-FBS games applied: {len(audit)}")
-    print(f"Rating source: {PRESEASON}")
+    print(f"Completed games skipped for teams without a preseason anchor: {skipped_new_fbs}")
     print(f"Saved to: {OUTPUT}")
     print("\nTOP 15")
     print("-" * 78)
