@@ -2,6 +2,9 @@ name: Test 2026 Preseason SP+ Anchor
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test_2026_sp_anchor.yml"
 
 permissions:
   contents: write
