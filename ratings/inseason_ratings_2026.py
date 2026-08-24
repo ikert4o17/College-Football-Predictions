@@ -1,8 +1,9 @@
 """Project Gridiron 2026 in-season rating updater.
 
-Starts from the approved preseason V4 ratings and updates only from completed
-2026 FBS-vs-FBS results. The preseason prior decays gradually as each team
-accumulates games.
+Always rebuilds from the frozen 2026 Balanced Light preseason ratings and every
+completed 2026 FBS-vs-FBS result. Rebuilding from the immutable preseason prior
+makes the process idempotent: a game can never be applied twice across weekly
+workflow runs.
 
 Usage:
     python -m ratings.inseason_ratings_2026
@@ -14,12 +15,13 @@ from pathlib import Path
 from predictions.provisional_2026_predictions import load_margin_calibration
 
 ROOT = Path(__file__).resolve().parent.parent
-PRESEASON = ROOT / "data" / "processed" / "preseason_ratings_v4_2026.json"
-SITE_MANIFEST = ROOT / "site_data" / "rankings_2026.json"
-PRIOR_POWER = ROOT / "data" / "processed" / "power_ratings_2025.json"
+PRESEASON = ROOT / "data" / "processed" / "preseason_ratings_2026.json"
 GAMES = ROOT / "data" / "raw" / "games.json"
 OUTPUT = ROOT / "data" / "processed" / "inseason_ratings_2026.json"
 
+# Temporary live-season V1 update parameters. These stay isolated here so the
+# weekly operating system can run while the historical learning-rate backtest is
+# revisited separately.
 MAX_MARGIN_RESIDUAL = 28.0
 MAX_TEAM_DELTA_PER_GAME = 4.0
 BASE_LEARNING_RATE = 0.16
@@ -30,27 +32,6 @@ MAX_LEARNING_RATE = 0.34
 def load(path):
     with path.open(encoding="utf-8") as f:
         return json.load(f)
-
-
-def load_preseason():
-    if PRESEASON.exists():
-        data = load(PRESEASON)
-        return data if isinstance(data, list) else data.get("ratings", [])
-
-    manifest = load(SITE_MANIFEST)
-    rows = []
-    for rel in manifest.get("parts", []):
-        rows.extend(load(ROOT / rel))
-
-    # Website ranking parts intentionally stay compact. Restore the stable
-    # offense/defense scores used by the totals model from the prior canonical
-    # Project Gridiron ratings.
-    prior = {r.get("team"): r for r in load(PRIOR_POWER) if r.get("team")}
-    for row in rows:
-        p = prior.get(row.get("team"), {})
-        row.setdefault("offense_score", p.get("offense_score"))
-        row.setdefault("defense_score", p.get("defense_score"))
-    return rows
 
 
 def parse_date(value):
@@ -78,10 +59,16 @@ def clamp(value, low, high):
 
 
 def main():
+    if not PRESEASON.exists():
+        raise FileNotFoundError(
+            f"Frozen Balanced Light preseason ratings are required: {PRESEASON}"
+        )
     if not GAMES.exists():
         raise FileNotFoundError("Refreshed 2026 games are required.")
 
-    preseason = load_preseason()
+    preseason = load(PRESEASON)
+    if isinstance(preseason, dict):
+        preseason = preseason.get("ratings", [])
     games = load(GAMES)
     calibration = load_margin_calibration()
     coeff = float(calibration["rating_gap_coefficient"])
@@ -98,7 +85,7 @@ def main():
             "power_rating": float(row["power_rating"]),
             "games_inseason": 0,
             "inseason_adjustment": 0.0,
-            "model_version": "2026_inseason_v1",
+            "model_version": "2026_inseason_v1_balanced_light_prior",
         }
 
     eligible = []
@@ -137,10 +124,16 @@ def main():
         ar["games_inseason"] += 1
 
         audit.append({
-            "game_id": game.get("id"), "home_team": home, "away_team": away,
-            "actual_home_margin": round(actual, 2), "expected_home_margin": round(expected, 2),
-            "capped_margin_residual": round(residual, 2), "learning_rate": round(learning, 4),
-            "home_rating_delta": round(delta, 4), "away_rating_delta": round(-delta, 4),
+            "game_id": game.get("id"),
+            "week": game.get("week"),
+            "home_team": home,
+            "away_team": away,
+            "actual_home_margin": round(actual, 2),
+            "expected_home_margin": round(expected, 2),
+            "capped_margin_residual": round(residual, 2),
+            "learning_rate": round(learning, 4),
+            "home_rating_delta": round(delta, 4),
+            "away_rating_delta": round(-delta, 4),
         })
 
     output = []
@@ -153,20 +146,21 @@ def main():
         row["rank"] = rank
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT.open("w", encoding="utf-8") as f:
-        json.dump({"ratings": output, "games_applied": audit}, f, indent=4)
+    OUTPUT.write_text(json.dumps({
+        "model_version": "2026_inseason_v1_balanced_light_prior",
+        "preseason_source": str(PRESEASON.relative_to(ROOT)),
+        "rebuild_mode": "idempotent_from_frozen_preseason",
+        "ratings": output,
+        "games_applied": audit,
+    }, indent=4), encoding="utf-8")
 
     print("=" * 78)
-    print("PROJECT GRIDIRON 2026 IN-SEASON RATINGS V1")
+    print("PROJECT GRIDIRON 2026 IN-SEASON RATINGS")
     print("=" * 78)
     print(f"Teams rated: {len(output)}")
     print(f"Completed FBS-vs-FBS games applied: {len(audit)}")
     print(f"Completed games skipped for teams without a preseason anchor: {skipped_new_fbs}")
     print(f"Saved to: {OUTPUT}")
-    print("\nTOP 15")
-    print("-" * 78)
-    for row in output[:15]:
-        print(f"{row['rank']:>2}. {row['team']}: {row['power_rating']:+.2f} ({row['inseason_adjustment']:+.2f} in-season)")
 
 
 if __name__ == "__main__":
