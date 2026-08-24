@@ -2,6 +2,9 @@ name: 2026 Weekly Operating System
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/weekly_2026_operating_system.yml"
   schedule:
     # Monday 4:00 AM EST (09:00 UTC). During daylight time this runs at 5:00 AM ET.
     - cron: "0 9 * * 1"
