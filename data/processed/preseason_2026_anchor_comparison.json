@@ -1,0 +1,1232 @@
+{
+    "teams": 136,
+    "old_anchor": "final 2025 SP+ mapped to 2025 Project Gridiron scale",
+    "new_anchor": "preseason 2026 SP+ mapped to 2025 Project Gridiron scale",
+    "all_other_v4_inputs_unchanged": true,
+    "comparison": [
+        {
+            "team": "North Texas",
+            "current_2025_sp_anchor": 59.4505,
+            "current_rank": 30,
+            "new_2026_sp_anchor": 36.774,
+            "change": -22.6765,
+            "new_rank": 110,
+            "rank_change": -80
+        },
+        {
+            "team": "Oklahoma State",
+            "current_2025_sp_anchor": 40.4183,
+            "current_rank": 101,
+            "new_2026_sp_anchor": 61.9703,
+            "change": 21.552,
+            "new_rank": 25,
+            "rank_change": 76
+        },
+        {
+            "team": "Virginia Tech",
+            "current_2025_sp_anchor": 45.1393,
+            "current_rank": 83,
+            "new_2026_sp_anchor": 63.527,
+            "change": 18.3877,
+            "new_rank": 22,
+            "rank_change": 61
+        },
+        {
+            "team": "UConn",
+            "current_2025_sp_anchor": 49.8865,
+            "current_rank": 69,
+            "new_2026_sp_anchor": 35.1499,
+            "change": -14.7366,
+            "new_rank": 117,
+            "rank_change": -48
+        },
+        {
+            "team": "UCLA",
+            "current_2025_sp_anchor": 46.4612,
+            "current_rank": 80,
+            "new_2026_sp_anchor": 60.5967,
+            "change": 14.1355,
+            "new_rank": 27,
+            "rank_change": 53
+        },
+        {
+            "team": "Toledo",
+            "current_2025_sp_anchor": 57.0422,
+            "current_rank": 36,
+            "new_2026_sp_anchor": 44.0199,
+            "change": -13.0223,
+            "new_rank": 88,
+            "rank_change": -52
+        },
+        {
+            "team": "Syracuse",
+            "current_2025_sp_anchor": 34.8148,
+            "current_rank": 119,
+            "new_2026_sp_anchor": 46.42,
+            "change": 11.6052,
+            "new_rank": 81,
+            "rank_change": 38
+        },
+        {
+            "team": "Florida",
+            "current_2025_sp_anchor": 57.9805,
+            "current_rank": 35,
+            "new_2026_sp_anchor": 69.5708,
+            "change": 11.5903,
+            "new_rank": 10,
+            "rank_change": 25
+        },
+        {
+            "team": "South Florida",
+            "current_2025_sp_anchor": 60.1028,
+            "current_rank": 26,
+            "new_2026_sp_anchor": 48.5693,
+            "change": -11.5335,
+            "new_rank": 73,
+            "rank_change": -47
+        },
+        {
+            "team": "James Madison",
+            "current_2025_sp_anchor": 60.099,
+            "current_rank": 27,
+            "new_2026_sp_anchor": 48.6371,
+            "change": -11.4619,
+            "new_rank": 72,
+            "rank_change": -45
+        },
+        {
+            "team": "Southern Miss",
+            "current_2025_sp_anchor": 41.1114,
+            "current_rank": 98,
+            "new_2026_sp_anchor": 29.8357,
+            "change": -11.2757,
+            "new_rank": 125,
+            "rank_change": -27
+        },
+        {
+            "team": "Utah",
+            "current_2025_sp_anchor": 67.4438,
+            "current_rank": 11,
+            "new_2026_sp_anchor": 56.4325,
+            "change": -11.0113,
+            "new_rank": 43,
+            "rank_change": -32
+        },
+        {
+            "team": "Old Dominion",
+            "current_2025_sp_anchor": 52.0041,
+            "current_rank": 59,
+            "new_2026_sp_anchor": 41.0907,
+            "change": -10.9134,
+            "new_rank": 97,
+            "rank_change": -38
+        },
+        {
+            "team": "Oregon State",
+            "current_2025_sp_anchor": 39.6629,
+            "current_rank": 106,
+            "new_2026_sp_anchor": 50.5237,
+            "change": 10.8608,
+            "new_rank": 66,
+            "rank_change": 40
+        },
+        {
+            "team": "North Carolina",
+            "current_2025_sp_anchor": 40.1281,
+            "current_rank": 102,
+            "new_2026_sp_anchor": 50.5408,
+            "change": 10.4127,
+            "new_rank": 65,
+            "rank_change": 37
+        },
+        {
+            "team": "Stanford",
+            "current_2025_sp_anchor": 43.5342,
+            "current_rank": 85,
+            "new_2026_sp_anchor": 53.5456,
+            "change": 10.0114,
+            "new_rank": 51,
+            "rank_change": 34
+        },
+        {
+            "team": "LSU",
+            "current_2025_sp_anchor": 61.6166,
+            "current_rank": 22,
+            "new_2026_sp_anchor": 71.5481,
+            "change": 9.9315,
+            "new_rank": 7,
+            "rank_change": 15
+        },
+        {
+            "team": "Colorado",
+            "current_2025_sp_anchor": 43.0917,
+            "current_rank": 88,
+            "new_2026_sp_anchor": 52.5456,
+            "change": 9.4539,
+            "new_rank": 58,
+            "rank_change": 30
+        },
+        {
+            "team": "Vanderbilt",
+            "current_2025_sp_anchor": 67.4211,
+            "current_rank": 12,
+            "new_2026_sp_anchor": 58.2039,
+            "change": -9.2172,
+            "new_rank": 36,
+            "rank_change": -24
+        },
+        {
+            "team": "Tulane",
+            "current_2025_sp_anchor": 53.9609,
+            "current_rank": 51,
+            "new_2026_sp_anchor": 45.0507,
+            "change": -8.9102,
+            "new_rank": 83,
+            "rank_change": -32
+        },
+        {
+            "team": "Iowa State",
+            "current_2025_sp_anchor": 58.9082,
+            "current_rank": 33,
+            "new_2026_sp_anchor": 50.1703,
+            "change": -8.7379,
+            "new_rank": 67,
+            "rank_change": -34
+        },
+        {
+            "team": "East Carolina",
+            "current_2025_sp_anchor": 54.2242,
+            "current_rank": 50,
+            "new_2026_sp_anchor": 45.5404,
+            "change": -8.6838,
+            "new_rank": 82,
+            "rank_change": -32
+        },
+        {
+            "team": "Wisconsin",
+            "current_2025_sp_anchor": 43.424,
+            "current_rank": 86,
+            "new_2026_sp_anchor": 52.0343,
+            "change": 8.6103,
+            "new_rank": 61,
+            "rank_change": 25
+        },
+        {
+            "team": "Middle Tennessee",
+            "current_2025_sp_anchor": 29.8641,
+            "current_rank": 128,
+            "new_2026_sp_anchor": 21.6807,
+            "change": -8.1834,
+            "new_rank": 133,
+            "rank_change": -5
+        },
+        {
+            "team": "Western Kentucky",
+            "current_2025_sp_anchor": 47.9154,
+            "current_rank": 75,
+            "new_2026_sp_anchor": 40.6959,
+            "change": -7.2195,
+            "new_rank": 99,
+            "rank_change": -24
+        },
+        {
+            "team": "South Carolina",
+            "current_2025_sp_anchor": 56.8785,
+            "current_rank": 37,
+            "new_2026_sp_anchor": 63.8218,
+            "change": 6.9433,
+            "new_rank": 20,
+            "rank_change": 17
+        },
+        {
+            "team": "Akron",
+            "current_2025_sp_anchor": 34.2694,
+            "current_rank": 122,
+            "new_2026_sp_anchor": 27.3997,
+            "change": -6.8697,
+            "new_rank": 128,
+            "rank_change": -6
+        },
+        {
+            "team": "California",
+            "current_2025_sp_anchor": 46.8722,
+            "current_rank": 77,
+            "new_2026_sp_anchor": 53.6168,
+            "change": 6.7446,
+            "new_rank": 49,
+            "rank_change": 28
+        },
+        {
+            "team": "Boston College",
+            "current_2025_sp_anchor": 40.9972,
+            "current_rank": 100,
+            "new_2026_sp_anchor": 47.7097,
+            "change": 6.7125,
+            "new_rank": 76,
+            "rank_change": 24
+        },
+        {
+            "team": "Ole Miss",
+            "current_2025_sp_anchor": 71.2554,
+            "current_rank": 7,
+            "new_2026_sp_anchor": 64.6799,
+            "change": -6.5755,
+            "new_rank": 16,
+            "rank_change": -9
+        },
+        {
+            "team": "Texas",
+            "current_2025_sp_anchor": 67.5339,
+            "current_rank": 10,
+            "new_2026_sp_anchor": 74.0923,
+            "change": 6.5584,
+            "new_rank": 5,
+            "rank_change": 5
+        },
+        {
+            "team": "Washington State",
+            "current_2025_sp_anchor": 49.9968,
+            "current_rank": 67,
+            "new_2026_sp_anchor": 43.4471,
+            "change": -6.5497,
+            "new_rank": 90,
+            "rank_change": -23
+        },
+        {
+            "team": "Missouri State",
+            "current_2025_sp_anchor": 34.4789,
+            "current_rank": 121,
+            "new_2026_sp_anchor": 28.0675,
+            "change": -6.4114,
+            "new_rank": 127,
+            "rank_change": -6
+        },
+        {
+            "team": "West Virginia",
+            "current_2025_sp_anchor": 42.2326,
+            "current_rank": 93,
+            "new_2026_sp_anchor": 48.4388,
+            "change": 6.2062,
+            "new_rank": 74,
+            "rank_change": 19
+        },
+        {
+            "team": "Michigan State",
+            "current_2025_sp_anchor": 51.4655,
+            "current_rank": 61,
+            "new_2026_sp_anchor": 57.6664,
+            "change": 6.2009,
+            "new_rank": 38,
+            "rank_change": 23
+        },
+        {
+            "team": "Louisiana Tech",
+            "current_2025_sp_anchor": 46.5744,
+            "current_rank": 78,
+            "new_2026_sp_anchor": 40.4448,
+            "change": -6.1296,
+            "new_rank": 100,
+            "rank_change": -22
+        },
+        {
+            "team": "Ohio",
+            "current_2025_sp_anchor": 41.9957,
+            "current_rank": 95,
+            "new_2026_sp_anchor": 35.943,
+            "change": -6.0527,
+            "new_rank": 112,
+            "rank_change": -17
+        },
+        {
+            "team": "Indiana",
+            "current_2025_sp_anchor": 78.6198,
+            "current_rank": 1,
+            "new_2026_sp_anchor": 72.6292,
+            "change": -5.9906,
+            "new_rank": 6,
+            "rank_change": -5
+        },
+        {
+            "team": "Memphis",
+            "current_2025_sp_anchor": 56.0694,
+            "current_rank": 43,
+            "new_2026_sp_anchor": 50.1442,
+            "change": -5.9252,
+            "new_rank": 68,
+            "rank_change": -25
+        },
+        {
+            "team": "Kennesaw State",
+            "current_2025_sp_anchor": 45.1284,
+            "current_rank": 84,
+            "new_2026_sp_anchor": 39.3902,
+            "change": -5.7382,
+            "new_rank": 103,
+            "rank_change": -19
+        },
+        {
+            "team": "Massachusetts",
+            "current_2025_sp_anchor": 11.1926,
+            "current_rank": 136,
+            "new_2026_sp_anchor": 16.5992,
+            "change": 5.4066,
+            "new_rank": 136,
+            "rank_change": 0
+        },
+        {
+            "team": "Minnesota",
+            "current_2025_sp_anchor": 49.7087,
+            "current_rank": 70,
+            "new_2026_sp_anchor": 54.9459,
+            "change": 5.2372,
+            "new_rank": 47,
+            "rank_change": 23
+        },
+        {
+            "team": "Maryland",
+            "current_2025_sp_anchor": 52.2679,
+            "current_rank": 55,
+            "new_2026_sp_anchor": 57.4391,
+            "change": 5.1712,
+            "new_rank": 39,
+            "rank_change": 16
+        },
+        {
+            "team": "Texas Tech",
+            "current_2025_sp_anchor": 76.0563,
+            "current_rank": 3,
+            "new_2026_sp_anchor": 70.935,
+            "change": -5.1213,
+            "new_rank": 8,
+            "rank_change": -5
+        },
+        {
+            "team": "UL Monroe",
+            "current_2025_sp_anchor": 22.7002,
+            "current_rank": 133,
+            "new_2026_sp_anchor": 17.6065,
+            "change": -5.0937,
+            "new_rank": 135,
+            "rank_change": -2
+        },
+        {
+            "team": "Colorado State",
+            "current_2025_sp_anchor": 39.9462,
+            "current_rank": 104,
+            "new_2026_sp_anchor": 45.0294,
+            "change": 5.0832,
+            "new_rank": 84,
+            "rank_change": 20
+        },
+        {
+            "team": "Michigan",
+            "current_2025_sp_anchor": 59.5283,
+            "current_rank": 29,
+            "new_2026_sp_anchor": 64.3634,
+            "change": 4.8351,
+            "new_rank": 19,
+            "rank_change": 10
+        },
+        {
+            "team": "Tulsa",
+            "current_2025_sp_anchor": 40.0317,
+            "current_rank": 103,
+            "new_2026_sp_anchor": 44.8638,
+            "change": 4.8321,
+            "new_rank": 85,
+            "rank_change": 18
+        },
+        {
+            "team": "Purdue",
+            "current_2025_sp_anchor": 42.6068,
+            "current_rank": 91,
+            "new_2026_sp_anchor": 47.3278,
+            "change": 4.721,
+            "new_rank": 79,
+            "rank_change": 12
+        },
+        {
+            "team": "San Diego State",
+            "current_2025_sp_anchor": 54.8484,
+            "current_rank": 47,
+            "new_2026_sp_anchor": 50.1392,
+            "change": -4.7092,
+            "new_rank": 69,
+            "rank_change": -22
+        },
+        {
+            "team": "Liberty",
+            "current_2025_sp_anchor": 38.6831,
+            "current_rank": 109,
+            "new_2026_sp_anchor": 43.3036,
+            "change": 4.6205,
+            "new_rank": 91,
+            "rank_change": 18
+        },
+        {
+            "team": "Central Michigan",
+            "current_2025_sp_anchor": 39.4159,
+            "current_rank": 107,
+            "new_2026_sp_anchor": 34.8734,
+            "change": -4.5425,
+            "new_rank": 119,
+            "rank_change": -12
+        },
+        {
+            "team": "Iowa",
+            "current_2025_sp_anchor": 65.6989,
+            "current_rank": 15,
+            "new_2026_sp_anchor": 61.4436,
+            "change": -4.2553,
+            "new_rank": 26,
+            "rank_change": -11
+        },
+        {
+            "team": "Charlotte",
+            "current_2025_sp_anchor": 20.0772,
+            "current_rank": 135,
+            "new_2026_sp_anchor": 24.1944,
+            "change": 4.1172,
+            "new_rank": 131,
+            "rank_change": 4
+        },
+        {
+            "team": "Kentucky",
+            "current_2025_sp_anchor": 56.3754,
+            "current_rank": 40,
+            "new_2026_sp_anchor": 60.4136,
+            "change": 4.0382,
+            "new_rank": 30,
+            "rank_change": 10
+        },
+        {
+            "team": "Clemson",
+            "current_2025_sp_anchor": 56.5193,
+            "current_rank": 39,
+            "new_2026_sp_anchor": 60.5214,
+            "change": 4.0021,
+            "new_rank": 28,
+            "rank_change": 11
+        },
+        {
+            "team": "Navy",
+            "current_2025_sp_anchor": 52.4926,
+            "current_rank": 54,
+            "new_2026_sp_anchor": 48.7134,
+            "change": -3.7792,
+            "new_rank": 71,
+            "rank_change": -17
+        },
+        {
+            "team": "UCF",
+            "current_2025_sp_anchor": 49.5937,
+            "current_rank": 71,
+            "new_2026_sp_anchor": 53.2595,
+            "change": 3.6658,
+            "new_rank": 55,
+            "rank_change": 16
+        },
+        {
+            "team": "Nebraska",
+            "current_2025_sp_anchor": 56.3692,
+            "current_rank": 41,
+            "new_2026_sp_anchor": 60.0073,
+            "change": 3.6381,
+            "new_rank": 31,
+            "rank_change": 10
+        },
+        {
+            "team": "Florida Atlantic",
+            "current_2025_sp_anchor": 41.0225,
+            "current_rank": 99,
+            "new_2026_sp_anchor": 44.6271,
+            "change": 3.6046,
+            "new_rank": 86,
+            "rank_change": 13
+        },
+        {
+            "team": "Buffalo",
+            "current_2025_sp_anchor": 38.4246,
+            "current_rank": 110,
+            "new_2026_sp_anchor": 34.8524,
+            "change": -3.5722,
+            "new_rank": 120,
+            "rank_change": -10
+        },
+        {
+            "team": "UTSA",
+            "current_2025_sp_anchor": 51.141,
+            "current_rank": 63,
+            "new_2026_sp_anchor": 47.6161,
+            "change": -3.5249,
+            "new_rank": 77,
+            "rank_change": -14
+        },
+        {
+            "team": "Sam Houston",
+            "current_2025_sp_anchor": 21.0474,
+            "current_rank": 134,
+            "new_2026_sp_anchor": 24.4634,
+            "change": 3.416,
+            "new_rank": 130,
+            "rank_change": 4
+        },
+        {
+            "team": "Utah State",
+            "current_2025_sp_anchor": 46.5433,
+            "current_rank": 79,
+            "new_2026_sp_anchor": 43.212,
+            "change": -3.3313,
+            "new_rank": 92,
+            "rank_change": -13
+        },
+        {
+            "team": "Oregon",
+            "current_2025_sp_anchor": 72.7514,
+            "current_rank": 5,
+            "new_2026_sp_anchor": 76.0117,
+            "change": 3.2603,
+            "new_rank": 2,
+            "rank_change": 3
+        },
+        {
+            "team": "Western Michigan",
+            "current_2025_sp_anchor": 42.502,
+            "current_rank": 92,
+            "new_2026_sp_anchor": 39.3055,
+            "change": -3.1965,
+            "new_rank": 104,
+            "rank_change": -12
+        },
+        {
+            "team": "Baylor",
+            "current_2025_sp_anchor": 50.2672,
+            "current_rank": 66,
+            "new_2026_sp_anchor": 53.4011,
+            "change": 3.1339,
+            "new_rank": 53,
+            "rank_change": 13
+        },
+        {
+            "team": "Texas State",
+            "current_2025_sp_anchor": 49.5544,
+            "current_rank": 72,
+            "new_2026_sp_anchor": 46.4357,
+            "change": -3.1187,
+            "new_rank": 80,
+            "rank_change": -8
+        },
+        {
+            "team": "Alabama",
+            "current_2025_sp_anchor": 60.6087,
+            "current_rank": 24,
+            "new_2026_sp_anchor": 63.7272,
+            "change": 3.1185,
+            "new_rank": 21,
+            "rank_change": 3
+        },
+        {
+            "team": "Hawai'i",
+            "current_2025_sp_anchor": 46.0635,
+            "current_rank": 81,
+            "new_2026_sp_anchor": 43.0535,
+            "change": -3.01,
+            "new_rank": 93,
+            "rank_change": -12
+        },
+        {
+            "team": "Nevada",
+            "current_2025_sp_anchor": 32.3955,
+            "current_rank": 125,
+            "new_2026_sp_anchor": 35.3098,
+            "change": 2.9143,
+            "new_rank": 115,
+            "rank_change": 10
+        },
+        {
+            "team": "Kansas State",
+            "current_2025_sp_anchor": 55.1071,
+            "current_rank": 44,
+            "new_2026_sp_anchor": 57.8984,
+            "change": 2.7913,
+            "new_rank": 37,
+            "rank_change": 7
+        },
+        {
+            "team": "Georgia State",
+            "current_2025_sp_anchor": 24.1132,
+            "current_rank": 131,
+            "new_2026_sp_anchor": 21.3914,
+            "change": -2.7218,
+            "new_rank": 134,
+            "rank_change": -3
+        },
+        {
+            "team": "Boise State",
+            "current_2025_sp_anchor": 49.9476,
+            "current_rank": 68,
+            "new_2026_sp_anchor": 52.6668,
+            "change": 2.7192,
+            "new_rank": 57,
+            "rank_change": 11
+        },
+        {
+            "team": "Tennessee",
+            "current_2025_sp_anchor": 64.4438,
+            "current_rank": 17,
+            "new_2026_sp_anchor": 67.0987,
+            "change": 2.6549,
+            "new_rank": 13,
+            "rank_change": 4
+        },
+        {
+            "team": "Temple",
+            "current_2025_sp_anchor": 42.0499,
+            "current_rank": 94,
+            "new_2026_sp_anchor": 39.5082,
+            "change": -2.5417,
+            "new_rank": 102,
+            "rank_change": -8
+        },
+        {
+            "team": "Florida State",
+            "current_2025_sp_anchor": 54.3371,
+            "current_rank": 49,
+            "new_2026_sp_anchor": 56.848,
+            "change": 2.5109,
+            "new_rank": 41,
+            "rank_change": 8
+        },
+        {
+            "team": "Rutgers",
+            "current_2025_sp_anchor": 50.7998,
+            "current_rank": 64,
+            "new_2026_sp_anchor": 53.304,
+            "change": 2.5042,
+            "new_rank": 54,
+            "rank_change": 10
+        },
+        {
+            "team": "Ohio State",
+            "current_2025_sp_anchor": 78.0921,
+            "current_rank": 2,
+            "new_2026_sp_anchor": 80.5917,
+            "change": 2.4996,
+            "new_rank": 1,
+            "rank_change": 1
+        },
+        {
+            "team": "Georgia Tech",
+            "current_2025_sp_anchor": 56.5672,
+            "current_rank": 38,
+            "new_2026_sp_anchor": 54.1649,
+            "change": -2.4023,
+            "new_rank": 48,
+            "rank_change": -10
+        },
+        {
+            "team": "Georgia",
+            "current_2025_sp_anchor": 71.9924,
+            "current_rank": 6,
+            "new_2026_sp_anchor": 74.3882,
+            "change": 2.3958,
+            "new_rank": 4,
+            "rank_change": 2
+        },
+        {
+            "team": "Florida International",
+            "current_2025_sp_anchor": 37.5449,
+            "current_rank": 112,
+            "new_2026_sp_anchor": 35.157,
+            "change": -2.3879,
+            "new_rank": 116,
+            "rank_change": -4
+        },
+        {
+            "team": "Marshall",
+            "current_2025_sp_anchor": 42.9892,
+            "current_rank": 89,
+            "new_2026_sp_anchor": 40.7051,
+            "change": -2.2841,
+            "new_rank": 98,
+            "rank_change": -9
+        },
+        {
+            "team": "Notre Dame",
+            "current_2025_sp_anchor": 73.6583,
+            "current_rank": 4,
+            "new_2026_sp_anchor": 75.8624,
+            "change": 2.2041,
+            "new_rank": 3,
+            "rank_change": 1
+        },
+        {
+            "team": "Virginia",
+            "current_2025_sp_anchor": 59.38,
+            "current_rank": 31,
+            "new_2026_sp_anchor": 57.2927,
+            "change": -2.0873,
+            "new_rank": 40,
+            "rank_change": -9
+        },
+        {
+            "team": "Fresno State",
+            "current_2025_sp_anchor": 49.4962,
+            "current_rank": 73,
+            "new_2026_sp_anchor": 47.4906,
+            "change": -2.0056,
+            "new_rank": 78,
+            "rank_change": -5
+        },
+        {
+            "team": "Army",
+            "current_2025_sp_anchor": 45.581,
+            "current_rank": 82,
+            "new_2026_sp_anchor": 43.6039,
+            "change": -1.9771,
+            "new_rank": 89,
+            "rank_change": -7
+        },
+        {
+            "team": "Washington",
+            "current_2025_sp_anchor": 66.3603,
+            "current_rank": 14,
+            "new_2026_sp_anchor": 64.4314,
+            "change": -1.9289,
+            "new_rank": 18,
+            "rank_change": -4
+        },
+        {
+            "team": "Troy",
+            "current_2025_sp_anchor": 39.3407,
+            "current_rank": 108,
+            "new_2026_sp_anchor": 37.523,
+            "change": -1.8177,
+            "new_rank": 107,
+            "rank_change": 1
+        },
+        {
+            "team": "Arizona State",
+            "current_2025_sp_anchor": 50.3844,
+            "current_rank": 65,
+            "new_2026_sp_anchor": 52.1651,
+            "change": 1.7807,
+            "new_rank": 59,
+            "rank_change": 6
+        },
+        {
+            "team": "Coastal Carolina",
+            "current_2025_sp_anchor": 33.6692,
+            "current_rank": 123,
+            "new_2026_sp_anchor": 35.4415,
+            "change": 1.7723,
+            "new_rank": 114,
+            "rank_change": 9
+        },
+        {
+            "team": "Wyoming",
+            "current_2025_sp_anchor": 36.393,
+            "current_rank": 115,
+            "new_2026_sp_anchor": 38.1486,
+            "change": 1.7556,
+            "new_rank": 105,
+            "rank_change": 10
+        },
+        {
+            "team": "TCU",
+            "current_2025_sp_anchor": 54.7419,
+            "current_rank": 48,
+            "new_2026_sp_anchor": 56.4888,
+            "change": 1.7469,
+            "new_rank": 42,
+            "rank_change": 6
+        },
+        {
+            "team": "Illinois",
+            "current_2025_sp_anchor": 60.6847,
+            "current_rank": 23,
+            "new_2026_sp_anchor": 59.004,
+            "change": -1.6807,
+            "new_rank": 33,
+            "rank_change": -10
+        },
+        {
+            "team": "NC State",
+            "current_2025_sp_anchor": 51.9091,
+            "current_rank": 60,
+            "new_2026_sp_anchor": 53.5725,
+            "change": 1.6634,
+            "new_rank": 50,
+            "rank_change": 10
+        },
+        {
+            "team": "Arizona",
+            "current_2025_sp_anchor": 60.0876,
+            "current_rank": 28,
+            "new_2026_sp_anchor": 58.4325,
+            "change": -1.6551,
+            "new_rank": 34,
+            "rank_change": -6
+        },
+        {
+            "team": "Miami",
+            "current_2025_sp_anchor": 68.94,
+            "current_rank": 8,
+            "new_2026_sp_anchor": 70.5169,
+            "change": 1.5769,
+            "new_rank": 9,
+            "rank_change": -1
+        },
+        {
+            "team": "Mississippi State",
+            "current_2025_sp_anchor": 52.0411,
+            "current_rank": 58,
+            "new_2026_sp_anchor": 53.5413,
+            "change": 1.5002,
+            "new_rank": 52,
+            "rank_change": 6
+        },
+        {
+            "team": "Missouri",
+            "current_2025_sp_anchor": 63.6941,
+            "current_rank": 20,
+            "new_2026_sp_anchor": 65.1757,
+            "change": 1.4816,
+            "new_rank": 15,
+            "rank_change": 5
+        },
+        {
+            "team": "Arkansas State",
+            "current_2025_sp_anchor": 42.6988,
+            "current_rank": 90,
+            "new_2026_sp_anchor": 41.3614,
+            "change": -1.3374,
+            "new_rank": 96,
+            "rank_change": -6
+        },
+        {
+            "team": "New Mexico State",
+            "current_2025_sp_anchor": 37.4491,
+            "current_rank": 113,
+            "new_2026_sp_anchor": 36.1194,
+            "change": -1.3297,
+            "new_rank": 111,
+            "rank_change": 2
+        },
+        {
+            "team": "Kent State",
+            "current_2025_sp_anchor": 28.3093,
+            "current_rank": 130,
+            "new_2026_sp_anchor": 26.9962,
+            "change": -1.3131,
+            "new_rank": 129,
+            "rank_change": 1
+        },
+        {
+            "team": "Wake Forest",
+            "current_2025_sp_anchor": 52.929,
+            "current_rank": 52,
+            "new_2026_sp_anchor": 51.6365,
+            "change": -1.2925,
+            "new_rank": 62,
+            "rank_change": -10
+        },
+        {
+            "team": "Arkansas",
+            "current_2025_sp_anchor": 59.1378,
+            "current_rank": 32,
+            "new_2026_sp_anchor": 60.4264,
+            "change": 1.2886,
+            "new_rank": 29,
+            "rank_change": 3
+        },
+        {
+            "team": "Penn State",
+            "current_2025_sp_anchor": 64.4365,
+            "current_rank": 18,
+            "new_2026_sp_anchor": 63.1572,
+            "change": -1.2793,
+            "new_rank": 24,
+            "rank_change": -6
+        },
+        {
+            "team": "Pittsburgh",
+            "current_2025_sp_anchor": 56.2704,
+            "current_rank": 42,
+            "new_2026_sp_anchor": 54.9925,
+            "change": -1.2779,
+            "new_rank": 46,
+            "rank_change": -4
+        },
+        {
+            "team": "USC",
+            "current_2025_sp_anchor": 63.3474,
+            "current_rank": 21,
+            "new_2026_sp_anchor": 64.5747,
+            "change": 1.2273,
+            "new_rank": 17,
+            "rank_change": 4
+        },
+        {
+            "team": "Air Force",
+            "current_2025_sp_anchor": 43.3128,
+            "current_rank": 87,
+            "new_2026_sp_anchor": 44.3799,
+            "change": 1.0671,
+            "new_rank": 87,
+            "rank_change": 0
+        },
+        {
+            "team": "Northern Illinois",
+            "current_2025_sp_anchor": 36.259,
+            "current_rank": 116,
+            "new_2026_sp_anchor": 37.2527,
+            "change": 0.9937,
+            "new_rank": 109,
+            "rank_change": 7
+        },
+        {
+            "team": "Rice",
+            "current_2025_sp_anchor": 32.1419,
+            "current_rank": 126,
+            "new_2026_sp_anchor": 33.0815,
+            "change": 0.9396,
+            "new_rank": 123,
+            "rank_change": 3
+        },
+        {
+            "team": "Oklahoma",
+            "current_2025_sp_anchor": 67.6106,
+            "current_rank": 9,
+            "new_2026_sp_anchor": 68.5232,
+            "change": 0.9126,
+            "new_rank": 11,
+            "rank_change": -2
+        },
+        {
+            "team": "Bowling Green",
+            "current_2025_sp_anchor": 34.5363,
+            "current_rank": 120,
+            "new_2026_sp_anchor": 33.6733,
+            "change": -0.863,
+            "new_rank": 121,
+            "rank_change": -1
+        },
+        {
+            "team": "Louisiana",
+            "current_2025_sp_anchor": 36.8718,
+            "current_rank": 114,
+            "new_2026_sp_anchor": 37.6775,
+            "change": 0.8057,
+            "new_rank": 106,
+            "rank_change": 8
+        },
+        {
+            "team": "Houston",
+            "current_2025_sp_anchor": 55.0906,
+            "current_rank": 45,
+            "new_2026_sp_anchor": 55.8558,
+            "change": 0.7652,
+            "new_rank": 44,
+            "rank_change": 1
+        },
+        {
+            "team": "SMU",
+            "current_2025_sp_anchor": 60.2695,
+            "current_rank": 25,
+            "new_2026_sp_anchor": 59.6734,
+            "change": -0.5961,
+            "new_rank": 32,
+            "rank_change": -7
+        },
+        {
+            "team": "Texas A&M",
+            "current_2025_sp_anchor": 67.2071,
+            "current_rank": 13,
+            "new_2026_sp_anchor": 67.7767,
+            "change": 0.5696,
+            "new_rank": 12,
+            "rank_change": 1
+        },
+        {
+            "team": "Louisville",
+            "current_2025_sp_anchor": 58.8341,
+            "current_rank": 34,
+            "new_2026_sp_anchor": 58.2665,
+            "change": -0.5676,
+            "new_rank": 35,
+            "rank_change": -1
+        },
+        {
+            "team": "Auburn",
+            "current_2025_sp_anchor": 65.6286,
+            "current_rank": 16,
+            "new_2026_sp_anchor": 66.1826,
+            "change": 0.554,
+            "new_rank": 14,
+            "rank_change": 2
+        },
+        {
+            "team": "Delaware",
+            "current_2025_sp_anchor": 37.8239,
+            "current_rank": 111,
+            "new_2026_sp_anchor": 37.2788,
+            "change": -0.5451,
+            "new_rank": 108,
+            "rank_change": 3
+        },
+        {
+            "team": "Cincinnati",
+            "current_2025_sp_anchor": 52.0642,
+            "current_rank": 57,
+            "new_2026_sp_anchor": 51.5384,
+            "change": -0.5258,
+            "new_rank": 64,
+            "rank_change": -7
+        },
+        {
+            "team": "Miami (OH)",
+            "current_2025_sp_anchor": 47.4477,
+            "current_rank": 76,
+            "new_2026_sp_anchor": 47.9711,
+            "change": 0.5234,
+            "new_rank": 75,
+            "rank_change": 1
+        },
+        {
+            "team": "South Alabama",
+            "current_2025_sp_anchor": 36.0818,
+            "current_rank": 117,
+            "new_2026_sp_anchor": 35.6795,
+            "change": -0.4023,
+            "new_rank": 113,
+            "rank_change": 4
+        },
+        {
+            "team": "BYU",
+            "current_2025_sp_anchor": 63.763,
+            "current_rank": 19,
+            "new_2026_sp_anchor": 63.3705,
+            "change": -0.3925,
+            "new_rank": 23,
+            "rank_change": -4
+        },
+        {
+            "team": "Ball State",
+            "current_2025_sp_anchor": 22.7041,
+            "current_rank": 132,
+            "new_2026_sp_anchor": 22.4121,
+            "change": -0.292,
+            "new_rank": 132,
+            "rank_change": 0
+        },
+        {
+            "team": "UNLV",
+            "current_2025_sp_anchor": 51.4211,
+            "current_rank": 62,
+            "new_2026_sp_anchor": 51.6336,
+            "change": 0.2125,
+            "new_rank": 63,
+            "rank_change": -1
+        },
+        {
+            "team": "UTEP",
+            "current_2025_sp_anchor": 31.2339,
+            "current_rank": 127,
+            "new_2026_sp_anchor": 31.06,
+            "change": -0.1739,
+            "new_rank": 124,
+            "rank_change": 3
+        },
+        {
+            "team": "Northwestern",
+            "current_2025_sp_anchor": 54.8509,
+            "current_rank": 46,
+            "new_2026_sp_anchor": 55.0207,
+            "change": 0.1698,
+            "new_rank": 45,
+            "rank_change": 1
+        },
+        {
+            "team": "Jacksonville State",
+            "current_2025_sp_anchor": 41.6915,
+            "current_rank": 96,
+            "new_2026_sp_anchor": 41.851,
+            "change": 0.1595,
+            "new_rank": 94,
+            "rank_change": 2
+        },
+        {
+            "team": "UAB",
+            "current_2025_sp_anchor": 39.7574,
+            "current_rank": 105,
+            "new_2026_sp_anchor": 39.6266,
+            "change": -0.1308,
+            "new_rank": 101,
+            "rank_change": 4
+        },
+        {
+            "team": "Duke",
+            "current_2025_sp_anchor": 52.2259,
+            "current_rank": 56,
+            "new_2026_sp_anchor": 52.0982,
+            "change": -0.1277,
+            "new_rank": 60,
+            "rank_change": -4
+        },
+        {
+            "team": "Kansas",
+            "current_2025_sp_anchor": 52.7915,
+            "current_rank": 53,
+            "new_2026_sp_anchor": 52.9182,
+            "change": 0.1267,
+            "new_rank": 56,
+            "rank_change": -3
+        },
+        {
+            "team": "New Mexico",
+            "current_2025_sp_anchor": 49.3929,
+            "current_rank": 74,
+            "new_2026_sp_anchor": 49.5191,
+            "change": 0.1262,
+            "new_rank": 70,
+            "rank_change": 4
+        },
+        {
+            "team": "Eastern Michigan",
+            "current_2025_sp_anchor": 33.2691,
+            "current_rank": 124,
+            "new_2026_sp_anchor": 33.3817,
+            "change": 0.1126,
+            "new_rank": 122,
+            "rank_change": 2
+        },
+        {
+            "team": "App State",
+            "current_2025_sp_anchor": 34.909,
+            "current_rank": 118,
+            "new_2026_sp_anchor": 35.0192,
+            "change": 0.1102,
+            "new_rank": 118,
+            "rank_change": 0
+        },
+        {
+            "team": "San Jos\u00e9 State",
+            "current_2025_sp_anchor": 29.1737,
+            "current_rank": 129,
+            "new_2026_sp_anchor": 29.2749,
+            "change": 0.1012,
+            "new_rank": 126,
+            "rank_change": 3
+        },
+        {
+            "team": "Georgia Southern",
+            "current_2025_sp_anchor": 41.632,
+            "current_rank": 97,
+            "new_2026_sp_anchor": 41.5937,
+            "change": -0.0383,
+            "new_rank": 95,
+            "rank_change": 2
+        }
+    ]
+}
