@@ -1,0 +1,947 @@
+{
+  "teams": 136,
+  "candidates": {
+    "sp_only": {
+      "weights": {
+        "returning_production": 0.0,
+        "transfer_talent": 0.0,
+        "qb_continuity": 0.0,
+        "coaching": 0.0
+      },
+      "cap": 0.0,
+      "mean_abs_adjustment": 0.0,
+      "teams_at_cap": 0,
+      "top10": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 79.596,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 2,
+          "team": "Oregon",
+          "rating": 76.391,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 3,
+          "team": "Notre Dame",
+          "rating": 73.9185,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 73.827,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 73.2775,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 6,
+          "team": "Texas",
+          "rating": 70.5303,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 7,
+          "team": "Miami",
+          "rating": 69.7978,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 69.6146,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 9,
+          "team": "Texas A&M",
+          "rating": 68.7905,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 10,
+          "team": "LSU",
+          "rating": 68.3326,
+          "adjustment": 0.0
+        }
+      ],
+      "largest_positive": [
+        {
+          "team": "Ohio State",
+          "adjustment": 0.0,
+          "rank": 1
+        },
+        {
+          "team": "Oregon",
+          "adjustment": 0.0,
+          "rank": 2
+        },
+        {
+          "team": "Notre Dame",
+          "adjustment": 0.0,
+          "rank": 3
+        },
+        {
+          "team": "Georgia",
+          "adjustment": 0.0,
+          "rank": 4
+        },
+        {
+          "team": "Indiana",
+          "adjustment": 0.0,
+          "rank": 5
+        },
+        {
+          "team": "Texas",
+          "adjustment": 0.0,
+          "rank": 6
+        },
+        {
+          "team": "Miami",
+          "adjustment": 0.0,
+          "rank": 7
+        },
+        {
+          "team": "Texas Tech",
+          "adjustment": 0.0,
+          "rank": 8
+        }
+      ],
+      "largest_negative": [
+        {
+          "team": "Ohio State",
+          "adjustment": 0.0,
+          "rank": 1
+        },
+        {
+          "team": "Oregon",
+          "adjustment": 0.0,
+          "rank": 2
+        },
+        {
+          "team": "Notre Dame",
+          "adjustment": 0.0,
+          "rank": 3
+        },
+        {
+          "team": "Georgia",
+          "adjustment": 0.0,
+          "rank": 4
+        },
+        {
+          "team": "Indiana",
+          "adjustment": 0.0,
+          "rank": 5
+        },
+        {
+          "team": "Texas",
+          "adjustment": 0.0,
+          "rank": 6
+        },
+        {
+          "team": "Miami",
+          "adjustment": 0.0,
+          "rank": 7
+        },
+        {
+          "team": "Texas Tech",
+          "adjustment": 0.0,
+          "rank": 8
+        }
+      ]
+    },
+    "full_v4": {
+      "weights": {
+        "returning_production": 2.0,
+        "transfer_talent": 0.5,
+        "qb_continuity": -0.5,
+        "coaching": 2.0
+      },
+      "cap": 6.0,
+      "mean_abs_adjustment": 2.0291,
+      "teams_at_cap": 12,
+      "top10": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 80.5917,
+          "adjustment": 0.9957
+        },
+        {
+          "rank": 2,
+          "team": "Oregon",
+          "rating": 76.0117,
+          "adjustment": -0.3793
+        },
+        {
+          "rank": 3,
+          "team": "Notre Dame",
+          "rating": 75.8623,
+          "adjustment": 1.9438
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 74.3883,
+          "adjustment": 0.5613
+        },
+        {
+          "rank": 5,
+          "team": "Texas",
+          "rating": 74.0923,
+          "adjustment": 3.562
+        },
+        {
+          "rank": 6,
+          "team": "Indiana",
+          "rating": 72.6292,
+          "adjustment": -0.6483
+        },
+        {
+          "rank": 7,
+          "team": "LSU",
+          "rating": 71.5481,
+          "adjustment": 3.2155
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 70.935,
+          "adjustment": 1.3204
+        },
+        {
+          "rank": 9,
+          "team": "Miami",
+          "rating": 70.5169,
+          "adjustment": 0.7191
+        },
+        {
+          "rank": 10,
+          "team": "Florida",
+          "rating": 69.5708,
+          "adjustment": 6.0
+        }
+      ],
+      "largest_positive": [
+        {
+          "team": "Florida",
+          "adjustment": 6.0,
+          "rank": 10
+        },
+        {
+          "team": "Auburn",
+          "adjustment": 6.0,
+          "rank": 14
+        },
+        {
+          "team": "Virginia Tech",
+          "adjustment": 6.0,
+          "rank": 22
+        },
+        {
+          "team": "Oklahoma State",
+          "adjustment": 6.0,
+          "rank": 25
+        },
+        {
+          "team": "UCLA",
+          "adjustment": 6.0,
+          "rank": 27
+        },
+        {
+          "team": "Kentucky",
+          "adjustment": 6.0,
+          "rank": 30
+        },
+        {
+          "team": "Michigan State",
+          "adjustment": 6.0,
+          "rank": 38
+        },
+        {
+          "team": "Stanford",
+          "adjustment": 6.0,
+          "rank": 51
+        }
+      ],
+      "largest_negative": [
+        {
+          "team": "San Jos\u00e9 State",
+          "adjustment": -6.0,
+          "rank": 126
+        },
+        {
+          "team": "UL Monroe",
+          "adjustment": -5.5808,
+          "rank": 135
+        },
+        {
+          "team": "Western Michigan",
+          "adjustment": -4.8519,
+          "rank": 104
+        },
+        {
+          "team": "Troy",
+          "adjustment": -4.8029,
+          "rank": 107
+        },
+        {
+          "team": "Ball State",
+          "adjustment": -4.2549,
+          "rank": 132
+        },
+        {
+          "team": "Hawai'i",
+          "adjustment": -4.2174,
+          "rank": 93
+        },
+        {
+          "team": "Missouri State",
+          "adjustment": -4.0939,
+          "rank": 127
+        },
+        {
+          "team": "Army",
+          "adjustment": -3.8502,
+          "rank": 89
+        }
+      ]
+    },
+    "balanced_light": {
+      "weights": {
+        "returning_production": 1.25,
+        "transfer_talent": 1.0,
+        "qb_continuity": -0.25,
+        "coaching": 0.5
+      },
+      "cap": 4.0,
+      "mean_abs_adjustment": 1.2603,
+      "teams_at_cap": 3,
+      "top10": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 80.9955,
+          "adjustment": 1.3995
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 77.4824,
+          "adjustment": 3.5639
+        },
+        {
+          "rank": 3,
+          "team": "Oregon",
+          "rating": 75.3558,
+          "adjustment": -1.0352
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 74.9524,
+          "adjustment": 1.1254
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 74.1445,
+          "adjustment": 0.867
+        },
+        {
+          "rank": 6,
+          "team": "Texas",
+          "rating": 73.2103,
+          "adjustment": 2.68
+        },
+        {
+          "rank": 7,
+          "team": "Miami",
+          "rating": 72.7804,
+          "adjustment": 2.9826
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 72.3525,
+          "adjustment": 2.7379
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 72.3326,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 10,
+          "team": "Oklahoma",
+          "rating": 68.6822,
+          "adjustment": 1.8148
+        }
+      ],
+      "largest_positive": [
+        {
+          "team": "LSU",
+          "adjustment": 4.0,
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "adjustment": 4.0,
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "adjustment": 4.0,
+          "rank": 28
+        },
+        {
+          "team": "Notre Dame",
+          "adjustment": 3.5639,
+          "rank": 2
+        },
+        {
+          "team": "UCLA",
+          "adjustment": 3.4887,
+          "rank": 34
+        },
+        {
+          "team": "Kentucky",
+          "adjustment": 3.0058,
+          "rank": 37
+        },
+        {
+          "team": "Miami",
+          "adjustment": 2.9826,
+          "rank": 7
+        },
+        {
+          "team": "Colorado State",
+          "adjustment": 2.8447,
+          "rank": 95
+        }
+      ],
+      "largest_negative": [
+        {
+          "team": "San Jos\u00e9 State",
+          "adjustment": -3.3386,
+          "rank": 124
+        },
+        {
+          "team": "UL Monroe",
+          "adjustment": -3.0284,
+          "rank": 135
+        },
+        {
+          "team": "Troy",
+          "adjustment": -2.8696,
+          "rank": 104
+        },
+        {
+          "team": "Duke",
+          "adjustment": -2.6128,
+          "rank": 60
+        },
+        {
+          "team": "Western Michigan",
+          "adjustment": -2.5787,
+          "rank": 97
+        },
+        {
+          "team": "UConn",
+          "adjustment": -2.5574,
+          "rank": 114
+        },
+        {
+          "team": "Hawai'i",
+          "adjustment": -2.4915,
+          "rank": 87
+        },
+        {
+          "team": "North Carolina",
+          "adjustment": -2.3731,
+          "rank": 64
+        }
+      ]
+    },
+    "talent_forward": {
+      "weights": {
+        "returning_production": 1.25,
+        "transfer_talent": 1.25,
+        "qb_continuity": -0.25,
+        "coaching": 0.5
+      },
+      "cap": 4.0,
+      "mean_abs_adjustment": 1.3411,
+      "teams_at_cap": 4,
+      "top10": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 81.1598,
+          "adjustment": 1.5638
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 77.9185,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 3,
+          "team": "Georgia",
+          "rating": 75.1167,
+          "adjustment": 1.2897
+        },
+        {
+          "rank": 4,
+          "team": "Oregon",
+          "rating": 74.9472,
+          "adjustment": -1.4438
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 74.538,
+          "adjustment": 1.2605
+        },
+        {
+          "rank": 6,
+          "team": "Miami",
+          "rating": 73.6322,
+          "adjustment": 3.8344
+        },
+        {
+          "rank": 7,
+          "team": "Texas",
+          "rating": 73.26,
+          "adjustment": 2.7297
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 72.9751,
+          "adjustment": 3.3605
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 72.3326,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 10,
+          "team": "Oklahoma",
+          "rating": 68.8465,
+          "adjustment": 1.9791
+        }
+      ],
+      "largest_positive": [
+        {
+          "team": "Notre Dame",
+          "adjustment": 4.0,
+          "rank": 2
+        },
+        {
+          "team": "LSU",
+          "adjustment": 4.0,
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "adjustment": 4.0,
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "adjustment": 4.0,
+          "rank": 28
+        },
+        {
+          "team": "Miami",
+          "adjustment": 3.8344,
+          "rank": 6
+        },
+        {
+          "team": "UCLA",
+          "adjustment": 3.5384,
+          "rank": 34
+        },
+        {
+          "team": "Kentucky",
+          "adjustment": 3.5138,
+          "rank": 35
+        },
+        {
+          "team": "Texas Tech",
+          "adjustment": 3.3605,
+          "rank": 8
+        }
+      ],
+      "largest_negative": [
+        {
+          "team": "San Jos\u00e9 State",
+          "adjustment": -3.1743,
+          "rank": 124
+        },
+        {
+          "team": "Duke",
+          "adjustment": -3.0214,
+          "rank": 62
+        },
+        {
+          "team": "UL Monroe",
+          "adjustment": -2.9787,
+          "rank": 135
+        },
+        {
+          "team": "Troy",
+          "adjustment": -2.9344,
+          "rank": 105
+        },
+        {
+          "team": "Florida State",
+          "adjustment": -2.9098,
+          "rank": 45
+        },
+        {
+          "team": "North Carolina",
+          "adjustment": -2.7817,
+          "rank": 66
+        },
+        {
+          "team": "UConn",
+          "adjustment": -2.7368,
+          "rank": 114
+        },
+        {
+          "team": "Hawai'i",
+          "adjustment": -2.5564,
+          "rank": 87
+        }
+      ]
+    },
+    "conservative_talent": {
+      "weights": {
+        "returning_production": 1.0,
+        "transfer_talent": 1.0,
+        "qb_continuity": -0.25,
+        "coaching": 0.25
+      },
+      "cap": 3.0,
+      "mean_abs_adjustment": 1.0275,
+      "teams_at_cap": 5,
+      "top10": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 80.8306,
+          "adjustment": 1.2346
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 76.9185,
+          "adjustment": 3.0
+        },
+        {
+          "rank": 3,
+          "team": "Oregon",
+          "rating": 75.2193,
+          "adjustment": -1.1717
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 74.8443,
+          "adjustment": 1.0173
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 74.3776,
+          "adjustment": 1.1001
+        },
+        {
+          "rank": 6,
+          "team": "Miami",
+          "rating": 72.7978,
+          "adjustment": 3.0
+        },
+        {
+          "rank": 7,
+          "team": "Texas",
+          "rating": 72.7042,
+          "adjustment": 2.1739
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 72.3865,
+          "adjustment": 2.7719
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 71.3326,
+          "adjustment": 3.0
+        },
+        {
+          "rank": 10,
+          "team": "Texas A&M",
+          "rating": 68.6766,
+          "adjustment": -0.1139
+        }
+      ],
+      "largest_positive": [
+        {
+          "team": "Notre Dame",
+          "adjustment": 3.0,
+          "rank": 2
+        },
+        {
+          "team": "Miami",
+          "adjustment": 3.0,
+          "rank": 6
+        },
+        {
+          "team": "LSU",
+          "adjustment": 3.0,
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "adjustment": 3.0,
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "adjustment": 3.0,
+          "rank": 31
+        },
+        {
+          "team": "Texas Tech",
+          "adjustment": 2.7719,
+          "rank": 8
+        },
+        {
+          "team": "Kentucky",
+          "adjustment": 2.3886,
+          "rank": 39
+        },
+        {
+          "team": "UCLA",
+          "adjustment": 2.3029,
+          "rank": 37
+        }
+      ],
+      "largest_negative": [
+        {
+          "team": "San Jos\u00e9 State",
+          "adjustment": -2.4517,
+          "rank": 124
+        },
+        {
+          "team": "UL Monroe",
+          "adjustment": -2.3974,
+          "rank": 135
+        },
+        {
+          "team": "Troy",
+          "adjustment": -2.3523,
+          "rank": 103
+        },
+        {
+          "team": "Duke",
+          "adjustment": -2.3229,
+          "rank": 56
+        },
+        {
+          "team": "Florida State",
+          "adjustment": -2.238,
+          "rank": 42
+        },
+        {
+          "team": "North Carolina",
+          "adjustment": -2.14,
+          "rank": 64
+        },
+        {
+          "team": "UConn",
+          "adjustment": -2.0969,
+          "rank": 113
+        },
+        {
+          "team": "Hawai'i",
+          "adjustment": -2.0595,
+          "rank": 86
+        }
+      ]
+    },
+    "talent_heavy": {
+      "weights": {
+        "returning_production": 1.0,
+        "transfer_talent": 1.5,
+        "qb_continuity": -0.25,
+        "coaching": 0.25
+      },
+      "cap": 4.0,
+      "mean_abs_adjustment": 1.2444,
+      "teams_at_cap": 6,
+      "top10": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 81.1591,
+          "adjustment": 1.5631
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 77.9185,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 3,
+          "team": "Georgia",
+          "rating": 75.1729,
+          "adjustment": 1.3459
+        },
+        {
+          "rank": 4,
+          "team": "Indiana",
+          "rating": 75.1645,
+          "adjustment": 1.887
+        },
+        {
+          "rank": 5,
+          "team": "Oregon",
+          "rating": 74.4021,
+          "adjustment": -1.9889
+        },
+        {
+          "rank": 6,
+          "team": "Miami",
+          "rating": 73.7978,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 7,
+          "team": "Texas Tech",
+          "rating": 73.6146,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 8,
+          "team": "Texas",
+          "rating": 72.8037,
+          "adjustment": 2.2734
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 72.3326,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 10,
+          "team": "Texas A&M",
+          "rating": 68.776,
+          "adjustment": -0.0145
+        }
+      ],
+      "largest_positive": [
+        {
+          "team": "Notre Dame",
+          "adjustment": 4.0,
+          "rank": 2
+        },
+        {
+          "team": "Miami",
+          "adjustment": 4.0,
+          "rank": 6
+        },
+        {
+          "team": "Texas Tech",
+          "adjustment": 4.0,
+          "rank": 7
+        },
+        {
+          "team": "LSU",
+          "adjustment": 4.0,
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "adjustment": 4.0,
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "adjustment": 4.0,
+          "rank": 26
+        },
+        {
+          "team": "Kentucky",
+          "adjustment": 3.4046,
+          "rank": 34
+        },
+        {
+          "team": "UCLA",
+          "adjustment": 2.4023,
+          "rank": 37
+        }
+      ],
+      "largest_negative": [
+        {
+          "team": "Florida State",
+          "adjustment": -3.5136,
+          "rank": 48
+        },
+        {
+          "team": "Duke",
+          "adjustment": -3.1401,
+          "rank": 60
+        },
+        {
+          "team": "Iowa State",
+          "adjustment": -3.0757,
+          "rank": 81
+        },
+        {
+          "team": "NC State",
+          "adjustment": -3.0217,
+          "rank": 59
+        },
+        {
+          "team": "North Carolina",
+          "adjustment": -2.9573,
+          "rank": 67
+        },
+        {
+          "team": "Troy",
+          "adjustment": -2.482,
+          "rank": 104
+        },
+        {
+          "team": "UConn",
+          "adjustment": -2.4558,
+          "rank": 114
+        },
+        {
+          "team": "Wake Forest",
+          "adjustment": -2.3637,
+          "rank": 64
+        }
+      ]
+    }
+  }
+}
