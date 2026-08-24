@@ -14,10 +14,7 @@
   <header class="site-header">
     <div class="brand-wrap">
       <div class="brand-mark" aria-hidden="true">PG</div>
-      <div>
-        <p class="eyebrow">PROJECT GRIDIRON</p>
-        <h1>College Football Forecast</h1>
-      </div>
+      <div><p class="eyebrow">PROJECT GRIDIRON</p><h1>College Football Forecast</h1></div>
     </div>
     <div class="status-pill" id="modelStatus">Loading model status…</div>
   </header>
@@ -25,9 +22,9 @@
   <main>
     <section class="hero panel">
       <div>
-        <p class="eyebrow">2026 • V4 PRODUCTION</p>
+        <p class="eyebrow">2026 • V4 + IN-SEASON</p>
         <h2>Power ratings, projected spreads, winners and totals — in one place.</h2>
-        <p class="hero-copy">Project Gridiron V4 is now the active 2026 preseason model. Week 0 projections use the approved preseason ratings with the calibrated margin and totals models.</p>
+        <p class="hero-copy">Project Gridiron starts from the approved 2026 V4 preseason ratings. Once games begin, completed FBS results update team strength each week before the next slate is projected.</p>
       </div>
       <div class="hero-metrics">
         <div class="metric"><span id="teamCount">—</span><small>Teams rated</small></div>
@@ -44,34 +41,18 @@
 
     <section id="gamesView" class="view active">
       <div class="toolbar panel">
-        <div>
-          <label for="weekSelect">Week</label>
-          <select id="weekSelect"><option value="all">All weeks</option></select>
-        </div>
-        <div class="search-wrap">
-          <label for="gameSearch">Team search</label>
-          <input id="gameSearch" type="search" placeholder="Texas, Ohio State, Georgia…" />
-        </div>
+        <div><label for="weekSelect">Week</label><select id="weekSelect"><option value="all">All weeks</option></select></div>
+        <div class="search-wrap"><label for="gameSearch">Team search</label><input id="gameSearch" type="search" placeholder="Texas, Ohio State, Georgia…" /></div>
       </div>
       <div id="gamesGrid" class="games-grid"></div>
-      <div id="gamesEmpty" class="empty-state panel hidden">
-        <h3>No production game projections are available yet.</h3>
-        <p>The dashboard reads <code>site_data/game_predictions_2026.json</code>. Run the site export after generating predictions to refresh this view.</p>
-      </div>
+      <div id="gamesEmpty" class="empty-state panel hidden"><h3>No production game projections are available yet.</h3><p>The weekly GitHub pipeline publishes the next slate automatically.</p></div>
     </section>
 
     <section id="rankingsView" class="view">
-      <div class="toolbar panel">
-        <div class="search-wrap full">
-          <label for="rankingSearch">Search teams</label>
-          <input id="rankingSearch" type="search" placeholder="Search 2026 V4 power ratings…" />
-        </div>
-      </div>
+      <div class="toolbar panel"><div class="search-wrap full"><label for="rankingSearch">Search teams</label><input id="rankingSearch" type="search" placeholder="Search 2026 Project Gridiron ratings…" /></div></div>
       <div class="table-wrap panel">
         <table>
-          <thead>
-            <tr><th>Rank</th><th>Team</th><th>Power rating</th><th>V4 adj.</th><th>Return %</th><th>Net high-end portal</th></tr>
-          </thead>
+          <thead><tr><th>Rank</th><th>Team</th><th>Power rating</th><th>Season adj.</th><th>Games</th><th>Return %</th><th>Net high-end portal</th></tr></thead>
           <tbody id="rankingsBody"></tbody>
         </table>
       </div>
@@ -79,31 +60,15 @@
 
     <section id="methodologyView" class="view">
       <div class="method-grid">
-        <article class="panel method-card">
-          <span class="step">01</span><h3>Anchor the teams</h3>
-          <p>2025 SP+ is mapped to the 2025 Project Gridiron rating scale to establish the entering-2026 baseline.</p>
-        </article>
-        <article class="panel method-card">
-          <span class="step">02</span><h3>Apply V4 preseason adjustments</h3>
-          <p>Returning production, transfer talent, quarterback continuity and coaching context are standardized and applied using the frozen multi-year V4 weights, capped at ±6 rating points.</p>
-        </article>
-        <article class="panel method-card">
-          <span class="step">03</span><h3>Project games</h3>
-          <p>Rating gaps feed the historical margin calibration and offense/defense scores feed the totals calibration to produce spreads, totals and implied scores.</p>
-        </article>
-        <article class="panel method-card">
-          <span class="step">04</span><h3>Update in season</h3>
-          <p>Once games begin, the weekly system will blend the preseason prior with current-season performance and progressively shift weight toward observed 2026 results.</p>
-        </article>
+        <article class="panel method-card"><span class="step">01</span><h3>Anchor the teams</h3><p>2025 SP+ is mapped to the Project Gridiron scale to establish the entering-2026 baseline.</p></article>
+        <article class="panel method-card"><span class="step">02</span><h3>Apply V4 preseason adjustments</h3><p>Returning production, transfer talent, quarterback continuity and coaching context are standardized and applied using the frozen multi-year V4 weights, capped at ±6 rating points.</p></article>
+        <article class="panel method-card"><span class="step">03</span><h3>Learn from results</h3><p>Completed FBS-vs-FBS games update ratings from the difference between expected and actual margin. Early updates are deliberately conservative, with the preseason prior fading as games accumulate.</p></article>
+        <article class="panel method-card"><span class="step">04</span><h3>Publish the next slate</h3><p>Every Monday at 4:00 AM Eastern, GitHub refreshes results, updates ratings, regenerates upcoming projections and publishes the website automatically.</p></article>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>Project Gridiron • 2026 College Football Forecast</p>
-    <p class="muted">For analytical and entertainment purposes. Projections are model estimates, not guarantees.</p>
-  </footer>
-
+  <footer><p>Project Gridiron • 2026 College Football Forecast</p><p class="muted">For analytical and entertainment purposes. Projections are model estimates, not guarantees.</p></footer>
   <script src="app.js" defer></script>
 </body>
 </html>
