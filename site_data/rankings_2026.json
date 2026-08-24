@@ -1,1 +1,12 @@
-{"parts":["site_data/rankings_2026_part1.json","site_data/rankings_2026_part2.json","site_data/rankings_2026_part3.json","site_data/rankings_2026_part4.json"],"count":136,"model":"preseason_v4_2026_production"}
+{
+  "season": 2026,
+  "model_version": "2026_inseason_v1_balanced_light_prior",
+  "latest_completed_week": -1,
+  "teams": 136,
+  "parts": [
+    "site_data/rankings_2026_part1.json",
+    "site_data/rankings_2026_part2.json",
+    "site_data/rankings_2026_part3.json",
+    "site_data/rankings_2026_part4.json"
+  ]
+}
