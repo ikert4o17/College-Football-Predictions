@@ -1,0 +1,3279 @@
+{
+    "teams": 136,
+    "comparison": "2026 preseason SP+ mapped anchor alone vs same anchor plus frozen full V4 adjustments",
+    "mean_abs_v4_adjustment": 2.0291,
+    "teams_at_6_point_cap": 12,
+    "largest_effects": [
+        {
+            "team": "Florida",
+            "sp_anchor_only": 63.5708,
+            "sp_plus_full_v4": 69.5708,
+            "v4_adjustment": 6.0,
+            "final_rank": 10,
+            "adjustment_parts": {
+                "returning_production": 3.5618,
+                "transfer_talent": -0.8172,
+                "qb_continuity": 0.4115,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.79,
+                "transfer_talent": -4.0,
+                "qb_continuity": -0.892,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 20,
+            "rank_change_from_v4": 10
+        },
+        {
+            "team": "Auburn",
+            "sp_anchor_only": 60.1826,
+            "sp_plus_full_v4": 66.1826,
+            "v4_adjustment": 6.0,
+            "final_rank": 14,
+            "adjustment_parts": {
+                "returning_production": 3.7892,
+                "transfer_talent": -1.2756,
+                "qb_continuity": 0.4407,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.8,
+                "transfer_talent": -6.0,
+                "qb_continuity": -0.942,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 26,
+            "rank_change_from_v4": 12
+        },
+        {
+            "team": "Virginia Tech",
+            "sp_anchor_only": 57.527,
+            "sp_plus_full_v4": 63.527,
+            "v4_adjustment": 6.0,
+            "final_rank": 22,
+            "adjustment_parts": {
+                "returning_production": 4.4714,
+                "transfer_talent": 0.7869,
+                "qb_continuity": 0.4599,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.83,
+                "transfer_talent": 3.0,
+                "qb_continuity": -0.975,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 36,
+            "rank_change_from_v4": 14
+        },
+        {
+            "team": "Oklahoma State",
+            "sp_anchor_only": 55.9703,
+            "sp_plus_full_v4": 61.9703,
+            "v4_adjustment": 6.0,
+            "final_rank": 25,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": 1.0161,
+                "qb_continuity": 0.401,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": 4.0,
+                "qb_continuity": -0.874,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 39,
+            "rank_change_from_v4": 14
+        },
+        {
+            "team": "UCLA",
+            "sp_anchor_only": 54.5967,
+            "sp_plus_full_v4": 60.5967,
+            "v4_adjustment": 6.0,
+            "final_rank": 27,
+            "adjustment_parts": {
+                "returning_production": 3.3343,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6642,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.78,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.954,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 46,
+            "rank_change_from_v4": 19
+        },
+        {
+            "team": "Kentucky",
+            "sp_anchor_only": 54.4136,
+            "sp_plus_full_v4": 60.4136,
+            "v4_adjustment": 6.0,
+            "final_rank": 30,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": 1.0161,
+                "qb_continuity": 0.3888,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": 4.0,
+                "qb_continuity": -0.853,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 47,
+            "rank_change_from_v4": 17
+        },
+        {
+            "team": "Michigan State",
+            "sp_anchor_only": 51.6664,
+            "sp_plus_full_v4": 57.6664,
+            "v4_adjustment": 6.0,
+            "final_rank": 38,
+            "adjustment_parts": {
+                "returning_production": 0.1505,
+                "transfer_talent": -0.5881,
+                "qb_continuity": 0.3736,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.64,
+                "transfer_talent": -3.0,
+                "qb_continuity": -0.827,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 62,
+            "rank_change_from_v4": 24
+        },
+        {
+            "team": "Stanford",
+            "sp_anchor_only": 47.5456,
+            "sp_plus_full_v4": 53.5456,
+            "v4_adjustment": 6.0,
+            "final_rank": 51,
+            "adjustment_parts": {
+                "returning_production": 1.0602,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3911,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.68,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.857,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 78,
+            "rank_change_from_v4": 27
+        },
+        {
+            "team": "Oregon State",
+            "sp_anchor_only": 44.5237,
+            "sp_plus_full_v4": 50.5237,
+            "v4_adjustment": 6.0,
+            "final_rank": 66,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.5471,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.753,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 88,
+            "rank_change_from_v4": 22
+        },
+        {
+            "team": "Colorado State",
+            "sp_anchor_only": 39.0294,
+            "sp_plus_full_v4": 45.0294,
+            "v4_adjustment": 6.0,
+            "final_rank": 84,
+            "adjustment_parts": {
+                "returning_production": 2.1973,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3859,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.73,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.848,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 104,
+            "rank_change_from_v4": 20
+        },
+        {
+            "team": "UAB",
+            "sp_anchor_only": 33.6266,
+            "sp_plus_full_v4": 39.6266,
+            "v4_adjustment": 6.0,
+            "final_rank": 101,
+            "adjustment_parts": {
+                "returning_production": -0.5318,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4051,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.61,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.881,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 123,
+            "rank_change_from_v4": 22
+        },
+        {
+            "team": "San Jos\u00e9 State",
+            "sp_anchor_only": 35.2749,
+            "sp_plus_full_v4": 29.2749,
+            "v4_adjustment": -6.0,
+            "final_rank": 126,
+            "adjustment_parts": {
+                "returning_production": -6.4446,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.3894,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.35,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.854,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 120,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Arkansas",
+            "sp_anchor_only": 54.7798,
+            "sp_plus_full_v4": 60.4264,
+            "v4_adjustment": 5.6466,
+            "final_rank": 29,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3835,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.844,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 44,
+            "rank_change_from_v4": 15
+        },
+        {
+            "team": "UL Monroe",
+            "sp_anchor_only": 23.1873,
+            "sp_plus_full_v4": 17.6065,
+            "v4_adjustment": -5.5808,
+            "final_rank": 135,
+            "adjustment_parts": {
+                "returning_production": -4.3979,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6321,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.44,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.899,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 134,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "Western Michigan",
+            "sp_anchor_only": 44.1574,
+            "sp_plus_full_v4": 39.3055,
+            "v4_adjustment": -4.8519,
+            "final_rank": 104,
+            "adjustment_parts": {
+                "returning_production": -3.7156,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.5855,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.47,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.819,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 89,
+            "rank_change_from_v4": -15
+        },
+        {
+            "team": "Troy",
+            "sp_anchor_only": 42.326,
+            "sp_plus_full_v4": 37.523,
+            "v4_adjustment": -4.803,
+            "final_rank": 107,
+            "adjustment_parts": {
+                "returning_production": -3.4882,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.5348,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.48,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.732,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 96,
+            "rank_change_from_v4": -11
+        },
+        {
+            "team": "Ball State",
+            "sp_anchor_only": 26.6671,
+            "sp_plus_full_v4": 22.4121,
+            "v4_adjustment": -4.255,
+            "final_rank": 132,
+            "adjustment_parts": {
+                "returning_production": -4.1704,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4663,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.45,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.986,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 131,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "Hawai'i",
+            "sp_anchor_only": 47.2709,
+            "sp_plus_full_v4": 43.0535,
+            "v4_adjustment": -4.2174,
+            "final_rank": 93,
+            "adjustment_parts": {
+                "returning_production": -2.8059,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6315,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.51,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.898,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 82,
+            "rank_change_from_v4": -11
+        },
+        {
+            "team": "Missouri State",
+            "sp_anchor_only": 32.1614,
+            "sp_plus_full_v4": 28.0675,
+            "v4_adjustment": -4.0939,
+            "final_rank": 127,
+            "adjustment_parts": {
+                "returning_production": -3.943,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3999,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.46,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.872,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 125,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "Army",
+            "sp_anchor_only": 47.454,
+            "sp_plus_full_v4": 43.6039,
+            "v4_adjustment": -3.8501,
+            "final_rank": 89,
+            "adjustment_parts": {
+                "returning_production": -2.8059,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.4934,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.51,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.661,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 80,
+            "rank_change_from_v4": -9
+        },
+        {
+            "team": "Middle Tennessee",
+            "sp_anchor_only": 25.385,
+            "sp_plus_full_v4": 21.6807,
+            "v4_adjustment": -3.7043,
+            "final_rank": 133,
+            "adjustment_parts": {
+                "returning_production": -3.2608,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3363,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.49,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.763,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 133,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Nevada",
+            "sp_anchor_only": 38.9378,
+            "sp_plus_full_v4": 35.3098,
+            "v4_adjustment": -3.628,
+            "final_rank": 115,
+            "adjustment_parts": {
+                "returning_production": -2.8059,
+                "transfer_talent": 0.3286,
+                "qb_continuity": -0.5004,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.51,
+                "transfer_talent": 1.0,
+                "qb_continuity": 0.673,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 107,
+            "rank_change_from_v4": -8
+        },
+        {
+            "team": "UConn",
+            "sp_anchor_only": 38.7546,
+            "sp_plus_full_v4": 35.1499,
+            "v4_adjustment": -3.6047,
+            "final_rank": 117,
+            "adjustment_parts": {
+                "returning_production": -3.0333,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.4377,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.5,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.937,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 109,
+            "rank_change_from_v4": -8
+        },
+        {
+            "team": "Texas",
+            "sp_anchor_only": 70.5303,
+            "sp_plus_full_v4": 74.0923,
+            "v4_adjustment": 3.562,
+            "final_rank": 5,
+            "adjustment_parts": {
+                "returning_production": 4.6988,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.5861,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.84,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.82,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 6,
+            "rank_change_from_v4": 1
+        },
+        {
+            "team": "New Mexico State",
+            "sp_anchor_only": 32.7108,
+            "sp_plus_full_v4": 36.1194,
+            "v4_adjustment": 3.4086,
+            "final_rank": 111,
+            "adjustment_parts": {
+                "returning_production": 3.5618,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3975,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.79,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.868,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 124,
+            "rank_change_from_v4": 13
+        },
+        {
+            "team": "Charlotte",
+            "sp_anchor_only": 27.5828,
+            "sp_plus_full_v4": 24.1944,
+            "v4_adjustment": -3.3884,
+            "final_rank": 131,
+            "adjustment_parts": {
+                "returning_production": -2.3511,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.4864,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.53,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.649,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 130,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "Northern Illinois",
+            "sp_anchor_only": 33.9013,
+            "sp_plus_full_v4": 37.2527,
+            "v4_adjustment": 3.3514,
+            "final_rank": 109,
+            "adjustment_parts": {
+                "returning_production": -3.0333,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3626,
+                "coaching": 6.1519,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.5,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.808,
+                "coaching": 1.0
+            },
+            "sp_anchor_rank": 122,
+            "rank_change_from_v4": 13
+        },
+        {
+            "team": "LSU",
+            "sp_anchor_only": 68.3326,
+            "sp_plus_full_v4": 71.5481,
+            "v4_adjustment": 3.2155,
+            "final_rank": 7,
+            "adjustment_parts": {
+                "returning_production": 1.515,
+                "transfer_talent": 1.9328,
+                "qb_continuity": 0.4179,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.7,
+                "transfer_talent": 8.0,
+                "qb_continuity": -0.903,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 10,
+            "rank_change_from_v4": 3
+        },
+        {
+            "team": "Buffalo",
+            "sp_anchor_only": 38.0221,
+            "sp_plus_full_v4": 34.8524,
+            "v4_adjustment": -3.1697,
+            "final_rank": 120,
+            "adjustment_parts": {
+                "returning_production": -3.0333,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4144,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.5,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.897,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 111,
+            "rank_change_from_v4": -9
+        },
+        {
+            "team": "Maryland",
+            "sp_anchor_only": 54.4136,
+            "sp_plus_full_v4": 57.4391,
+            "v4_adjustment": 3.0255,
+            "final_rank": 39,
+            "adjustment_parts": {
+                "returning_production": 4.4714,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6659,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.83,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.957,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 48,
+            "rank_change_from_v4": 9
+        },
+        {
+            "team": "App State",
+            "sp_anchor_only": 38.0221,
+            "sp_plus_full_v4": 35.0192,
+            "v4_adjustment": -3.0029,
+            "final_rank": 118,
+            "adjustment_parts": {
+                "returning_production": -2.8059,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3538,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.51,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.793,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 110,
+            "rank_change_from_v4": -8
+        },
+        {
+            "team": "Massachusetts",
+            "sp_anchor_only": 19.5244,
+            "sp_plus_full_v4": 16.5992,
+            "v4_adjustment": -2.9252,
+            "final_rank": 136,
+            "adjustment_parts": {
+                "returning_production": -2.3511,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.2058,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.53,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.539,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 136,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Ohio",
+            "sp_anchor_only": 38.8462,
+            "sp_plus_full_v4": 35.943,
+            "v4_adjustment": -2.9032,
+            "final_rank": 112,
+            "adjustment_parts": {
+                "returning_production": -2.5785,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.4552,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.52,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.967,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 108,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Toledo",
+            "sp_anchor_only": 41.3187,
+            "sp_plus_full_v4": 44.0199,
+            "v4_adjustment": 2.7012,
+            "final_rank": 88,
+            "adjustment_parts": {
+                "returning_production": 3.1069,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3742,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.77,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.828,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 98,
+            "rank_change_from_v4": 10
+        },
+        {
+            "team": "Duke",
+            "sp_anchor_only": 54.7798,
+            "sp_plus_full_v4": 52.0982,
+            "v4_adjustment": -2.6816,
+            "final_rank": 60,
+            "adjustment_parts": {
+                "returning_production": -1.6688,
+                "transfer_talent": -0.8172,
+                "qb_continuity": 0.4546,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.56,
+                "transfer_talent": -4.0,
+                "qb_continuity": -0.966,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 45,
+            "rank_change_from_v4": -15
+        },
+        {
+            "team": "South Carolina",
+            "sp_anchor_only": 61.1899,
+            "sp_plus_full_v4": 63.8218,
+            "v4_adjustment": 2.6319,
+            "final_rank": 20,
+            "adjustment_parts": {
+                "returning_production": 3.7892,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6065,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.8,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.855,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 24,
+            "rank_change_from_v4": 4
+        },
+        {
+            "team": "Rice",
+            "sp_anchor_only": 35.6412,
+            "sp_plus_full_v4": 33.0815,
+            "v4_adjustment": -2.5597,
+            "final_rank": 123,
+            "adjustment_parts": {
+                "returning_production": -2.5785,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.3404,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.52,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.77,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 119,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Air Force",
+            "sp_anchor_only": 46.7215,
+            "sp_plus_full_v4": 44.3799,
+            "v4_adjustment": -2.3416,
+            "final_rank": 87,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.5768,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.804,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 83,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Arkansas State",
+            "sp_anchor_only": 39.0294,
+            "sp_plus_full_v4": 41.3614,
+            "v4_adjustment": 2.332,
+            "final_rank": 96,
+            "adjustment_parts": {
+                "returning_production": 2.4247,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4581,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.74,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.972,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 105,
+            "rank_change_from_v4": 9
+        },
+        {
+            "team": "North Carolina",
+            "sp_anchor_only": 52.8568,
+            "sp_plus_full_v4": 50.5408,
+            "v4_adjustment": -2.316,
+            "final_rank": 65,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": -0.8172,
+                "qb_continuity": 0.3655,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": -4.0,
+                "qb_continuity": -0.813,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 56,
+            "rank_change_from_v4": -9
+        },
+        {
+            "team": "Western Kentucky",
+            "sp_anchor_only": 42.967,
+            "sp_plus_full_v4": 40.6959,
+            "v4_adjustment": -2.2711,
+            "final_rank": 99,
+            "adjustment_parts": {
+                "returning_production": -2.1237,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4034,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.54,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.878,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 93,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Louisiana",
+            "sp_anchor_only": 39.9451,
+            "sp_plus_full_v4": 37.6775,
+            "v4_adjustment": -2.2676,
+            "final_rank": 106,
+            "adjustment_parts": {
+                "returning_production": -0.9866,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.501,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.59,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.674,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 101,
+            "rank_change_from_v4": -5
+        },
+        {
+            "team": "Washington State",
+            "sp_anchor_only": 45.7142,
+            "sp_plus_full_v4": 43.4471,
+            "v4_adjustment": -2.2671,
+            "final_rank": 90,
+            "adjustment_parts": {
+                "returning_production": -2.1237,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4074,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.54,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.885,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 86,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "North Texas",
+            "sp_anchor_only": 39.0294,
+            "sp_plus_full_v4": 36.774,
+            "v4_adjustment": -2.2554,
+            "final_rank": 110,
+            "adjustment_parts": {
+                "returning_production": -1.4414,
+                "transfer_talent": -0.5881,
+                "qb_continuity": 0.4243,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.57,
+                "transfer_talent": -3.0,
+                "qb_continuity": -0.914,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 106,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Colorado",
+            "sp_anchor_only": 50.2928,
+            "sp_plus_full_v4": 52.5456,
+            "v4_adjustment": 2.2528,
+            "final_rank": 58,
+            "adjustment_parts": {
+                "returning_production": 2.4247,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3789,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.74,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.836,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 65,
+            "rank_change_from_v4": 7
+        },
+        {
+            "team": "Old Dominion",
+            "sp_anchor_only": 43.3333,
+            "sp_plus_full_v4": 41.0907,
+            "v4_adjustment": -2.2426,
+            "final_rank": 97,
+            "adjustment_parts": {
+                "returning_production": -1.6688,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.4354,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.56,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.933,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 92,
+            "rank_change_from_v4": -5
+        },
+        {
+            "team": "Bowling Green",
+            "sp_anchor_only": 35.9159,
+            "sp_plus_full_v4": 33.6733,
+            "v4_adjustment": -2.2426,
+            "final_rank": 121,
+            "adjustment_parts": {
+                "returning_production": -2.1237,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4319,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.54,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.927,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 117,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Utah",
+            "sp_anchor_only": 58.6259,
+            "sp_plus_full_v4": 56.4325,
+            "v4_adjustment": -2.1934,
+            "final_rank": 43,
+            "adjustment_parts": {
+                "returning_production": -0.3043,
+                "transfer_talent": -0.5881,
+                "qb_continuity": -0.6508,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.62,
+                "transfer_talent": -3.0,
+                "qb_continuity": 0.931,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 30,
+            "rank_change_from_v4": -13
+        },
+        {
+            "team": "Kent State",
+            "sp_anchor_only": 29.1395,
+            "sp_plus_full_v4": 26.9962,
+            "v4_adjustment": -2.1433,
+            "final_rank": 129,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6042,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.851,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 128,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "UCF",
+            "sp_anchor_only": 51.2085,
+            "sp_plus_full_v4": 53.2595,
+            "v4_adjustment": 2.051,
+            "final_rank": 55,
+            "adjustment_parts": {
+                "returning_production": 2.6521,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.408,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.75,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.886,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 63,
+            "rank_change_from_v4": 8
+        },
+        {
+            "team": "Alabama",
+            "sp_anchor_only": 65.7686,
+            "sp_plus_full_v4": 63.7272,
+            "v4_adjustment": -2.0414,
+            "final_rank": 21,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": -0.5881,
+                "qb_continuity": 0.4109,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": -3.0,
+                "qb_continuity": -0.891,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 13,
+            "rank_change_from_v4": -8
+        },
+        {
+            "team": "Navy",
+            "sp_anchor_only": 50.7507,
+            "sp_plus_full_v4": 48.7134,
+            "v4_adjustment": -2.0373,
+            "final_rank": 71,
+            "adjustment_parts": {
+                "returning_production": -1.8963,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4098,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.55,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.889,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 64,
+            "rank_change_from_v4": -7
+        },
+        {
+            "team": "East Carolina",
+            "sp_anchor_only": 47.5456,
+            "sp_plus_full_v4": 45.5404,
+            "v4_adjustment": -2.0052,
+            "final_rank": 82,
+            "adjustment_parts": {
+                "returning_production": -1.8963,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4418,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.55,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.944,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 79,
+            "rank_change_from_v4": -3
+        },
+        {
+            "team": "Miami (OH)",
+            "sp_anchor_only": 45.9889,
+            "sp_plus_full_v4": 47.9711,
+            "v4_adjustment": 1.9822,
+            "final_rank": 75,
+            "adjustment_parts": {
+                "returning_production": 2.4247,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3375,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.74,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.765,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 84,
+            "rank_change_from_v4": 9
+        },
+        {
+            "team": "Arizona State",
+            "sp_anchor_only": 54.1388,
+            "sp_plus_full_v4": 52.1651,
+            "v4_adjustment": -1.9737,
+            "final_rank": 59,
+            "adjustment_parts": {
+                "returning_production": -2.1237,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.4715,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.54,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.995,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 51,
+            "rank_change_from_v4": -8
+        },
+        {
+            "team": "Notre Dame",
+            "sp_anchor_only": 73.9185,
+            "sp_plus_full_v4": 75.8624,
+            "v4_adjustment": 1.9439,
+            "final_rank": 3,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": 1.4744,
+                "qb_continuity": -0.6228,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": 6.0,
+                "qb_continuity": 0.883,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 3,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Nebraska",
+            "sp_anchor_only": 58.168,
+            "sp_plus_full_v4": 60.0073,
+            "v4_adjustment": 1.8393,
+            "final_rank": 31,
+            "adjustment_parts": {
+                "returning_production": 2.1973,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.422,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.73,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.91,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 33,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Georgia Southern",
+            "sp_anchor_only": 39.7619,
+            "sp_plus_full_v4": 41.5937,
+            "v4_adjustment": 1.8318,
+            "final_rank": 95,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.4109,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.891,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 102,
+            "rank_change_from_v4": 7
+        },
+        {
+            "team": "Temple",
+            "sp_anchor_only": 41.3187,
+            "sp_plus_full_v4": 39.5082,
+            "v4_adjustment": -1.8105,
+            "final_rank": 102,
+            "adjustment_parts": {
+                "returning_production": -1.8963,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.4074,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.55,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.885,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 100,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "TCU",
+            "sp_anchor_only": 58.2596,
+            "sp_plus_full_v4": 56.4888,
+            "v4_adjustment": -1.7708,
+            "final_rank": 42,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.4523,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.962,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 32,
+            "rank_change_from_v4": -10
+        },
+        {
+            "team": "Oklahoma",
+            "sp_anchor_only": 66.8674,
+            "sp_plus_full_v4": 68.5232,
+            "v4_adjustment": 1.6558,
+            "final_rank": 11,
+            "adjustment_parts": {
+                "returning_production": 2.6521,
+                "transfer_talent": 0.3286,
+                "qb_continuity": -0.6747,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.75,
+                "transfer_talent": 1.0,
+                "qb_continuity": 0.972,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 11,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Boise State",
+            "sp_anchor_only": 54.322,
+            "sp_plus_full_v4": 52.6668,
+            "v4_adjustment": -1.6552,
+            "final_rank": 57,
+            "adjustment_parts": {
+                "returning_production": -0.3043,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.5709,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.62,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.794,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 50,
+            "rank_change_from_v4": -7
+        },
+        {
+            "team": "Wyoming",
+            "sp_anchor_only": 39.7619,
+            "sp_plus_full_v4": 38.1486,
+            "v4_adjustment": -1.6133,
+            "final_rank": 105,
+            "adjustment_parts": {
+                "returning_production": -1.6688,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.3771,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.56,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.833,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 103,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "Tennessee",
+            "sp_anchor_only": 65.4938,
+            "sp_plus_full_v4": 67.0987,
+            "v4_adjustment": 1.6049,
+            "final_rank": 13,
+            "adjustment_parts": {
+                "returning_production": 2.8795,
+                "transfer_talent": -1.0464,
+                "qb_continuity": 0.422,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.76,
+                "transfer_talent": -5.0,
+                "qb_continuity": -0.91,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 14,
+            "rank_change_from_v4": 1
+        },
+        {
+            "team": "Iowa",
+            "sp_anchor_only": 63.0214,
+            "sp_plus_full_v4": 61.4436,
+            "v4_adjustment": -1.5778,
+            "final_rank": 26,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.4162,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.9,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 22,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Kennesaw State",
+            "sp_anchor_only": 37.8389,
+            "sp_plus_full_v4": 39.3902,
+            "v4_adjustment": 1.5513,
+            "final_rank": 103,
+            "adjustment_parts": {
+                "returning_production": 1.515,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.3579,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.7,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.8,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 112,
+            "rank_change_from_v4": 9
+        },
+        {
+            "team": "Louisville",
+            "sp_anchor_only": 59.8163,
+            "sp_plus_full_v4": 58.2665,
+            "v4_adjustment": -1.5498,
+            "final_rank": 35,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.4442,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.948,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 27,
+            "rank_change_from_v4": -8
+        },
+        {
+            "team": "Eastern Michigan",
+            "sp_anchor_only": 34.9086,
+            "sp_plus_full_v4": 33.3817,
+            "v4_adjustment": -1.5269,
+            "final_rank": 122,
+            "adjustment_parts": {
+                "returning_production": -0.3043,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6718,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.62,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.967,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 121,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "Liberty",
+            "sp_anchor_only": 44.7984,
+            "sp_plus_full_v4": 43.3036,
+            "v4_adjustment": -1.4948,
+            "final_rank": 91,
+            "adjustment_parts": {
+                "returning_production": -0.3043,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6397,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.62,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.912,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 87,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Syracuse",
+            "sp_anchor_only": 47.9119,
+            "sp_plus_full_v4": 46.42,
+            "v4_adjustment": -1.4919,
+            "final_rank": 81,
+            "adjustment_parts": {
+                "returning_production": 0.1505,
+                "transfer_talent": -0.3589,
+                "qb_continuity": -0.6333,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.64,
+                "transfer_talent": -2.0,
+                "qb_continuity": 0.901,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 75,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Marshall",
+            "sp_anchor_only": 42.1428,
+            "sp_plus_full_v4": 40.7051,
+            "v4_adjustment": -1.4377,
+            "final_rank": 98,
+            "adjustment_parts": {
+                "returning_production": -0.0769,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.5808,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.63,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.811,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 97,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "Georgia State",
+            "sp_anchor_only": 22.821,
+            "sp_plus_full_v4": 21.3914,
+            "v4_adjustment": -1.4296,
+            "final_rank": 134,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3352,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.761,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 135,
+            "rank_change_from_v4": 1
+        },
+        {
+            "team": "Missouri",
+            "sp_anchor_only": 63.754,
+            "sp_plus_full_v4": 65.1757,
+            "v4_adjustment": 1.4217,
+            "final_rank": 15,
+            "adjustment_parts": {
+                "returning_production": 1.515,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4576,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.7,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.971,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 19,
+            "rank_change_from_v4": 4
+        },
+        {
+            "team": "Sam Houston",
+            "sp_anchor_only": 25.8429,
+            "sp_plus_full_v4": 24.4634,
+            "v4_adjustment": -1.3795,
+            "final_rank": 130,
+            "adjustment_parts": {
+                "returning_production": -0.9866,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.387,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.59,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.85,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 132,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Penn State",
+            "sp_anchor_only": 64.4865,
+            "sp_plus_full_v4": 63.1572,
+            "v4_adjustment": -1.3293,
+            "final_rank": 24,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.4389,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.939,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 17,
+            "rank_change_from_v4": -7
+        },
+        {
+            "team": "Texas Tech",
+            "sp_anchor_only": 69.6146,
+            "sp_plus_full_v4": 70.935,
+            "v4_adjustment": 1.3204,
+            "final_rank": 8,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": 1.2453,
+                "qb_continuity": 0.3474,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": 5.0,
+                "qb_continuity": -0.782,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 8,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "UNLV",
+            "sp_anchor_only": 52.9484,
+            "sp_plus_full_v4": 51.6336,
+            "v4_adjustment": -1.3148,
+            "final_rank": 63,
+            "adjustment_parts": {
+                "returning_production": -0.9866,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.4517,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.59,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.961,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 55,
+            "rank_change_from_v4": -8
+        },
+        {
+            "team": "NC State",
+            "sp_anchor_only": 54.8714,
+            "sp_plus_full_v4": 53.5725,
+            "v4_adjustment": -1.2989,
+            "final_rank": 50,
+            "adjustment_parts": {
+                "returning_production": 1.0602,
+                "transfer_talent": -1.0464,
+                "qb_continuity": -0.6624,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.68,
+                "transfer_talent": -5.0,
+                "qb_continuity": 0.951,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 43,
+            "rank_change_from_v4": -7
+        },
+        {
+            "team": "Texas State",
+            "sp_anchor_only": 47.7288,
+            "sp_plus_full_v4": 46.4357,
+            "v4_adjustment": -1.2931,
+            "final_rank": 80,
+            "adjustment_parts": {
+                "returning_production": -0.0769,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6653,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.63,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.956,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 76,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "USC",
+            "sp_anchor_only": 65.8601,
+            "sp_plus_full_v4": 64.5747,
+            "v4_adjustment": -1.2854,
+            "final_rank": 17,
+            "adjustment_parts": {
+                "returning_production": 0.1505,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.656,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.64,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.94,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 12,
+            "rank_change_from_v4": -5
+        },
+        {
+            "team": "Akron",
+            "sp_anchor_only": 28.6816,
+            "sp_plus_full_v4": 27.3997,
+            "v4_adjustment": -1.2819,
+            "final_rank": 128,
+            "adjustment_parts": {
+                "returning_production": -0.0769,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6543,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.63,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.937,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 129,
+            "rank_change_from_v4": 1
+        },
+        {
+            "team": "California",
+            "sp_anchor_only": 52.399,
+            "sp_plus_full_v4": 53.6168,
+            "v4_adjustment": 1.2178,
+            "final_rank": 49,
+            "adjustment_parts": {
+                "returning_production": 1.9698,
+                "transfer_talent": 0.5578,
+                "qb_continuity": -0.6595,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.72,
+                "transfer_talent": 2.0,
+                "qb_continuity": 0.946,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 59,
+            "rank_change_from_v4": 10
+        },
+        {
+            "team": "Florida International",
+            "sp_anchor_only": 36.3737,
+            "sp_plus_full_v4": 35.157,
+            "v4_adjustment": -1.2167,
+            "final_rank": 116,
+            "adjustment_parts": {
+                "returning_production": -0.5318,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.3241,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.61,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.742,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 114,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "Rutgers",
+            "sp_anchor_only": 52.1242,
+            "sp_plus_full_v4": 53.304,
+            "v4_adjustment": 1.1798,
+            "final_rank": 54,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.4465,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.952,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 61,
+            "rank_change_from_v4": 7
+        },
+        {
+            "team": "Florida State",
+            "sp_anchor_only": 57.9849,
+            "sp_plus_full_v4": 56.848,
+            "v4_adjustment": -1.1369,
+            "final_rank": 41,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": -1.2756,
+                "qb_continuity": 0.4109,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": -6.0,
+                "qb_continuity": -0.891,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 35,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Wake Forest",
+            "sp_anchor_only": 52.7653,
+            "sp_plus_full_v4": 51.6365,
+            "v4_adjustment": -1.1288,
+            "final_rank": 62,
+            "adjustment_parts": {
+                "returning_production": -0.0769,
+                "transfer_talent": -0.8172,
+                "qb_continuity": 0.4156,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.63,
+                "transfer_talent": -4.0,
+                "qb_continuity": -0.899,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 57,
+            "rank_change_from_v4": -5
+        },
+        {
+            "team": "Clemson",
+            "sp_anchor_only": 61.6478,
+            "sp_plus_full_v4": 60.5214,
+            "v4_adjustment": -1.1264,
+            "final_rank": 28,
+            "adjustment_parts": {
+                "returning_production": -0.3043,
+                "transfer_talent": -0.5881,
+                "qb_continuity": 0.4162,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.62,
+                "transfer_talent": -3.0,
+                "qb_continuity": -0.9,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 23,
+            "rank_change_from_v4": -5
+        },
+        {
+            "team": "Wisconsin",
+            "sp_anchor_only": 53.1315,
+            "sp_plus_full_v4": 52.0343,
+            "v4_adjustment": -1.0972,
+            "final_rank": 61,
+            "adjustment_parts": {
+                "returning_production": 0.1505,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.4678,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.64,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.617,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 54,
+            "rank_change_from_v4": -7
+        },
+        {
+            "team": "SMU",
+            "sp_anchor_only": 60.7321,
+            "sp_plus_full_v4": 59.6734,
+            "v4_adjustment": -1.0587,
+            "final_rank": 32,
+            "adjustment_parts": {
+                "returning_production": -0.5318,
+                "transfer_talent": 0.7869,
+                "qb_continuity": -0.6636,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.61,
+                "transfer_talent": 3.0,
+                "qb_continuity": 0.953,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 25,
+            "rank_change_from_v4": -7
+        },
+        {
+            "team": "UTSA",
+            "sp_anchor_only": 48.6445,
+            "sp_plus_full_v4": 47.6161,
+            "v4_adjustment": -1.0284,
+            "final_rank": 77,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6263,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.889,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 71,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Texas A&M",
+            "sp_anchor_only": 68.7905,
+            "sp_plus_full_v4": 67.7767,
+            "v4_adjustment": -1.0138,
+            "final_rank": 12,
+            "adjustment_parts": {
+                "returning_production": 0.1505,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6135,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.64,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.867,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 9,
+            "rank_change_from_v4": -3
+        },
+        {
+            "team": "Ohio State",
+            "sp_anchor_only": 79.596,
+            "sp_plus_full_v4": 80.5917,
+            "v4_adjustment": 0.9957,
+            "final_rank": 1,
+            "adjustment_parts": {
+                "returning_production": 1.9698,
+                "transfer_talent": 0.3286,
+                "qb_continuity": -0.6525,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.72,
+                "transfer_talent": 1.0,
+                "qb_continuity": 0.934,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 1,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Central Michigan",
+            "sp_anchor_only": 35.8243,
+            "sp_plus_full_v4": 34.8734,
+            "v4_adjustment": -0.9509,
+            "final_rank": 119,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3591,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.802,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 118,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "UTEP",
+            "sp_anchor_only": 31.9783,
+            "sp_plus_full_v4": 31.06,
+            "v4_adjustment": -0.9183,
+            "final_rank": 124,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3917,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.858,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 126,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Georgia Tech",
+            "sp_anchor_only": 55.0546,
+            "sp_plus_full_v4": 54.1649,
+            "v4_adjustment": -0.8897,
+            "final_rank": 48,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": 0.5578,
+                "qb_continuity": 0.4168,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": 2.0,
+                "qb_continuity": -0.901,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 42,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Iowa State",
+            "sp_anchor_only": 49.2855,
+            "sp_plus_full_v4": 50.1703,
+            "v4_adjustment": 0.8848,
+            "final_rank": 67,
+            "adjustment_parts": {
+                "returning_production": 2.6521,
+                "transfer_talent": -1.5047,
+                "qb_continuity": 0.3876,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.75,
+                "transfer_talent": -7.0,
+                "qb_continuity": -0.851,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 69,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Fresno State",
+            "sp_anchor_only": 48.3698,
+            "sp_plus_full_v4": 47.4906,
+            "v4_adjustment": -0.8792,
+            "final_rank": 78,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4307,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.925,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 73,
+            "rank_change_from_v4": -5
+        },
+        {
+            "team": "Louisiana Tech",
+            "sp_anchor_only": 41.3187,
+            "sp_plus_full_v4": 40.4448,
+            "v4_adjustment": -0.8739,
+            "final_rank": 100,
+            "adjustment_parts": {
+                "returning_production": -0.0769,
+                "transfer_talent": 0.3286,
+                "qb_continuity": -0.4754,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.63,
+                "transfer_talent": 1.0,
+                "qb_continuity": 0.63,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 99,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "Cincinnati",
+            "sp_anchor_only": 52.399,
+            "sp_plus_full_v4": 51.5384,
+            "v4_adjustment": -0.8606,
+            "final_rank": 64,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4494,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.957,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 60,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Southern Miss",
+            "sp_anchor_only": 30.6962,
+            "sp_plus_full_v4": 29.8357,
+            "v4_adjustment": -0.8605,
+            "final_rank": 125,
+            "adjustment_parts": {
+                "returning_production": -0.9866,
+                "transfer_talent": 0.3286,
+                "qb_continuity": 0.4476,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.59,
+                "transfer_talent": 1.0,
+                "qb_continuity": -0.954,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 127,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Michigan",
+            "sp_anchor_only": 65.2191,
+            "sp_plus_full_v4": 64.3634,
+            "v4_adjustment": -0.8557,
+            "final_rank": 19,
+            "adjustment_parts": {
+                "returning_production": 1.0602,
+                "transfer_talent": -0.5881,
+                "qb_continuity": -0.6776,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.68,
+                "transfer_talent": -3.0,
+                "qb_continuity": 0.977,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 15,
+            "rank_change_from_v4": -4
+        },
+        {
+            "team": "Tulsa",
+            "sp_anchor_only": 44.0659,
+            "sp_plus_full_v4": 44.8638,
+            "v4_adjustment": 0.7979,
+            "final_rank": 85,
+            "adjustment_parts": {
+                "returning_production": 2.1973,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6193,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.73,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.877,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 90,
+            "rank_change_from_v4": 5
+        },
+        {
+            "team": "Utah State",
+            "sp_anchor_only": 42.4175,
+            "sp_plus_full_v4": 43.212,
+            "v4_adjustment": 0.7945,
+            "final_rank": 92,
+            "adjustment_parts": {
+                "returning_production": 2.1973,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6228,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.73,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.883,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 95,
+            "rank_change_from_v4": 3
+        },
+        {
+            "team": "Coastal Carolina",
+            "sp_anchor_only": 36.1906,
+            "sp_plus_full_v4": 35.4415,
+            "v4_adjustment": -0.7491,
+            "final_rank": 114,
+            "adjustment_parts": {
+                "returning_production": -0.3043,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3352,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.62,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.761,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 116,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Miami",
+            "sp_anchor_only": 69.7978,
+            "sp_plus_full_v4": 70.5169,
+            "v4_adjustment": 0.7191,
+            "final_rank": 9,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": 1.7036,
+                "qb_continuity": 0.4249,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": 7.0,
+                "qb_continuity": -0.915,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 7,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "Northwestern",
+            "sp_anchor_only": 54.322,
+            "sp_plus_full_v4": 55.0207,
+            "v4_adjustment": 0.6987,
+            "final_rank": 45,
+            "adjustment_parts": {
+                "returning_production": 1.0602,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.4185,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.68,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.904,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 49,
+            "rank_change_from_v4": 4
+        },
+        {
+            "team": "Tulane",
+            "sp_anchor_only": 45.7142,
+            "sp_plus_full_v4": 45.0507,
+            "v4_adjustment": -0.6635,
+            "final_rank": 83,
+            "adjustment_parts": {
+                "returning_production": -0.5318,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4191,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.61,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.905,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 85,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Jacksonville State",
+            "sp_anchor_only": 42.5091,
+            "sp_plus_full_v4": 41.851,
+            "v4_adjustment": -0.6581,
+            "final_rank": 94,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.4853,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.647,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 94,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Indiana",
+            "sp_anchor_only": 73.2775,
+            "sp_plus_full_v4": 72.6292,
+            "v4_adjustment": -0.6483,
+            "final_rank": 6,
+            "adjustment_parts": {
+                "returning_production": -1.214,
+                "transfer_talent": 0.7869,
+                "qb_continuity": 0.429,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.58,
+                "transfer_talent": 3.0,
+                "qb_continuity": -0.922,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 5,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "South Alabama",
+            "sp_anchor_only": 36.2822,
+            "sp_plus_full_v4": 35.6795,
+            "v4_adjustment": -0.6027,
+            "final_rank": 113,
+            "adjustment_parts": {
+                "returning_production": 0.6053,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6572,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.66,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.942,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 115,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Houston",
+            "sp_anchor_only": 56.4282,
+            "sp_plus_full_v4": 55.8558,
+            "v4_adjustment": -0.5724,
+            "final_rank": 44,
+            "adjustment_parts": {
+                "returning_production": 0.6053,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6269,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.66,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.89,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 38,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Georgia",
+            "sp_anchor_only": 73.827,
+            "sp_plus_full_v4": 74.3882,
+            "v4_adjustment": 0.5612,
+            "final_rank": 4,
+            "adjustment_parts": {
+                "returning_production": 1.515,
+                "transfer_talent": 0.3286,
+                "qb_continuity": -0.6321,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.7,
+                "transfer_talent": 1.0,
+                "qb_continuity": 0.899,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 4,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Florida Atlantic",
+            "sp_anchor_only": 44.0659,
+            "sp_plus_full_v4": 44.6271,
+            "v4_adjustment": 0.5612,
+            "final_rank": 86,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6304,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.896,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 91,
+            "rank_change_from_v4": 5
+        },
+        {
+            "team": "Delaware",
+            "sp_anchor_only": 37.8389,
+            "sp_plus_full_v4": 37.2788,
+            "v4_adjustment": -0.5601,
+            "final_rank": 108,
+            "adjustment_parts": {
+                "returning_production": 0.6053,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6146,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.66,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.869,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 113,
+            "rank_change_from_v4": 5
+        },
+        {
+            "team": "Mississippi State",
+            "sp_anchor_only": 54.0473,
+            "sp_plus_full_v4": 53.5413,
+            "v4_adjustment": -0.506,
+            "final_rank": 52,
+            "adjustment_parts": {
+                "returning_production": -0.7592,
+                "transfer_talent": 0.5578,
+                "qb_continuity": 0.3457,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.6,
+                "transfer_talent": 2.0,
+                "qb_continuity": -0.779,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 52,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "South Florida",
+            "sp_anchor_only": 48.095,
+            "sp_plus_full_v4": 48.5693,
+            "v4_adjustment": 0.4743,
+            "final_rank": 73,
+            "adjustment_parts": {
+                "returning_production": 0.8327,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.4214,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.67,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.909,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 74,
+            "rank_change_from_v4": 1
+        },
+        {
+            "team": "Vanderbilt",
+            "sp_anchor_only": 58.6259,
+            "sp_plus_full_v4": 58.2039,
+            "v4_adjustment": -0.422,
+            "final_rank": 36,
+            "adjustment_parts": {
+                "returning_production": -0.3043,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4331,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.62,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.929,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 29,
+            "rank_change_from_v4": -7
+        },
+        {
+            "team": "Minnesota",
+            "sp_anchor_only": 55.3293,
+            "sp_plus_full_v4": 54.9459,
+            "v4_adjustment": -0.3834,
+            "final_rank": 47,
+            "adjustment_parts": {
+                "returning_production": 0.8327,
+                "transfer_talent": 0.0994,
+                "qb_continuity": -0.6653,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.67,
+                "transfer_talent": 0.0,
+                "qb_continuity": 0.956,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 41,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Oregon",
+            "sp_anchor_only": 76.391,
+            "sp_plus_full_v4": 76.0117,
+            "v4_adjustment": -0.3793,
+            "final_rank": 2,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": -0.8172,
+                "qb_continuity": -0.6543,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": -4.0,
+                "qb_continuity": 0.937,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 2,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Boston College",
+            "sp_anchor_only": 47.3625,
+            "sp_plus_full_v4": 47.7097,
+            "v4_adjustment": 0.3472,
+            "final_rank": 76,
+            "adjustment_parts": {
+                "returning_production": 1.0602,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.2961,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.68,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.694,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 81,
+            "rank_change_from_v4": 5
+        },
+        {
+            "team": "Pittsburgh",
+            "sp_anchor_only": 55.3293,
+            "sp_plus_full_v4": 54.9925,
+            "v4_adjustment": -0.3368,
+            "final_rank": 46,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": -0.8172,
+                "qb_continuity": -0.6117,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": -4.0,
+                "qb_continuity": 0.864,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 40,
+            "rank_change_from_v4": -6
+        },
+        {
+            "team": "Washington",
+            "sp_anchor_only": 64.1203,
+            "sp_plus_full_v4": 64.4314,
+            "v4_adjustment": 0.3111,
+            "final_rank": 18,
+            "adjustment_parts": {
+                "returning_production": 1.7424,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6514,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.71,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.932,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 18,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Purdue",
+            "sp_anchor_only": 47.6372,
+            "sp_plus_full_v4": 47.3278,
+            "v4_adjustment": -0.3094,
+            "final_rank": 79,
+            "adjustment_parts": {
+                "returning_production": 0.6053,
+                "transfer_talent": 0.3286,
+                "qb_continuity": -0.5931,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.66,
+                "transfer_talent": 1.0,
+                "qb_continuity": 0.832,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 77,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "Baylor",
+            "sp_anchor_only": 53.1315,
+            "sp_plus_full_v4": 53.4011,
+            "v4_adjustment": 0.2696,
+            "final_rank": 53,
+            "adjustment_parts": {
+                "returning_production": 0.6053,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.4442,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.66,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.948,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 53,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Kansas",
+            "sp_anchor_only": 52.6737,
+            "sp_plus_full_v4": 52.9182,
+            "v4_adjustment": 0.2445,
+            "final_rank": 56,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4173,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.902,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 58,
+            "rank_change_from_v4": 2
+        },
+        {
+            "team": "Virginia",
+            "sp_anchor_only": 57.0692,
+            "sp_plus_full_v4": 57.2927,
+            "v4_adjustment": 0.2235,
+            "final_rank": 40,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3964,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.866,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 37,
+            "rank_change_from_v4": -3
+        },
+        {
+            "team": "Memphis",
+            "sp_anchor_only": 49.9265,
+            "sp_plus_full_v4": 50.1442,
+            "v4_adjustment": 0.2177,
+            "final_rank": 68,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.3905,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.856,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 67,
+            "rank_change_from_v4": -1
+        },
+        {
+            "team": "James Madison",
+            "sp_anchor_only": 48.8276,
+            "sp_plus_full_v4": 48.6371,
+            "v4_adjustment": -0.1905,
+            "final_rank": 72,
+            "adjustment_parts": {
+                "returning_production": -0.0769,
+                "transfer_talent": 0.0994,
+                "qb_continuity": 0.4372,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.63,
+                "transfer_talent": 0.0,
+                "qb_continuity": -0.936,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 70,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "Kansas State",
+            "sp_anchor_only": 58.0765,
+            "sp_plus_full_v4": 57.8984,
+            "v4_adjustment": -0.1781,
+            "final_rank": 37,
+            "adjustment_parts": {
+                "returning_production": 1.515,
+                "transfer_talent": -0.3589,
+                "qb_continuity": -0.684,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.7,
+                "transfer_talent": -2.0,
+                "qb_continuity": 0.988,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 34,
+            "rank_change_from_v4": -3
+        },
+        {
+            "team": "Illinois",
+            "sp_anchor_only": 59.1753,
+            "sp_plus_full_v4": 59.004,
+            "v4_adjustment": -0.1713,
+            "final_rank": 33,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": -0.3589,
+                "qb_continuity": 0.4599,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": -2.0,
+                "qb_continuity": -0.975,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 28,
+            "rank_change_from_v4": -5
+        },
+        {
+            "team": "San Diego State",
+            "sp_anchor_only": 50.2928,
+            "sp_plus_full_v4": 50.1392,
+            "v4_adjustment": -0.1536,
+            "final_rank": 69,
+            "adjustment_parts": {
+                "returning_production": 1.2876,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6613,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.69,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.949,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 66,
+            "rank_change_from_v4": -3
+        },
+        {
+            "team": "New Mexico",
+            "sp_anchor_only": 49.6518,
+            "sp_plus_full_v4": 49.5191,
+            "v4_adjustment": -0.1327,
+            "final_rank": 70,
+            "adjustment_parts": {
+                "returning_production": 1.2876,
+                "transfer_talent": -0.1297,
+                "qb_continuity": -0.6403,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.69,
+                "transfer_talent": -1.0,
+                "qb_continuity": 0.913,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 68,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "Ole Miss",
+            "sp_anchor_only": 64.7613,
+            "sp_plus_full_v4": 64.6799,
+            "v4_adjustment": -0.0814,
+            "final_rank": 16,
+            "adjustment_parts": {
+                "returning_production": 0.6053,
+                "transfer_talent": 0.5578,
+                "qb_continuity": -0.5943,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.66,
+                "transfer_talent": 2.0,
+                "qb_continuity": 0.834,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 16,
+            "rank_change_from_v4": 0
+        },
+        {
+            "team": "Arizona",
+            "sp_anchor_only": 58.3512,
+            "sp_plus_full_v4": 58.4325,
+            "v4_adjustment": 0.0813,
+            "final_rank": 34,
+            "adjustment_parts": {
+                "returning_production": 1.0602,
+                "transfer_talent": 0.3286,
+                "qb_continuity": -0.6572,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.68,
+                "transfer_talent": 1.0,
+                "qb_continuity": 0.942,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 31,
+            "rank_change_from_v4": -3
+        },
+        {
+            "team": "BYU",
+            "sp_anchor_only": 63.2961,
+            "sp_plus_full_v4": 63.3705,
+            "v4_adjustment": 0.0744,
+            "final_rank": 23,
+            "adjustment_parts": {
+                "returning_production": 0.6053,
+                "transfer_talent": 0.7869,
+                "qb_continuity": -0.6677,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.66,
+                "transfer_talent": 3.0,
+                "qb_continuity": 0.96,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 21,
+            "rank_change_from_v4": -2
+        },
+        {
+            "team": "West Virginia",
+            "sp_anchor_only": 48.4613,
+            "sp_plus_full_v4": 48.4388,
+            "v4_adjustment": -0.0225,
+            "final_rank": 74,
+            "adjustment_parts": {
+                "returning_production": 0.3779,
+                "transfer_talent": -0.1297,
+                "qb_continuity": 0.3795,
+                "coaching": -0.6502,
+                "transfer_production": 0.0
+            },
+            "preseason_features": {
+                "returning_production": 0.65,
+                "transfer_talent": -1.0,
+                "qb_continuity": -0.837,
+                "coaching": 0.0
+            },
+            "sp_anchor_rank": 72,
+            "rank_change_from_v4": -2
+        }
+    ],
+    "sp_anchor_top25": [
+        {
+            "rank": 1,
+            "team": "Ohio State",
+            "rating": 79.596
+        },
+        {
+            "rank": 2,
+            "team": "Oregon",
+            "rating": 76.391
+        },
+        {
+            "rank": 3,
+            "team": "Notre Dame",
+            "rating": 73.9185
+        },
+        {
+            "rank": 4,
+            "team": "Georgia",
+            "rating": 73.827
+        },
+        {
+            "rank": 5,
+            "team": "Indiana",
+            "rating": 73.2775
+        },
+        {
+            "rank": 6,
+            "team": "Texas",
+            "rating": 70.5303
+        },
+        {
+            "rank": 7,
+            "team": "Miami",
+            "rating": 69.7978
+        },
+        {
+            "rank": 8,
+            "team": "Texas Tech",
+            "rating": 69.6146
+        },
+        {
+            "rank": 9,
+            "team": "Texas A&M",
+            "rating": 68.7905
+        },
+        {
+            "rank": 10,
+            "team": "LSU",
+            "rating": 68.3326
+        },
+        {
+            "rank": 11,
+            "team": "Oklahoma",
+            "rating": 66.8674
+        },
+        {
+            "rank": 12,
+            "team": "USC",
+            "rating": 65.8601
+        },
+        {
+            "rank": 13,
+            "team": "Alabama",
+            "rating": 65.7686
+        },
+        {
+            "rank": 14,
+            "team": "Tennessee",
+            "rating": 65.4938
+        },
+        {
+            "rank": 15,
+            "team": "Michigan",
+            "rating": 65.2191
+        },
+        {
+            "rank": 16,
+            "team": "Ole Miss",
+            "rating": 64.7613
+        },
+        {
+            "rank": 17,
+            "team": "Penn State",
+            "rating": 64.4865
+        },
+        {
+            "rank": 18,
+            "team": "Washington",
+            "rating": 64.1203
+        },
+        {
+            "rank": 19,
+            "team": "Missouri",
+            "rating": 63.754
+        },
+        {
+            "rank": 20,
+            "team": "Florida",
+            "rating": 63.5708
+        },
+        {
+            "rank": 21,
+            "team": "BYU",
+            "rating": 63.2961
+        },
+        {
+            "rank": 22,
+            "team": "Iowa",
+            "rating": 63.0214
+        },
+        {
+            "rank": 23,
+            "team": "Clemson",
+            "rating": 61.6478
+        },
+        {
+            "rank": 24,
+            "team": "South Carolina",
+            "rating": 61.1899
+        },
+        {
+            "rank": 25,
+            "team": "SMU",
+            "rating": 60.7321
+        }
+    ],
+    "sp_plus_v4_top25": [
+        {
+            "rank": 1,
+            "team": "Ohio State",
+            "rating": 80.5917,
+            "v4_adjustment": 0.9957
+        },
+        {
+            "rank": 2,
+            "team": "Oregon",
+            "rating": 76.0117,
+            "v4_adjustment": -0.3793
+        },
+        {
+            "rank": 3,
+            "team": "Notre Dame",
+            "rating": 75.8624,
+            "v4_adjustment": 1.9439
+        },
+        {
+            "rank": 4,
+            "team": "Georgia",
+            "rating": 74.3882,
+            "v4_adjustment": 0.5612
+        },
+        {
+            "rank": 5,
+            "team": "Texas",
+            "rating": 74.0923,
+            "v4_adjustment": 3.562
+        },
+        {
+            "rank": 6,
+            "team": "Indiana",
+            "rating": 72.6292,
+            "v4_adjustment": -0.6483
+        },
+        {
+            "rank": 7,
+            "team": "LSU",
+            "rating": 71.5481,
+            "v4_adjustment": 3.2155
+        },
+        {
+            "rank": 8,
+            "team": "Texas Tech",
+            "rating": 70.935,
+            "v4_adjustment": 1.3204
+        },
+        {
+            "rank": 9,
+            "team": "Miami",
+            "rating": 70.5169,
+            "v4_adjustment": 0.7191
+        },
+        {
+            "rank": 10,
+            "team": "Florida",
+            "rating": 69.5708,
+            "v4_adjustment": 6.0
+        },
+        {
+            "rank": 11,
+            "team": "Oklahoma",
+            "rating": 68.5232,
+            "v4_adjustment": 1.6558
+        },
+        {
+            "rank": 12,
+            "team": "Texas A&M",
+            "rating": 67.7767,
+            "v4_adjustment": -1.0138
+        },
+        {
+            "rank": 13,
+            "team": "Tennessee",
+            "rating": 67.0987,
+            "v4_adjustment": 1.6049
+        },
+        {
+            "rank": 14,
+            "team": "Auburn",
+            "rating": 66.1826,
+            "v4_adjustment": 6.0
+        },
+        {
+            "rank": 15,
+            "team": "Missouri",
+            "rating": 65.1757,
+            "v4_adjustment": 1.4217
+        },
+        {
+            "rank": 16,
+            "team": "Ole Miss",
+            "rating": 64.6799,
+            "v4_adjustment": -0.0814
+        },
+        {
+            "rank": 17,
+            "team": "USC",
+            "rating": 64.5747,
+            "v4_adjustment": -1.2854
+        },
+        {
+            "rank": 18,
+            "team": "Washington",
+            "rating": 64.4314,
+            "v4_adjustment": 0.3111
+        },
+        {
+            "rank": 19,
+            "team": "Michigan",
+            "rating": 64.3634,
+            "v4_adjustment": -0.8557
+        },
+        {
+            "rank": 20,
+            "team": "South Carolina",
+            "rating": 63.8218,
+            "v4_adjustment": 2.6319
+        },
+        {
+            "rank": 21,
+            "team": "Alabama",
+            "rating": 63.7272,
+            "v4_adjustment": -2.0414
+        },
+        {
+            "rank": 22,
+            "team": "Virginia Tech",
+            "rating": 63.527,
+            "v4_adjustment": 6.0
+        },
+        {
+            "rank": 23,
+            "team": "BYU",
+            "rating": 63.3705,
+            "v4_adjustment": 0.0744
+        },
+        {
+            "rank": 24,
+            "team": "Penn State",
+            "rating": 63.1572,
+            "v4_adjustment": -1.3293
+        },
+        {
+            "rank": 25,
+            "team": "Oklahoma State",
+            "rating": 61.9703,
+            "v4_adjustment": 6.0
+        }
+    ]
+}
