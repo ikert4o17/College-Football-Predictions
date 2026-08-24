@@ -61,10 +61,10 @@ function renderSummary() {
   const weeks = new Set(state.games.map(displayWeek).filter((w) => w !== null && w !== undefined));
   byId("weekCount").textContent = weeks.size || "—";
 
-  const hasGames = state.games.length > 0;
-  byId("modelStatus").textContent = hasGames
-    ? "2026 V4 production model loaded"
-    : "Site ready • awaiting production JSON";
+  const hasInseason = state.rankings.some((r) => Number(r.games_inseason || 0) > 0);
+  byId("modelStatus").textContent = hasInseason
+    ? "2026 in-season ratings loaded"
+    : (state.games.length ? "2026 V4 production model loaded" : "Site ready • awaiting production JSON");
 }
 
 function renderWeekOptions() {
@@ -85,27 +85,19 @@ function gameCard(game) {
     : winner;
 
   const date = game.start_date
-    ? new Date(game.start_date).toLocaleString([], {
-        month: "short", day: "numeric", hour: "numeric", minute: "2-digit"
-      })
+    ? new Date(game.start_date).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })
     : "TBD";
 
   return `
     <article class="game-card panel">
       <div class="game-meta">
         <span>Week ${escapeHtml(displayWeek(game))} • ${escapeHtml(date)}</span>
-        <span>${game.provisional ? "PROVISIONAL" : "V4 PRODUCTION"}</span>
+        <span>${game.provisional ? "PROVISIONAL" : "PRODUCTION"}</span>
       </div>
       <div class="matchup">
-        <div class="team away">
-          <div class="team-name">${escapeHtml(game.away_team)}</div>
-          <div class="team-rating">Rating ${fmt(game.away_rating, 1)}</div>
-        </div>
+        <div class="team away"><div class="team-name">${escapeHtml(game.away_team)}</div><div class="team-rating">Rating ${fmt(game.away_rating, 1)}</div></div>
         <div class="vs">AT</div>
-        <div class="team home">
-          <div class="team-name">${escapeHtml(game.home_team)}</div>
-          <div class="team-rating">Rating ${fmt(game.home_rating, 1)}</div>
-        </div>
+        <div class="team home"><div class="team-name">${escapeHtml(game.home_team)}</div><div class="team-rating">Rating ${fmt(game.home_rating, 1)}</div></div>
       </div>
       <div class="projection-bar">
         <div class="projection"><span>Projected winner</span><strong>${escapeHtml(winnerText)}</strong></div>
@@ -118,14 +110,10 @@ function gameCard(game) {
 function renderGames() {
   const query = byId("gameSearch").value.trim().toLowerCase();
   const week = byId("weekSelect").value;
-
   const filtered = state.games.filter((game) => {
     const matchup = `${game.away_team || ""} ${game.home_team || ""}`.toLowerCase();
-    const matchesQuery = !query || matchup.includes(query);
-    const matchesWeek = week === "all" || String(displayWeek(game)) === week;
-    return matchesQuery && matchesWeek;
+    return (!query || matchup.includes(query)) && (week === "all" || String(displayWeek(game)) === week);
   });
-
   byId("gamesGrid").innerHTML = filtered.map(gameCard).join("");
   byId("gamesEmpty").classList.toggle("hidden", filtered.length > 0);
 }
@@ -136,15 +124,19 @@ function renderRankings() {
     .filter((row) => !query || String(row.team || "").toLowerCase().includes(query))
     .sort((a, b) => Number(a.rank ?? 9999) - Number(b.rank ?? 9999));
 
-  byId("rankingsBody").innerHTML = rows.map((row) => `
+  byId("rankingsBody").innerHTML = rows.map((row) => {
+    const seasonAdj = row.inseason_adjustment ?? row.preseason_v4_adjustment ?? 0;
+    return `
     <tr>
       <td>${escapeHtml(row.rank ?? "—")}</td>
       <td><strong>${escapeHtml(row.team)}</strong></td>
       <td>${fmt(row.power_rating, 2)}</td>
-      <td>${fmt(row.preseason_v4_adjustment, 2)}</td>
+      <td>${Number(seasonAdj) > 0 ? "+" : ""}${fmt(seasonAdj, 2)}</td>
+      <td>${escapeHtml(row.games_inseason ?? 0)}</td>
       <td>${fmt((Number(row.returning_production || 0) * 100), 0)}%</td>
       <td>${Number(row.transfer_talent || 0) > 0 ? "+" : ""}${fmt(row.transfer_talent, 0)}</td>
-    </tr>`).join("");
+    </tr>`;
+  }).join("");
 }
 
 function setupTabs() {
@@ -160,21 +152,10 @@ function setupTabs() {
 
 async function init() {
   setupTabs();
-
-  try {
-    state.rankings = await loadRankings();
-  } catch (error) {
-    console.warn("2026 production rankings unavailable", error);
-    state.rankings = [];
-  }
-
-  try {
-    const gameData = await loadJson("site_data/game_predictions_2026.json");
-    state.games = normalizeGames(gameData);
-  } catch (error) {
-    console.info("2026 production predictions unavailable; dashboard remains ready.", error);
-    state.games = [];
-  }
+  try { state.rankings = await loadRankings(); }
+  catch (error) { console.warn("2026 production rankings unavailable", error); state.rankings = []; }
+  try { state.games = normalizeGames(await loadJson("site_data/game_predictions_2026.json")); }
+  catch (error) { console.info("2026 production predictions unavailable", error); state.games = []; }
 
   renderSummary();
   renderWeekOptions();
