@@ -64,7 +64,7 @@ function renderSummary() {
   const hasInseason = state.rankings.some((r) => Number(r.games_inseason || 0) > 0);
   byId("modelStatus").textContent = hasInseason
     ? "2026 in-season ratings loaded"
-    : (state.games.length ? "2026 V4 production model loaded" : "Site ready • awaiting production JSON");
+    : (state.rankings.length ? "2026 Balanced Light preseason ratings loaded" : "Site ready • awaiting production JSON");
 }
 
 function renderWeekOptions() {
