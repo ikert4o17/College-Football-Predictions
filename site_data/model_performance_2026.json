@@ -1,0 +1,24 @@
+{
+    "season": 2026,
+    "generated_at": "2026-08-24T16:46:46.054979+00:00",
+    "metric_notes": {
+        "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
+        "margin_mae": "mean absolute error of projected home margin versus actual home margin",
+        "margin_bias": "mean projected home margin minus actual home margin; positive means model favored home side too much",
+        "total_mae": "mean absolute error of projected total versus actual total",
+        "total_bias": "mean projected total minus actual total; positive means model projected too many points",
+        "score_mae": "mean absolute team-score error across home and away scores"
+    },
+    "cumulative": {
+        "games": 0,
+        "winner_accuracy": null,
+        "margin_mae": null,
+        "margin_bias": null,
+        "total_mae": null,
+        "total_bias": null,
+        "score_mae": null
+    },
+    "by_week": {},
+    "games": [],
+    "newly_graded_game_ids": []
+}
