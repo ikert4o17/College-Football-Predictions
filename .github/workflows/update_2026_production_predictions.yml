@@ -3,8 +3,10 @@ name: Update 2026 Production Predictions
 on:
   workflow_dispatch:
   schedule:
-    # Monday morning in season; UTC avoids DST ambiguity in Actions cron.
-    - cron: "17 11 * * 1"
+    # GitHub Actions cron is UTC. Run at both possible UTC equivalents,
+    # then gate the job so only the true 4:00 AM America/New_York run proceeds.
+    - cron: "0 8 * * 1"
+    - cron: "0 9 * * 1"
 
 permissions:
   contents: write
@@ -20,6 +22,16 @@ jobs:
       CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
 
     steps:
+      - name: Enforce 4 AM Eastern schedule
+        if: github.event_name == 'schedule'
+        run: |
+          EASTERN_HOUR=$(TZ=America/New_York date +%H)
+          echo "Eastern time: $(TZ=America/New_York date)"
+          if [ "$EASTERN_HOUR" != "04" ]; then
+            echo "This UTC cron occurrence is not 4 AM Eastern; exiting cleanly."
+            exit 0
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
