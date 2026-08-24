@@ -1,0 +1,2556 @@
+{
+  "teams": 136,
+  "purpose": "2026 SP+ anchor overlay sensitivity test",
+  "candidates": {
+    "sp_only": {
+      "weights": {
+        "returning_production": 0.0,
+        "transfer_talent": 0.0,
+        "qb_continuity": 0.0,
+        "coaching": 0.0
+      },
+      "cap": 0.0,
+      "mean_abs_adjustment": 0.0,
+      "teams_at_cap": 0,
+      "top25": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 79.596,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 2,
+          "team": "Oregon",
+          "rating": 76.391,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 3,
+          "team": "Notre Dame",
+          "rating": 73.9185,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 73.827,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 73.2775,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 6,
+          "team": "Texas",
+          "rating": 70.5303,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 7,
+          "team": "Miami",
+          "rating": 69.7978,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 69.6146,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 9,
+          "team": "Texas A&M",
+          "rating": 68.7905,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 10,
+          "team": "LSU",
+          "rating": 68.3326,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 11,
+          "team": "Oklahoma",
+          "rating": 66.8674,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 12,
+          "team": "USC",
+          "rating": 65.8601,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 13,
+          "team": "Alabama",
+          "rating": 65.7686,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 14,
+          "team": "Tennessee",
+          "rating": 65.4938,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 15,
+          "team": "Michigan",
+          "rating": 65.2191,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 16,
+          "team": "Ole Miss",
+          "rating": 64.7613,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 17,
+          "team": "Penn State",
+          "rating": 64.4865,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 18,
+          "team": "Washington",
+          "rating": 64.1203,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 19,
+          "team": "Missouri",
+          "rating": 63.754,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 20,
+          "team": "Florida",
+          "rating": 63.5708,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 21,
+          "team": "BYU",
+          "rating": 63.2961,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 22,
+          "team": "Iowa",
+          "rating": 63.0214,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 23,
+          "team": "Clemson",
+          "rating": 61.6478,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 24,
+          "team": "South Carolina",
+          "rating": 61.1899,
+          "adjustment": 0.0
+        },
+        {
+          "rank": 25,
+          "team": "SMU",
+          "rating": 60.7321,
+          "adjustment": 0.0
+        }
+      ],
+      "largest_effects": [
+        {
+          "team": "Ohio State",
+          "anchor": 79.596,
+          "rating": 79.596,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 1
+        },
+        {
+          "team": "Oregon",
+          "anchor": 76.391,
+          "rating": 76.391,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 2
+        },
+        {
+          "team": "Notre Dame",
+          "anchor": 73.9185,
+          "rating": 73.9185,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 3
+        },
+        {
+          "team": "Georgia",
+          "anchor": 73.827,
+          "rating": 73.827,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 4
+        },
+        {
+          "team": "Indiana",
+          "anchor": 73.2775,
+          "rating": 73.2775,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": -0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 5
+        },
+        {
+          "team": "Texas",
+          "anchor": 70.5303,
+          "rating": 70.5303,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 6
+        },
+        {
+          "team": "Miami",
+          "anchor": 69.7978,
+          "rating": 69.7978,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": -0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 7
+        },
+        {
+          "team": "Texas Tech",
+          "anchor": 69.6146,
+          "rating": 69.6146,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 8
+        },
+        {
+          "team": "Texas A&M",
+          "anchor": 68.7905,
+          "rating": 68.7905,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 9
+        },
+        {
+          "team": "LSU",
+          "anchor": 68.3326,
+          "rating": 68.3326,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 10
+        },
+        {
+          "team": "Oklahoma",
+          "anchor": 66.8674,
+          "rating": 66.8674,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 11
+        },
+        {
+          "team": "USC",
+          "anchor": 65.8601,
+          "rating": 65.8601,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 12
+        },
+        {
+          "team": "Alabama",
+          "anchor": 65.7686,
+          "rating": 65.7686,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": -0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 13
+        },
+        {
+          "team": "Tennessee",
+          "anchor": 65.4938,
+          "rating": 65.4938,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 14
+        },
+        {
+          "team": "Michigan",
+          "anchor": 65.2191,
+          "rating": 65.2191,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 15
+        },
+        {
+          "team": "Ole Miss",
+          "anchor": 64.7613,
+          "rating": 64.7613,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 16
+        },
+        {
+          "team": "Penn State",
+          "anchor": 64.4865,
+          "rating": 64.4865,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": -0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 17
+        },
+        {
+          "team": "Washington",
+          "anchor": 64.1203,
+          "rating": 64.1203,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": 0.0,
+            "coaching": -0.0
+          },
+          "rank": 18
+        },
+        {
+          "team": "Missouri",
+          "anchor": 63.754,
+          "rating": 63.754,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": 0.0,
+            "qb_continuity": -0.0,
+            "coaching": -0.0
+          },
+          "rank": 19
+        },
+        {
+          "team": "Florida",
+          "anchor": 63.5708,
+          "rating": 63.5708,
+          "adjustment": 0.0,
+          "parts": {
+            "returning_production": 0.0,
+            "transfer_talent": -0.0,
+            "qb_continuity": -0.0,
+            "coaching": 0.0
+          },
+          "rank": 20
+        }
+      ]
+    },
+    "full_v4": {
+      "weights": {
+        "returning_production": 2.0,
+        "transfer_talent": 0.5,
+        "qb_continuity": -0.5,
+        "coaching": 2.0
+      },
+      "cap": 6.0,
+      "mean_abs_adjustment": 2.0291,
+      "teams_at_cap": 12,
+      "top25": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 80.5917,
+          "adjustment": 0.9957
+        },
+        {
+          "rank": 2,
+          "team": "Oregon",
+          "rating": 76.0117,
+          "adjustment": -0.3793
+        },
+        {
+          "rank": 3,
+          "team": "Notre Dame",
+          "rating": 75.8623,
+          "adjustment": 1.9438
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 74.3883,
+          "adjustment": 0.5613
+        },
+        {
+          "rank": 5,
+          "team": "Texas",
+          "rating": 74.0923,
+          "adjustment": 3.562
+        },
+        {
+          "rank": 6,
+          "team": "Indiana",
+          "rating": 72.6292,
+          "adjustment": -0.6483
+        },
+        {
+          "rank": 7,
+          "team": "LSU",
+          "rating": 71.5481,
+          "adjustment": 3.2155
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 70.935,
+          "adjustment": 1.3204
+        },
+        {
+          "rank": 9,
+          "team": "Miami",
+          "rating": 70.5169,
+          "adjustment": 0.7191
+        },
+        {
+          "rank": 10,
+          "team": "Florida",
+          "rating": 69.5708,
+          "adjustment": 6.0
+        },
+        {
+          "rank": 11,
+          "team": "Oklahoma",
+          "rating": 68.5232,
+          "adjustment": 1.6558
+        },
+        {
+          "rank": 12,
+          "team": "Texas A&M",
+          "rating": 67.7767,
+          "adjustment": -1.0138
+        },
+        {
+          "rank": 13,
+          "team": "Tennessee",
+          "rating": 67.0987,
+          "adjustment": 1.6049
+        },
+        {
+          "rank": 14,
+          "team": "Auburn",
+          "rating": 66.1826,
+          "adjustment": 6.0
+        },
+        {
+          "rank": 15,
+          "team": "Missouri",
+          "rating": 65.1758,
+          "adjustment": 1.4218
+        },
+        {
+          "rank": 16,
+          "team": "Ole Miss",
+          "rating": 64.6799,
+          "adjustment": -0.0814
+        },
+        {
+          "rank": 17,
+          "team": "USC",
+          "rating": 64.5746,
+          "adjustment": -1.2855
+        },
+        {
+          "rank": 18,
+          "team": "Washington",
+          "rating": 64.4314,
+          "adjustment": 0.3111
+        },
+        {
+          "rank": 19,
+          "team": "Michigan",
+          "rating": 64.3634,
+          "adjustment": -0.8557
+        },
+        {
+          "rank": 20,
+          "team": "South Carolina",
+          "rating": 63.8218,
+          "adjustment": 2.6319
+        },
+        {
+          "rank": 21,
+          "team": "Alabama",
+          "rating": 63.7272,
+          "adjustment": -2.0414
+        },
+        {
+          "rank": 22,
+          "team": "Virginia Tech",
+          "rating": 63.527,
+          "adjustment": 6.0
+        },
+        {
+          "rank": 23,
+          "team": "BYU",
+          "rating": 63.3705,
+          "adjustment": 0.0744
+        },
+        {
+          "rank": 24,
+          "team": "Penn State",
+          "rating": 63.1571,
+          "adjustment": -1.3294
+        },
+        {
+          "rank": 25,
+          "team": "Oklahoma State",
+          "rating": 61.9703,
+          "adjustment": 6.0
+        }
+      ],
+      "largest_effects": [
+        {
+          "team": "Florida",
+          "anchor": 63.5708,
+          "rating": 69.5708,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 3.5618,
+            "transfer_talent": -0.8172,
+            "qb_continuity": 0.4115,
+            "coaching": 6.1519
+          },
+          "rank": 10
+        },
+        {
+          "team": "Auburn",
+          "anchor": 60.1826,
+          "rating": 66.1826,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 3.7892,
+            "transfer_talent": -1.2756,
+            "qb_continuity": 0.4407,
+            "coaching": 6.1519
+          },
+          "rank": 14
+        },
+        {
+          "team": "Virginia Tech",
+          "anchor": 57.527,
+          "rating": 63.527,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 4.4714,
+            "transfer_talent": 0.7869,
+            "qb_continuity": 0.4599,
+            "coaching": 6.1519
+          },
+          "rank": 22
+        },
+        {
+          "team": "Oklahoma State",
+          "anchor": 55.9703,
+          "rating": 61.9703,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 1.7424,
+            "transfer_talent": 1.0161,
+            "qb_continuity": 0.401,
+            "coaching": 6.1519
+          },
+          "rank": 25
+        },
+        {
+          "team": "UCLA",
+          "anchor": 54.5967,
+          "rating": 60.5967,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 3.3343,
+            "transfer_talent": 0.0994,
+            "qb_continuity": -0.6642,
+            "coaching": 6.1519
+          },
+          "rank": 27
+        },
+        {
+          "team": "Kentucky",
+          "anchor": 54.4136,
+          "rating": 60.4136,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": -1.214,
+            "transfer_talent": 1.0161,
+            "qb_continuity": 0.3888,
+            "coaching": 6.1519
+          },
+          "rank": 30
+        },
+        {
+          "team": "Michigan State",
+          "anchor": 51.6664,
+          "rating": 57.6664,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 0.1505,
+            "transfer_talent": -0.5881,
+            "qb_continuity": 0.3736,
+            "coaching": 6.1519
+          },
+          "rank": 38
+        },
+        {
+          "team": "Stanford",
+          "anchor": 47.5456,
+          "rating": 53.5456,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 1.0602,
+            "transfer_talent": -0.1297,
+            "qb_continuity": 0.3911,
+            "coaching": 6.1519
+          },
+          "rank": 51
+        },
+        {
+          "team": "Oregon State",
+          "anchor": 44.5237,
+          "rating": 50.5237,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 1.7424,
+            "transfer_talent": -0.1297,
+            "qb_continuity": -0.5471,
+            "coaching": 6.1519
+          },
+          "rank": 66
+        },
+        {
+          "team": "Colorado State",
+          "anchor": 39.0294,
+          "rating": 45.0294,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": 2.1973,
+            "transfer_talent": -0.1297,
+            "qb_continuity": 0.3859,
+            "coaching": 6.1519
+          },
+          "rank": 84
+        },
+        {
+          "team": "UAB",
+          "anchor": 33.6266,
+          "rating": 39.6266,
+          "adjustment": 6.0,
+          "parts": {
+            "returning_production": -0.5318,
+            "transfer_talent": 0.0994,
+            "qb_continuity": 0.4051,
+            "coaching": 6.1519
+          },
+          "rank": 101
+        },
+        {
+          "team": "San Jos\u00e9 State",
+          "anchor": 35.2749,
+          "rating": 29.2749,
+          "adjustment": -6.0,
+          "parts": {
+            "returning_production": -6.4446,
+            "transfer_talent": 0.3286,
+            "qb_continuity": 0.3894,
+            "coaching": -0.6502
+          },
+          "rank": 126
+        },
+        {
+          "team": "Arkansas",
+          "anchor": 54.7798,
+          "rating": 60.4263,
+          "adjustment": 5.6465,
+          "parts": {
+            "returning_production": -0.7592,
+            "transfer_talent": -0.1297,
+            "qb_continuity": 0.3835,
+            "coaching": 6.1519
+          },
+          "rank": 29
+        },
+        {
+          "team": "UL Monroe",
+          "anchor": 23.1873,
+          "rating": 17.6065,
+          "adjustment": -5.5808,
+          "parts": {
+            "returning_production": -4.3979,
+            "transfer_talent": 0.0994,
+            "qb_continuity": -0.6321,
+            "coaching": -0.6502
+          },
+          "rank": 135
+        },
+        {
+          "team": "Western Michigan",
+          "anchor": 44.1574,
+          "rating": 39.3055,
+          "adjustment": -4.8519,
+          "parts": {
+            "returning_production": -3.7156,
+            "transfer_talent": 0.0994,
+            "qb_continuity": -0.5855,
+            "coaching": -0.6502
+          },
+          "rank": 104
+        },
+        {
+          "team": "Troy",
+          "anchor": 42.326,
+          "rating": 37.5231,
+          "adjustment": -4.8029,
+          "parts": {
+            "returning_production": -3.4882,
+            "transfer_talent": -0.1297,
+            "qb_continuity": -0.5348,
+            "coaching": -0.6502
+          },
+          "rank": 107
+        },
+        {
+          "team": "Ball State",
+          "anchor": 26.6671,
+          "rating": 22.4122,
+          "adjustment": -4.2549,
+          "parts": {
+            "returning_production": -4.1704,
+            "transfer_talent": 0.0994,
+            "qb_continuity": 0.4663,
+            "coaching": -0.6502
+          },
+          "rank": 132
+        },
+        {
+          "team": "Hawai'i",
+          "anchor": 47.2709,
+          "rating": 43.0535,
+          "adjustment": -4.2174,
+          "parts": {
+            "returning_production": -2.8059,
+            "transfer_talent": -0.1297,
+            "qb_continuity": -0.6315,
+            "coaching": -0.6502
+          },
+          "rank": 93
+        },
+        {
+          "team": "Missouri State",
+          "anchor": 32.1614,
+          "rating": 28.0675,
+          "adjustment": -4.0939,
+          "parts": {
+            "returning_production": -3.943,
+            "transfer_talent": 0.0994,
+            "qb_continuity": 0.3999,
+            "coaching": -0.6502
+          },
+          "rank": 127
+        },
+        {
+          "team": "Army",
+          "anchor": 47.454,
+          "rating": 43.6038,
+          "adjustment": -3.8502,
+          "parts": {
+            "returning_production": -2.8059,
+            "transfer_talent": 0.0994,
+            "qb_continuity": -0.4934,
+            "coaching": -0.6502
+          },
+          "rank": 89
+        }
+      ]
+    },
+    "balanced_light": {
+      "weights": {
+        "returning_production": 1.25,
+        "transfer_talent": 1.0,
+        "qb_continuity": -0.25,
+        "coaching": 0.5
+      },
+      "cap": 4.0,
+      "mean_abs_adjustment": 1.2603,
+      "teams_at_cap": 3,
+      "top25": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 80.9955,
+          "adjustment": 1.3995
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 77.4824,
+          "adjustment": 3.5639
+        },
+        {
+          "rank": 3,
+          "team": "Oregon",
+          "rating": 75.3558,
+          "adjustment": -1.0352
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 74.9524,
+          "adjustment": 1.1254
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 74.1445,
+          "adjustment": 0.867
+        },
+        {
+          "rank": 6,
+          "team": "Texas",
+          "rating": 73.2103,
+          "adjustment": 2.68
+        },
+        {
+          "rank": 7,
+          "team": "Miami",
+          "rating": 72.7804,
+          "adjustment": 2.9826
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 72.3525,
+          "adjustment": 2.7379
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 72.3326,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 10,
+          "team": "Oklahoma",
+          "rating": 68.6822,
+          "adjustment": 1.8148
+        },
+        {
+          "rank": 11,
+          "team": "Texas A&M",
+          "rating": 68.6141,
+          "adjustment": -0.1764
+        },
+        {
+          "rank": 12,
+          "team": "Florida",
+          "rating": 65.9061,
+          "adjustment": 2.3353
+        },
+        {
+          "rank": 13,
+          "team": "Ole Miss",
+          "rating": 65.7955,
+          "adjustment": 1.0342
+        },
+        {
+          "rank": 14,
+          "team": "Tennessee",
+          "rating": 65.2491,
+          "adjustment": -0.2447
+        },
+        {
+          "rank": 15,
+          "team": "USC",
+          "rating": 65.2041,
+          "adjustment": -0.656
+        },
+        {
+          "rank": 16,
+          "team": "Missouri",
+          "rating": 64.9659,
+          "adjustment": 1.2119
+        },
+        {
+          "rank": 17,
+          "team": "BYU",
+          "rating": 64.7519,
+          "adjustment": 1.4558
+        },
+        {
+          "rank": 18,
+          "team": "Washington",
+          "rating": 64.4616,
+          "adjustment": 0.3413
+        },
+        {
+          "rank": 19,
+          "team": "Michigan",
+          "rating": 64.2042,
+          "adjustment": -1.0149
+        },
+        {
+          "rank": 20,
+          "team": "Alabama",
+          "rating": 63.8766,
+          "adjustment": -1.892
+        },
+        {
+          "rank": 21,
+          "team": "Penn State",
+          "rating": 63.3511,
+          "adjustment": -1.1354
+        },
+        {
+          "rank": 22,
+          "team": "South Carolina",
+          "rating": 63.2912,
+          "adjustment": 2.1013
+        },
+        {
+          "rank": 23,
+          "team": "Iowa",
+          "rating": 62.0487,
+          "adjustment": -0.9727
+        },
+        {
+          "rank": 24,
+          "team": "Auburn",
+          "rating": 61.758,
+          "adjustment": 1.5754
+        },
+        {
+          "rank": 25,
+          "team": "Virginia Tech",
+          "rating": 61.527,
+          "adjustment": 4.0
+        }
+      ],
+      "largest_effects": [
+        {
+          "team": "LSU",
+          "anchor": 68.3326,
+          "rating": 72.3326,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 0.9469,
+            "transfer_talent": 3.8655,
+            "qb_continuity": 0.209,
+            "coaching": -0.1626
+          },
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "anchor": 57.527,
+          "rating": 61.527,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 2.7946,
+            "transfer_talent": 1.5738,
+            "qb_continuity": 0.2299,
+            "coaching": 1.538
+          },
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "anchor": 55.9703,
+          "rating": 59.9703,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 1.089,
+            "transfer_talent": 2.0322,
+            "qb_continuity": 0.2005,
+            "coaching": 1.538
+          },
+          "rank": 28
+        },
+        {
+          "team": "Notre Dame",
+          "anchor": 73.9185,
+          "rating": 77.4824,
+          "adjustment": 3.5639,
+          "parts": {
+            "returning_production": 1.089,
+            "transfer_talent": 2.9488,
+            "qb_continuity": -0.3114,
+            "coaching": -0.1626
+          },
+          "rank": 2
+        },
+        {
+          "team": "UCLA",
+          "anchor": 54.5967,
+          "rating": 58.0854,
+          "adjustment": 3.4887,
+          "parts": {
+            "returning_production": 2.084,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.3321,
+            "coaching": 1.538
+          },
+          "rank": 34
+        },
+        {
+          "team": "San Jos\u00e9 State",
+          "anchor": 35.2749,
+          "rating": 31.9363,
+          "adjustment": -3.3386,
+          "parts": {
+            "returning_production": -4.0279,
+            "transfer_talent": 0.6572,
+            "qb_continuity": 0.1947,
+            "coaching": -0.1626
+          },
+          "rank": 124
+        },
+        {
+          "team": "UL Monroe",
+          "anchor": 23.1873,
+          "rating": 20.1589,
+          "adjustment": -3.0284,
+          "parts": {
+            "returning_production": -2.7487,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.3161,
+            "coaching": -0.1626
+          },
+          "rank": 135
+        },
+        {
+          "team": "Kentucky",
+          "anchor": 54.4136,
+          "rating": 57.4194,
+          "adjustment": 3.0058,
+          "parts": {
+            "returning_production": -0.7588,
+            "transfer_talent": 2.0322,
+            "qb_continuity": 0.1944,
+            "coaching": 1.538
+          },
+          "rank": 37
+        },
+        {
+          "team": "Miami",
+          "anchor": 69.7978,
+          "rating": 72.7804,
+          "adjustment": 2.9826,
+          "parts": {
+            "returning_production": -0.4745,
+            "transfer_talent": 3.4072,
+            "qb_continuity": 0.2125,
+            "coaching": -0.1626
+          },
+          "rank": 7
+        },
+        {
+          "team": "Troy",
+          "anchor": 42.326,
+          "rating": 39.4564,
+          "adjustment": -2.8696,
+          "parts": {
+            "returning_production": -2.1801,
+            "transfer_talent": -0.2595,
+            "qb_continuity": -0.2674,
+            "coaching": -0.1626
+          },
+          "rank": 104
+        },
+        {
+          "team": "Colorado State",
+          "anchor": 39.0294,
+          "rating": 41.8741,
+          "adjustment": 2.8447,
+          "parts": {
+            "returning_production": 1.3733,
+            "transfer_talent": -0.2595,
+            "qb_continuity": 0.1929,
+            "coaching": 1.538
+          },
+          "rank": 95
+        },
+        {
+          "team": "Texas Tech",
+          "anchor": 69.6146,
+          "rating": 72.3525,
+          "adjustment": 2.7379,
+          "parts": {
+            "returning_production": 0.2362,
+            "transfer_talent": 2.4905,
+            "qb_continuity": 0.1737,
+            "coaching": -0.1626
+          },
+          "rank": 8
+        },
+        {
+          "team": "Texas",
+          "anchor": 70.5303,
+          "rating": 73.2103,
+          "adjustment": 2.68,
+          "parts": {
+            "returning_production": 2.9368,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.293,
+            "coaching": -0.1626
+          },
+          "rank": 6
+        },
+        {
+          "team": "Duke",
+          "anchor": 54.7798,
+          "rating": 52.167,
+          "adjustment": -2.6128,
+          "parts": {
+            "returning_production": -1.043,
+            "transfer_talent": -1.6345,
+            "qb_continuity": 0.2273,
+            "coaching": -0.1626
+          },
+          "rank": 60
+        },
+        {
+          "team": "Western Michigan",
+          "anchor": 44.1574,
+          "rating": 41.5787,
+          "adjustment": -2.5787,
+          "parts": {
+            "returning_production": -2.3222,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.2928,
+            "coaching": -0.1626
+          },
+          "rank": 97
+        },
+        {
+          "team": "UConn",
+          "anchor": 38.7546,
+          "rating": 36.1972,
+          "adjustment": -2.5574,
+          "parts": {
+            "returning_production": -1.8958,
+            "transfer_talent": -0.7178,
+            "qb_continuity": 0.2189,
+            "coaching": -0.1626
+          },
+          "rank": 114
+        },
+        {
+          "team": "Hawai'i",
+          "anchor": 47.2709,
+          "rating": 44.7794,
+          "adjustment": -2.4915,
+          "parts": {
+            "returning_production": -1.7537,
+            "transfer_talent": -0.2595,
+            "qb_continuity": -0.3158,
+            "coaching": -0.1626
+          },
+          "rank": 87
+        },
+        {
+          "team": "New Mexico State",
+          "anchor": 32.7108,
+          "rating": 35.172,
+          "adjustment": 2.4612,
+          "parts": {
+            "returning_production": 2.2261,
+            "transfer_talent": 0.1988,
+            "qb_continuity": 0.1988,
+            "coaching": -0.1626
+          },
+          "rank": 119
+        },
+        {
+          "team": "North Carolina",
+          "anchor": 52.8568,
+          "rating": 50.4837,
+          "adjustment": -2.3731,
+          "parts": {
+            "returning_production": -0.7588,
+            "transfer_talent": -1.6345,
+            "qb_continuity": 0.1827,
+            "coaching": -0.1626
+          },
+          "rank": 64
+        },
+        {
+          "team": "Ball State",
+          "anchor": 26.6671,
+          "rating": 24.33,
+          "adjustment": -2.3371,
+          "parts": {
+            "returning_production": -2.6065,
+            "transfer_talent": 0.1988,
+            "qb_continuity": 0.2331,
+            "coaching": -0.1626
+          },
+          "rank": 132
+        }
+      ]
+    },
+    "talent_forward": {
+      "weights": {
+        "returning_production": 1.25,
+        "transfer_talent": 1.25,
+        "qb_continuity": -0.25,
+        "coaching": 0.5
+      },
+      "cap": 4.0,
+      "mean_abs_adjustment": 1.3411,
+      "teams_at_cap": 4,
+      "top25": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 81.1598,
+          "adjustment": 1.5638
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 77.9185,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 3,
+          "team": "Georgia",
+          "rating": 75.1167,
+          "adjustment": 1.2897
+        },
+        {
+          "rank": 4,
+          "team": "Oregon",
+          "rating": 74.9472,
+          "adjustment": -1.4438
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 74.538,
+          "adjustment": 1.2605
+        },
+        {
+          "rank": 6,
+          "team": "Miami",
+          "rating": 73.6322,
+          "adjustment": 3.8344
+        },
+        {
+          "rank": 7,
+          "team": "Texas",
+          "rating": 73.26,
+          "adjustment": 2.7297
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 72.9751,
+          "adjustment": 3.3605
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 72.3326,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 10,
+          "team": "Oklahoma",
+          "rating": 68.8465,
+          "adjustment": 1.9791
+        },
+        {
+          "rank": 11,
+          "team": "Texas A&M",
+          "rating": 68.6638,
+          "adjustment": -0.1267
+        },
+        {
+          "rank": 12,
+          "team": "Ole Miss",
+          "rating": 66.0743,
+          "adjustment": 1.313
+        },
+        {
+          "rank": 13,
+          "team": "Florida",
+          "rating": 65.4975,
+          "adjustment": 1.9267
+        },
+        {
+          "rank": 14,
+          "team": "BYU",
+          "rating": 65.1453,
+          "adjustment": 1.8492
+        },
+        {
+          "rank": 15,
+          "team": "USC",
+          "rating": 65.1392,
+          "adjustment": -0.7209
+        },
+        {
+          "rank": 16,
+          "team": "Missouri",
+          "rating": 65.0156,
+          "adjustment": 1.2616
+        },
+        {
+          "rank": 17,
+          "team": "Tennessee",
+          "rating": 64.7259,
+          "adjustment": -0.7679
+        },
+        {
+          "rank": 18,
+          "team": "Washington",
+          "rating": 64.3967,
+          "adjustment": 0.2764
+        },
+        {
+          "rank": 19,
+          "team": "Michigan",
+          "rating": 63.9102,
+          "adjustment": -1.3089
+        },
+        {
+          "rank": 20,
+          "team": "Alabama",
+          "rating": 63.5826,
+          "adjustment": -2.186
+        },
+        {
+          "rank": 21,
+          "team": "South Carolina",
+          "rating": 63.3409,
+          "adjustment": 2.151
+        },
+        {
+          "rank": 22,
+          "team": "Penn State",
+          "rating": 63.1716,
+          "adjustment": -1.3149
+        },
+        {
+          "rank": 23,
+          "team": "Iowa",
+          "rating": 61.9838,
+          "adjustment": -1.0376
+        },
+        {
+          "rank": 24,
+          "team": "SMU",
+          "rating": 61.8727,
+          "adjustment": 1.1406
+        },
+        {
+          "rank": 25,
+          "team": "Virginia Tech",
+          "rating": 61.527,
+          "adjustment": 4.0
+        }
+      ],
+      "largest_effects": [
+        {
+          "team": "Notre Dame",
+          "anchor": 73.9185,
+          "rating": 77.9185,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 1.089,
+            "transfer_talent": 3.686,
+            "qb_continuity": -0.3114,
+            "coaching": -0.1626
+          },
+          "rank": 2
+        },
+        {
+          "team": "LSU",
+          "anchor": 68.3326,
+          "rating": 72.3326,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 0.9469,
+            "transfer_talent": 4.8319,
+            "qb_continuity": 0.209,
+            "coaching": -0.1626
+          },
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "anchor": 57.527,
+          "rating": 61.527,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 2.7946,
+            "transfer_talent": 1.9673,
+            "qb_continuity": 0.2299,
+            "coaching": 1.538
+          },
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "anchor": 55.9703,
+          "rating": 59.9703,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 1.089,
+            "transfer_talent": 2.5402,
+            "qb_continuity": 0.2005,
+            "coaching": 1.538
+          },
+          "rank": 28
+        },
+        {
+          "team": "Miami",
+          "anchor": 69.7978,
+          "rating": 73.6322,
+          "adjustment": 3.8344,
+          "parts": {
+            "returning_production": -0.4745,
+            "transfer_talent": 4.259,
+            "qb_continuity": 0.2125,
+            "coaching": -0.1626
+          },
+          "rank": 6
+        },
+        {
+          "team": "UCLA",
+          "anchor": 54.5967,
+          "rating": 58.1351,
+          "adjustment": 3.5384,
+          "parts": {
+            "returning_production": 2.084,
+            "transfer_talent": 0.2485,
+            "qb_continuity": -0.3321,
+            "coaching": 1.538
+          },
+          "rank": 34
+        },
+        {
+          "team": "Kentucky",
+          "anchor": 54.4136,
+          "rating": 57.9274,
+          "adjustment": 3.5138,
+          "parts": {
+            "returning_production": -0.7588,
+            "transfer_talent": 2.5402,
+            "qb_continuity": 0.1944,
+            "coaching": 1.538
+          },
+          "rank": 35
+        },
+        {
+          "team": "Texas Tech",
+          "anchor": 69.6146,
+          "rating": 72.9751,
+          "adjustment": 3.3605,
+          "parts": {
+            "returning_production": 0.2362,
+            "transfer_talent": 3.1131,
+            "qb_continuity": 0.1737,
+            "coaching": -0.1626
+          },
+          "rank": 8
+        },
+        {
+          "team": "San Jos\u00e9 State",
+          "anchor": 35.2749,
+          "rating": 32.1006,
+          "adjustment": -3.1743,
+          "parts": {
+            "returning_production": -4.0279,
+            "transfer_talent": 0.8215,
+            "qb_continuity": 0.1947,
+            "coaching": -0.1626
+          },
+          "rank": 124
+        },
+        {
+          "team": "Duke",
+          "anchor": 54.7798,
+          "rating": 51.7584,
+          "adjustment": -3.0214,
+          "parts": {
+            "returning_production": -1.043,
+            "transfer_talent": -2.0431,
+            "qb_continuity": 0.2273,
+            "coaching": -0.1626
+          },
+          "rank": 62
+        },
+        {
+          "team": "UL Monroe",
+          "anchor": 23.1873,
+          "rating": 20.2086,
+          "adjustment": -2.9787,
+          "parts": {
+            "returning_production": -2.7487,
+            "transfer_talent": 0.2485,
+            "qb_continuity": -0.3161,
+            "coaching": -0.1626
+          },
+          "rank": 135
+        },
+        {
+          "team": "Troy",
+          "anchor": 42.326,
+          "rating": 39.3916,
+          "adjustment": -2.9344,
+          "parts": {
+            "returning_production": -2.1801,
+            "transfer_talent": -0.3244,
+            "qb_continuity": -0.2674,
+            "coaching": -0.1626
+          },
+          "rank": 105
+        },
+        {
+          "team": "Florida State",
+          "anchor": 57.9849,
+          "rating": 55.0751,
+          "adjustment": -2.9098,
+          "parts": {
+            "returning_production": 0.2362,
+            "transfer_talent": -3.189,
+            "qb_continuity": 0.2055,
+            "coaching": -0.1626
+          },
+          "rank": 45
+        },
+        {
+          "team": "North Carolina",
+          "anchor": 52.8568,
+          "rating": 50.0751,
+          "adjustment": -2.7817,
+          "parts": {
+            "returning_production": -0.7588,
+            "transfer_talent": -2.0431,
+            "qb_continuity": 0.1827,
+            "coaching": -0.1626
+          },
+          "rank": 66
+        },
+        {
+          "team": "Colorado State",
+          "anchor": 39.0294,
+          "rating": 41.8092,
+          "adjustment": 2.7798,
+          "parts": {
+            "returning_production": 1.3733,
+            "transfer_talent": -0.3244,
+            "qb_continuity": 0.1929,
+            "coaching": 1.538
+          },
+          "rank": 95
+        },
+        {
+          "team": "UConn",
+          "anchor": 38.7546,
+          "rating": 36.0178,
+          "adjustment": -2.7368,
+          "parts": {
+            "returning_production": -1.8958,
+            "transfer_talent": -0.8973,
+            "qb_continuity": 0.2189,
+            "coaching": -0.1626
+          },
+          "rank": 114
+        },
+        {
+          "team": "Texas",
+          "anchor": 70.5303,
+          "rating": 73.26,
+          "adjustment": 2.7297,
+          "parts": {
+            "returning_production": 2.9368,
+            "transfer_talent": 0.2485,
+            "qb_continuity": -0.293,
+            "coaching": -0.1626
+          },
+          "rank": 7
+        },
+        {
+          "team": "Hawai'i",
+          "anchor": 47.2709,
+          "rating": 44.7145,
+          "adjustment": -2.5564,
+          "parts": {
+            "returning_production": -1.7537,
+            "transfer_talent": -0.3244,
+            "qb_continuity": -0.3158,
+            "coaching": -0.1626
+          },
+          "rank": 87
+        },
+        {
+          "team": "Western Michigan",
+          "anchor": 44.1574,
+          "rating": 41.6284,
+          "adjustment": -2.529,
+          "parts": {
+            "returning_production": -2.3222,
+            "transfer_talent": 0.2485,
+            "qb_continuity": -0.2928,
+            "coaching": -0.1626
+          },
+          "rank": 98
+        },
+        {
+          "team": "New Mexico State",
+          "anchor": 32.7108,
+          "rating": 35.2217,
+          "adjustment": 2.5109,
+          "parts": {
+            "returning_production": 2.2261,
+            "transfer_talent": 0.2485,
+            "qb_continuity": 0.1988,
+            "coaching": -0.1626
+          },
+          "rank": 118
+        }
+      ]
+    },
+    "conservative_talent": {
+      "weights": {
+        "returning_production": 1.0,
+        "transfer_talent": 1.0,
+        "qb_continuity": -0.25,
+        "coaching": 0.25
+      },
+      "cap": 3.0,
+      "mean_abs_adjustment": 1.0275,
+      "teams_at_cap": 5,
+      "top25": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 80.8306,
+          "adjustment": 1.2346
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 76.9185,
+          "adjustment": 3.0
+        },
+        {
+          "rank": 3,
+          "team": "Oregon",
+          "rating": 75.2193,
+          "adjustment": -1.1717
+        },
+        {
+          "rank": 4,
+          "team": "Georgia",
+          "rating": 74.8443,
+          "adjustment": 1.0173
+        },
+        {
+          "rank": 5,
+          "team": "Indiana",
+          "rating": 74.3776,
+          "adjustment": 1.1001
+        },
+        {
+          "rank": 6,
+          "team": "Miami",
+          "rating": 72.7978,
+          "adjustment": 3.0
+        },
+        {
+          "rank": 7,
+          "team": "Texas",
+          "rating": 72.7042,
+          "adjustment": 2.1739
+        },
+        {
+          "rank": 8,
+          "team": "Texas Tech",
+          "rating": 72.3865,
+          "adjustment": 2.7719
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 71.3326,
+          "adjustment": 3.0
+        },
+        {
+          "rank": 10,
+          "team": "Texas A&M",
+          "rating": 68.6766,
+          "adjustment": -0.1139
+        },
+        {
+          "rank": 11,
+          "team": "Oklahoma",
+          "rating": 68.432,
+          "adjustment": 1.5646
+        },
+        {
+          "rank": 12,
+          "team": "Ole Miss",
+          "rating": 65.8011,
+          "adjustment": 1.0398
+        },
+        {
+          "rank": 13,
+          "team": "USC",
+          "rating": 65.2666,
+          "adjustment": -0.5935
+        },
+        {
+          "rank": 14,
+          "team": "Tennessee",
+          "rating": 64.9704,
+          "adjustment": -0.5234
+        },
+        {
+          "rank": 15,
+          "team": "Missouri",
+          "rating": 64.8578,
+          "adjustment": 1.1038
+        },
+        {
+          "rank": 16,
+          "team": "BYU",
+          "rating": 64.7575,
+          "adjustment": 1.4614
+        },
+        {
+          "rank": 17,
+          "team": "Florida",
+          "rating": 64.6919,
+          "adjustment": 1.1211
+        },
+        {
+          "rank": 18,
+          "team": "Washington",
+          "rating": 64.3251,
+          "adjustment": 0.2048
+        },
+        {
+          "rank": 19,
+          "team": "Michigan",
+          "rating": 64.153,
+          "adjustment": -1.0661
+        },
+        {
+          "rank": 20,
+          "team": "Alabama",
+          "rating": 64.1096,
+          "adjustment": -1.659
+        },
+        {
+          "rank": 21,
+          "team": "Penn State",
+          "rating": 63.5273,
+          "adjustment": -0.9592
+        },
+        {
+          "rank": 22,
+          "team": "South Carolina",
+          "rating": 62.8988,
+          "adjustment": 1.7089
+        },
+        {
+          "rank": 23,
+          "team": "Iowa",
+          "rating": 62.2817,
+          "adjustment": -0.7397
+        },
+        {
+          "rank": 24,
+          "team": "SMU",
+          "rating": 61.627,
+          "adjustment": 0.8949
+        },
+        {
+          "rank": 25,
+          "team": "Virginia Tech",
+          "rating": 60.527,
+          "adjustment": 3.0
+        }
+      ],
+      "largest_effects": [
+        {
+          "team": "Notre Dame",
+          "anchor": 73.9185,
+          "rating": 76.9185,
+          "adjustment": 3.0,
+          "parts": {
+            "returning_production": 0.8712,
+            "transfer_talent": 2.9488,
+            "qb_continuity": -0.3114,
+            "coaching": -0.0813
+          },
+          "rank": 2
+        },
+        {
+          "team": "Miami",
+          "anchor": 69.7978,
+          "rating": 72.7978,
+          "adjustment": 3.0,
+          "parts": {
+            "returning_production": -0.3796,
+            "transfer_talent": 3.4072,
+            "qb_continuity": 0.2125,
+            "coaching": -0.0813
+          },
+          "rank": 6
+        },
+        {
+          "team": "LSU",
+          "anchor": 68.3326,
+          "rating": 71.3326,
+          "adjustment": 3.0,
+          "parts": {
+            "returning_production": 0.7575,
+            "transfer_talent": 3.8655,
+            "qb_continuity": 0.209,
+            "coaching": -0.0813
+          },
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "anchor": 57.527,
+          "rating": 60.527,
+          "adjustment": 3.0,
+          "parts": {
+            "returning_production": 2.2357,
+            "transfer_talent": 1.5738,
+            "qb_continuity": 0.2299,
+            "coaching": 0.769
+          },
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "anchor": 55.9703,
+          "rating": 58.9703,
+          "adjustment": 3.0,
+          "parts": {
+            "returning_production": 0.8712,
+            "transfer_talent": 2.0322,
+            "qb_continuity": 0.2005,
+            "coaching": 0.769
+          },
+          "rank": 31
+        },
+        {
+          "team": "Texas Tech",
+          "anchor": 69.6146,
+          "rating": 72.3865,
+          "adjustment": 2.7719,
+          "parts": {
+            "returning_production": 0.189,
+            "transfer_talent": 2.4905,
+            "qb_continuity": 0.1737,
+            "coaching": -0.0813
+          },
+          "rank": 8
+        },
+        {
+          "team": "San Jos\u00e9 State",
+          "anchor": 35.2749,
+          "rating": 32.8232,
+          "adjustment": -2.4517,
+          "parts": {
+            "returning_production": -3.2223,
+            "transfer_talent": 0.6572,
+            "qb_continuity": 0.1947,
+            "coaching": -0.0813
+          },
+          "rank": 124
+        },
+        {
+          "team": "UL Monroe",
+          "anchor": 23.1873,
+          "rating": 20.7899,
+          "adjustment": -2.3974,
+          "parts": {
+            "returning_production": -2.1989,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.3161,
+            "coaching": -0.0813
+          },
+          "rank": 135
+        },
+        {
+          "team": "Kentucky",
+          "anchor": 54.4136,
+          "rating": 56.8022,
+          "adjustment": 2.3886,
+          "parts": {
+            "returning_production": -0.607,
+            "transfer_talent": 2.0322,
+            "qb_continuity": 0.1944,
+            "coaching": 0.769
+          },
+          "rank": 39
+        },
+        {
+          "team": "Troy",
+          "anchor": 42.326,
+          "rating": 39.9737,
+          "adjustment": -2.3523,
+          "parts": {
+            "returning_production": -1.7441,
+            "transfer_talent": -0.2595,
+            "qb_continuity": -0.2674,
+            "coaching": -0.0813
+          },
+          "rank": 103
+        },
+        {
+          "team": "Duke",
+          "anchor": 54.7798,
+          "rating": 52.4569,
+          "adjustment": -2.3229,
+          "parts": {
+            "returning_production": -0.8344,
+            "transfer_talent": -1.6345,
+            "qb_continuity": 0.2273,
+            "coaching": -0.0813
+          },
+          "rank": 56
+        },
+        {
+          "team": "UCLA",
+          "anchor": 54.5967,
+          "rating": 56.8996,
+          "adjustment": 2.3029,
+          "parts": {
+            "returning_production": 1.6672,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.3321,
+            "coaching": 0.769
+          },
+          "rank": 37
+        },
+        {
+          "team": "Florida State",
+          "anchor": 57.9849,
+          "rating": 55.7469,
+          "adjustment": -2.238,
+          "parts": {
+            "returning_production": 0.189,
+            "transfer_talent": -2.5512,
+            "qb_continuity": 0.2055,
+            "coaching": -0.0813
+          },
+          "rank": 42
+        },
+        {
+          "team": "Texas",
+          "anchor": 70.5303,
+          "rating": 72.7042,
+          "adjustment": 2.1739,
+          "parts": {
+            "returning_production": 2.3494,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.293,
+            "coaching": -0.0813
+          },
+          "rank": 7
+        },
+        {
+          "team": "North Carolina",
+          "anchor": 52.8568,
+          "rating": 50.7168,
+          "adjustment": -2.14,
+          "parts": {
+            "returning_production": -0.607,
+            "transfer_talent": -1.6345,
+            "qb_continuity": 0.1827,
+            "coaching": -0.0813
+          },
+          "rank": 64
+        },
+        {
+          "team": "New Mexico State",
+          "anchor": 32.7108,
+          "rating": 34.808,
+          "adjustment": 2.0972,
+          "parts": {
+            "returning_production": 1.7809,
+            "transfer_talent": 0.1988,
+            "qb_continuity": 0.1988,
+            "coaching": -0.0813
+          },
+          "rank": 120
+        },
+        {
+          "team": "UConn",
+          "anchor": 38.7546,
+          "rating": 36.6577,
+          "adjustment": -2.0969,
+          "parts": {
+            "returning_production": -1.5167,
+            "transfer_talent": -0.7178,
+            "qb_continuity": 0.2189,
+            "coaching": -0.0813
+          },
+          "rank": 113
+        },
+        {
+          "team": "Hawai'i",
+          "anchor": 47.2709,
+          "rating": 45.2114,
+          "adjustment": -2.0595,
+          "parts": {
+            "returning_production": -1.403,
+            "transfer_talent": -0.2595,
+            "qb_continuity": -0.3158,
+            "coaching": -0.0813
+          },
+          "rank": 86
+        },
+        {
+          "team": "Western Michigan",
+          "anchor": 44.1574,
+          "rating": 42.1244,
+          "adjustment": -2.033,
+          "parts": {
+            "returning_production": -1.8578,
+            "transfer_talent": 0.1988,
+            "qb_continuity": -0.2928,
+            "coaching": -0.0813
+          },
+          "rank": 95
+        },
+        {
+          "team": "NC State",
+          "anchor": 54.8714,
+          "rating": 52.8962,
+          "adjustment": -1.9752,
+          "parts": {
+            "returning_production": 0.5301,
+            "transfer_talent": -2.0928,
+            "qb_continuity": -0.3312,
+            "coaching": -0.0813
+          },
+          "rank": 54
+        }
+      ]
+    },
+    "talent_heavy": {
+      "weights": {
+        "returning_production": 1.0,
+        "transfer_talent": 1.5,
+        "qb_continuity": -0.25,
+        "coaching": 0.25
+      },
+      "cap": 4.0,
+      "mean_abs_adjustment": 1.2444,
+      "teams_at_cap": 6,
+      "top25": [
+        {
+          "rank": 1,
+          "team": "Ohio State",
+          "rating": 81.1591,
+          "adjustment": 1.5631
+        },
+        {
+          "rank": 2,
+          "team": "Notre Dame",
+          "rating": 77.9185,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 3,
+          "team": "Georgia",
+          "rating": 75.1729,
+          "adjustment": 1.3459
+        },
+        {
+          "rank": 4,
+          "team": "Indiana",
+          "rating": 75.1645,
+          "adjustment": 1.887
+        },
+        {
+          "rank": 5,
+          "team": "Oregon",
+          "rating": 74.4021,
+          "adjustment": -1.9889
+        },
+        {
+          "rank": 6,
+          "team": "Miami",
+          "rating": 73.7978,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 7,
+          "team": "Texas Tech",
+          "rating": 73.6146,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 8,
+          "team": "Texas",
+          "rating": 72.8037,
+          "adjustment": 2.2734
+        },
+        {
+          "rank": 9,
+          "team": "LSU",
+          "rating": 72.3326,
+          "adjustment": 4.0
+        },
+        {
+          "rank": 10,
+          "team": "Texas A&M",
+          "rating": 68.776,
+          "adjustment": -0.0145
+        },
+        {
+          "rank": 11,
+          "team": "Oklahoma",
+          "rating": 68.7606,
+          "adjustment": 1.8932
+        },
+        {
+          "rank": 12,
+          "team": "Ole Miss",
+          "rating": 66.3588,
+          "adjustment": 1.5975
+        },
+        {
+          "rank": 13,
+          "team": "BYU",
+          "rating": 65.5444,
+          "adjustment": 2.2483
+        },
+        {
+          "rank": 14,
+          "team": "USC",
+          "rating": 65.1368,
+          "adjustment": -0.7233
+        },
+        {
+          "rank": 15,
+          "team": "Missouri",
+          "rating": 64.9573,
+          "adjustment": 1.2033
+        },
+        {
+          "rank": 16,
+          "team": "Washington",
+          "rating": 64.1953,
+          "adjustment": 0.075
+        },
+        {
+          "rank": 17,
+          "team": "Tennessee",
+          "rating": 63.924,
+          "adjustment": -1.5698
+        },
+        {
+          "rank": 18,
+          "team": "Florida",
+          "rating": 63.8747,
+          "adjustment": 0.3039
+        },
+        {
+          "rank": 19,
+          "team": "Michigan",
+          "rating": 63.5649,
+          "adjustment": -1.6542
+        },
+        {
+          "rank": 20,
+          "team": "Alabama",
+          "rating": 63.5215,
+          "adjustment": -2.2471
+        },
+        {
+          "rank": 21,
+          "team": "Penn State",
+          "rating": 63.1683,
+          "adjustment": -1.3182
+        },
+        {
+          "rank": 22,
+          "team": "South Carolina",
+          "rating": 62.9982,
+          "adjustment": 1.8083
+        },
+        {
+          "rank": 23,
+          "team": "SMU",
+          "rating": 62.4139,
+          "adjustment": 1.6818
+        },
+        {
+          "rank": 24,
+          "team": "Iowa",
+          "rating": 62.152,
+          "adjustment": -0.8694
+        },
+        {
+          "rank": 25,
+          "team": "Virginia Tech",
+          "rating": 61.527,
+          "adjustment": 4.0
+        }
+      ],
+      "largest_effects": [
+        {
+          "team": "Notre Dame",
+          "anchor": 73.9185,
+          "rating": 77.9185,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 0.8712,
+            "transfer_talent": 4.4233,
+            "qb_continuity": -0.3114,
+            "coaching": -0.0813
+          },
+          "rank": 2
+        },
+        {
+          "team": "Miami",
+          "anchor": 69.7978,
+          "rating": 73.7978,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": -0.3796,
+            "transfer_talent": 5.1108,
+            "qb_continuity": 0.2125,
+            "coaching": -0.0813
+          },
+          "rank": 6
+        },
+        {
+          "team": "Texas Tech",
+          "anchor": 69.6146,
+          "rating": 73.6146,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 0.189,
+            "transfer_talent": 3.7358,
+            "qb_continuity": 0.1737,
+            "coaching": -0.0813
+          },
+          "rank": 7
+        },
+        {
+          "team": "LSU",
+          "anchor": 68.3326,
+          "rating": 72.3326,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 0.7575,
+            "transfer_talent": 5.7983,
+            "qb_continuity": 0.209,
+            "coaching": -0.0813
+          },
+          "rank": 9
+        },
+        {
+          "team": "Virginia Tech",
+          "anchor": 57.527,
+          "rating": 61.527,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 2.2357,
+            "transfer_talent": 2.3608,
+            "qb_continuity": 0.2299,
+            "coaching": 0.769
+          },
+          "rank": 25
+        },
+        {
+          "team": "Oklahoma State",
+          "anchor": 55.9703,
+          "rating": 59.9703,
+          "adjustment": 4.0,
+          "parts": {
+            "returning_production": 0.8712,
+            "transfer_talent": 3.0483,
+            "qb_continuity": 0.2005,
+            "coaching": 0.769
+          },
+          "rank": 26
+        },
+        {
+          "team": "Florida State",
+          "anchor": 57.9849,
+          "rating": 54.4713,
+          "adjustment": -3.5136,
+          "parts": {
+            "returning_production": 0.189,
+            "transfer_talent": -3.8267,
+            "qb_continuity": 0.2055,
+            "coaching": -0.0813
+          },
+          "rank": 48
+        },
+        {
+          "team": "Kentucky",
+          "anchor": 54.4136,
+          "rating": 57.8182,
+          "adjustment": 3.4046,
+          "parts": {
+            "returning_production": -0.607,
+            "transfer_talent": 3.0483,
+            "qb_continuity": 0.1944,
+            "coaching": 0.769
+          },
+          "rank": 34
+        },
+        {
+          "team": "Duke",
+          "anchor": 54.7798,
+          "rating": 51.6397,
+          "adjustment": -3.1401,
+          "parts": {
+            "returning_production": -0.8344,
+            "transfer_talent": -2.4517,
+            "qb_continuity": 0.2273,
+            "coaching": -0.0813
+          },
+          "rank": 60
+        },
+        {
+          "team": "Iowa State",
+          "anchor": 49.2855,
+          "rating": 46.2098,
+          "adjustment": -3.0757,
+          "parts": {
+            "returning_production": 1.326,
+            "transfer_talent": -4.5142,
+            "qb_continuity": 0.1938,
+            "coaching": -0.0813
+          },
+          "rank": 81
+        },
+        {
+          "team": "NC State",
+          "anchor": 54.8714,
+          "rating": 51.8497,
+          "adjustment": -3.0217,
+          "parts": {
+            "returning_production": 0.5301,
+            "transfer_talent": -3.1392,
+            "qb_continuity": -0.3312,
+            "coaching": -0.0813
+          },
+          "rank": 59
+        },
+        {
+          "team": "North Carolina",
+          "anchor": 52.8568,
+          "rating": 49.8995,
+          "adjustment": -2.9573,
+          "parts": {
+            "returning_production": -0.607,
+            "transfer_talent": -2.4517,
+            "qb_continuity": 0.1827,
+            "coaching": -0.0813
+          },
+          "rank": 67
+        },
+        {
+          "team": "Troy",
+          "anchor": 42.326,
+          "rating": 39.844,
+          "adjustment": -2.482,
+          "parts": {
+            "returning_production": -1.7441,
+            "transfer_talent": -0.3892,
+            "qb_continuity": -0.2674,
+            "coaching": -0.0813
+          },
+          "rank": 104
+        },
+        {
+          "team": "UConn",
+          "anchor": 38.7546,
+          "rating": 36.2988,
+          "adjustment": -2.4558,
+          "parts": {
+            "returning_production": -1.5167,
+            "transfer_talent": -1.0767,
+            "qb_continuity": 0.2189,
+            "coaching": -0.0813
+          },
+          "rank": 114
+        },
+        {
+          "team": "UCLA",
+          "anchor": 54.5967,
+          "rating": 56.999,
+          "adjustment": 2.4023,
+          "parts": {
+            "returning_production": 1.6672,
+            "transfer_talent": 0.2983,
+            "qb_continuity": -0.3321,
+            "coaching": 0.769
+          },
+          "rank": 37
+        },
+        {
+          "team": "Wake Forest",
+          "anchor": 52.7653,
+          "rating": 50.4016,
+          "adjustment": -2.3637,
+          "parts": {
+            "returning_production": -0.0385,
+            "transfer_talent": -2.4517,
+            "qb_continuity": 0.2078,
+            "coaching": -0.0813
+          },
+          "rank": 64
+        },
+        {
+          "team": "North Texas",
+          "anchor": 39.0294,
+          "rating": 36.6753,
+          "adjustment": -2.3541,
+          "parts": {
+            "returning_production": -0.7207,
+            "transfer_talent": -1.7642,
+            "qb_continuity": 0.2122,
+            "coaching": -0.0813
+          },
+          "rank": 112
+        },
+        {
+          "team": "Utah",
+          "anchor": 58.6259,
+          "rating": 56.3028,
+          "adjustment": -2.3231,
+          "parts": {
+            "returning_production": -0.1522,
+            "transfer_talent": -1.7642,
+            "qb_continuity": -0.3254,
+            "coaching": -0.0813
+          },
+          "rank": 40
+        },
+        {
+          "team": "UL Monroe",
+          "anchor": 23.1873,
+          "rating": 20.8893,
+          "adjustment": -2.298,
+          "parts": {
+            "returning_production": -2.1989,
+            "transfer_talent": 0.2983,
+            "qb_continuity": -0.3161,
+            "coaching": -0.0813
+          },
+          "rank": 135
+        },
+        {
+          "team": "Texas",
+          "anchor": 70.5303,
+          "rating": 72.8037,
+          "adjustment": 2.2734,
+          "parts": {
+            "returning_production": 2.3494,
+            "transfer_talent": 0.2983,
+            "qb_continuity": -0.293,
+            "coaching": -0.0813
+          },
+          "rank": 8
+        }
+      ]
+    }
+  }
+}
