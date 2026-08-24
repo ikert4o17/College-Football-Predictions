@@ -45,6 +45,11 @@ jobs:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python -m data.download_games 2026
 
+      # Grade the PREVIOUSLY published slate before game_predictions_2026.json is
+      # replaced with the next set of upcoming forecasts.
+      - name: Grade completed published predictions
+        run: python -m data.grade_weekly_results_2026
+
       - name: Create frozen Balanced Light preseason ratings if missing
         run: |
           if [ -f data/processed/preseason_ratings_2026.json ]; then
@@ -77,6 +82,8 @@ jobs:
           state = json.loads((root/'data/processed/weekly_state_2026.json').read_text())
           manifest = json.loads((root/'site_data/rankings_2026.json').read_text())
           predictions = json.loads((root/'site_data/game_predictions_2026.json').read_text())
+          performance = json.loads((root/'data/processed/model_performance_2026.json').read_text())
+          site_performance = json.loads((root/'site_data/model_performance_2026.json').read_text())
           ratings = ratings_doc.get('ratings', [])
           applied = ratings_doc.get('games_applied', [])
 
@@ -92,11 +99,18 @@ jobs:
               for key in ('home_team','away_team','projected_winner','projected_margin','projected_total'):
                   assert key in p, f"Prediction missing {key}"
 
+          graded = performance.get('games', [])
+          graded_ids = [str(g.get('game_id')) for g in graded if g.get('game_id') is not None]
+          assert len(graded_ids) == len(set(graded_ids)), "Duplicate graded game detected"
+          assert performance.get('cumulative', {}).get('games') == len(graded), "Performance count mismatch"
+          assert site_performance.get('cumulative') == performance.get('cumulative'), "Published performance mismatch"
+
           print("Weekly package validated")
           print("Teams:", len(ratings))
-          print("Games applied:", len(applied))
+          print("Games applied to ratings:", len(applied))
           print("Latest completed week:", state.get('latest_completed_week'))
           print("Upcoming predictions:", len(predictions))
+          print("Cumulative predictions graded:", len(graded))
           PY
 
       - name: Commit weekly model state and website data
@@ -109,10 +123,12 @@ jobs:
             data/processed/inseason_ratings_2026.json \
             data/processed/game_predictions_2026.json \
             data/processed/weekly_state_2026.json \
+            data/processed/model_performance_2026.json \
             data/snapshots/2026 \
             site_data/rankings_2026.json \
             site_data/rankings_2026_part*.json \
-            site_data/game_predictions_2026.json
+            site_data/game_predictions_2026.json \
+            site_data/model_performance_2026.json
           if git diff --cached --quiet; then
             echo "No weekly changes to commit."
           else
