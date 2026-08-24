@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "ratings/preseason_model_v4_2026_sp_anchor.py"
       - ".github/workflows/test_2026_sp_anchor.yml"
 
 permissions:
