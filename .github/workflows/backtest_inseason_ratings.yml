@@ -25,7 +25,18 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run 2024-2025 backtest
+      - name: Show historical inputs
+        run: |
+          echo "Historical backtest inputs:"
+          for f in \
+            data/processed/power_ratings_2023.json \
+            data/processed/power_ratings_2024.json \
+            data/processed/historical_games_2024.json \
+            data/processed/historical_games_2025.json; do
+            if [ -f "$f" ]; then echo "FOUND   $f"; else echo "MISSING $f"; fi
+          done
+
+      - name: Run historical in-season backtest
         run: python -m ratings.backtest_inseason_ratings
 
       - name: Validate result
@@ -38,8 +49,15 @@ jobs:
               raise SystemExit("Backtest result missing")
           with path.open(encoding="utf-8") as f:
               result = json.load(f)
+          tested = result.get("tested_seasons", [])
+          if not tested:
+              raise SystemExit("Backtest produced no tested seasons")
+          if "recommended" not in result or "params" not in result["recommended"]:
+              raise SystemExit("Backtest recommendation missing")
+          print("Tested seasons:", tested)
+          print("Skipped seasons:", result.get("skipped_seasons", {}))
           print("Recommended parameters:", result["recommended"]["params"])
-          print("Valid candidates:", result["valid_candidates_improving_mae_and_rmse_both_seasons"])
+          print("Valid candidates:", result["valid_candidates_improving_mae_and_rmse_all_available_seasons"])
           PY
 
       - name: Commit backtest result
@@ -53,5 +71,3 @@ jobs:
             git commit -m "Backtest 2026 in-season rating updater"
             git push
           fi
-
-# Triggered intentionally to run the historical learning-rate backtest.
