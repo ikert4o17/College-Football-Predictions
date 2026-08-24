@@ -1,0 +1,83 @@
+name: Update 2026 Production Predictions
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monday morning in season; UTC avoids DST ambiguity in Actions cron.
+    - cron: "17 11 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-2026-production-predictions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Verify CFBD secret
+        run: |
+          if [ -z "$CFBD_API_KEY" ]; then
+            echo "CFBD_API_KEY repository secret is required."
+            exit 1
+          fi
+
+      - name: Refresh 2026 schedule/results
+        env:
+          FORCE_CFBD_REFRESH: "1"
+        run: python -m data.download_games 2026
+
+      - name: Generate production predictions
+        run: python -m predictions.production_2026_predictions
+
+      - name: Publish website prediction data
+        run: |
+          cp data/processed/game_predictions_2026.json site_data/game_predictions_2026.json
+
+      - name: Validate published data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          ratings = Path("data/processed/preseason_ratings_v4_2026.json")
+          predictions = Path("site_data/game_predictions_2026.json")
+          for path in (ratings, predictions):
+              if not path.exists():
+                  raise SystemExit(f"Missing required file: {path}")
+              with path.open(encoding="utf-8") as f:
+                  json.load(f)
+          print("Production ratings and website predictions: valid JSON")
+          PY
+
+      - name: Commit refreshed schedule and predictions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/games.json data/processed/game_predictions_2026.json site_data/game_predictions_2026.json
+          if git diff --cached --quiet; then
+            echo "No weekly prediction changes to commit."
+          else
+            git commit -m "Update 2026 weekly production predictions"
+            git push
+          fi
