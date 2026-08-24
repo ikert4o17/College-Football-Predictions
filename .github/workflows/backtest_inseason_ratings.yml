@@ -71,3 +71,5 @@ jobs:
             git commit -m "Backtest 2026 in-season rating updater"
             git push
           fi
+
+# Manual trigger marker: 2026-08-24 run requested by user.
