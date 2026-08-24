@@ -4,13 +4,13 @@ This is the final packaging step of the weekly operating system. It only runs
 after ratings and predictions have been generated successfully.
 """
 import json
-import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 RATINGS = ROOT / "data" / "processed" / "inseason_ratings_2026.json"
 PREDICTIONS = ROOT / "data" / "processed" / "game_predictions_2026.json"
 STATE = ROOT / "data" / "processed" / "weekly_state_2026.json"
+PERFORMANCE = ROOT / "data" / "processed" / "model_performance_2026.json"
 SITE = ROOT / "site_data"
 SNAPSHOT_DIR = ROOT / "data" / "snapshots" / "2026"
 CHUNK_SIZE = 40
@@ -29,11 +29,7 @@ def main():
     rating_data = load(RATINGS)
     ratings = rating_data.get("ratings", rating_data if isinstance(rating_data, list) else [])
     predictions_data = load(PREDICTIONS)
-    predictions = (
-        predictions_data
-        if isinstance(predictions_data, list)
-        else predictions_data.get("predictions", [])
-    )
+    predictions = predictions_data if isinstance(predictions_data, list) else predictions_data.get("predictions", [])
     state = load(STATE)
 
     if len(ratings) < 130:
@@ -63,7 +59,6 @@ def main():
         path.write_text(json.dumps(compact[i:i + CHUNK_SIZE], indent=2), encoding="utf-8")
         part_paths.append(str(path.relative_to(ROOT)))
 
-    # Remove stale extra parts if chunk count ever shrinks.
     valid_names = {Path(p).name for p in part_paths}
     for path in SITE.glob("rankings_2026_part*.json"):
         if path.name not in valid_names:
@@ -72,12 +67,34 @@ def main():
     manifest = {
         "season": 2026,
         "model_version": rating_data.get("model_version", "2026_inseason_v1_balanced_light_prior"),
+        "preseason_model": "2026 preseason SP+ + Balanced Light",
         "latest_completed_week": state.get("latest_completed_week"),
         "teams": len(compact),
         "parts": part_paths,
     }
     (SITE / "rankings_2026.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-    (SITE / "game_predictions_2026.json").write_text(json.dumps(predictions, indent=2), encoding="utf-8")
+
+    version = manifest["model_version"]
+    enriched_predictions = []
+    for p in predictions:
+        row = dict(p)
+        row.setdefault("model_version", version)
+        row.setdefault("rating_snapshot_week", state.get("latest_completed_week"))
+        enriched_predictions.append(row)
+    (SITE / "game_predictions_2026.json").write_text(json.dumps(enriched_predictions, indent=2), encoding="utf-8")
+
+    movers = sorted(compact, key=lambda r: float(r.get("inseason_adjustment") or 0.0), reverse=True)
+    movers_doc = {
+        "season": 2026,
+        "latest_completed_week": state.get("latest_completed_week"),
+        "model_version": version,
+        "biggest_risers": movers[:15],
+        "biggest_fallers": list(reversed(movers[-15:])),
+    }
+    (SITE / "rating_movers_2026.json").write_text(json.dumps(movers_doc, indent=2), encoding="utf-8")
+
+    if PERFORMANCE.exists():
+        (SITE / "model_performance_2026.json").write_text(PERFORMANCE.read_text(encoding="utf-8"), encoding="utf-8")
 
     SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
     upcoming_weeks = sorted({p.get("week") for p in predictions if p.get("week") is not None})
@@ -85,13 +102,13 @@ def main():
         target = upcoming_weeks[0]
         pred_snapshot = SNAPSHOT_DIR / f"predictions_week_{int(target):02d}.json"
         if not pred_snapshot.exists():
-            pred_snapshot.write_text(json.dumps(predictions, indent=2), encoding="utf-8")
+            pred_snapshot.write_text(json.dumps(enriched_predictions, indent=2), encoding="utf-8")
 
     print("=" * 78)
     print("PROJECT GRIDIRON 2026 SITE PUBLISH PACKAGE")
     print("=" * 78)
     print(f"Rankings published: {len(compact)}")
-    print(f"Predictions published: {len(predictions)}")
+    print(f"Predictions published: {len(enriched_predictions)}")
     print(f"Ranking parts: {len(part_paths)}")
     print(f"Latest completed week: {state.get('latest_completed_week')}")
 
