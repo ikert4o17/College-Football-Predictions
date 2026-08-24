@@ -53,3 +53,5 @@ jobs:
             git commit -m "Backtest 2026 in-season rating updater"
             git push
           fi
+
+# Triggered intentionally to run the historical learning-rate backtest.
