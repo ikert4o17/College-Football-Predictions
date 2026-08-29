@@ -1,9 +1,9 @@
 """Generate upcoming 2026 Project Gridiron predictions.
 
-FBS-vs-FBS games use the production Project Gridiron model.
-FBS-vs-FCS games are projection-only: the FCS team's CFBD Elo is translated
-onto the current Project Gridiron scale using a cross-sectional FBS
-Elo-to-rating bridge. These games NEVER feed the FBS rating updater.
+FBS-vs-FBS games use the production Project Gridiron model unchanged.
+FBS-vs-FCS games are projection-only. FCS strength is translated onto the
+Project Gridiron scale from CFBD cross-division ratings and NEVER feeds the
+FBS rating updater.
 """
 import json
 import os
@@ -18,7 +18,7 @@ RATINGS = ROOT / "data" / "processed" / "inseason_ratings_2026.json"
 GAMES = ROOT / "data" / "raw" / "games.json"
 OUTPUT = ROOT / "data" / "processed" / "game_predictions_2026.json"
 LOOKAHEAD_DAYS = 8
-MIN_ELO_BRIDGE_TEAMS = 25
+MIN_BRIDGE_TEAMS = 25
 
 
 def load(path):
@@ -47,33 +47,73 @@ def safe_float(value):
         return None
 
 
-def fetch_current_elos():
-    """Fetch one season-wide Elo snapshot when CFBD credentials are available."""
+def linear_bridge(source_lookup, rating_lookup):
+    """Fit Project Gridiron rating = intercept + slope * source rating."""
+    pairs = []
+    for team, record in rating_lookup.items():
+        x = safe_float(source_lookup.get(team))
+        y = safe_float(record.get("power_rating"))
+        if x is not None and y is not None:
+            pairs.append((x, y))
+    if len(pairs) < MIN_BRIDGE_TEAMS:
+        return None
+    mean_x = sum(x for x, _ in pairs) / len(pairs)
+    mean_y = sum(y for _, y in pairs) / len(pairs)
+    variance = sum((x - mean_x) ** 2 for x, _ in pairs)
+    if variance <= 0:
+        return None
+    slope = sum((x - mean_x) * (y - mean_y) for x, y in pairs) / variance
+    return {"intercept": mean_y - slope * mean_x, "slope": slope, "teams": len(pairs)}
+
+
+def fetch_elo():
+    """Fetch CFBD Elo. Elo is useful for FBS bridging but may omit FCS teams."""
+    if not os.getenv("CFBD_API_KEY"):
+        return {}
+    try:
+        rows = client.get("/ratings/elo", params={"year": 2026, "seasonType": "regular"})
+    except Exception as exc:
+        print(f"WARNING: CFBD Elo unavailable: {exc}")
+        return {}
+    out = {}
+    for row in rows if isinstance(rows, list) else []:
+        if isinstance(row, dict) and row.get("team") and safe_float(row.get("elo")) is not None:
+            out[row["team"]] = float(row["elo"])
+    return out
+
+
+def fetch_expanded_srs(year, division):
+    """Fetch CFBD expanded SRS, whose documented classification supports FBS/FCS."""
     if not os.getenv("CFBD_API_KEY"):
         return {}
     try:
         rows = client.get(
-            "/ratings/elo",
-            params={"year": 2026, "seasonType": "regular"},
+            "/ratings/srs/expanded",
+            params={"year": year, "classification": division},
         )
     except Exception as exc:
-        print(f"WARNING: CFBD Elo fallback unavailable: {exc}")
+        print(f"WARNING: CFBD expanded SRS {year} {division} unavailable: {exc}")
         return {}
-
-    lookup = {}
+    out = {}
     for row in rows if isinstance(rows, list) else []:
-        if not isinstance(row, dict):
+        if not isinstance(row, dict) or not row.get("team"):
             continue
-        team = row.get("team")
-        elo = safe_float(row.get("elo"))
-        if team and elo is not None:
-            lookup[team] = elo
-    return lookup
+        rating = safe_float(row.get("rating"))
+        if rating is not None:
+            out[row["team"]] = rating
+    return out
 
 
-def build_elo_bridge(games, rating_lookup, now, elo_lookup=None):
-    """Fit current Project Gridiron rating = intercept + slope * CFBD Elo."""
-    latest = {}
+def game_pregame_elo(game, side):
+    return safe_float(game.get(f"{side}PregameElo"))
+
+
+def build_projection_sources(games, rating_lookup, now):
+    """Build multiple independent cross-division bridges with graceful fallbacks."""
+    elo = fetch_elo()
+
+    # Supplement Elo with the most useful pregame Elo embedded in game records.
+    latest_game_elo = {}
     for game in games:
         if not isinstance(game, dict) or game.get("season") != 2026:
             continue
@@ -81,69 +121,90 @@ def build_elo_bridge(games, rating_lookup, now, elo_lookup=None):
         if dt is None:
             continue
         for side in ("home", "away"):
-            if classification(game, side) != "fbs":
-                continue
             team = game.get(f"{side}Team")
-            elo = safe_float(game.get(f"{side}PregameElo"))
-            if not team or elo is None or team not in rating_lookup:
+            value = game_pregame_elo(game, side)
+            if not team or value is None:
                 continue
             past = dt <= now
             key = (1 if past else 0, dt.timestamp() if past else -dt.timestamp())
-            if team not in latest or key > latest[team][0]:
-                latest[team] = (key, elo)
+            if team not in latest_game_elo or key > latest_game_elo[team][0]:
+                latest_game_elo[team] = (key, value)
+    for team, (_, value) in latest_game_elo.items():
+        elo.setdefault(team, value)
 
-    pairs = []
-    for team, record in rating_lookup.items():
-        elo = None
-        if elo_lookup:
-            elo = safe_float(elo_lookup.get(team))
-        if elo is None and team in latest:
-            elo = latest[team][1]
-        rating = safe_float(record.get("power_rating"))
-        if elo is not None and rating is not None:
-            pairs.append((elo, rating))
+    srs_2026_fbs = fetch_expanded_srs(2026, "fbs")
+    srs_2026_fcs = fetch_expanded_srs(2026, "fcs")
+    srs_2025_fbs = fetch_expanded_srs(2025, "fbs")
+    srs_2025_fcs = fetch_expanded_srs(2025, "fcs")
 
-    if len(pairs) < MIN_ELO_BRIDGE_TEAMS:
-        return None
-
-    mean_x = sum(x for x, _ in pairs) / len(pairs)
-    mean_y = sum(y for _, y in pairs) / len(pairs)
-    variance = sum((x - mean_x) ** 2 for x, _ in pairs)
-    if variance <= 0:
-        return None
-    slope = sum((x - mean_x) * (y - mean_y) for x, y in pairs) / variance
-    intercept = mean_y - slope * mean_x
-    return {"intercept": intercept, "slope": slope, "teams": len(pairs)}
+    return {
+        "elo": {"ratings": elo, "bridge": linear_bridge(elo, rating_lookup)},
+        "srs_2026": {
+            "fbs": srs_2026_fbs,
+            "fcs": srs_2026_fcs,
+            "bridge": linear_bridge(srs_2026_fbs, rating_lookup),
+        },
+        "srs_2025": {
+            "fbs": srs_2025_fbs,
+            "fcs": srs_2025_fcs,
+            "bridge": linear_bridge(srs_2025_fbs, rating_lookup),
+        },
+    }
 
 
-def project_fbs_fcs(game, rating_lookup, margin, elo_bridge, elo_lookup=None):
-    """Project an FBS-vs-FCS spread without touching the production FBS model."""
+def translated_fcs_rating(game, fcs_side, sources):
+    """Return best available FCS rating translated to Project Gridiron scale."""
+    team = game.get(f"{fcs_side}Team")
+
+    # 1) Pregame Elo on the exact game, if CFBD supplies it.
+    elo = game_pregame_elo(game, fcs_side)
+    bridge = sources["elo"]["bridge"]
+    if elo is not None and bridge:
+        return bridge["intercept"] + bridge["slope"] * elo, "CFBD game pregame Elo", bridge["teams"]
+
+    # 2) Season Elo snapshot, when the FCS team is included.
+    elo = safe_float(sources["elo"]["ratings"].get(team))
+    if elo is not None and bridge:
+        return bridge["intercept"] + bridge["slope"] * elo, "CFBD 2026 Elo", bridge["teams"]
+
+    # 3) Current-season expanded SRS. CFBD explicitly supports FCS here.
+    current = sources["srs_2026"]
+    srs = safe_float(current["fcs"].get(team))
+    bridge = current["bridge"]
+    if srs is not None and bridge:
+        return bridge["intercept"] + bridge["slope"] * srs, "CFBD 2026 expanded SRS", bridge["teams"]
+
+    # 4) Prior-season expanded SRS gives every returning FCS program a stable
+    # preseason fallback before it has enough 2026 data for a current rating.
+    prior = sources["srs_2025"]
+    srs = safe_float(prior["fcs"].get(team))
+    bridge = prior["bridge"]
+    if srs is not None and bridge:
+        return bridge["intercept"] + bridge["slope"] * srs, "CFBD 2025 expanded SRS fallback", bridge["teams"]
+
+    return None
+
+
+def project_fbs_fcs(game, rating_lookup, margin, sources):
     hc, ac = classification(game, "home"), classification(game, "away")
-    if {hc, ac} != {"fbs", "fcs"} or elo_bridge is None:
+    if {hc, ac} != {"fbs", "fcs"}:
         return None
 
     home, away = game.get("homeTeam"), game.get("awayTeam")
     fbs_side = "home" if hc == "fbs" else "away"
     fcs_side = "away" if fbs_side == "home" else "home"
     fbs_team = game.get(f"{fbs_side}Team")
-    fcs_team = game.get(f"{fcs_side}Team")
-    fcs_elo = safe_float(game.get(f"{fcs_side}PregameElo"))
-    elo_source = "game pregame Elo"
-    if fcs_elo is None and elo_lookup:
-        fcs_elo = safe_float(elo_lookup.get(fcs_team))
-        elo_source = "CFBD /ratings/elo season snapshot"
-
+    fcs_info = translated_fcs_rating(game, fcs_side, sources)
     fbs_record = rating_lookup.get(fbs_team)
-    if fbs_record is None or fcs_elo is None:
+    if fbs_record is None or fcs_info is None:
         return None
 
+    fcs_rating, source_label, bridge_teams = fcs_info
     fbs_rating = safe_float(fbs_record.get("power_rating"))
     if fbs_rating is None:
         return None
-    fcs_rating = elo_bridge["intercept"] + elo_bridge["slope"] * fcs_elo
     home_rating = fbs_rating if fbs_side == "home" else fcs_rating
     away_rating = fcs_rating if fbs_side == "home" else fbs_rating
-
     components = base.calculate_projected_home_margin(
         home_rating, away_rating, bool(game.get("neutralSite")), margin
     )
@@ -170,12 +231,12 @@ def project_fbs_fcs(game, rating_lookup, margin, elo_bridge, elo_lookup=None):
         "projected_home_score": None,
         "projected_away_score": None,
         "provisional": False,
-        "rating_model": "2026_fbs_fcs_projection_only_v2",
+        "rating_model": "2026_fbs_fcs_projection_only_v3",
         "projection_type": "fbs_fcs",
         "fcs_projection_only": True,
         "affects_fbs_ratings": False,
-        "fcs_rating_source": f"CFBD Elo translated to Project Gridiron scale ({elo_source})",
-        "elo_bridge_teams": elo_bridge["teams"],
+        "fcs_rating_source": source_label,
+        "bridge_teams": bridge_teams,
     }
 
 
@@ -192,11 +253,11 @@ def main():
 
     now = datetime.now(timezone.utc)
     end = now + timedelta(days=LOOKAHEAD_DAYS)
-    elo_lookup = fetch_current_elos()
-    elo_bridge = build_elo_bridge(games, rating_lookup, now, elo_lookup)
+    sources = build_projection_sources(games, rating_lookup, now)
     predictions = []
     skipped_missing = 0
     fcs_count = 0
+    fcs_candidates = 0
 
     for game in games:
         if not isinstance(game, dict) or game.get("season") != 2026:
@@ -217,7 +278,8 @@ def main():
                 projection["projection_type"] = "fbs_fbs"
                 projection["affects_fbs_ratings"] = True
         elif {hc, ac} == {"fbs", "fcs"}:
-            projection = project_fbs_fcs(game, rating_lookup, margin, elo_bridge, elo_lookup)
+            fcs_candidates += 1
+            projection = project_fbs_fcs(game, rating_lookup, margin, sources)
             if projection is not None:
                 fcs_count += 1
 
@@ -236,10 +298,11 @@ def main():
     print("=" * 78)
     print(f"Window: {now.isoformat()} through {end.isoformat()}")
     print(f"FBS ratings loaded: {len(rating_lookup)}")
-    print(f"CFBD Elo teams loaded: {len(elo_lookup)}")
     print(f"Predictions generated: {len(predictions)}")
+    print(f"FBS-FCS candidates: {fcs_candidates}")
     print(f"FBS-FCS projection-only games: {fcs_count}")
-    print(f"Elo bridge teams: {elo_bridge['teams'] if elo_bridge else 0}")
+    print(f"2026 FCS expanded SRS teams: {len(sources['srs_2026']['fcs'])}")
+    print(f"2025 FCS expanded SRS teams: {len(sources['srs_2025']['fcs'])}")
     print(f"Eligible games skipped for missing projection data: {skipped_missing}")
     print(f"Saved to: {OUTPUT}")
 
