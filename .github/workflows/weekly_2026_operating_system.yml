@@ -8,7 +8,7 @@ on:
   schedule:
     # Sunday afternoon: 4:00 PM Central during daylight time (21:00 UTC).
     # After daylight saving time ends, this runs at 3:00 PM Central.
-    # Manual FBS-FCS fallback test: 2026-08-29.
+    # FBS-FCS expanded-SRS fallback validation: 2026-08-29.
     - cron: "0 21 * * 0"
 
 permissions:
