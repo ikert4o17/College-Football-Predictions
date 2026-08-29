@@ -8,7 +8,7 @@ on:
   schedule:
     # Sunday afternoon: 4:00 PM Central during daylight time (21:00 UTC).
     # After daylight saving time ends, this runs at 3:00 PM Central.
-    # FBS-FCS expanded-SRS fallback validation: 2026-08-29.
+    # FBS-FCS spread-only validation test: 2026-08-29.
     - cron: "0 21 * * 0"
 
 permissions:
@@ -102,8 +102,14 @@ jobs:
           for part in manifest.get('parts', []):
               assert (root/part).exists(), f"Missing ranking part: {part}"
           for p in predictions:
-              for key in ('home_team','away_team','projected_winner','projected_margin','projected_total','model_version'):
-                  assert key in p, f"Prediction missing {key}"
+              keys = ['home_team','away_team','projected_winner','projected_margin','model_version']
+              if p.get('projection_type') != 'fbs_fcs':
+                  keys.append('projected_total')
+              else:
+                  assert p.get('affects_fbs_ratings') is False, "FBS-FCS projection may affect FBS ratings"
+                  assert p.get('fcs_projection_only') is True, "FBS-FCS projection missing isolation tag"
+              for key in keys:
+                  assert key in p and p.get(key) is not None, f"Prediction missing {key}"
           assert 'cumulative' in performance and 'by_week' in performance, "Performance ledger malformed"
           assert (root/'site_data/rating_movers_2026.json').exists(), "Rating movers missing"
 
@@ -112,6 +118,7 @@ jobs:
           print("Games applied:", len(applied))
           print("Latest completed week:", state.get('latest_completed_week'))
           print("Upcoming predictions:", len(predictions))
+          print("FBS-FCS projection-only:", sum(p.get('projection_type') == 'fbs_fcs' for p in predictions))
           print("Graded predictions:", performance.get('cumulative', {}).get('games'))
           print("Health:", health.get('status'))
           PY
