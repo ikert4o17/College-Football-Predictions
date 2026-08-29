@@ -6,8 +6,9 @@ on:
     paths:
       - ".github/workflows/weekly_2026_operating_system.yml"
   schedule:
-    # Monday 4:00 AM EST (09:00 UTC). During daylight time this runs at 5:00 AM ET.
-    - cron: "0 9 * * 1"
+    # Sunday afternoon: 4:00 PM Central during daylight time (21:00 UTC).
+    # After daylight saving time ends, this runs at 3:00 PM Central.
+    - cron: "0 21 * * 0"
 
 permissions:
   contents: write
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CFBD_MAX_CALLS_THIS_RUN: "20"
-      CFBD_REQUEST_BUDGET_RUN_ID: ${{ github.run_id }}
+      CFBD_REQUEST_BUDGET_RUN_ID: $${{ github.run_id }}
       CFBD_MIN_REMAINING_CALLS: "100"
 
     steps:
@@ -42,7 +43,7 @@ jobs:
 
       - name: Refresh 2026 games and results
         env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          CFBD_API_KEY: $${{ secrets.CFBD_API_KEY }}
         run: python -m data.download_games 2026
 
       - name: Grade previously published predictions
@@ -116,7 +117,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: project-gridiron-weekly-diagnostics-${{ github.run_id }}
+          name: project-gridiron-weekly-diagnostics-$${{ github.run_id }}
           if-no-files-found: ignore
           path: |
             data/processed/weekly_health_2026.json
