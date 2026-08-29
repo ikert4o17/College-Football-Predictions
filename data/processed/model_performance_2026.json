@@ -1,6 +1,6 @@
 {
     "season": 2026,
-    "generated_at": "2026-08-29T23:35:46.992213+00:00",
+    "generated_at": "2026-08-29T23:43:03.947566+00:00",
     "metric_notes": {
         "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
         "margin_mae": "mean absolute error of projected home margin versus actual home margin",
