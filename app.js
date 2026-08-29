@@ -2,6 +2,7 @@ const state = {
   rankings: [],
   games: [],
   performance: null,
+  selectedPerformanceWeek: null,
 };
 
 const byId = (id) => document.getElementById(id);
@@ -140,6 +141,62 @@ function renderRankings() {
   }).join("");
 }
 
+function resultCard(game) {
+  const projectedWinner = game.projected_winner || "—";
+  const actualWinner = game.actual_winner || "—";
+  const resultClass = game.winner_correct ? "result-win" : "result-loss";
+  const resultLabel = game.winner_correct ? "WIN" : "LOSS";
+  const projectedScore = `${fmt(game.projected_away_score, 1)}–${fmt(game.projected_home_score, 1)}`;
+  const actualScore = `${fmt(game.actual_away_score, 0)}–${fmt(game.actual_home_score, 0)}`;
+  const date = game.start_date
+    ? new Date(game.start_date).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })
+    : "TBD";
+
+  return `
+    <article class="result-card panel ${resultClass}">
+      <div class="result-card-top">
+        <div>
+          <span class="result-badge ${resultClass}">${resultLabel}</span>
+          <span class="result-date">${escapeHtml(date)}</span>
+        </div>
+        <span class="result-model">${escapeHtml(game.model_version || "")}</span>
+      </div>
+      <h4>${escapeHtml(game.away_team)} at ${escapeHtml(game.home_team)}</h4>
+      <div class="result-grid">
+        <div><span>Projected winner</span><strong>${escapeHtml(projectedWinner)}</strong></div>
+        <div><span>Actual winner</span><strong>${escapeHtml(actualWinner)}</strong></div>
+        <div><span>Projected score</span><strong>${projectedScore}</strong></div>
+        <div><span>Actual score</span><strong>${actualScore}</strong></div>
+        <div><span>Margin error</span><strong>${fmt(game.margin_error, 2)}</strong></div>
+        <div><span>Total error</span><strong>${fmt(game.total_error, 2)}</strong></div>
+      </div>
+    </article>`;
+}
+
+function renderPerformanceDetails() {
+  const details = byId("performanceDetails");
+  const title = byId("performanceDetailsTitle");
+  const summary = byId("performanceDetailsSummary");
+  const gamesWrap = byId("performanceGames");
+  const week = state.selectedPerformanceWeek;
+
+  if (week === null) {
+    details.classList.add("hidden");
+    return;
+  }
+
+  const allGames = Array.isArray(state.performance?.games) ? state.performance.games : [];
+  const games = allGames.filter((game) => String(game.week) === String(week));
+  const wins = games.filter((game) => game.winner_correct === true).length;
+  const losses = games.filter((game) => game.winner_correct === false).length;
+
+  title.textContent = `Week ${week} results`;
+  summary.textContent = `${wins}-${losses} straight-up • ${games.length} graded game${games.length === 1 ? "" : "s"}`;
+  gamesWrap.innerHTML = games.map(resultCard).join("");
+  details.classList.remove("hidden");
+  details.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
 function renderPerformance() {
   const cumulative = state.performance?.cumulative || {};
   const games = Number(cumulative.games || 0);
@@ -153,15 +210,30 @@ function renderPerformance() {
   const weekly = state.performance?.by_week || {};
   const rows = Object.entries(weekly).sort((a, b) => Number(a[0]) - Number(b[0]));
   byId("performanceBody").innerHTML = rows.map(([week, row]) => `
-    <tr>
-      <td>${escapeHtml(week)}</td>
+    <tr class="performance-row" data-week="${escapeHtml(week)}" tabindex="0" role="button" aria-label="View Week ${escapeHtml(week)} results">
+      <td><strong>Week ${escapeHtml(week)}</strong></td>
       <td>${escapeHtml(row.games ?? 0)}</td>
       <td>${Number.isFinite(Number(row.winner_accuracy)) ? `${(Number(row.winner_accuracy) * 100).toFixed(1)}%` : "—"}</td>
       <td>${fmt(row.margin_mae, 2)}</td>
       <td>${fmt(row.total_mae, 2)}</td>
       <td>${fmt(row.score_mae, 2)}</td>
+      <td><button class="details-button" type="button" data-week="${escapeHtml(week)}">View results</button></td>
     </tr>`).join("");
   byId("performanceEmpty").classList.toggle("hidden", rows.length > 0);
+
+  document.querySelectorAll(".performance-row").forEach((row) => {
+    const openWeek = () => {
+      state.selectedPerformanceWeek = row.dataset.week;
+      renderPerformanceDetails();
+    };
+    row.addEventListener("click", openWeek);
+    row.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openWeek();
+      }
+    });
+  });
 }
 
 function setupTabs() {
@@ -193,6 +265,10 @@ async function init() {
   byId("weekSelect").addEventListener("change", renderGames);
   byId("gameSearch").addEventListener("input", renderGames);
   byId("rankingSearch").addEventListener("input", renderRankings);
+  byId("closePerformanceDetails").addEventListener("click", () => {
+    state.selectedPerformanceWeek = null;
+    renderPerformanceDetails();
+  });
 }
 
 init();
