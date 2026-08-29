@@ -56,12 +56,16 @@ def main():
         teams = [r.get("team") for r in ratings if r.get("team")]
         game_ids = [str(g.get("game_id")) for g in applied if g.get("game_id") is not None]
         pred_ids = [str(g.get("game_id")) for g in predictions if g.get("game_id") is not None]
+        fcs_predictions = [p for p in predictions if p.get("projection_type") == "fbs_fcs"]
+        fbs_predictions = [p for p in predictions if p.get("projection_type") != "fbs_fcs"]
 
         metrics = {
             "preseason_teams": len(preseason),
             "live_teams": len(ratings),
             "games_applied": len(applied),
             "upcoming_predictions": len(predictions),
+            "upcoming_fbs_vs_fbs_predictions": len(fbs_predictions),
+            "upcoming_fbs_vs_fcs_projections": len(fcs_predictions),
             "latest_completed_week": state.get("latest_completed_week"),
             "graded_games": performance.get("cumulative", {}).get("games", 0),
         }
@@ -88,15 +92,26 @@ def main():
             critical.append(f"Teams missing power ratings: {len(missing_rating_fields)}")
 
         incomplete_preds = []
+        bad_fcs_flags = []
         for p in predictions:
-            needed = ("home_team", "away_team", "projected_winner", "projected_margin", "projected_total")
+            if p.get("projection_type") == "fbs_fcs":
+                # FBS-FCS is deliberately spread-only. Totals and implied scores
+                # are unavailable because FCS teams do not use the production
+                # offense/defense component model.
+                needed = ("home_team", "away_team", "projected_winner", "projected_margin")
+                if p.get("affects_fbs_ratings") is not False or not p.get("fcs_projection_only"):
+                    bad_fcs_flags.append(p.get("game_id", "?"))
+            else:
+                needed = ("home_team", "away_team", "projected_winner", "projected_margin", "projected_total")
             if any(p.get(k) is None for k in needed):
                 incomplete_preds.append(p.get("game_id", "?"))
         if incomplete_preds:
             critical.append(f"Incomplete prediction records: {len(incomplete_preds)}")
+        if bad_fcs_flags:
+            critical.append(f"FBS-FCS projections missing isolation flags: {len(bad_fcs_flags)}")
 
         if not predictions:
-            warnings.append("No upcoming FBS-vs-FBS predictions are currently published")
+            warnings.append("No upcoming predictions are currently published")
         if performance.get("cumulative", {}).get("games", 0) == 0:
             warnings.append("No completed published predictions have been graded yet")
 
