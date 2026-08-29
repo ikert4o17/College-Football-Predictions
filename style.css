@@ -125,6 +125,53 @@ th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--li
 th { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; }
 tbody tr:hover { background: rgba(99,211,142,.035); }
 
+.performance-hint { color: var(--muted); margin: 14px 2px; font-size: .9rem; }
+.performance-row { cursor: pointer; }
+.performance-row:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
+.details-button {
+  border: 1px solid var(--line);
+  background: #0a1510;
+  color: var(--accent-2);
+  border-radius: 10px;
+  padding: 8px 11px;
+  font-weight: 800;
+  font-size: .78rem;
+}
+.details-button:hover { border-color: var(--accent); }
+.performance-details { margin-top: 16px; }
+.performance-details-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.performance-details-header h3 { margin: 3px 0 4px; }
+.performance-details-header p { margin-bottom: 0; }
+.performance-games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.result-card { padding: 18px; border-left-width: 4px; }
+.result-card.result-win { border-left-color: var(--accent); }
+.result-card.result-loss { border-left-color: var(--warning); }
+.result-card-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.result-badge {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+  margin-right: 8px;
+}
+.result-badge.result-win { color: #06110b; background: var(--accent); }
+.result-badge.result-loss { color: #241703; background: var(--warning); }
+.result-date, .result-model { color: var(--muted); font-size: .75rem; }
+.result-card h4 { font-family: "Space Grotesk"; font-size: 1.08rem; margin: 14px 0; }
+.result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.result-grid > div { background: #0a1510; border: 1px solid var(--line); border-radius: 11px; padding: 10px; }
+.result-grid span { display: block; color: var(--muted); font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 800; }
+.result-grid strong { display: block; margin-top: 4px; }
+
 .method-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .method-card { padding: 24px; }
 .step { color: var(--accent); font-weight: 800; letter-spacing: .08em; }
@@ -142,13 +189,14 @@ footer { padding: 34px 0 44px; display: flex; justify-content: space-between; ga
   .site-header { align-items: flex-start; flex-direction: column; }
   .hero { grid-template-columns: 1fr; }
   .hero-metrics { grid-template-columns: repeat(3, 1fr); }
-  .games-grid, .method-grid { grid-template-columns: 1fr; }
+  .games-grid, .method-grid, .performance-games { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
   .site-header, main, footer { width: min(100% - 22px, 1180px); }
   .hero-metrics { grid-template-columns: 1fr; }
   .toolbar { flex-direction: column; }
-  .projection-bar { grid-template-columns: 1fr; }
+  .projection-bar, .result-grid { grid-template-columns: 1fr; }
+  .performance-details-header { align-items: flex-start; flex-direction: column; }
   footer { flex-direction: column; }
 }
