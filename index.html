@@ -66,13 +66,26 @@
         <div class="metric"><span id="perfMargin">—</span><small>Margin MAE</small></div>
         <div class="metric"><span id="perfTotal">—</span><small>Total MAE</small></div>
       </div>
+      <p class="performance-hint">Click any week to drill into every graded game, including straight-up wins/losses, projected vs. actual scores, and model error.</p>
       <div class="table-wrap panel">
         <table>
-          <thead><tr><th>Week</th><th>Games</th><th>Winner %</th><th>Margin MAE</th><th>Total MAE</th><th>Score MAE</th></tr></thead>
+          <thead><tr><th>Week</th><th>Games</th><th>Winner %</th><th>Margin MAE</th><th>Total MAE</th><th>Score MAE</th><th>Details</th></tr></thead>
           <tbody id="performanceBody"></tbody>
         </table>
       </div>
       <div id="performanceEmpty" class="empty-state panel hidden"><h3>No completed predictions have been graded yet.</h3><p>This dashboard will populate automatically after the first projected games finish.</p></div>
+
+      <section id="performanceDetails" class="performance-details hidden" aria-live="polite">
+        <div class="performance-details-header panel">
+          <div>
+            <p class="eyebrow">WEEKLY RESULT DETAIL</p>
+            <h3 id="performanceDetailsTitle">Week results</h3>
+            <p id="performanceDetailsSummary" class="muted"></p>
+          </div>
+          <button id="closePerformanceDetails" class="details-button" type="button">Close</button>
+        </div>
+        <div id="performanceGames" class="performance-games"></div>
+      </section>
     </section>
 
     <section id="methodologyView" class="view">
