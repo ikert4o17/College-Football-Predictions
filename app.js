@@ -190,11 +190,12 @@ function renderPerformanceDetails() {
   const wins = games.filter((game) => game.winner_correct === true).length;
   const losses = games.filter((game) => game.winner_correct === false).length;
 
-  title.textContent = `Week ${week} results`;
+  title.textContent = `Week ${week} game-by-game results`;
   summary.textContent = `${wins}-${losses} straight-up • ${games.length} graded game${games.length === 1 ? "" : "s"}`;
-  gamesWrap.innerHTML = games.map(resultCard).join("");
+  gamesWrap.innerHTML = games.length
+    ? games.map(resultCard).join("")
+    : '<div class="empty-state panel"><h3>No game-level results found for this week.</h3></div>';
   details.classList.remove("hidden");
-  details.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function renderPerformance() {
@@ -225,6 +226,7 @@ function renderPerformance() {
     const openWeek = () => {
       state.selectedPerformanceWeek = row.dataset.week;
       renderPerformanceDetails();
+      byId("performanceDetails").scrollIntoView({ behavior: "smooth", block: "start" });
     };
     row.addEventListener("click", openWeek);
     row.addEventListener("keydown", (event) => {
@@ -234,6 +236,11 @@ function renderPerformance() {
       }
     });
   });
+
+  if (rows.length && state.selectedPerformanceWeek === null) {
+    state.selectedPerformanceWeek = rows[rows.length - 1][0];
+  }
+  renderPerformanceDetails();
 }
 
 function setupTabs() {
