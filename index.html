@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260829-performance2" />
 </head>
 <body>
   <header class="site-header">
@@ -66,7 +66,7 @@
         <div class="metric"><span id="perfMargin">—</span><small>Margin MAE</small></div>
         <div class="metric"><span id="perfTotal">—</span><small>Total MAE</small></div>
       </div>
-      <p class="performance-hint">Click any week to drill into every graded game, including straight-up wins/losses, projected vs. actual scores, and model error.</p>
+      <p class="performance-hint"><strong>Game-by-game results:</strong> tap <em>View results</em> on any week below to see every graded matchup, win/loss, projected score, actual score and errors.</p>
       <div class="table-wrap panel">
         <table>
           <thead><tr><th>Week</th><th>Games</th><th>Winner %</th><th>Margin MAE</th><th>Total MAE</th><th>Score MAE</th><th>Details</th></tr></thead>
@@ -78,7 +78,7 @@
       <section id="performanceDetails" class="performance-details hidden" aria-live="polite">
         <div class="performance-details-header panel">
           <div>
-            <p class="eyebrow">WEEKLY RESULT DETAIL</p>
+            <p class="eyebrow">GAME-BY-GAME WEEKLY RESULTS</p>
             <h3 id="performanceDetailsTitle">Week results</h3>
             <p id="performanceDetailsSummary" class="muted"></p>
           </div>
@@ -99,6 +99,6 @@
   </main>
 
   <footer><p>Project Gridiron • 2026 College Football Forecast</p><p class="muted">For analytical and entertainment purposes. Projections are model estimates, not guarantees.</p></footer>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=20260829-performance2" defer></script>
 </body>
 </html>
