@@ -1,7 +1,8 @@
 {
   "season": 2026,
-  "model_version": "2026_inseason_v1_balanced_light_prior",
-  "latest_completed_week": -1,
+  "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
+  "preseason_model": "2026 preseason SP+ + Balanced Light",
+  "latest_completed_week": 1,
   "teams": 136,
   "parts": [
     "site_data/rankings_2026_part1.json",

@@ -10,7 +10,7 @@
     "transfer_talent": 1.0,
     "qb_continuity": 0.934,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 2,
@@ -23,7 +23,7 @@
     "transfer_talent": 6.0,
     "qb_continuity": 0.883,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 3,
@@ -36,7 +36,7 @@
     "transfer_talent": -4.0,
     "qb_continuity": 0.937,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 4,
@@ -49,7 +49,7 @@
     "transfer_talent": 1.0,
     "qb_continuity": 0.899,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 5,
@@ -62,7 +62,7 @@
     "transfer_talent": 3.0,
     "qb_continuity": -0.922,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 6,
@@ -75,7 +75,7 @@
     "transfer_talent": 0.0,
     "qb_continuity": 0.82,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 7,
@@ -88,7 +88,7 @@
     "transfer_talent": 7.0,
     "qb_continuity": -0.915,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 8,
@@ -101,7 +101,7 @@
     "transfer_talent": 5.0,
     "qb_continuity": -0.782,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 9,
@@ -114,7 +114,7 @@
     "transfer_talent": 8.0,
     "qb_continuity": -0.903,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 10,
@@ -127,7 +127,7 @@
     "transfer_talent": 1.0,
     "qb_continuity": 0.972,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 11,
@@ -140,7 +140,7 @@
     "transfer_talent": 0.0,
     "qb_continuity": 0.867,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 12,
@@ -153,7 +153,7 @@
     "transfer_talent": -4.0,
     "qb_continuity": -0.892,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 13,
@@ -166,7 +166,7 @@
     "transfer_talent": 2.0,
     "qb_continuity": 0.834,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 14,
@@ -179,23 +179,10 @@
     "transfer_talent": -5.0,
     "qb_continuity": -0.91,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 15,
-    "team": "USC",
-    "power_rating": 65.2041,
-    "preseason_power_rating": 65.2041,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.64,
-    "transfer_talent": -1.0,
-    "qb_continuity": 0.94,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
-  },
-  {
-    "rank": 16,
     "team": "Missouri",
     "power_rating": 64.9659,
     "preseason_power_rating": 64.9659,
@@ -205,10 +192,10 @@
     "transfer_talent": 0.0,
     "qb_continuity": -0.971,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 17,
+    "rank": 16,
     "team": "BYU",
     "power_rating": 64.7519,
     "preseason_power_rating": 64.7519,
@@ -218,10 +205,10 @@
     "transfer_talent": 3.0,
     "qb_continuity": 0.96,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 18,
+    "rank": 17,
     "team": "Washington",
     "power_rating": 64.4615,
     "preseason_power_rating": 64.4615,
@@ -231,10 +218,10 @@
     "transfer_talent": -1.0,
     "qb_continuity": 0.932,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 19,
+    "rank": 18,
     "team": "Michigan",
     "power_rating": 64.2042,
     "preseason_power_rating": 64.2042,
@@ -244,7 +231,20 @@
     "transfer_talent": -3.0,
     "qb_continuity": 0.977,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 19,
+    "team": "USC",
+    "power_rating": 64.012,
+    "preseason_power_rating": 65.2041,
+    "inseason_adjustment": -1.1921,
+    "games_inseason": 1,
+    "returning_production": 0.64,
+    "transfer_talent": -1.0,
+    "qb_continuity": 0.94,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 20,
@@ -257,7 +257,7 @@
     "transfer_talent": -3.0,
     "qb_continuity": -0.891,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 21,
@@ -270,7 +270,7 @@
     "transfer_talent": -2.0,
     "qb_continuity": -0.939,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 22,
@@ -283,7 +283,7 @@
     "transfer_talent": 0.0,
     "qb_continuity": 0.855,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 23,
@@ -296,7 +296,7 @@
     "transfer_talent": -1.0,
     "qb_continuity": -0.9,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 24,
@@ -309,7 +309,7 @@
     "transfer_talent": -6.0,
     "qb_continuity": -0.942,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 25,
@@ -322,7 +322,7 @@
     "transfer_talent": 3.0,
     "qb_continuity": -0.975,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 26,
@@ -335,7 +335,7 @@
     "transfer_talent": 3.0,
     "qb_continuity": 0.953,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 27,
@@ -348,7 +348,7 @@
     "transfer_talent": -3.0,
     "qb_continuity": -0.9,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 28,
@@ -361,7 +361,7 @@
     "transfer_talent": 4.0,
     "qb_continuity": -0.874,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 29,
@@ -374,7 +374,7 @@
     "transfer_talent": -1.0,
     "qb_continuity": -0.91,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 30,
@@ -387,7 +387,7 @@
     "transfer_talent": 1.0,
     "qb_continuity": 0.942,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 31,
@@ -400,7 +400,7 @@
     "transfer_talent": -1.0,
     "qb_continuity": -0.948,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 32,
@@ -413,10 +413,23 @@
     "transfer_talent": -2.0,
     "qb_continuity": -0.975,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 33,
+    "team": "Virginia",
+    "power_rating": 58.7355,
+    "preseason_power_rating": 57.5398,
+    "inseason_adjustment": 1.1957,
+    "games_inseason": 1,
+    "returning_production": 0.65,
+    "transfer_talent": 0.0,
+    "qb_continuity": -0.866,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 34,
     "team": "Vanderbilt",
     "power_rating": 58.6885,
     "preseason_power_rating": 58.6885,
@@ -426,10 +439,10 @@
     "transfer_talent": 0.0,
     "qb_continuity": -0.929,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 34,
+    "rank": 35,
     "team": "UCLA",
     "power_rating": 58.0854,
     "preseason_power_rating": 58.0854,
@@ -439,10 +452,10 @@
     "transfer_talent": 0.0,
     "qb_continuity": 0.954,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 35,
+    "rank": 36,
     "team": "Kansas State",
     "power_rating": 57.801,
     "preseason_power_rating": 57.801,
@@ -452,20 +465,7 @@
     "transfer_talent": -2.0,
     "qb_continuity": 0.988,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
-  },
-  {
-    "rank": 36,
-    "team": "Virginia",
-    "power_rating": 57.5398,
-    "preseason_power_rating": 57.5398,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.65,
-    "transfer_talent": 0.0,
-    "qb_continuity": -0.866,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 37,
@@ -478,23 +478,10 @@
     "transfer_talent": 4.0,
     "qb_continuity": -0.853,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
     "rank": 38,
-    "team": "TCU",
-    "power_rating": 56.8466,
-    "preseason_power_rating": 56.8466,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.58,
-    "transfer_talent": -2.0,
-    "qb_continuity": -0.962,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
-  },
-  {
-    "rank": 39,
     "team": "Utah",
     "power_rating": 56.7716,
     "preseason_power_rating": 56.7716,
@@ -504,10 +491,10 @@
     "transfer_talent": -3.0,
     "qb_continuity": 0.931,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 40,
+    "rank": 39,
     "team": "Houston",
     "power_rating": 56.5293,
     "preseason_power_rating": 56.5293,
@@ -517,6 +504,19 @@
     "transfer_talent": 0.0,
     "qb_continuity": 0.89,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v1_balanced_light_prior"
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 40,
+    "team": "Maryland",
+    "power_rating": 56.4532,
+    "preseason_power_rating": 56.4532,
+    "inseason_adjustment": 0.0,
+    "games_inseason": 0,
+    "returning_production": 0.83,
+    "transfer_talent": -1.0,
+    "qb_continuity": 0.957,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   }
 ]

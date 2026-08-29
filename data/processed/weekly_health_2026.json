@@ -1,0 +1,15 @@
+{
+  "season": 2026,
+  "generated_at": "2026-08-29T23:31:21.731662+00:00",
+  "status": "PASS",
+  "metrics": {
+    "preseason_teams": 136,
+    "live_teams": 136,
+    "games_applied": 3,
+    "upcoming_predictions": 43,
+    "latest_completed_week": 1,
+    "graded_games": 3
+  },
+  "critical_errors": [],
+  "warnings": []
+}
