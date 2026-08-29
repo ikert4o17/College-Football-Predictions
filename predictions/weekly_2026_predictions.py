@@ -1,14 +1,16 @@
 """Generate upcoming 2026 Project Gridiron predictions.
 
 FBS-vs-FBS games use the production Project Gridiron model.
-FBS-vs-FCS games are projection-only: the FCS team's CFBD pregame Elo is
-translated onto the current Project Gridiron scale using a cross-sectional
-FBS Elo-to-rating bridge. These games NEVER feed the FBS rating updater.
+FBS-vs-FCS games are projection-only: the FCS team's CFBD Elo is translated
+onto the current Project Gridiron scale using a cross-sectional FBS
+Elo-to-rating bridge. These games NEVER feed the FBS rating updater.
 """
 import json
+import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from data.cfbd_api import client
 from predictions import provisional_2026_predictions as base
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -45,13 +47,32 @@ def safe_float(value):
         return None
 
 
-def build_elo_bridge(games, rating_lookup, now):
-    """Fit current Project Gridiron rating = intercept + slope * CFBD Elo.
+def fetch_current_elos():
+    """Fetch one season-wide Elo snapshot when CFBD credentials are available."""
+    if not os.getenv("CFBD_API_KEY"):
+        return {}
+    try:
+        rows = client.get(
+            "/ratings/elo",
+            params={"year": 2026, "seasonType": "regular"},
+        )
+    except Exception as exc:
+        print(f"WARNING: CFBD Elo fallback unavailable: {exc}")
+        return {}
 
-    Uses the most recent available 2026 pregame Elo for each anchored FBS team.
-    This keeps FCS teams on a comparable projection scale without adding them to
-    the core rating system or allowing FBS-FCS results to alter FBS ratings.
-    """
+    lookup = {}
+    for row in rows if isinstance(rows, list) else []:
+        if not isinstance(row, dict):
+            continue
+        team = row.get("team")
+        elo = safe_float(row.get("elo"))
+        if team and elo is not None:
+            lookup[team] = elo
+    return lookup
+
+
+def build_elo_bridge(games, rating_lookup, now, elo_lookup=None):
+    """Fit current Project Gridiron rating = intercept + slope * CFBD Elo."""
     latest = {}
     for game in games:
         if not isinstance(game, dict) or game.get("season") != 2026:
@@ -66,17 +87,20 @@ def build_elo_bridge(games, rating_lookup, now):
             elo = safe_float(game.get(f"{side}PregameElo"))
             if not team or elo is None or team not in rating_lookup:
                 continue
-            # Prefer the closest already-started game; if none exists, retain
-            # the earliest future preseason Elo as a fallback.
             past = dt <= now
             key = (1 if past else 0, dt.timestamp() if past else -dt.timestamp())
             if team not in latest or key > latest[team][0]:
                 latest[team] = (key, elo)
 
     pairs = []
-    for team, (_, elo) in latest.items():
-        rating = safe_float(rating_lookup[team].get("power_rating"))
-        if rating is not None:
+    for team, record in rating_lookup.items():
+        elo = None
+        if elo_lookup:
+            elo = safe_float(elo_lookup.get(team))
+        if elo is None and team in latest:
+            elo = latest[team][1]
+        rating = safe_float(record.get("power_rating"))
+        if elo is not None and rating is not None:
             pairs.append((elo, rating))
 
     if len(pairs) < MIN_ELO_BRIDGE_TEAMS:
@@ -92,7 +116,7 @@ def build_elo_bridge(games, rating_lookup, now):
     return {"intercept": intercept, "slope": slope, "teams": len(pairs)}
 
 
-def project_fbs_fcs(game, rating_lookup, margin, elo_bridge):
+def project_fbs_fcs(game, rating_lookup, margin, elo_bridge, elo_lookup=None):
     """Project an FBS-vs-FCS spread without touching the production FBS model."""
     hc, ac = classification(game, "home"), classification(game, "away")
     if {hc, ac} != {"fbs", "fcs"} or elo_bridge is None:
@@ -102,7 +126,13 @@ def project_fbs_fcs(game, rating_lookup, margin, elo_bridge):
     fbs_side = "home" if hc == "fbs" else "away"
     fcs_side = "away" if fbs_side == "home" else "home"
     fbs_team = game.get(f"{fbs_side}Team")
+    fcs_team = game.get(f"{fcs_side}Team")
     fcs_elo = safe_float(game.get(f"{fcs_side}PregameElo"))
+    elo_source = "game pregame Elo"
+    if fcs_elo is None and elo_lookup:
+        fcs_elo = safe_float(elo_lookup.get(fcs_team))
+        elo_source = "CFBD /ratings/elo season snapshot"
+
     fbs_record = rating_lookup.get(fbs_team)
     if fbs_record is None or fcs_elo is None:
         return None
@@ -140,11 +170,11 @@ def project_fbs_fcs(game, rating_lookup, margin, elo_bridge):
         "projected_home_score": None,
         "projected_away_score": None,
         "provisional": False,
-        "rating_model": "2026_fbs_fcs_projection_only_v1",
+        "rating_model": "2026_fbs_fcs_projection_only_v2",
         "projection_type": "fbs_fcs",
         "fcs_projection_only": True,
         "affects_fbs_ratings": False,
-        "fcs_rating_source": "CFBD pregame Elo translated to Project Gridiron scale",
+        "fcs_rating_source": f"CFBD Elo translated to Project Gridiron scale ({elo_source})",
         "elo_bridge_teams": elo_bridge["teams"],
     }
 
@@ -162,7 +192,8 @@ def main():
 
     now = datetime.now(timezone.utc)
     end = now + timedelta(days=LOOKAHEAD_DAYS)
-    elo_bridge = build_elo_bridge(games, rating_lookup, now)
+    elo_lookup = fetch_current_elos()
+    elo_bridge = build_elo_bridge(games, rating_lookup, now, elo_lookup)
     predictions = []
     skipped_missing = 0
     fcs_count = 0
@@ -186,7 +217,7 @@ def main():
                 projection["projection_type"] = "fbs_fbs"
                 projection["affects_fbs_ratings"] = True
         elif {hc, ac} == {"fbs", "fcs"}:
-            projection = project_fbs_fcs(game, rating_lookup, margin, elo_bridge)
+            projection = project_fbs_fcs(game, rating_lookup, margin, elo_bridge, elo_lookup)
             if projection is not None:
                 fcs_count += 1
 
@@ -205,6 +236,7 @@ def main():
     print("=" * 78)
     print(f"Window: {now.isoformat()} through {end.isoformat()}")
     print(f"FBS ratings loaded: {len(rating_lookup)}")
+    print(f"CFBD Elo teams loaded: {len(elo_lookup)}")
     print(f"Predictions generated: {len(predictions)}")
     print(f"FBS-FCS projection-only games: {fcs_count}")
     print(f"Elo bridge teams: {elo_bridge['teams'] if elo_bridge else 0}")
