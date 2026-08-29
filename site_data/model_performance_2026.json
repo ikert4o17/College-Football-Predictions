@@ -1,6 +1,6 @@
 {
     "season": 2026,
-    "generated_at": "2026-08-29T23:31:21.384822+00:00",
+    "generated_at": "2026-08-29T23:35:46.992213+00:00",
     "metric_notes": {
         "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
         "margin_mae": "mean absolute error of projected home margin versus actual home margin",
@@ -101,9 +101,5 @@
             "model_version": "2026_inseason_v1"
         }
     ],
-    "newly_graded_game_ids": [
-        401856766,
-        401864494,
-        401858202
-    ]
+    "newly_graded_game_ids": []
 }
