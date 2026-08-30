@@ -1,18 +1,37 @@
 {
     "season": 2026,
-    "generated_at": "2026-08-29T23:43:03.947566+00:00",
+    "generated_at": "2026-08-30T00:05:25.743202+00:00",
     "metric_notes": {
         "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
+        "su_record": "straight-up Project Gridiron winner record",
+        "ats_record": "Project Gridiron side versus CFBD consensus closing spread; no verified line means no grade",
+        "ou_record": "Project Gridiron over/under lean versus CFBD consensus closing total; no verified line means no grade",
+        "market_source": "CFBD historical betting lines, provider=consensus; spread and total are documented closing values",
         "margin_mae": "mean absolute error of projected home margin versus actual home margin",
-        "margin_bias": "mean projected home margin minus actual home margin; positive means model favored home side too much",
         "total_mae": "mean absolute error of projected total versus actual total",
-        "total_bias": "mean projected total minus actual total; positive means model projected too many points",
-        "score_mae": "mean absolute team-score error across home and away scores",
         "scope": "core performance ledger grades FBS-vs-FBS predictions only; FBS-vs-FCS projections are projection-only"
     },
     "cumulative": {
         "games": 3,
         "winner_accuracy": 0.6667,
+        "su_record": {
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0,
+            "graded": 3
+        },
+        "ats_record": {
+            "wins": 0,
+            "losses": 0,
+            "pushes": 0,
+            "graded": 0
+        },
+        "ou_record": {
+            "wins": 0,
+            "losses": 0,
+            "pushes": 0,
+            "graded": 0
+        },
         "margin_mae": 15.5,
         "margin_bias": 3.5533,
         "total_mae": 13.8333,
@@ -23,6 +42,24 @@
         "1": {
             "games": 3,
             "winner_accuracy": 0.6667,
+            "su_record": {
+                "wins": 2,
+                "losses": 1,
+                "pushes": 0,
+                "graded": 3
+            },
+            "ats_record": {
+                "wins": 0,
+                "losses": 0,
+                "pushes": 0,
+                "graded": 0
+            },
+            "ou_record": {
+                "wins": 0,
+                "losses": 0,
+                "pushes": 0,
+                "graded": 0
+            },
             "margin_mae": 15.5,
             "margin_bias": 3.5533,
             "total_mae": 13.8333,
@@ -52,7 +89,14 @@
             "total_error": 22.89,
             "home_score_error": 16.81,
             "away_score_error": 6.09,
-            "model_version": "2026_inseason_v1"
+            "model_version": "2026_inseason_v1",
+            "su_result": "L",
+            "ats_pick": null,
+            "ats_result": null,
+            "ats_edge": null,
+            "ou_pick": null,
+            "ou_result": null,
+            "total_edge": null
         },
         {
             "game_id": 401864494,
@@ -75,7 +119,14 @@
             "total_error": -3.38,
             "home_score_error": 7.24,
             "away_score_error": -10.62,
-            "model_version": "2026_inseason_v1"
+            "model_version": "2026_inseason_v1",
+            "su_result": "W",
+            "ats_pick": null,
+            "ats_result": null,
+            "ats_edge": null,
+            "ou_pick": null,
+            "ou_result": null,
+            "total_edge": null
         },
         {
             "game_id": 401858202,
@@ -98,7 +149,14 @@
             "total_error": 15.23,
             "home_score_error": -1.34,
             "away_score_error": 16.58,
-            "model_version": "2026_inseason_v1"
+            "model_version": "2026_inseason_v1",
+            "su_result": "W",
+            "ats_pick": null,
+            "ats_result": null,
+            "ats_edge": null,
+            "ou_pick": null,
+            "ou_result": null,
+            "total_edge": null
         }
     ],
     "newly_graded_game_ids": []
