@@ -1,6 +1,6 @@
 {
     "season": 2026,
-    "generated_at": "2026-08-30T17:13:22.149718+00:00",
+    "generated_at": "2026-08-30T20:12:45.265765+00:00",
     "metric_notes": {
         "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
         "su_record": "straight-up Project Gridiron winner record",
@@ -195,7 +195,5 @@
             "total_edge": 8.72
         }
     ],
-    "newly_graded_game_ids": [
-        401862693
-    ]
+    "newly_graded_game_ids": []
 }
