@@ -8,7 +8,6 @@ on:
   schedule:
     # Sunday afternoon: 4:00 PM Central during daylight time (21:00 UTC).
     # After daylight saving time ends, this runs at 3:00 PM Central.
-    # FBS-FCS spread-only validation test: 2026-08-29.
     - cron: "0 21 * * 0"
 
 permissions:
@@ -48,6 +47,8 @@ jobs:
         run: python -m data.download_games 2026
 
       - name: Grade previously published predictions
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python -m predictions.grade_2026_predictions
 
       - name: Create frozen Balanced Light preseason ratings if missing
@@ -80,7 +81,6 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-
           root = Path('.')
           preseason = json.loads((root/'data/processed/preseason_ratings_2026.json').read_text())
           ratings_doc = json.loads((root/'data/processed/inseason_ratings_2026.json').read_text())
@@ -89,9 +89,7 @@ jobs:
           predictions = json.loads((root/'site_data/game_predictions_2026.json').read_text())
           performance = json.loads((root/'site_data/model_performance_2026.json').read_text())
           health = json.loads((root/'data/processed/weekly_health_2026.json').read_text())
-          ratings = ratings_doc.get('ratings', [])
-          applied = ratings_doc.get('games_applied', [])
-
+          ratings = ratings_doc.get('ratings', []); applied = ratings_doc.get('games_applied', [])
           assert len(preseason) >= 130, f"Incomplete frozen preseason: {len(preseason)}"
           assert len(ratings) >= 130, f"Incomplete live ratings: {len(ratings)}"
           assert manifest.get('teams') == len(ratings), "Site ranking count mismatch"
@@ -99,28 +97,23 @@ jobs:
           ids = [str(g.get('game_id')) for g in applied if g.get('game_id') is not None]
           assert len(ids) == len(set(ids)), "Duplicate game application detected"
           assert state.get('completed_fbs_vs_fbs_games', 0) >= len(applied), "Weekly state inconsistent"
-          for part in manifest.get('parts', []):
-              assert (root/part).exists(), f"Missing ranking part: {part}"
+          for part in manifest.get('parts', []): assert (root/part).exists(), f"Missing ranking part: {part}"
           for p in predictions:
               keys = ['home_team','away_team','projected_winner','projected_margin','model_version']
-              if p.get('projection_type') != 'fbs_fcs':
-                  keys.append('projected_total')
+              if p.get('projection_type') != 'fbs_fcs': keys.append('projected_total')
               else:
                   assert p.get('affects_fbs_ratings') is False, "FBS-FCS projection may affect FBS ratings"
                   assert p.get('fcs_projection_only') is True, "FBS-FCS projection missing isolation tag"
-              for key in keys:
-                  assert key in p and p.get(key) is not None, f"Prediction missing {key}"
+              for key in keys: assert key in p and p.get(key) is not None, f"Prediction missing {key}"
           assert 'cumulative' in performance and 'by_week' in performance, "Performance ledger malformed"
+          assert 'su_record' in performance['cumulative'], "SU market record missing"
+          assert 'ats_record' in performance['cumulative'], "ATS market record missing"
+          assert 'ou_record' in performance['cumulative'], "O/U market record missing"
           assert (root/'site_data/rating_movers_2026.json').exists(), "Rating movers missing"
-
           print("Weekly package validated")
-          print("Teams:", len(ratings))
-          print("Games applied:", len(applied))
-          print("Latest completed week:", state.get('latest_completed_week'))
-          print("Upcoming predictions:", len(predictions))
-          print("FBS-FCS projection-only:", sum(p.get('projection_type') == 'fbs_fcs' for p in predictions))
-          print("Graded predictions:", performance.get('cumulative', {}).get('games'))
-          print("Health:", health.get('status'))
+          print("Teams:", len(ratings)); print("Games applied:", len(applied)); print("Latest completed week:", state.get('latest_completed_week'))
+          print("Upcoming predictions:", len(predictions)); print("FBS-FCS projection-only:", sum(p.get('projection_type') == 'fbs_fcs' for p in predictions))
+          print("Graded predictions:", performance.get('cumulative', {}).get('games')); print("Health:", health.get('status'))
           PY
 
       - name: Upload weekly diagnostics artifact
