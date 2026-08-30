@@ -8,97 +8,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260829-performance3" />
+  <link rel="stylesheet" href="style.css?v=20260829-market1" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand-wrap">
-      <div class="brand-mark" aria-hidden="true">PG</div>
-      <div><p class="eyebrow">PROJECT GRIDIRON</p><h1>College Football Forecast</h1></div>
-    </div>
-    <div class="status-pill" id="modelStatus">Loading model status…</div>
-  </header>
-
+  <header class="site-header"><div class="brand-wrap"><div class="brand-mark" aria-hidden="true">PG</div><div><p class="eyebrow">PROJECT GRIDIRON</p><h1>College Football Forecast</h1></div></div><div class="status-pill" id="modelStatus">Loading model status…</div></header>
   <main>
-    <section class="hero panel">
-      <div>
-        <p class="eyebrow">2026 • BALANCED LIGHT + IN-SEASON</p>
-        <h2>Power ratings, projected spreads, winners and totals — in one place.</h2>
-        <p class="hero-copy">Project Gridiron starts from the frozen 2026 preseason SP+ anchor plus the Balanced Light roster overlay. Once games begin, completed FBS results update team strength each week before the next slate is projected.</p>
-      </div>
-      <div class="hero-metrics">
-        <div class="metric"><span id="teamCount">—</span><small>Teams rated</small></div>
-        <div class="metric"><span id="gameCount">—</span><small>Games projected</small></div>
-        <div class="metric"><span id="weekCount">—</span><small>Weeks loaded</small></div>
-      </div>
-    </section>
-
-    <nav class="tabs" aria-label="Dashboard views">
-      <button class="tab active" data-view="games">Game Projections</button>
-      <button class="tab" data-view="rankings">Team Rankings</button>
-      <button class="tab" data-view="performance">Model Performance</button>
-      <button class="tab" data-view="methodology">Methodology</button>
-    </nav>
-
-    <section id="gamesView" class="view active">
-      <div class="toolbar panel">
-        <div><label for="weekSelect">Week</label><select id="weekSelect"><option value="all">All weeks</option></select></div>
-        <div class="search-wrap"><label for="gameSearch">Team search</label><input id="gameSearch" type="search" placeholder="Texas, Ohio State, Georgia…" /></div>
-      </div>
-      <div id="gamesGrid" class="games-grid"></div>
-      <div id="gamesEmpty" class="empty-state panel hidden"><h3>No production game projections are available yet.</h3><p>The weekly GitHub pipeline publishes the next slate automatically.</p></div>
-    </section>
-
-    <section id="rankingsView" class="view">
-      <div class="toolbar panel"><div class="search-wrap full"><label for="rankingSearch">Search teams</label><input id="rankingSearch" type="search" placeholder="Search 2026 Project Gridiron ratings…" /></div></div>
-      <div class="table-wrap panel">
-        <table>
-          <thead><tr><th>Rank</th><th>Team</th><th>Power rating</th><th>Season adj.</th><th>Games</th><th>Return %</th><th>Net high-end portal</th></tr></thead>
-          <tbody id="rankingsBody"></tbody>
-        </table>
-      </div>
-    </section>
-
+    <section class="hero panel"><div><p class="eyebrow">2026 • BALANCED LIGHT + IN-SEASON</p><h2>Power ratings, projected spreads, winners and totals — in one place.</h2><p class="hero-copy">Project Gridiron starts from the frozen 2026 preseason SP+ anchor plus the Balanced Light roster overlay. Once games begin, completed FBS results update team strength each week before the next slate is projected.</p></div><div class="hero-metrics"><div class="metric"><span id="teamCount">—</span><small>Teams rated</small></div><div class="metric"><span id="gameCount">—</span><small>Games projected</small></div><div class="metric"><span id="weekCount">—</span><small>Weeks loaded</small></div></div></section>
+    <nav class="tabs" aria-label="Dashboard views"><button class="tab active" data-view="games">Game Projections</button><button class="tab" data-view="rankings">Team Rankings</button><button class="tab" data-view="performance">Model Performance</button><button class="tab" data-view="methodology">Methodology</button></nav>
+    <section id="gamesView" class="view active"><div class="toolbar panel"><div><label for="weekSelect">Week</label><select id="weekSelect"><option value="all">All weeks</option></select></div><div class="search-wrap"><label for="gameSearch">Team search</label><input id="gameSearch" type="search" placeholder="Texas, Ohio State, Georgia…" /></div></div><div id="gamesGrid" class="games-grid"></div><div id="gamesEmpty" class="empty-state panel hidden"><h3>No production game projections are available yet.</h3><p>The weekly GitHub pipeline publishes the next slate automatically.</p></div></section>
+    <section id="rankingsView" class="view"><div class="toolbar panel"><div class="search-wrap full"><label for="rankingSearch">Search teams</label><input id="rankingSearch" type="search" placeholder="Search 2026 Project Gridiron ratings…" /></div></div><div class="table-wrap panel"><table><thead><tr><th>Rank</th><th>Team</th><th>Power rating</th><th>Season adj.</th><th>Games</th><th>Return %</th><th>Net high-end portal</th></tr></thead><tbody id="rankingsBody"></tbody></table></div></section>
     <section id="performanceView" class="view">
       <div class="hero-metrics panel">
         <div class="metric"><span id="perfGames">—</span><small>Games graded</small></div>
-        <div class="metric"><span id="perfWinner">—</span><small>Winner accuracy</small></div>
+        <div class="metric"><span id="perfSU">—</span><small>Straight up</small></div>
+        <div class="metric"><span id="perfATS">—</span><small>Against spread</small></div>
+        <div class="metric"><span id="perfOU">—</span><small>Over / under</small></div>
         <div class="metric"><span id="perfMargin">—</span><small>Margin MAE</small></div>
         <div class="metric"><span id="perfTotal">—</span><small>Total MAE</small></div>
       </div>
-      <p class="performance-hint"><strong>Game-by-game results:</strong> the latest graded week is shown automatically below. Tap another week or <em>View results</em> to switch the matchup breakdown.</p>
-      <div class="table-wrap panel">
-        <table>
-          <thead><tr><th>Week</th><th>Games</th><th>Winner %</th><th>Margin MAE</th><th>Total MAE</th><th>Score MAE</th><th>Details</th></tr></thead>
-          <tbody id="performanceBody"></tbody>
-        </table>
-      </div>
+      <p class="performance-hint"><strong>Market grading:</strong> ATS and O/U are graded against CFBD consensus closing lines. If a verified consensus close is unavailable, that market is left ungraded rather than estimated.</p>
+      <div class="table-wrap panel"><table><thead><tr><th>Week</th><th>Games</th><th>SU</th><th>ATS</th><th>O/U</th><th>Margin MAE</th><th>Total MAE</th><th>Details</th></tr></thead><tbody id="performanceBody"></tbody></table></div>
       <div id="performanceEmpty" class="empty-state panel hidden"><h3>No completed predictions have been graded yet.</h3><p>This dashboard will populate automatically after the first projected games finish.</p></div>
-
-      <section id="performanceDetails" class="performance-details hidden" aria-live="polite">
-        <div class="performance-details-header panel">
-          <div>
-            <p class="eyebrow">GAME-BY-GAME WEEKLY RESULTS</p>
-            <h3 id="performanceDetailsTitle">Week results</h3>
-            <p id="performanceDetailsSummary" class="muted"></p>
-          </div>
-          <button id="closePerformanceDetails" class="details-button" type="button">Close</button>
-        </div>
-        <div id="performanceGames" class="performance-games"></div>
-      </section>
+      <section id="performanceDetails" class="performance-details hidden" aria-live="polite"><div class="performance-details-header panel"><div><p class="eyebrow">GAME-BY-GAME WEEKLY RESULTS</p><h3 id="performanceDetailsTitle">Week results</h3><p id="performanceDetailsSummary" class="muted"></p></div><button id="closePerformanceDetails" class="details-button" type="button">Close</button></div><div id="performanceGames" class="performance-games"></div></section>
     </section>
-
-    <section id="methodologyView" class="view">
-      <div class="method-grid">
-        <article class="panel method-card"><span class="step">01</span><h3>Anchor the teams</h3><p>2026 preseason SP+ is mapped to the Project Gridiron scale to establish the season-opening baseline.</p></article>
-        <article class="panel method-card"><span class="step">02</span><h3>Apply Balanced Light</h3><p>The frozen preseason overlay emphasizes returning production and transfer talent, keeps quarterback and coaching effects modest, and caps the total adjustment at ±4 rating points.</p></article>
-        <article class="panel method-card"><span class="step">03</span><h3>Learn from results</h3><p>Completed FBS-vs-FBS games update ratings from the difference between expected and actual margin. Early updates are deliberately conservative, with the preseason prior fading as games accumulate.</p></article>
-        <article class="panel method-card"><span class="step">04</span><h3>Grade and publish</h3><p>The weekly GitHub operating system grades the previous slate, refreshes results, updates ratings, regenerates projections, validates the package and publishes the website automatically.</p></article>
-      </div>
-    </section>
+    <section id="methodologyView" class="view"><div class="method-grid"><article class="panel method-card"><span class="step">01</span><h3>Anchor the teams</h3><p>2026 preseason SP+ is mapped to the Project Gridiron scale to establish the season-opening baseline.</p></article><article class="panel method-card"><span class="step">02</span><h3>Apply Balanced Light</h3><p>The frozen preseason overlay emphasizes returning production and transfer talent, keeps quarterback and coaching effects modest, and caps the total adjustment at ±4 rating points.</p></article><article class="panel method-card"><span class="step">03</span><h3>Learn from results</h3><p>Completed FBS-vs-FBS games update ratings from the difference between expected and actual margin. Early updates are deliberately conservative, with the preseason prior fading as games accumulate.</p></article><article class="panel method-card"><span class="step">04</span><h3>Grade and publish</h3><p>The weekly system grades straight-up results plus ATS and O/U performance against CFBD consensus closing lines, then refreshes ratings and projections automatically.</p></article></div></section>
   </main>
-
   <footer><p>Project Gridiron • 2026 College Football Forecast</p><p class="muted">For analytical and entertainment purposes. Projections are model estimates, not guarantees.</p></footer>
-  <script src="app.js?v=20260829-performance3" defer></script>
+  <script src="app.js?v=20260829-market1" defer></script>
 </body>
 </html>
