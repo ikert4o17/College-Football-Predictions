@@ -6,9 +6,9 @@ on:
     paths:
       - ".github/workflows/weekly_2026_operating_system.yml"
   schedule:
-    # Sunday afternoon: 4:00 PM Central during daylight time (21:00 UTC).
-    # After daylight saving time ends, this runs at 3:00 PM Central.
-    - cron: "0 21 * * 0"
+    # Sunday afternoon: 1:00 PM Central year-round, with DST handled by GitHub.
+    - cron: "0 13 * * 0"
+      timezone: "America/Chicago"
 
 permissions:
   contents: write
