@@ -1,12 +1,12 @@
 {
     "season": 2026,
-    "generated_at": "2026-08-30T00:05:25.743202+00:00",
+    "generated_at": "2026-08-30T00:18:56.992841+00:00",
     "metric_notes": {
         "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
         "su_record": "straight-up Project Gridiron winner record",
-        "ats_record": "Project Gridiron side versus CFBD consensus closing spread; no verified line means no grade",
-        "ou_record": "Project Gridiron over/under lean versus CFBD consensus closing total; no verified line means no grade",
-        "market_source": "CFBD historical betting lines, provider=consensus; spread and total are documented closing values",
+        "ats_record": "Project Gridiron side versus archived Project Gridiron consensus close; no pre-kickoff snapshot means no grade",
+        "ou_record": "Project Gridiron O/U lean versus archived Project Gridiron consensus close; no pre-kickoff snapshot means no grade",
+        "market_source": "The Odds API current NCAAF feed; median across available US books; final strictly pre-kickoff snapshot is official close",
         "margin_mae": "mean absolute error of projected home margin versus actual home margin",
         "total_mae": "mean absolute error of projected total versus actual total",
         "scope": "core performance ledger grades FBS-vs-FBS predictions only; FBS-vs-FCS projections are projection-only"
