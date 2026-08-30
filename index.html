@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260829-market1" />
+  <link rel="stylesheet" href="style.css?v=20260830-market2" />
 </head>
 <body>
   <header class="site-header"><div class="brand-wrap"><div class="brand-mark" aria-hidden="true">PG</div><div><p class="eyebrow">PROJECT GRIDIRON</p><h1>College Football Forecast</h1></div></div><div class="status-pill" id="modelStatus">Loading model status…</div></header>
@@ -26,14 +26,14 @@
         <div class="metric"><span id="perfMargin">—</span><small>Margin MAE</small></div>
         <div class="metric"><span id="perfTotal">—</span><small>Total MAE</small></div>
       </div>
-      <p class="performance-hint"><strong>Market grading:</strong> ATS and O/U are graded against CFBD consensus closing lines. If a verified consensus close is unavailable, that market is left ungraded rather than estimated.</p>
+      <p class="performance-hint"><strong>Market grading:</strong> Project Gridiron captures spreads and totals from multiple U.S. sportsbooks through The Odds API, uses the median as its consensus, and freezes the final pre-kickoff snapshot as the official closing line. If no verified pre-kickoff snapshot exists, that market is left ungraded rather than estimated.</p>
       <div class="table-wrap panel"><table><thead><tr><th>Week</th><th>Games</th><th>SU</th><th>ATS</th><th>O/U</th><th>Margin MAE</th><th>Total MAE</th><th>Details</th></tr></thead><tbody id="performanceBody"></tbody></table></div>
       <div id="performanceEmpty" class="empty-state panel hidden"><h3>No completed predictions have been graded yet.</h3><p>This dashboard will populate automatically after the first projected games finish.</p></div>
       <section id="performanceDetails" class="performance-details hidden" aria-live="polite"><div class="performance-details-header panel"><div><p class="eyebrow">GAME-BY-GAME WEEKLY RESULTS</p><h3 id="performanceDetailsTitle">Week results</h3><p id="performanceDetailsSummary" class="muted"></p></div><button id="closePerformanceDetails" class="details-button" type="button">Close</button></div><div id="performanceGames" class="performance-games"></div></section>
     </section>
-    <section id="methodologyView" class="view"><div class="method-grid"><article class="panel method-card"><span class="step">01</span><h3>Anchor the teams</h3><p>2026 preseason SP+ is mapped to the Project Gridiron scale to establish the season-opening baseline.</p></article><article class="panel method-card"><span class="step">02</span><h3>Apply Balanced Light</h3><p>The frozen preseason overlay emphasizes returning production and transfer talent, keeps quarterback and coaching effects modest, and caps the total adjustment at ±4 rating points.</p></article><article class="panel method-card"><span class="step">03</span><h3>Learn from results</h3><p>Completed FBS-vs-FBS games update ratings from the difference between expected and actual margin. Early updates are deliberately conservative, with the preseason prior fading as games accumulate.</p></article><article class="panel method-card"><span class="step">04</span><h3>Grade and publish</h3><p>The weekly system grades straight-up results plus ATS and O/U performance against CFBD consensus closing lines, then refreshes ratings and projections automatically.</p></article></div></section>
+    <section id="methodologyView" class="view"><div class="method-grid"><article class="panel method-card"><span class="step">01</span><h3>Anchor the teams</h3><p>2026 preseason SP+ is mapped to the Project Gridiron scale to establish the season-opening baseline.</p></article><article class="panel method-card"><span class="step">02</span><h3>Apply Balanced Light</h3><p>The frozen preseason overlay emphasizes returning production and transfer talent, keeps quarterback and coaching effects modest, and caps the total adjustment at ±4 rating points.</p></article><article class="panel method-card"><span class="step">03</span><h3>Learn from results</h3><p>Completed FBS-vs-FBS games update ratings from the difference between expected and actual margin. Early updates are deliberately conservative, with the preseason prior fading as games accumulate.</p></article><article class="panel method-card"><span class="step">04</span><h3>Grade and publish</h3><p>The weekly system grades straight-up results plus ATS and O/U performance against Project Gridiron's archived multi-book consensus closing lines, then refreshes ratings and projections automatically.</p></article></div></section>
   </main>
   <footer><p>Project Gridiron • 2026 College Football Forecast</p><p class="muted">For analytical and entertainment purposes. Projections are model estimates, not guarantees.</p></footer>
-  <script src="app.js?v=20260829-market1" defer></script>
+  <script src="app.js?v=20260830-market2" defer></script>
 </body>
 </html>
