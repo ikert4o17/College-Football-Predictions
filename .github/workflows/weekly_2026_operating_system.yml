@@ -8,7 +8,6 @@ on:
   schedule:
     # Sunday afternoon: 4:00 PM Central during daylight time (21:00 UTC).
     # After daylight saving time ends, this runs at 3:00 PM Central.
-    # Manual consensus closing-line grading test: 2026-08-29.
     - cron: "0 21 * * 0"
 
 permissions:
@@ -47,9 +46,12 @@ jobs:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python -m data.download_games 2026
 
-      - name: Grade previously published predictions
+      - name: Capture current market snapshot
         env:
-          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python -m data.capture_market_odds_2026
+
+      - name: Grade previously published predictions
         run: python -m predictions.grade_2026_predictions
 
       - name: Create frozen Balanced Light preseason ratings if missing
@@ -110,6 +112,7 @@ jobs:
           assert 'su_record' in performance['cumulative'], "SU market record missing"
           assert 'ats_record' in performance['cumulative'], "ATS market record missing"
           assert 'ou_record' in performance['cumulative'], "O/U market record missing"
+          assert (root/'data/market/market_archive_2026.json').exists(), "Market archive missing"
           assert (root/'site_data/rating_movers_2026.json').exists(), "Rating movers missing"
           print("Weekly package validated")
           print("Teams:", len(ratings)); print("Games applied:", len(applied)); print("Latest completed week:", state.get('latest_completed_week'))
@@ -127,6 +130,7 @@ jobs:
             data/processed/weekly_health_2026.json
             data/processed/weekly_state_2026.json
             data/processed/model_performance_2026.json
+            data/market/market_archive_2026.json
 
       - name: Commit weekly model state and website data
         run: |
@@ -134,6 +138,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
             data/raw/games.json \
+            data/market/market_archive_2026.json \
             data/processed/preseason_ratings_2026.json \
             data/processed/inseason_ratings_2026.json \
             data/processed/game_predictions_2026.json \
