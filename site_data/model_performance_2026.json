@@ -1,6 +1,6 @@
 {
     "season": 2026,
-    "generated_at": "2026-08-30T00:18:56.992841+00:00",
+    "generated_at": "2026-08-30T17:13:22.149718+00:00",
     "metric_notes": {
         "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
         "su_record": "straight-up Project Gridiron winner record",
@@ -12,59 +12,59 @@
         "scope": "core performance ledger grades FBS-vs-FBS predictions only; FBS-vs-FCS projections are projection-only"
     },
     "cumulative": {
-        "games": 3,
-        "winner_accuracy": 0.6667,
+        "games": 4,
+        "winner_accuracy": 0.5,
         "su_record": {
             "wins": 2,
-            "losses": 1,
+            "losses": 2,
             "pushes": 0,
-            "graded": 3
+            "graded": 4
         },
         "ats_record": {
             "wins": 0,
-            "losses": 0,
+            "losses": 1,
             "pushes": 0,
-            "graded": 0
+            "graded": 1
         },
         "ou_record": {
             "wins": 0,
-            "losses": 0,
+            "losses": 1,
             "pushes": 0,
-            "graded": 0
+            "graded": 1
         },
-        "margin_mae": 15.5,
-        "margin_bias": 3.5533,
-        "total_mae": 13.8333,
-        "total_bias": 11.58,
-        "score_mae": 9.78
+        "margin_mae": 14.505,
+        "margin_bias": 5.545,
+        "total_mae": 14.43,
+        "total_bias": 12.74,
+        "score_mae": 9.3625
     },
     "by_week": {
         "1": {
-            "games": 3,
-            "winner_accuracy": 0.6667,
+            "games": 4,
+            "winner_accuracy": 0.5,
             "su_record": {
                 "wins": 2,
-                "losses": 1,
+                "losses": 2,
                 "pushes": 0,
-                "graded": 3
+                "graded": 4
             },
             "ats_record": {
                 "wins": 0,
-                "losses": 0,
+                "losses": 1,
                 "pushes": 0,
-                "graded": 0
+                "graded": 1
             },
             "ou_record": {
                 "wins": 0,
-                "losses": 0,
+                "losses": 1,
                 "pushes": 0,
-                "graded": 0
+                "graded": 1
             },
-            "margin_mae": 15.5,
-            "margin_bias": 3.5533,
-            "total_mae": 13.8333,
-            "total_bias": 11.58,
-            "score_mae": 9.78
+            "margin_mae": 14.505,
+            "margin_bias": 5.545,
+            "total_mae": 14.43,
+            "total_bias": 12.74,
+            "score_mae": 9.3625
         }
     },
     "games": [
@@ -157,7 +157,45 @@
             "ou_pick": null,
             "ou_result": null,
             "total_edge": null
+        },
+        {
+            "game_id": 401862693,
+            "week": 1,
+            "start_date": "2026-08-30T02:00:00.000Z",
+            "home_team": "UNLV",
+            "away_team": "Memphis",
+            "actual_home_score": 21.0,
+            "actual_away_score": 27.0,
+            "actual_home_margin": -6.0,
+            "actual_total": 48.0,
+            "projected_home_margin": 5.52,
+            "projected_total": 64.22,
+            "projected_home_score": 34.87,
+            "projected_away_score": 29.35,
+            "projected_winner": "UNLV",
+            "actual_winner": "Memphis",
+            "winner_correct": false,
+            "margin_error": 11.52,
+            "total_error": 16.22,
+            "home_score_error": 13.87,
+            "away_score_error": 2.35,
+            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
+            "closing_spread": -4.5,
+            "closing_total": 55.5,
+            "line_provider": "Project Gridiron consensus / The Odds API",
+            "market_captured_at": "2026-08-30T00:18:56.534466+00:00",
+            "spread_books": 9,
+            "total_books": 9,
+            "su_result": "L",
+            "ats_pick": "UNLV",
+            "ats_result": "L",
+            "ats_edge": 1.02,
+            "ou_pick": "Over",
+            "ou_result": "L",
+            "total_edge": 8.72
         }
     ],
-    "newly_graded_game_ids": []
+    "newly_graded_game_ids": [
+        401862693
+    ]
 }

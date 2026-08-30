@@ -79,19 +79,6 @@
   },
   {
     "rank": 87,
-    "team": "Hawai'i",
-    "power_rating": 44.7794,
-    "preseason_power_rating": 44.7794,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.51,
-    "transfer_talent": -1.0,
-    "qb_continuity": 0.898,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 88,
     "team": "Tulsa",
     "power_rating": 44.7074,
     "preseason_power_rating": 44.7074,
@@ -100,6 +87,19 @@
     "returning_production": 0.73,
     "transfer_talent": -1.0,
     "qb_continuity": 0.877,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 88,
+    "team": "Hawai'i",
+    "power_rating": 44.67,
+    "preseason_power_rating": 44.7794,
+    "inseason_adjustment": -0.1094,
+    "games_inseason": 1,
+    "returning_production": 0.51,
+    "transfer_talent": -1.0,
+    "qb_continuity": 0.898,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
@@ -469,6 +469,19 @@
   },
   {
     "rank": 117,
+    "team": "New Mexico State",
+    "power_rating": 35.5338,
+    "preseason_power_rating": 35.172,
+    "inseason_adjustment": 0.3618,
+    "games_inseason": 1,
+    "returning_production": 0.79,
+    "transfer_talent": 0.0,
+    "qb_continuity": -0.868,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 118,
     "team": "Florida International",
     "power_rating": 35.3231,
     "preseason_power_rating": 35.3231,
@@ -481,7 +494,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 118,
+    "rank": 119,
     "team": "UAB",
     "power_rating": 35.2336,
     "preseason_power_rating": 35.2336,
@@ -491,19 +504,6 @@
     "transfer_talent": 0.0,
     "qb_continuity": -0.881,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 119,
-    "team": "New Mexico State",
-    "power_rating": 35.172,
-    "preseason_power_rating": 35.172,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.79,
-    "transfer_talent": 0.0,
-    "qb_continuity": -0.868,
-    "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {

@@ -27,19 +27,6 @@
   },
   {
     "rank": 43,
-    "team": "Florida State",
-    "power_rating": 55.7128,
-    "preseason_power_rating": 55.7128,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.65,
-    "transfer_talent": -6.0,
-    "qb_continuity": -0.891,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 44,
     "team": "Minnesota",
     "power_rating": 55.5534,
     "preseason_power_rating": 55.5534,
@@ -52,7 +39,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 45,
+    "rank": 44,
     "team": "Georgia Tech",
     "power_rating": 55.4571,
     "preseason_power_rating": 55.4571,
@@ -61,6 +48,19 @@
     "returning_production": 0.58,
     "transfer_talent": 2.0,
     "qb_continuity": -0.901,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 45,
+    "team": "Florida State",
+    "power_rating": 55.351,
+    "preseason_power_rating": 55.7128,
+    "inseason_adjustment": -0.3618,
+    "games_inseason": 1,
+    "returning_production": 0.65,
+    "transfer_talent": -6.0,
+    "qb_continuity": -0.891,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
@@ -248,19 +248,6 @@
   },
   {
     "rank": 60,
-    "team": "UNLV",
-    "power_rating": 52.1356,
-    "preseason_power_rating": 52.1356,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.59,
-    "transfer_talent": -1.0,
-    "qb_continuity": -0.961,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 61,
     "team": "Colorado",
     "power_rating": 52.0339,
     "preseason_power_rating": 52.0339,
@@ -273,7 +260,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 62,
+    "rank": 61,
     "team": "NC State",
     "power_rating": 51.7517,
     "preseason_power_rating": 52.9474,
@@ -282,6 +269,19 @@
     "returning_production": 0.68,
     "transfer_talent": -5.0,
     "qb_continuity": 0.951,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 62,
+    "team": "UNLV",
+    "power_rating": 51.367,
+    "preseason_power_rating": 52.1356,
+    "inseason_adjustment": -0.7686,
+    "games_inseason": 1,
+    "returning_production": 0.59,
+    "transfer_talent": -1.0,
+    "qb_continuity": -0.961,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
@@ -300,6 +300,19 @@
   },
   {
     "rank": 64,
+    "team": "Memphis",
+    "power_rating": 51.1629,
+    "preseason_power_rating": 50.3943,
+    "inseason_adjustment": 0.7686,
+    "games_inseason": 1,
+    "returning_production": 0.65,
+    "transfer_talent": 0.0,
+    "qb_continuity": -0.856,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 65,
     "team": "Wake Forest",
     "power_rating": 51.1279,
     "preseason_power_rating": 51.1279,
@@ -308,19 +321,6 @@
     "returning_production": 0.63,
     "transfer_talent": -4.0,
     "qb_continuity": -0.899,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 65,
-    "team": "Memphis",
-    "power_rating": 50.3943,
-    "preseason_power_rating": 50.3943,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.65,
-    "transfer_talent": 0.0,
-    "qb_continuity": -0.856,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
@@ -352,6 +352,19 @@
   },
   {
     "rank": 68,
+    "team": "Stanford",
+    "power_rating": 49.7917,
+    "preseason_power_rating": 49.6823,
+    "inseason_adjustment": 0.1094,
+    "games_inseason": 1,
+    "returning_production": 0.68,
+    "transfer_talent": -1.0,
+    "qb_continuity": -0.857,
+    "coaching": 1.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 69,
     "team": "New Mexico",
     "power_rating": 49.7143,
     "preseason_power_rating": 49.7143,
@@ -361,19 +374,6 @@
     "transfer_talent": -1.0,
     "qb_continuity": 0.913,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 69,
-    "team": "Stanford",
-    "power_rating": 49.6823,
-    "preseason_power_rating": 49.6823,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.68,
-    "transfer_talent": -1.0,
-    "qb_continuity": -0.857,
-    "coaching": 1.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
