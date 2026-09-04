@@ -456,6 +456,19 @@
   },
   {
     "rank": 116,
+    "team": "UAB",
+    "power_rating": 35.6411,
+    "preseason_power_rating": 35.2336,
+    "inseason_adjustment": 0.4075,
+    "games_inseason": 1,
+    "returning_production": 0.61,
+    "transfer_talent": 0.0,
+    "qb_continuity": -0.881,
+    "coaching": 1.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 117,
     "team": "Central Michigan",
     "power_rating": 35.5657,
     "preseason_power_rating": 35.5657,
@@ -468,7 +481,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 117,
+    "rank": 118,
     "team": "New Mexico State",
     "power_rating": 35.5338,
     "preseason_power_rating": 35.172,
@@ -481,7 +494,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 118,
+    "rank": 119,
     "team": "Florida International",
     "power_rating": 35.3231,
     "preseason_power_rating": 35.3231,
@@ -491,19 +504,6 @@
     "transfer_talent": -2.0,
     "qb_continuity": -0.742,
     "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 119,
-    "team": "UAB",
-    "power_rating": 35.2336,
-    "preseason_power_rating": 35.2336,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.61,
-    "transfer_talent": 0.0,
-    "qb_continuity": -0.881,
-    "coaching": 1.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {

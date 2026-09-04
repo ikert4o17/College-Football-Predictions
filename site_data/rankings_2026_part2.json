@@ -40,19 +40,6 @@
   },
   {
     "rank": 44,
-    "team": "Georgia Tech",
-    "power_rating": 55.4571,
-    "preseason_power_rating": 55.4571,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.58,
-    "transfer_talent": 2.0,
-    "qb_continuity": -0.901,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 45,
     "team": "Florida State",
     "power_rating": 55.351,
     "preseason_power_rating": 55.7128,
@@ -61,6 +48,19 @@
     "returning_production": 0.65,
     "transfer_talent": -6.0,
     "qb_continuity": -0.891,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 45,
+    "team": "Georgia Tech",
+    "power_rating": 54.9212,
+    "preseason_power_rating": 55.4571,
+    "inseason_adjustment": -0.5359,
+    "games_inseason": 1,
+    "returning_production": 0.58,
+    "transfer_talent": 2.0,
+    "qb_continuity": -0.901,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
@@ -170,6 +170,19 @@
   },
   {
     "rank": 54,
+    "team": "Colorado",
+    "power_rating": 52.5698,
+    "preseason_power_rating": 52.0339,
+    "inseason_adjustment": 0.5359,
+    "games_inseason": 1,
+    "returning_production": 0.74,
+    "transfer_talent": 0.0,
+    "qb_continuity": -0.836,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 55,
     "team": "Wisconsin",
     "power_rating": 52.5697,
     "preseason_power_rating": 52.5697,
@@ -178,19 +191,6 @@
     "returning_production": 0.64,
     "transfer_talent": -1.0,
     "qb_continuity": 0.617,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 55,
-    "team": "Rutgers",
-    "power_rating": 52.5561,
-    "preseason_power_rating": 52.5561,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.71,
-    "transfer_talent": -2.0,
-    "qb_continuity": -0.952,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
@@ -248,19 +248,6 @@
   },
   {
     "rank": 60,
-    "team": "Colorado",
-    "power_rating": 52.0339,
-    "preseason_power_rating": 52.0339,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.74,
-    "transfer_talent": 0.0,
-    "qb_continuity": -0.836,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 61,
     "team": "NC State",
     "power_rating": 51.7517,
     "preseason_power_rating": 52.9474,
@@ -273,7 +260,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 62,
+    "rank": 61,
     "team": "UNLV",
     "power_rating": 51.367,
     "preseason_power_rating": 52.1356,
@@ -286,7 +273,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 63,
+    "rank": 62,
     "team": "North Carolina",
     "power_rating": 51.1992,
     "preseason_power_rating": 50.4838,
@@ -299,7 +286,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 64,
+    "rank": 63,
     "team": "Memphis",
     "power_rating": 51.1629,
     "preseason_power_rating": 50.3943,
@@ -312,12 +299,12 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 65,
+    "rank": 64,
     "team": "Wake Forest",
-    "power_rating": 51.1279,
+    "power_rating": 50.9651,
     "preseason_power_rating": 51.1279,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
+    "inseason_adjustment": -0.1628,
+    "games_inseason": 1,
     "returning_production": 0.63,
     "transfer_talent": -4.0,
     "qb_continuity": -0.899,
@@ -325,7 +312,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 66,
+    "rank": 65,
     "team": "San Diego State",
     "power_rating": 50.3448,
     "preseason_power_rating": 50.3448,
@@ -334,6 +321,19 @@
     "returning_production": 0.69,
     "transfer_talent": -1.0,
     "qb_continuity": 0.949,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 66,
+    "team": "Rutgers",
+    "power_rating": 50.2205,
+    "preseason_power_rating": 52.5561,
+    "inseason_adjustment": -2.3356,
+    "games_inseason": 1,
+    "returning_production": 0.71,
+    "transfer_talent": -2.0,
+    "qb_continuity": -0.952,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },

@@ -404,19 +404,6 @@
   },
   {
     "rank": 32,
-    "team": "Illinois",
-    "power_rating": 58.7611,
-    "preseason_power_rating": 58.7611,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.65,
-    "transfer_talent": -2.0,
-    "qb_continuity": -0.975,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 33,
     "team": "Virginia",
     "power_rating": 58.7355,
     "preseason_power_rating": 57.5398,
@@ -429,7 +416,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 34,
+    "rank": 33,
     "team": "Vanderbilt",
     "power_rating": 58.6885,
     "preseason_power_rating": 58.6885,
@@ -438,6 +425,19 @@
     "returning_production": 0.62,
     "transfer_talent": 0.0,
     "qb_continuity": -0.929,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 34,
+    "team": "Illinois",
+    "power_rating": 58.3536,
+    "preseason_power_rating": 58.7611,
+    "inseason_adjustment": -0.4075,
+    "games_inseason": 1,
+    "returning_production": 0.65,
+    "transfer_talent": -2.0,
+    "qb_continuity": -0.975,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
