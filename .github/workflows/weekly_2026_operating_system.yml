@@ -6,8 +6,8 @@ on:
     paths:
       - ".github/workflows/weekly_2026_operating_system.yml"
   schedule:
-    # Sunday afternoon: 1:00 PM Central year-round, with DST handled by GitHub.
-    - cron: "0 13 * * 0"
+    # Sunday and Wednesday mornings: 8:03 AM Central year-round, with DST handled by GitHub.
+    - cron: "3 8 * * 0,3"
       timezone: "America/Chicago"
 
 permissions:
