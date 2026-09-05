@@ -1,8 +1,8 @@
 {
     "season": 2026,
-    "generated_at": "2026-09-04T17:42:30.721705+00:00",
+    "generated_at": "2026-09-05T20:50:55.358249+00:00",
     "latest_completed_week": 1,
-    "completed_fbs_vs_fbs_games": 12,
+    "completed_fbs_vs_fbs_games": 26,
     "applied_game_ids": [
         "401856766",
         "401864494",
@@ -15,7 +15,21 @@
         "401858423",
         "401858204",
         "401856776",
-        "401858424"
+        "401858424",
+        "401864495",
+        "401856664",
+        "401858429",
+        "401858206",
+        "401858436",
+        "401856634",
+        "401856778",
+        "401856780",
+        "401858425",
+        "401858430",
+        "401869960",
+        "401858207",
+        "401858432",
+        "401856665"
     ],
     "rating_snapshot": "data/snapshots/2026/ratings_after_week_01.json",
     "current_ratings": "data/processed/inseason_ratings_2026.json",
