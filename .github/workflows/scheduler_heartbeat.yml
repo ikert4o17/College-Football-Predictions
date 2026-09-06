@@ -1,0 +1,22 @@
+name: Scheduler Heartbeat
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Diagnostic heartbeat: 10:07 AM Central Daylight Time = 15:07 UTC.
+    # Intentionally uses plain UTC cron to isolate GitHub scheduler behavior
+    # from timezone-aware scheduling.
+    - cron: "7 15 * * 0"
+
+permissions:
+  contents: read
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Record scheduler heartbeat
+        run: |
+          echo "Scheduler heartbeat fired successfully."
+          echo "GitHub event: ${{ github.event_name }}"
+          echo "UTC time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
