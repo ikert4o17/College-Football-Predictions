@@ -1,16 +1,16 @@
 {
   "season": 2026,
-  "generated_at": "2026-09-06T15:59:17.568398+00:00",
+  "generated_at": "2026-09-08T12:41:10.877315+00:00",
   "status": "PASS",
   "metrics": {
     "preseason_teams": 136,
     "live_teams": 136,
-    "games_applied": 45,
-    "upcoming_predictions": 88,
-    "upcoming_fbs_vs_fbs_predictions": 51,
+    "games_applied": 49,
+    "upcoming_predictions": 84,
+    "upcoming_fbs_vs_fbs_predictions": 47,
     "upcoming_fbs_vs_fcs_projections": 37,
     "latest_completed_week": 1,
-    "graded_games": 35
+    "graded_games": 39
   },
   "critical_errors": [],
   "warnings": []

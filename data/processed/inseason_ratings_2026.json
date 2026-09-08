@@ -48,7 +48,7 @@
         {
             "season": 2026,
             "team": "Notre Dame",
-            "power_rating": 77.4824,
+            "power_rating": 77.8561,
             "baseline_sp_mapped": 73.9185,
             "baseline_sp_season": 2026,
             "preseason_adjustment": 3.5639,
@@ -70,8 +70,8 @@
             "frozen": true,
             "rank": 2,
             "preseason_power_rating": 77.4824,
-            "games_inseason": 0,
-            "inseason_adjustment": 0.0
+            "games_inseason": 1,
+            "inseason_adjustment": 0.3737
         },
         {
             "season": 2026,
@@ -356,7 +356,7 @@
         {
             "season": 2026,
             "team": "Ole Miss",
-            "power_rating": 65.7954,
+            "power_rating": 65.5793,
             "baseline_sp_mapped": 64.7613,
             "baseline_sp_season": 2026,
             "preseason_adjustment": 1.0342,
@@ -378,8 +378,8 @@
             "frozen": true,
             "rank": 13,
             "preseason_power_rating": 65.7954,
-            "games_inseason": 0,
-            "inseason_adjustment": 0.0
+            "games_inseason": 1,
+            "inseason_adjustment": -0.2161
         },
         {
             "season": 2026,
@@ -580,7 +580,7 @@
         {
             "season": 2026,
             "team": "Washington",
-            "power_rating": 64.4615,
+            "power_rating": 63.9419,
             "baseline_sp_mapped": 64.1203,
             "baseline_sp_season": 2026,
             "preseason_adjustment": 0.3413,
@@ -602,8 +602,8 @@
             "frozen": true,
             "rank": 21,
             "preseason_power_rating": 64.4615,
-            "games_inseason": 0,
-            "inseason_adjustment": 0.0
+            "games_inseason": 1,
+            "inseason_adjustment": -0.5196
         },
         {
             "season": 2026,
@@ -663,6 +663,34 @@
         },
         {
             "season": 2026,
+            "team": "SMU",
+            "power_rating": 61.5875,
+            "baseline_sp_mapped": 60.7321,
+            "baseline_sp_season": 2026,
+            "preseason_adjustment": 0.7471,
+            "preseason_v4_adjustment": 0.7471,
+            "offense_score": 55.42,
+            "defense_score": 46.15,
+            "returning_production": 0.61,
+            "transfer_talent": 3.0,
+            "qb_continuity": 0.953,
+            "coaching": 0.0,
+            "adjustment_parts": {
+                "returning_production": -0.3323,
+                "transfer_talent": 1.5738,
+                "qb_continuity": -0.3318,
+                "coaching": -0.1626
+            },
+            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
+            "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
+            "frozen": true,
+            "rank": 24,
+            "preseason_power_rating": 61.4792,
+            "games_inseason": 1,
+            "inseason_adjustment": 0.1083
+        },
+        {
+            "season": 2026,
             "team": "Virginia Tech",
             "power_rating": 61.527,
             "baseline_sp_mapped": 57.527,
@@ -684,36 +712,8 @@
             "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
             "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
             "frozen": true,
-            "rank": 24,
-            "preseason_power_rating": 61.527,
-            "games_inseason": 0,
-            "inseason_adjustment": 0.0
-        },
-        {
-            "season": 2026,
-            "team": "SMU",
-            "power_rating": 61.4792,
-            "baseline_sp_mapped": 60.7321,
-            "baseline_sp_season": 2026,
-            "preseason_adjustment": 0.7471,
-            "preseason_v4_adjustment": 0.7471,
-            "offense_score": 55.42,
-            "defense_score": 46.15,
-            "returning_production": 0.61,
-            "transfer_talent": 3.0,
-            "qb_continuity": 0.953,
-            "coaching": 0.0,
-            "adjustment_parts": {
-                "returning_production": -0.3323,
-                "transfer_talent": 1.5738,
-                "qb_continuity": -0.3318,
-                "coaching": -0.1626
-            },
-            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
-            "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
-            "frozen": true,
             "rank": 25,
-            "preseason_power_rating": 61.4792,
+            "preseason_power_rating": 61.527,
             "games_inseason": 0,
             "inseason_adjustment": 0.0
         },
@@ -832,7 +832,7 @@
         {
             "season": 2026,
             "team": "Louisville",
-            "power_rating": 58.8576,
+            "power_rating": 59.0737,
             "baseline_sp_mapped": 59.8163,
             "baseline_sp_season": 2026,
             "preseason_adjustment": -0.9587,
@@ -854,8 +854,8 @@
             "frozen": true,
             "rank": 30,
             "preseason_power_rating": 58.8576,
-            "games_inseason": 0,
-            "inseason_adjustment": 0.0
+            "games_inseason": 1,
+            "inseason_adjustment": 0.2161
         },
         {
             "season": 2026,
@@ -1280,7 +1280,7 @@
         {
             "season": 2026,
             "team": "Florida State",
-            "power_rating": 55.351,
+            "power_rating": 55.2427,
             "baseline_sp_mapped": 57.9849,
             "baseline_sp_season": 2026,
             "preseason_adjustment": -2.2721,
@@ -1302,8 +1302,8 @@
             "frozen": true,
             "rank": 46,
             "preseason_power_rating": 55.7128,
-            "games_inseason": 1,
-            "inseason_adjustment": -0.3618
+            "games_inseason": 2,
+            "inseason_adjustment": -0.4701
         },
         {
             "season": 2026,
@@ -1559,34 +1559,6 @@
         },
         {
             "season": 2026,
-            "team": "Wisconsin",
-            "power_rating": 52.5697,
-            "baseline_sp_mapped": 53.1315,
-            "baseline_sp_season": 2026,
-            "preseason_adjustment": -0.5619,
-            "preseason_v4_adjustment": -0.5619,
-            "offense_score": 18.71,
-            "defense_score": 61.92,
-            "returning_production": 0.64,
-            "transfer_talent": -1.0,
-            "qb_continuity": 0.617,
-            "coaching": 0.0,
-            "adjustment_parts": {
-                "returning_production": 0.0941,
-                "transfer_talent": -0.2595,
-                "qb_continuity": -0.2339,
-                "coaching": -0.1626
-            },
-            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
-            "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
-            "frozen": true,
-            "rank": 56,
-            "preseason_power_rating": 52.5697,
-            "games_inseason": 0,
-            "inseason_adjustment": 0.0
-        },
-        {
-            "season": 2026,
             "team": "UNLV",
             "power_rating": 52.4456,
             "baseline_sp_mapped": 52.9484,
@@ -1608,7 +1580,7 @@
             "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
             "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
             "frozen": true,
-            "rank": 57,
+            "rank": 56,
             "preseason_power_rating": 52.1356,
             "games_inseason": 2,
             "inseason_adjustment": 0.31
@@ -1636,10 +1608,38 @@
             "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
             "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
             "frozen": true,
-            "rank": 58,
+            "rank": 57,
             "preseason_power_rating": 52.1671,
             "games_inseason": 1,
             "inseason_adjustment": 0.2781
+        },
+        {
+            "season": 2026,
+            "team": "Wisconsin",
+            "power_rating": 52.196,
+            "baseline_sp_mapped": 53.1315,
+            "baseline_sp_season": 2026,
+            "preseason_adjustment": -0.5619,
+            "preseason_v4_adjustment": -0.5619,
+            "offense_score": 18.71,
+            "defense_score": 61.92,
+            "returning_production": 0.64,
+            "transfer_talent": -1.0,
+            "qb_continuity": 0.617,
+            "coaching": 0.0,
+            "adjustment_parts": {
+                "returning_production": 0.0941,
+                "transfer_talent": -0.2595,
+                "qb_continuity": -0.2339,
+                "coaching": -0.1626
+            },
+            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
+            "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
+            "frozen": true,
+            "rank": 58,
+            "preseason_power_rating": 52.5697,
+            "games_inseason": 1,
+            "inseason_adjustment": -0.3737
         },
         {
             "season": 2026,
@@ -2399,6 +2399,34 @@
         },
         {
             "season": 2026,
+            "team": "Washington State",
+            "power_rating": 45.1465,
+            "baseline_sp_mapped": 45.7142,
+            "baseline_sp_season": 2026,
+            "preseason_adjustment": -1.0873,
+            "preseason_v4_adjustment": -1.0873,
+            "offense_score": 37.31,
+            "defense_score": 66.55,
+            "returning_production": 0.54,
+            "transfer_talent": 0.0,
+            "qb_continuity": -0.885,
+            "coaching": 0.0,
+            "adjustment_parts": {
+                "returning_production": -1.3273,
+                "transfer_talent": 0.1988,
+                "qb_continuity": 0.2037,
+                "coaching": -0.1626
+            },
+            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
+            "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
+            "frozen": true,
+            "rank": 86,
+            "preseason_power_rating": 44.6269,
+            "games_inseason": 1,
+            "inseason_adjustment": 0.5196
+        },
+        {
+            "season": 2026,
             "team": "Miami (OH)",
             "power_rating": 44.9358,
             "baseline_sp_mapped": 45.9889,
@@ -2420,38 +2448,10 @@
             "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
             "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
             "frozen": true,
-            "rank": 86,
+            "rank": 87,
             "preseason_power_rating": 47.251,
             "games_inseason": 1,
             "inseason_adjustment": -2.3152
-        },
-        {
-            "season": 2026,
-            "team": "Washington State",
-            "power_rating": 44.6269,
-            "baseline_sp_mapped": 45.7142,
-            "baseline_sp_season": 2026,
-            "preseason_adjustment": -1.0873,
-            "preseason_v4_adjustment": -1.0873,
-            "offense_score": 37.31,
-            "defense_score": 66.55,
-            "returning_production": 0.54,
-            "transfer_talent": 0.0,
-            "qb_continuity": -0.885,
-            "coaching": 0.0,
-            "adjustment_parts": {
-                "returning_production": -1.3273,
-                "transfer_talent": 0.1988,
-                "qb_continuity": 0.2037,
-                "coaching": -0.1626
-            },
-            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
-            "anchor": "2026 preseason SP+ mapped to 2025 Project Gridiron scale",
-            "frozen": true,
-            "rank": 87,
-            "preseason_power_rating": 44.6269,
-            "games_inseason": 0,
-            "inseason_adjustment": 0.0
         },
         {
             "season": 2026,
@@ -3864,18 +3864,6 @@
             "away_rating_delta": -1.1957
         },
         {
-            "game_id": 401864570,
-            "week": 1,
-            "home_team": "Florida State",
-            "away_team": "New Mexico State",
-            "actual_home_margin": 17.0,
-            "expected_home_margin": 22.42,
-            "capped_margin_residual": -5.42,
-            "learning_rate": 0.12,
-            "home_rating_delta": -0.3618,
-            "away_rating_delta": 0.3618
-        },
-        {
             "game_id": 401858201,
             "week": 1,
             "home_team": "Stanford",
@@ -3886,6 +3874,18 @@
             "learning_rate": 0.12,
             "home_rating_delta": 0.1094,
             "away_rating_delta": -0.1094
+        },
+        {
+            "game_id": 401864570,
+            "week": 1,
+            "home_team": "Florida State",
+            "away_team": "New Mexico State",
+            "actual_home_margin": 17.0,
+            "expected_home_margin": 22.42,
+            "capped_margin_residual": -5.42,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.3618,
+            "away_rating_delta": 0.3618
         },
         {
             "game_id": 401862693,
@@ -3960,18 +3960,6 @@
             "away_rating_delta": 0.8342
         },
         {
-            "game_id": 401858429,
-            "week": 1,
-            "home_team": "Michigan State",
-            "away_team": "Toledo",
-            "actual_home_margin": 10.0,
-            "expected_home_margin": 12.3,
-            "capped_margin_residual": -2.3,
-            "learning_rate": 0.12,
-            "home_rating_delta": -0.1535,
-            "away_rating_delta": 0.1535
-        },
-        {
             "game_id": 401856664,
             "week": 1,
             "home_team": "Oklahoma",
@@ -3984,16 +3972,16 @@
             "away_rating_delta": -0.9227
         },
         {
-            "game_id": 401858436,
+            "game_id": 401858429,
             "week": 1,
-            "home_team": "USC",
-            "away_team": "Fresno State",
-            "actual_home_margin": 39.0,
-            "expected_home_margin": 18.22,
-            "capped_margin_residual": 20.78,
-            "learning_rate": 0.135,
-            "home_rating_delta": 1.5602,
-            "away_rating_delta": -1.5602
+            "home_team": "Michigan State",
+            "away_team": "Toledo",
+            "actual_home_margin": 10.0,
+            "expected_home_margin": 12.3,
+            "capped_margin_residual": -2.3,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.1535,
+            "away_rating_delta": 0.1535
         },
         {
             "game_id": 401858206,
@@ -4008,28 +3996,28 @@
             "away_rating_delta": 1.6728
         },
         {
-            "game_id": 401858425,
+            "game_id": 401858436,
             "week": 1,
-            "home_team": "Indiana",
-            "away_team": "North Texas",
-            "actual_home_margin": 36.0,
-            "expected_home_margin": 37.35,
-            "capped_margin_residual": -1.35,
-            "learning_rate": 0.12,
-            "home_rating_delta": -0.09,
-            "away_rating_delta": 0.09
+            "home_team": "USC",
+            "away_team": "Fresno State",
+            "actual_home_margin": 39.0,
+            "expected_home_margin": 18.22,
+            "capped_margin_residual": 20.78,
+            "learning_rate": 0.135,
+            "home_rating_delta": 1.5602,
+            "away_rating_delta": -1.5602
         },
         {
-            "game_id": 401869960,
+            "game_id": 401856634,
             "week": 1,
-            "home_team": "James Madison",
-            "away_team": "Liberty",
-            "actual_home_margin": 7.0,
-            "expected_home_margin": 8.19,
-            "capped_margin_residual": -1.19,
+            "home_team": "Alabama",
+            "away_team": "East Carolina",
+            "actual_home_margin": 38.0,
+            "expected_home_margin": 19.47,
+            "capped_margin_residual": 18.53,
             "learning_rate": 0.12,
-            "home_rating_delta": -0.0792,
-            "away_rating_delta": 0.0792
+            "home_rating_delta": 1.2365,
+            "away_rating_delta": -1.2365
         },
         {
             "game_id": 401856778,
@@ -4056,16 +4044,28 @@
             "away_rating_delta": 0.5598
         },
         {
-            "game_id": 401856634,
+            "game_id": 401858425,
             "week": 1,
-            "home_team": "Alabama",
-            "away_team": "East Carolina",
-            "actual_home_margin": 38.0,
-            "expected_home_margin": 19.47,
-            "capped_margin_residual": 18.53,
+            "home_team": "Indiana",
+            "away_team": "North Texas",
+            "actual_home_margin": 36.0,
+            "expected_home_margin": 37.35,
+            "capped_margin_residual": -1.35,
             "learning_rate": 0.12,
-            "home_rating_delta": 1.2365,
-            "away_rating_delta": -1.2365
+            "home_rating_delta": -0.09,
+            "away_rating_delta": 0.09
+        },
+        {
+            "game_id": 401869960,
+            "week": 1,
+            "home_team": "James Madison",
+            "away_team": "Liberty",
+            "actual_home_margin": 7.0,
+            "expected_home_margin": 8.19,
+            "capped_margin_residual": -1.19,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.0792,
+            "away_rating_delta": 0.0792
         },
         {
             "game_id": 401858430,
@@ -4080,18 +4080,6 @@
             "away_rating_delta": -0.2673
         },
         {
-            "game_id": 401858207,
-            "week": 1,
-            "home_team": "Pittsburgh",
-            "away_team": "Miami (OH)",
-            "actual_home_margin": 45.0,
-            "expected_home_margin": 10.3,
-            "capped_margin_residual": 34.7,
-            "learning_rate": 0.12,
-            "home_rating_delta": 2.3152,
-            "away_rating_delta": -2.3152
-        },
-        {
             "game_id": 401858432,
             "week": 1,
             "home_team": "Ohio State",
@@ -4102,6 +4090,18 @@
             "learning_rate": 0.12,
             "home_rating_delta": -0.127,
             "away_rating_delta": 0.127
+        },
+        {
+            "game_id": 401858207,
+            "week": 1,
+            "home_team": "Pittsburgh",
+            "away_team": "Miami (OH)",
+            "actual_home_margin": 45.0,
+            "expected_home_margin": 10.3,
+            "capped_margin_residual": 34.7,
+            "learning_rate": 0.12,
+            "home_rating_delta": 2.3152,
+            "away_rating_delta": -2.3152
         },
         {
             "game_id": 401856665,
@@ -4116,6 +4116,18 @@
             "away_rating_delta": -1.4189
         },
         {
+            "game_id": 401856667,
+            "week": 1,
+            "home_team": "Texas",
+            "away_team": "Texas State",
+            "actual_home_margin": 52.0,
+            "expected_home_margin": 27.17,
+            "capped_margin_residual": 24.83,
+            "learning_rate": 0.12,
+            "home_rating_delta": 1.6567,
+            "away_rating_delta": -1.6567
+        },
+        {
             "game_id": 401856636,
             "week": 1,
             "home_team": "Auburn",
@@ -4126,6 +4138,18 @@
             "learning_rate": 0.12,
             "home_rating_delta": -0.4402,
             "away_rating_delta": 0.4402
+        },
+        {
+            "game_id": 401858434,
+            "week": 1,
+            "home_team": "Penn State",
+            "away_team": "Marshall",
+            "actual_home_margin": 45.0,
+            "expected_home_margin": 23.71,
+            "capped_margin_residual": 21.29,
+            "learning_rate": 0.12,
+            "home_rating_delta": 1.421,
+            "away_rating_delta": -1.421
         },
         {
             "game_id": 401858209,
@@ -4164,30 +4188,6 @@
             "away_rating_delta": 1.1125
         },
         {
-            "game_id": 401856667,
-            "week": 1,
-            "home_team": "Texas",
-            "away_team": "Texas State",
-            "actual_home_margin": 52.0,
-            "expected_home_margin": 27.17,
-            "capped_margin_residual": 24.83,
-            "learning_rate": 0.12,
-            "home_rating_delta": 1.6567,
-            "away_rating_delta": -1.6567
-        },
-        {
-            "game_id": 401858434,
-            "week": 1,
-            "home_team": "Penn State",
-            "away_team": "Marshall",
-            "actual_home_margin": 45.0,
-            "expected_home_margin": 23.71,
-            "capped_margin_residual": 21.29,
-            "learning_rate": 0.12,
-            "home_rating_delta": 1.421,
-            "away_rating_delta": -1.421
-        },
-        {
             "game_id": 401856772,
             "week": 1,
             "home_team": "Tulsa",
@@ -4224,6 +4224,30 @@
             "away_rating_delta": -1.056
         },
         {
+            "game_id": 401862695,
+            "week": 1,
+            "home_team": "Memphis",
+            "away_team": "Arkansas State",
+            "actual_home_margin": 18.0,
+            "expected_home_margin": 13.26,
+            "capped_margin_residual": 4.74,
+            "learning_rate": 0.135,
+            "home_rating_delta": 0.3558,
+            "away_rating_delta": -0.3558
+        },
+        {
+            "game_id": 401856668,
+            "week": 1,
+            "home_team": "Texas A&M",
+            "away_team": "Missouri State",
+            "actual_home_margin": 50.0,
+            "expected_home_margin": 38.73,
+            "capped_margin_residual": 11.27,
+            "learning_rate": 0.12,
+            "home_rating_delta": 0.7519,
+            "away_rating_delta": -0.7519
+        },
+        {
             "game_id": 401862699,
             "week": 1,
             "home_team": "South Florida",
@@ -4248,30 +4272,6 @@
             "away_rating_delta": 0.9311
         },
         {
-            "game_id": 401856668,
-            "week": 1,
-            "home_team": "Texas A&M",
-            "away_team": "Missouri State",
-            "actual_home_margin": 50.0,
-            "expected_home_margin": 38.73,
-            "capped_margin_residual": 11.27,
-            "learning_rate": 0.12,
-            "home_rating_delta": 0.7519,
-            "away_rating_delta": -0.7519
-        },
-        {
-            "game_id": 401862695,
-            "week": 1,
-            "home_team": "Memphis",
-            "away_team": "Arkansas State",
-            "actual_home_margin": 18.0,
-            "expected_home_margin": 13.26,
-            "capped_margin_residual": 4.74,
-            "learning_rate": 0.135,
-            "home_rating_delta": 0.3558,
-            "away_rating_delta": -0.3558
-        },
-        {
             "game_id": 401856662,
             "week": 1,
             "home_team": "Mississippi State",
@@ -4284,18 +4284,6 @@
             "away_rating_delta": -0.9336
         },
         {
-            "game_id": 401856660,
-            "week": 1,
-            "home_team": "LSU",
-            "away_team": "Clemson",
-            "actual_home_margin": 41.0,
-            "expected_home_margin": 14.75,
-            "capped_margin_residual": 26.25,
-            "learning_rate": 0.12,
-            "home_rating_delta": 1.7519,
-            "away_rating_delta": -1.7519
-        },
-        {
             "game_id": 401858428,
             "week": 1,
             "home_team": "Michigan",
@@ -4306,6 +4294,18 @@
             "learning_rate": 0.12,
             "home_rating_delta": -1.5545,
             "away_rating_delta": 1.5545
+        },
+        {
+            "game_id": 401856660,
+            "week": 1,
+            "home_team": "LSU",
+            "away_team": "Clemson",
+            "actual_home_margin": 41.0,
+            "expected_home_margin": 14.75,
+            "capped_margin_residual": 26.25,
+            "learning_rate": 0.12,
+            "home_rating_delta": 1.7519,
+            "away_rating_delta": -1.7519
         },
         {
             "game_id": 401856637,
@@ -4366,6 +4366,54 @@
             "learning_rate": 0.12,
             "home_rating_delta": 2.3356,
             "away_rating_delta": -2.3356
+        },
+        {
+            "game_id": 401858437,
+            "week": 1,
+            "home_team": "Washington",
+            "away_team": "Washington State",
+            "actual_home_margin": 14.0,
+            "expected_home_margin": 21.79,
+            "capped_margin_residual": -7.79,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.5196,
+            "away_rating_delta": 0.5196
+        },
+        {
+            "game_id": 401856661,
+            "week": 1,
+            "home_team": "Ole Miss",
+            "away_team": "Louisville",
+            "actual_home_margin": 3.0,
+            "expected_home_margin": 6.24,
+            "capped_margin_residual": -3.24,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.2161,
+            "away_rating_delta": 0.2161
+        },
+        {
+            "game_id": 401858438,
+            "week": 1,
+            "home_team": "Notre Dame",
+            "away_team": "Wisconsin",
+            "actual_home_margin": 28.0,
+            "expected_home_margin": 22.4,
+            "capped_margin_residual": 5.6,
+            "learning_rate": 0.12,
+            "home_rating_delta": 0.3737,
+            "away_rating_delta": -0.3737
+        },
+        {
+            "game_id": 401858212,
+            "week": 1,
+            "home_team": "Florida State",
+            "away_team": "SMU",
+            "actual_home_margin": -3.0,
+            "expected_home_margin": -1.56,
+            "capped_margin_residual": -1.44,
+            "learning_rate": 0.135,
+            "home_rating_delta": -0.1083,
+            "away_rating_delta": 0.1083
         }
     ]
 }

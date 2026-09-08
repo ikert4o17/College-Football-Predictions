@@ -67,10 +67,10 @@
   {
     "rank": 46,
     "team": "Florida State",
-    "power_rating": 55.351,
+    "power_rating": 55.2427,
     "preseason_power_rating": 55.7128,
-    "inseason_adjustment": -0.3618,
-    "games_inseason": 1,
+    "inseason_adjustment": -0.4701,
+    "games_inseason": 2,
     "returning_production": 0.65,
     "transfer_talent": -6.0,
     "qb_continuity": -0.891,
@@ -196,19 +196,6 @@
   },
   {
     "rank": 56,
-    "team": "Wisconsin",
-    "power_rating": 52.5697,
-    "preseason_power_rating": 52.5697,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.64,
-    "transfer_talent": -1.0,
-    "qb_continuity": 0.617,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 57,
     "team": "UNLV",
     "power_rating": 52.4456,
     "preseason_power_rating": 52.1356,
@@ -221,7 +208,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 58,
+    "rank": 57,
     "team": "Duke",
     "power_rating": 52.4452,
     "preseason_power_rating": 52.1671,
@@ -230,6 +217,19 @@
     "returning_production": 0.56,
     "transfer_talent": -4.0,
     "qb_continuity": -0.966,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 58,
+    "team": "Wisconsin",
+    "power_rating": 52.196,
+    "preseason_power_rating": 52.5697,
+    "inseason_adjustment": -0.3737,
+    "games_inseason": 1,
+    "returning_production": 0.64,
+    "transfer_talent": -1.0,
+    "qb_continuity": 0.617,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },

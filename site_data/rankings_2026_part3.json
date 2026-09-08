@@ -66,6 +66,19 @@
   },
   {
     "rank": 86,
+    "team": "Washington State",
+    "power_rating": 45.1465,
+    "preseason_power_rating": 44.6269,
+    "inseason_adjustment": 0.5196,
+    "games_inseason": 1,
+    "returning_production": 0.54,
+    "transfer_talent": 0.0,
+    "qb_continuity": -0.885,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 87,
     "team": "Miami (OH)",
     "power_rating": 44.9358,
     "preseason_power_rating": 47.251,
@@ -74,19 +87,6 @@
     "returning_production": 0.74,
     "transfer_talent": -1.0,
     "qb_continuity": -0.765,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 87,
-    "team": "Washington State",
-    "power_rating": 44.6269,
-    "preseason_power_rating": 44.6269,
-    "inseason_adjustment": 0.0,
-    "games_inseason": 0,
-    "returning_production": 0.54,
-    "transfer_talent": 0.0,
-    "qb_continuity": -0.885,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
