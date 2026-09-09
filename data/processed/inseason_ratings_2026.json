@@ -3864,18 +3864,6 @@
             "away_rating_delta": -1.1957
         },
         {
-            "game_id": 401864570,
-            "week": 1,
-            "home_team": "Florida State",
-            "away_team": "New Mexico State",
-            "actual_home_margin": 17.0,
-            "expected_home_margin": 22.42,
-            "capped_margin_residual": -5.42,
-            "learning_rate": 0.12,
-            "home_rating_delta": -0.3618,
-            "away_rating_delta": 0.3618
-        },
-        {
             "game_id": 401858201,
             "week": 1,
             "home_team": "Stanford",
@@ -3886,6 +3874,18 @@
             "learning_rate": 0.12,
             "home_rating_delta": 0.1094,
             "away_rating_delta": -0.1094
+        },
+        {
+            "game_id": 401864570,
+            "week": 1,
+            "home_team": "Florida State",
+            "away_team": "New Mexico State",
+            "actual_home_margin": 17.0,
+            "expected_home_margin": 22.42,
+            "capped_margin_residual": -5.42,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.3618,
+            "away_rating_delta": 0.3618
         },
         {
             "game_id": 401862693,
@@ -4008,52 +4008,16 @@
             "away_rating_delta": -1.5602
         },
         {
-            "game_id": 401856778,
+            "game_id": 401856634,
             "week": 1,
-            "home_team": "Houston",
-            "away_team": "Oregon State",
-            "actual_home_margin": 13.0,
-            "expected_home_margin": 12.86,
-            "capped_margin_residual": 0.14,
+            "home_team": "Alabama",
+            "away_team": "East Carolina",
+            "actual_home_margin": 38.0,
+            "expected_home_margin": 19.47,
+            "capped_margin_residual": 18.53,
             "learning_rate": 0.12,
-            "home_rating_delta": 0.0091,
-            "away_rating_delta": -0.0091
-        },
-        {
-            "game_id": 401858430,
-            "week": 1,
-            "home_team": "Nebraska",
-            "away_team": "Ohio",
-            "actual_home_margin": 28.0,
-            "expected_home_margin": 23.99,
-            "capped_margin_residual": 4.01,
-            "learning_rate": 0.12,
-            "home_rating_delta": 0.2673,
-            "away_rating_delta": -0.2673
-        },
-        {
-            "game_id": 401858425,
-            "week": 1,
-            "home_team": "Indiana",
-            "away_team": "North Texas",
-            "actual_home_margin": 36.0,
-            "expected_home_margin": 37.35,
-            "capped_margin_residual": -1.35,
-            "learning_rate": 0.12,
-            "home_rating_delta": -0.09,
-            "away_rating_delta": 0.09
-        },
-        {
-            "game_id": 401869960,
-            "week": 1,
-            "home_team": "James Madison",
-            "away_team": "Liberty",
-            "actual_home_margin": 7.0,
-            "expected_home_margin": 8.19,
-            "capped_margin_residual": -1.19,
-            "learning_rate": 0.12,
-            "home_rating_delta": -0.0792,
-            "away_rating_delta": 0.0792
+            "home_rating_delta": 1.2365,
+            "away_rating_delta": -1.2365
         },
         {
             "game_id": 401856780,
@@ -4068,16 +4032,52 @@
             "away_rating_delta": 0.5598
         },
         {
-            "game_id": 401856634,
+            "game_id": 401856778,
             "week": 1,
-            "home_team": "Alabama",
-            "away_team": "East Carolina",
-            "actual_home_margin": 38.0,
-            "expected_home_margin": 19.47,
-            "capped_margin_residual": 18.53,
+            "home_team": "Houston",
+            "away_team": "Oregon State",
+            "actual_home_margin": 13.0,
+            "expected_home_margin": 12.86,
+            "capped_margin_residual": 0.14,
             "learning_rate": 0.12,
-            "home_rating_delta": 1.2365,
-            "away_rating_delta": -1.2365
+            "home_rating_delta": 0.0091,
+            "away_rating_delta": -0.0091
+        },
+        {
+            "game_id": 401869960,
+            "week": 1,
+            "home_team": "James Madison",
+            "away_team": "Liberty",
+            "actual_home_margin": 7.0,
+            "expected_home_margin": 8.19,
+            "capped_margin_residual": -1.19,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.0792,
+            "away_rating_delta": 0.0792
+        },
+        {
+            "game_id": 401858425,
+            "week": 1,
+            "home_team": "Indiana",
+            "away_team": "North Texas",
+            "actual_home_margin": 36.0,
+            "expected_home_margin": 37.35,
+            "capped_margin_residual": -1.35,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.09,
+            "away_rating_delta": 0.09
+        },
+        {
+            "game_id": 401858430,
+            "week": 1,
+            "home_team": "Nebraska",
+            "away_team": "Ohio",
+            "actual_home_margin": 28.0,
+            "expected_home_margin": 23.99,
+            "capped_margin_residual": 4.01,
+            "learning_rate": 0.12,
+            "home_rating_delta": 0.2673,
+            "away_rating_delta": -0.2673
         },
         {
             "game_id": 401858207,
@@ -4128,40 +4128,16 @@
             "away_rating_delta": -0.2781
         },
         {
-            "game_id": 401856636,
+            "game_id": 401858433,
             "week": 1,
-            "home_team": "Auburn",
-            "away_team": "Baylor",
-            "actual_home_margin": 1.0,
-            "expected_home_margin": 7.6,
-            "capped_margin_residual": -6.6,
+            "home_team": "Oregon",
+            "away_team": "Boise State",
+            "actual_home_margin": 7.0,
+            "expected_home_margin": 23.67,
+            "capped_margin_residual": -16.67,
             "learning_rate": 0.12,
-            "home_rating_delta": -0.4402,
-            "away_rating_delta": 0.4402
-        },
-        {
-            "game_id": 401856667,
-            "week": 1,
-            "home_team": "Texas",
-            "away_team": "Texas State",
-            "actual_home_margin": 52.0,
-            "expected_home_margin": 27.17,
-            "capped_margin_residual": 24.83,
-            "learning_rate": 0.12,
-            "home_rating_delta": 1.6567,
-            "away_rating_delta": -1.6567
-        },
-        {
-            "game_id": 401856777,
-            "week": 1,
-            "home_team": "Cincinnati",
-            "away_team": "Boston College",
-            "actual_home_margin": 19.0,
-            "expected_home_margin": 8.35,
-            "capped_margin_residual": 10.65,
-            "learning_rate": 0.12,
-            "home_rating_delta": 0.7106,
-            "away_rating_delta": -0.7106
+            "home_rating_delta": -1.1125,
+            "away_rating_delta": 1.1125
         },
         {
             "game_id": 401858434,
@@ -4176,16 +4152,40 @@
             "away_rating_delta": -1.421
         },
         {
-            "game_id": 401858433,
+            "game_id": 401856636,
             "week": 1,
-            "home_team": "Oregon",
-            "away_team": "Boise State",
-            "actual_home_margin": 7.0,
-            "expected_home_margin": 23.67,
-            "capped_margin_residual": -16.67,
+            "home_team": "Auburn",
+            "away_team": "Baylor",
+            "actual_home_margin": 1.0,
+            "expected_home_margin": 7.6,
+            "capped_margin_residual": -6.6,
             "learning_rate": 0.12,
-            "home_rating_delta": -1.1125,
-            "away_rating_delta": 1.1125
+            "home_rating_delta": -0.4402,
+            "away_rating_delta": 0.4402
+        },
+        {
+            "game_id": 401856777,
+            "week": 1,
+            "home_team": "Cincinnati",
+            "away_team": "Boston College",
+            "actual_home_margin": 19.0,
+            "expected_home_margin": 8.35,
+            "capped_margin_residual": 10.65,
+            "learning_rate": 0.12,
+            "home_rating_delta": 0.7106,
+            "away_rating_delta": -0.7106
+        },
+        {
+            "game_id": 401856667,
+            "week": 1,
+            "home_team": "Texas",
+            "away_team": "Texas State",
+            "actual_home_margin": 52.0,
+            "expected_home_margin": 27.17,
+            "capped_margin_residual": 24.83,
+            "learning_rate": 0.12,
+            "home_rating_delta": 1.6567,
+            "away_rating_delta": -1.6567
         },
         {
             "game_id": 401856772,
@@ -4236,18 +4236,6 @@
             "away_rating_delta": 0.9311
         },
         {
-            "game_id": 401862699,
-            "week": 1,
-            "home_team": "South Florida",
-            "away_team": "Florida International",
-            "actual_home_margin": 10.0,
-            "expected_home_margin": 15.71,
-            "capped_margin_residual": -5.71,
-            "learning_rate": 0.12,
-            "home_rating_delta": -0.3813,
-            "away_rating_delta": 0.3813
-        },
-        {
             "game_id": 401856668,
             "week": 1,
             "home_team": "Texas A&M",
@@ -4260,6 +4248,18 @@
             "away_rating_delta": -0.7519
         },
         {
+            "game_id": 401862699,
+            "week": 1,
+            "home_team": "South Florida",
+            "away_team": "Florida International",
+            "actual_home_margin": 10.0,
+            "expected_home_margin": 15.71,
+            "capped_margin_residual": -5.71,
+            "learning_rate": 0.12,
+            "home_rating_delta": -0.3813,
+            "away_rating_delta": 0.3813
+        },
+        {
             "game_id": 401862695,
             "week": 1,
             "home_team": "Memphis",
@@ -4270,6 +4270,18 @@
             "learning_rate": 0.135,
             "home_rating_delta": 0.3558,
             "away_rating_delta": -0.3558
+        },
+        {
+            "game_id": 401856660,
+            "week": 1,
+            "home_team": "LSU",
+            "away_team": "Clemson",
+            "actual_home_margin": 41.0,
+            "expected_home_margin": 14.75,
+            "capped_margin_residual": 26.25,
+            "learning_rate": 0.12,
+            "home_rating_delta": 1.7519,
+            "away_rating_delta": -1.7519
         },
         {
             "game_id": 401858428,
@@ -4294,18 +4306,6 @@
             "learning_rate": 0.12,
             "home_rating_delta": 0.9336,
             "away_rating_delta": -0.9336
-        },
-        {
-            "game_id": 401856660,
-            "week": 1,
-            "home_team": "LSU",
-            "away_team": "Clemson",
-            "actual_home_margin": 41.0,
-            "expected_home_margin": 14.75,
-            "capped_margin_residual": 26.25,
-            "learning_rate": 0.12,
-            "home_rating_delta": 1.7519,
-            "away_rating_delta": -1.7519
         },
         {
             "game_id": 401856637,
@@ -4344,18 +4344,6 @@
             "away_rating_delta": 1.0786
         },
         {
-            "game_id": 401864432,
-            "week": 1,
-            "home_team": "Nevada",
-            "away_team": "Western Kentucky",
-            "actual_home_margin": 35.0,
-            "expected_home_margin": -0.05,
-            "capped_margin_residual": 35.0,
-            "learning_rate": 0.12,
-            "home_rating_delta": 2.3356,
-            "away_rating_delta": -2.3356
-        },
-        {
             "game_id": 401858210,
             "week": 1,
             "home_team": "California",
@@ -4366,6 +4354,18 @@
             "learning_rate": 0.12,
             "home_rating_delta": -1.4352,
             "away_rating_delta": 1.4352
+        },
+        {
+            "game_id": 401864432,
+            "week": 1,
+            "home_team": "Nevada",
+            "away_team": "Western Kentucky",
+            "actual_home_margin": 35.0,
+            "expected_home_margin": -0.05,
+            "capped_margin_residual": 35.0,
+            "learning_rate": 0.12,
+            "home_rating_delta": 2.3356,
+            "away_rating_delta": -2.3356
         },
         {
             "game_id": 401858437,
