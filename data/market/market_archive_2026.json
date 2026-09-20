@@ -475263,29 +475263,29 @@
       }
     }
   },
-  "generated_at": "2026-09-19T23:55:09.116861+00:00",
+  "generated_at": "2026-09-20T03:18:47.475526+00:00",
   "consensus_method": "median across available US bookmakers; final strictly pre-kickoff snapshot is official close",
   "last_capture": {
-    "events_returned": 44,
-    "matched": 11,
-    "captured": 11,
-    "skipped_live": 27,
-    "unmatched_count": 6,
+    "events_returned": 22,
+    "matched": 0,
+    "captured": 0,
+    "skipped_live": 15,
+    "unmatched_count": 7,
     "unmatched_sample": [
-      {
-        "home": "Appalachian State Mountaineers",
-        "away": "Charlotte 49ers",
-        "commence_time": "2026-09-20T00:00:00Z"
-      },
-      {
-        "home": "San Jose State Spartans",
-        "away": "Fresno State Bulldogs",
-        "commence_time": "2026-09-20T03:00:00Z"
-      },
       {
         "home": "Ohio State Buckeyes",
         "away": "Illinois Fighting Illini",
         "commence_time": "2026-09-26T16:00:00Z"
+      },
+      {
+        "home": "Louisville Cardinals",
+        "away": "Wake Forest Demon Deacons",
+        "commence_time": "2026-09-26T16:00:00Z"
+      },
+      {
+        "home": "Georgia Bulldogs",
+        "away": "Oklahoma Sooners",
+        "commence_time": "2026-09-26T19:30:00Z"
       },
       {
         "home": "Michigan Wolverines",
@@ -475298,13 +475298,18 @@
         "commence_time": "2026-09-26T21:00:00Z"
       },
       {
+        "home": "Alabama Crimson Tide",
+        "away": "South Carolina Gamecocks",
+        "commence_time": "2026-09-26T23:00:00Z"
+      },
+      {
         "home": "USC Trojans",
         "away": "Oregon Ducks",
         "commence_time": "2026-09-26T23:30:00Z"
       }
     ],
-    "requests_remaining": "292",
-    "requests_used": "208",
+    "requests_remaining": "290",
+    "requests_used": "210",
     "request_cost": "2"
   }
 }
