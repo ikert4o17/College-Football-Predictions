@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "latest_completed_week": 3,
+  "latest_completed_week": 4,
   "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
   "biggest_risers": [
     {
@@ -121,6 +121,19 @@
       "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
     },
     {
+      "rank": 78,
+      "team": "Liberty",
+      "power_rating": 46.8303,
+      "preseason_power_rating": 44.3247,
+      "inseason_adjustment": 2.5056,
+      "games_inseason": 3,
+      "returning_production": 0.62,
+      "transfer_talent": 0.0,
+      "qb_continuity": 0.912,
+      "coaching": 0.0,
+      "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+    },
+    {
       "rank": 136,
       "team": "Massachusetts",
       "power_rating": 20.0714,
@@ -184,19 +197,6 @@
       "qb_continuity": 0.913,
       "coaching": 0.0,
       "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-    },
-    {
-      "rank": 3,
-      "team": "Georgia",
-      "power_rating": 77.0251,
-      "preseason_power_rating": 74.9524,
-      "inseason_adjustment": 2.0727,
-      "games_inseason": 2,
-      "returning_production": 0.7,
-      "transfer_talent": 1.0,
-      "qb_continuity": 0.899,
-      "coaching": 0.0,
-      "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
     }
   ],
   "biggest_fallers": [
@@ -240,7 +240,7 @@
       "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
     },
     {
-      "rank": 79,
+      "rank": 80,
       "team": "Stanford",
       "power_rating": 46.2008,
       "preseason_power_rating": 49.6823,

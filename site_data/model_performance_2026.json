@@ -1,6 +1,6 @@
 {
     "season": 2026,
-    "generated_at": "2026-09-20T14:29:50.479773+00:00",
+    "generated_at": "2026-09-25T12:36:52.758495+00:00",
     "metric_notes": {
         "winner_accuracy": "share of games where projected straight-up winner matched actual winner",
         "su_record": "straight-up Project Gridiron winner record",
@@ -12,31 +12,31 @@
         "scope": "core performance ledger grades FBS-vs-FBS predictions only; FBS-vs-FCS projections are projection-only"
     },
     "cumulative": {
-        "games": 142,
-        "winner_accuracy": 0.8099,
+        "games": 143,
+        "winner_accuracy": 0.8112,
         "su_record": {
-            "wins": 115,
+            "wins": 116,
             "losses": 27,
             "pushes": 0,
-            "graded": 142
+            "graded": 143
         },
         "ats_record": {
-            "wins": 68,
+            "wins": 69,
             "losses": 60,
             "pushes": 2,
-            "graded": 130
+            "graded": 131
         },
         "ou_record": {
-            "wins": 57,
+            "wins": 58,
             "losses": 72,
             "pushes": 1,
-            "graded": 130
+            "graded": 131
         },
-        "margin_mae": 11.0998,
-        "margin_bias": 0.3122,
-        "total_mae": 13.5657,
-        "total_bias": -0.5822,
-        "score_mae": 8.8267
+        "margin_mae": 11.1094,
+        "margin_bias": 0.3973,
+        "total_mae": 13.496,
+        "total_bias": -0.5529,
+        "score_mae": 8.8086
     },
     "by_week": {
         "1": {
@@ -119,6 +119,33 @@
             "total_mae": 14.7789,
             "total_bias": -2.7382,
             "score_mae": 9.0791
+        },
+        "4": {
+            "games": 1,
+            "winner_accuracy": 1.0,
+            "su_record": {
+                "wins": 1,
+                "losses": 0,
+                "pushes": 0,
+                "graded": 1
+            },
+            "ats_record": {
+                "wins": 1,
+                "losses": 0,
+                "pushes": 0,
+                "graded": 1
+            },
+            "ou_record": {
+                "wins": 1,
+                "losses": 0,
+                "pushes": 0,
+                "graded": 1
+            },
+            "margin_mae": 12.48,
+            "margin_bias": 12.48,
+            "total_mae": 3.6,
+            "total_bias": 3.6,
+            "score_mae": 6.24
         }
     },
     "games": [
@@ -5161,64 +5188,45 @@
             "ou_pick": null,
             "ou_result": null,
             "total_edge": null
+        },
+        {
+            "game_id": 401869941,
+            "week": 4,
+            "start_date": "2026-09-24T23:30:00.000Z",
+            "home_team": "Coastal Carolina",
+            "away_team": "Liberty",
+            "actual_home_score": 17.0,
+            "actual_away_score": 34.0,
+            "actual_home_margin": -17.0,
+            "actual_total": 51.0,
+            "projected_home_margin": -4.52,
+            "projected_total": 54.6,
+            "projected_home_score": 25.04,
+            "projected_away_score": 29.56,
+            "projected_winner": "Liberty",
+            "actual_winner": "Liberty",
+            "winner_correct": true,
+            "margin_error": 12.48,
+            "total_error": 3.6,
+            "home_score_error": 8.04,
+            "away_score_error": -4.44,
+            "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
+            "closing_spread": 2.5,
+            "closing_total": 49.5,
+            "line_provider": "Project Gridiron consensus / The Odds API",
+            "market_captured_at": "2026-09-24T22:51:47.578584+00:00",
+            "spread_books": 9,
+            "total_books": 9,
+            "su_result": "W",
+            "ats_pick": "Liberty",
+            "ats_result": "W",
+            "ats_edge": 2.02,
+            "ou_pick": "Over",
+            "ou_result": "W",
+            "total_edge": 5.1
         }
     ],
     "newly_graded_game_ids": [
-        401858225,
-        401858226,
-        401856811,
-        401869940,
-        401858456,
-        401858229,
-        401856686,
-        401858454,
-        401856792,
-        401856798,
-        401858451,
-        401856812,
-        401860889,
-        401858460,
-        401856695,
-        401864508,
-        401862774,
-        401856694,
-        401858230,
-        401856801,
-        401856797,
-        401856685,
-        401858457,
-        401858450,
-        401858231,
-        401858449,
-        401866422,
-        401867804,
-        401856691,
-        401862710,
-        401862771,
-        401864574,
-        401871047,
-        401869948,
-        401866423,
-        401864443,
-        401862773,
-        401861963,
-        401856800,
-        401856689,
-        401856687,
-        401856690,
-        401856796,
-        401856802,
-        401856688,
-        401858453,
-        401856795,
-        401858232,
-        401856692,
-        401856799,
-        401856693,
-        401862776,
-        401860887,
-        401856793,
-        401860888,
-        401858458
+        401869941
     ]
 }

@@ -1,6 +1,19 @@
 [
   {
     "rank": 81,
+    "team": "Texas State",
+    "power_rating": 45.7821,
+    "preseason_power_rating": 47.3843,
+    "inseason_adjustment": -1.6022,
+    "games_inseason": 3,
+    "returning_production": 0.63,
+    "transfer_talent": 0.0,
+    "qb_continuity": 0.956,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 82,
     "team": "Air Force",
     "power_rating": 45.7106,
     "preseason_power_rating": 45.7106,
@@ -13,7 +26,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 82,
+    "rank": 83,
     "team": "Tulsa",
     "power_rating": 45.5964,
     "preseason_power_rating": 44.7074,
@@ -22,19 +35,6 @@
     "returning_production": 0.73,
     "transfer_talent": -1.0,
     "qb_continuity": 0.877,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 83,
-    "team": "Liberty",
-    "power_rating": 45.5811,
-    "preseason_power_rating": 44.3247,
-    "inseason_adjustment": 1.2564,
-    "games_inseason": 2,
-    "returning_production": 0.62,
-    "transfer_talent": 0.0,
-    "qb_continuity": 0.912,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
@@ -443,19 +443,6 @@
   },
   {
     "rank": 115,
-    "team": "Coastal Carolina",
-    "power_rating": 36.1592,
-    "preseason_power_rating": 35.7459,
-    "inseason_adjustment": 0.4133,
-    "games_inseason": 2,
-    "returning_production": 0.62,
-    "transfer_talent": -1.0,
-    "qb_continuity": -0.761,
-    "coaching": 0.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 116,
     "team": "Central Michigan",
     "power_rating": 35.7281,
     "preseason_power_rating": 35.5657,
@@ -468,7 +455,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 117,
+    "rank": 116,
     "team": "New Mexico State",
     "power_rating": 35.6436,
     "preseason_power_rating": 35.172,
@@ -477,6 +464,19 @@
     "returning_production": 0.79,
     "transfer_talent": 0.0,
     "qb_continuity": -0.868,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 117,
+    "team": "Coastal Carolina",
+    "power_rating": 34.9099,
+    "preseason_power_rating": 35.7459,
+    "inseason_adjustment": -0.836,
+    "games_inseason": 3,
+    "returning_production": 0.62,
+    "transfer_talent": -1.0,
+    "qb_continuity": -0.761,
     "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },

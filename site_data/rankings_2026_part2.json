@@ -482,6 +482,19 @@
   },
   {
     "rank": 78,
+    "team": "Liberty",
+    "power_rating": 46.8303,
+    "preseason_power_rating": 44.3247,
+    "inseason_adjustment": 2.5056,
+    "games_inseason": 3,
+    "returning_production": 0.62,
+    "transfer_talent": 0.0,
+    "qb_continuity": 0.912,
+    "coaching": 0.0,
+    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+  },
+  {
+    "rank": 79,
     "team": "Syracuse",
     "power_rating": 46.5723,
     "preseason_power_rating": 46.8089,
@@ -494,7 +507,7 @@
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   },
   {
-    "rank": 79,
+    "rank": 80,
     "team": "Stanford",
     "power_rating": 46.2008,
     "preseason_power_rating": 49.6823,
@@ -504,19 +517,6 @@
     "transfer_talent": -1.0,
     "qb_continuity": -0.857,
     "coaching": 1.0,
-    "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-  },
-  {
-    "rank": 80,
-    "team": "Texas State",
-    "power_rating": 45.7821,
-    "preseason_power_rating": 47.3843,
-    "inseason_adjustment": -1.6022,
-    "games_inseason": 3,
-    "returning_production": 0.63,
-    "transfer_talent": 0.0,
-    "qb_continuity": 0.956,
-    "coaching": 0.0,
     "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
   }
 ]
