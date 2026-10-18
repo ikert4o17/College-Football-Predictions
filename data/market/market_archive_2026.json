@@ -889041,28 +889041,80 @@
               "total": 62.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-20T23:30:00Z",
+          "consensus_home_spread": 2.75,
+          "consensus_total": 62.5,
+          "spread_books": 4,
+          "total_books": 4,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 2.5,
+              "total": 62.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-10-18T10:20:46Z",
+              "home_spread": 3.0,
+              "total": 62.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": 3.5,
+              "total": 62.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": 2.5,
+              "total": 62.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-18T02:57:23.417686+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-20T23:30:00Z",
-        "consensus_home_spread": 3.25,
+        "consensus_home_spread": 2.75,
         "consensus_total": 62.5,
-        "spread_books": 2,
-        "total_books": 2,
+        "spread_books": 4,
+        "total_books": 4,
         "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 2.5,
+            "total": 62.5
+          },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-10-18T02:57:20Z",
+            "last_update": "2026-10-18T10:20:46Z",
             "home_spread": 3.0,
             "total": 62.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-10-18T02:56:24Z",
+            "last_update": "2026-10-18T10:21:27Z",
             "home_spread": 3.5,
+            "total": 62.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
+            "home_spread": 2.5,
             "total": 62.5
           }
         ]
@@ -889714,21 +889766,52 @@
               "total": 51.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T16:00:00Z",
+          "consensus_home_spread": 6.0,
+          "consensus_total": 51.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": 5.5,
+              "total": 50.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 6.5,
+              "total": 51.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-17T16:45:21.429958+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-24T16:00:00Z",
-        "consensus_home_spread": 5.5,
-        "consensus_total": 51.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_home_spread": 6.0,
+        "consensus_total": 51.0,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": 5.5,
+            "total": 50.5
+          },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-17T16:45:04Z",
-            "home_spread": 5.5,
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 6.5,
             "total": 51.5
           }
         ]
@@ -889962,22 +890045,53 @@
               "total": 53.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T16:00:00Z",
+          "consensus_home_spread": -23.0,
+          "consensus_total": 51.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": -23.5,
+              "total": 51.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -22.5,
+              "total": 50.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-17T13:22:28.227816+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-24T16:00:00Z",
-        "consensus_home_spread": -23.5,
-        "consensus_total": 53.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_home_spread": -23.0,
+        "consensus_total": 51.0,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-10-17T13:22:00Z",
+            "last_update": "2026-10-18T10:21:27Z",
             "home_spread": -23.5,
-            "total": 53.5
+            "total": 51.5
+          },
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -22.5,
+            "total": 50.5
           }
         ]
       }
@@ -890255,22 +890369,53 @@
               "total": 53.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T19:30:00Z",
+          "consensus_home_spread": 2.75,
+          "consensus_total": 52.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": 3.0,
+              "total": 51.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 2.5,
+              "total": 52.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-17T16:45:21.429958+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-24T19:30:00Z",
-        "consensus_home_spread": -1.5,
-        "consensus_total": 53.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_home_spread": 2.75,
+        "consensus_total": 52.0,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": 3.0,
+            "total": 51.5
+          },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-17T16:45:04Z",
-            "home_spread": -1.5,
-            "total": 53.5
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 2.5,
+            "total": 52.5
           }
         ]
       }
@@ -890503,22 +890648,53 @@
               "total": 52.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T23:30:00Z",
+          "consensus_home_spread": -11.5,
+          "consensus_total": 51.5,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": -11.5,
+              "total": 51.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -11.5,
+              "total": 51.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-17T13:22:28.227816+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-24T23:30:00Z",
-        "consensus_home_spread": -9.5,
-        "consensus_total": 52.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_home_spread": -11.5,
+        "consensus_total": 51.5,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-10-17T13:22:00Z",
-            "home_spread": -9.5,
-            "total": 52.5
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": -11.5,
+            "total": 51.5
+          },
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -11.5,
+            "total": 51.5
           }
         ]
       }
@@ -891164,28 +891340,80 @@
               "total": 45.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-20T23:00:00Z",
+          "consensus_home_spread": -10.5,
+          "consensus_total": 45.5,
+          "spread_books": 4,
+          "total_books": 4,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -10.5,
+              "total": 45.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-10-18T10:20:46Z",
+              "home_spread": -11.0,
+              "total": 46.0
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": -10.5,
+              "total": 45.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": -10.5,
+              "total": 45.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-18T02:57:23.417686+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-20T23:00:00Z",
-        "consensus_home_spread": -10.0,
-        "consensus_total": 45.75,
-        "spread_books": 2,
-        "total_books": 2,
+        "consensus_home_spread": -10.5,
+        "consensus_total": 45.5,
+        "spread_books": 4,
+        "total_books": 4,
         "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -10.5,
+            "total": 45.5
+          },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-10-18T02:57:20Z",
-            "home_spread": -10.0,
+            "last_update": "2026-10-18T10:20:46Z",
+            "home_spread": -11.0,
             "total": 46.0
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-10-18T02:56:24Z",
-            "home_spread": -10.0,
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": -10.5,
+            "total": 45.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
+            "home_spread": -10.5,
             "total": 45.5
           }
         ]
@@ -891525,22 +891753,67 @@
               "total": 47.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-22T23:00:00Z",
+          "consensus_home_spread": 10.5,
+          "consensus_total": 48.5,
+          "spread_books": 3,
+          "total_books": 3,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 11.5,
+              "total": 48.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": 9.5,
+              "total": 47.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": 10.5,
+              "total": 48.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-18T02:57:23.417686+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-22T23:00:00Z",
-        "consensus_home_spread": 8.5,
-        "consensus_total": 47.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_home_spread": 10.5,
+        "consensus_total": 48.5,
+        "spread_books": 3,
+        "total_books": 3,
         "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 11.5,
+            "total": 48.5
+          },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-10-18T02:56:24Z",
-            "home_spread": 8.5,
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": 9.5,
             "total": 47.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
+            "home_spread": 10.5,
+            "total": 48.5
           }
         ]
       }
@@ -891856,22 +892129,67 @@
               "total": 47.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-22T00:00:00Z",
+          "consensus_home_spread": 2.5,
+          "consensus_total": 46.5,
+          "spread_books": 3,
+          "total_books": 3,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 2.5,
+              "total": 45.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": 2.5,
+              "total": 46.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": 2.5,
+              "total": 46.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-18T02:57:23.417686+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-22T00:00:00Z",
         "consensus_home_spread": 2.5,
-        "consensus_total": 47.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_total": 46.5,
+        "spread_books": 3,
+        "total_books": 3,
         "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 2.5,
+            "total": 45.5
+          },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-10-18T02:56:24Z",
+            "last_update": "2026-10-18T10:21:27Z",
             "home_spread": 2.5,
-            "total": 47.5
+            "total": 46.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
+            "home_spread": 2.5,
+            "total": 46.5
           }
         ]
       }
@@ -891968,20 +892286,79 @@
               "total": 51.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-20T23:00:00Z",
+          "consensus_home_spread": -2.5,
+          "consensus_total": 51.75,
+          "spread_books": 4,
+          "total_books": 4,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -2.5,
+              "total": 51.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-10-18T10:20:46Z",
+              "home_spread": -2.5,
+              "total": 52.0
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": -3.0,
+              "total": 52.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": -2.5,
+              "total": 51.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-17T16:45:21.429958+00:00",
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
         "commence_time": "2026-10-20T23:00:00Z",
         "consensus_home_spread": -2.5,
-        "consensus_total": 51.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_total": 51.75,
+        "spread_books": 4,
+        "total_books": 4,
         "books": [
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-17T16:45:04Z",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -2.5,
+            "total": 51.5
+          },
+          {
+            "key": "mybookieag",
+            "title": "MyBookie.ag",
+            "last_update": "2026-10-18T10:20:46Z",
+            "home_spread": -2.5,
+            "total": 52.0
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": -3.0,
+            "total": 52.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
             "home_spread": -2.5,
             "total": 51.5
           }
@@ -892075,19 +892452,794 @@
           }
         ]
       }
+    },
+    "401862807": {
+      "game_id": 401862807,
+      "week": 8,
+      "home_team": "Memphis",
+      "away_team": "East Carolina",
+      "start_date": "2026-10-22T23:30:00.000Z",
+      "provider_event_id": "5be63fd8c778b46afe084d3352e38a40",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-22T23:30:00Z",
+          "consensus_home_spread": -10.5,
+          "consensus_total": 53.5,
+          "spread_books": 3,
+          "total_books": 3,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -10.5,
+              "total": 53.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": -9.5,
+              "total": 53.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": -10.5,
+              "total": 53.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-22T23:30:00Z",
+        "consensus_home_spread": -10.5,
+        "consensus_total": 53.5,
+        "spread_books": 3,
+        "total_books": 3,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -10.5,
+            "total": 53.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": -9.5,
+            "total": 53.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
+            "home_spread": -10.5,
+            "total": 53.5
+          }
+        ]
+      }
+    },
+    "401858271": {
+      "game_id": 401858271,
+      "week": 8,
+      "home_team": "Virginia",
+      "away_team": "Duke",
+      "start_date": "2026-10-23T23:00:00.000Z",
+      "provider_event_id": "a493efd6ef737f676a45aacc0eaf7be8",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-23T23:00:00Z",
+          "consensus_home_spread": -2.5,
+          "consensus_total": 48.5,
+          "spread_books": 3,
+          "total_books": 3,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": -2.5,
+              "total": 48.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -2.5,
+              "total": 48.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": -2.5,
+              "total": 48.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-23T23:00:00Z",
+        "consensus_home_spread": -2.5,
+        "consensus_total": 48.5,
+        "spread_books": 3,
+        "total_books": 3,
+        "books": [
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": -2.5,
+            "total": 48.5
+          },
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -2.5,
+            "total": 48.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
+            "home_spread": -2.5,
+            "total": 48.5
+          }
+        ]
+      }
+    },
+    "401862808": {
+      "game_id": 401862808,
+      "week": 8,
+      "home_team": "Tulsa",
+      "away_team": "Army",
+      "start_date": "2026-10-24T00:30:00.000Z",
+      "provider_event_id": "2e2ae6a759029288a93488e0805aa9f3",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T00:30:00Z",
+          "consensus_home_spread": -1.5,
+          "consensus_total": 52.5,
+          "spread_books": 3,
+          "total_books": 3,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -1.5,
+              "total": 52.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": -1.5,
+              "total": 52.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-18T10:21:08Z",
+              "home_spread": 1.5,
+              "total": 52.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T00:30:00Z",
+        "consensus_home_spread": -1.5,
+        "consensus_total": 52.5,
+        "spread_books": 3,
+        "total_books": 3,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -1.5,
+            "total": 52.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": -1.5,
+            "total": 52.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-18T10:21:08Z",
+            "home_spread": 1.5,
+            "total": 52.5
+          }
+        ]
+      }
+    },
+    "401864525": {
+      "game_id": 401864525,
+      "week": 8,
+      "home_team": "Wyoming",
+      "away_team": "Air Force",
+      "start_date": "2026-10-24T01:00:00.000Z",
+      "provider_event_id": "1612c641ab70fd57963596255b9cb69c",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T01:00:00Z",
+          "consensus_home_spread": 7.0,
+          "consensus_total": 44.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 7.5,
+              "total": 44.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": 6.5,
+              "total": 43.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T01:00:00Z",
+        "consensus_home_spread": 7.0,
+        "consensus_total": 44.0,
+        "spread_books": 2,
+        "total_books": 2,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 7.5,
+            "total": 44.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": 6.5,
+            "total": 43.5
+          }
+        ]
+      }
+    },
+    "401858272": {
+      "game_id": 401858272,
+      "week": 8,
+      "home_team": "Stanford",
+      "away_team": "NC State",
+      "start_date": "2026-10-24T02:30:00.000Z",
+      "provider_event_id": "027c66400a752f72c7a21ce15a3b1743",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T02:30:00Z",
+          "consensus_home_spread": 7.0,
+          "consensus_total": 56.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 6.5,
+              "total": 56.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-18T10:21:27Z",
+              "home_spread": 7.5,
+              "total": 55.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T02:30:00Z",
+        "consensus_home_spread": 7.0,
+        "consensus_total": 56.0,
+        "spread_books": 2,
+        "total_books": 2,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 6.5,
+            "total": 56.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-18T10:21:27Z",
+            "home_spread": 7.5,
+            "total": 55.5
+          }
+        ]
+      }
+    },
+    "401858270": {
+      "game_id": 401858270,
+      "week": 8,
+      "home_team": "SMU",
+      "away_team": "California",
+      "start_date": "2026-10-24T16:00:00.000Z",
+      "provider_event_id": "bbbabc2490914e9a4d1e619a32461b1f",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T16:00:00Z",
+          "consensus_home_spread": -17.5,
+          "consensus_total": 54.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -17.5,
+              "total": 54.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T16:00:00Z",
+        "consensus_home_spread": -17.5,
+        "consensus_total": 54.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -17.5,
+            "total": 54.5
+          }
+        ]
+      }
+    },
+    "401856841": {
+      "game_id": 401856841,
+      "week": 8,
+      "home_team": "TCU",
+      "away_team": "West Virginia",
+      "start_date": "2026-10-24T16:00:00.000Z",
+      "provider_event_id": "1067cba701eaa40c3724cceda30524c6",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T16:00:00Z",
+          "consensus_home_spread": -6.5,
+          "consensus_total": 58.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -6.5,
+              "total": 58.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T16:00:00Z",
+        "consensus_home_spread": -6.5,
+        "consensus_total": 58.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -6.5,
+            "total": 58.5
+          }
+        ]
+      }
+    },
+    "401858273": {
+      "game_id": 401858273,
+      "week": 8,
+      "home_team": "Georgia Tech",
+      "away_team": "Boston College",
+      "start_date": "2026-10-24T19:30:00.000Z",
+      "provider_event_id": "129a012809e96238263d1a6d0a7430fa",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T19:30:00Z",
+          "consensus_home_spread": -5.5,
+          "consensus_total": 50.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -5.5,
+              "total": 50.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T19:30:00Z",
+        "consensus_home_spread": -5.5,
+        "consensus_total": 50.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -5.5,
+            "total": 50.5
+          }
+        ]
+      }
+    },
+    "401856730": {
+      "game_id": 401856730,
+      "week": 8,
+      "home_team": "Mississippi State",
+      "away_team": "Oklahoma",
+      "start_date": "2026-10-24T19:30:00.000Z",
+      "provider_event_id": "ca109267525bde74bd35cecd176185be",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T19:30:00Z",
+          "consensus_home_spread": 2.5,
+          "consensus_total": 48.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 2.5,
+              "total": 48.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T19:30:00Z",
+        "consensus_home_spread": 2.5,
+        "consensus_total": 48.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 2.5,
+            "total": 48.5
+          }
+        ]
+      }
+    },
+    "401860907": {
+      "game_id": 401860907,
+      "week": 8,
+      "home_team": "Washington State",
+      "away_team": "Boise State",
+      "start_date": "2026-10-24T22:00:00.000Z",
+      "provider_event_id": "8a67420bfc49f0bcf8c92bc4c08be602",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T22:00:00Z",
+          "consensus_home_spread": 17.5,
+          "consensus_total": 50.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 17.5,
+              "total": 50.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T22:00:00Z",
+        "consensus_home_spread": 17.5,
+        "consensus_total": 50.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 17.5,
+            "total": 50.5
+          }
+        ]
+      }
+    },
+    "401860905": {
+      "game_id": 401860905,
+      "week": 8,
+      "home_team": "Colorado State",
+      "away_team": "San Diego State",
+      "start_date": "2026-10-24T22:30:00.000Z",
+      "provider_event_id": "c5223791e733b6bc0744618614b007b7",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T22:30:00Z",
+          "consensus_home_spread": 2.5,
+          "consensus_total": 59.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": 2.5,
+              "total": 59.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T22:30:00Z",
+        "consensus_home_spread": 2.5,
+        "consensus_total": 59.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": 2.5,
+            "total": 59.5
+          }
+        ]
+      }
+    },
+    "401858275": {
+      "game_id": 401858275,
+      "week": 8,
+      "home_team": "North Carolina",
+      "away_team": "Syracuse",
+      "start_date": "2026-10-24T23:30:00.000Z",
+      "provider_event_id": "d73ad8085e6fe1f88a0f79d9538083d6",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T23:30:00Z",
+          "consensus_home_spread": -9.5,
+          "consensus_total": 44.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -9.5,
+              "total": 44.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T23:30:00Z",
+        "consensus_home_spread": -9.5,
+        "consensus_total": 44.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -9.5,
+            "total": 44.5
+          }
+        ]
+      }
+    },
+    "401860906": {
+      "game_id": 401860906,
+      "week": 8,
+      "home_team": "Texas State",
+      "away_team": "Utah State",
+      "start_date": "2026-10-24T23:30:00.000Z",
+      "provider_event_id": "c4e171dd82e86c3a4dd50d4d3b54edab",
+      "snapshots": [
+        {
+          "captured_at": "2026-10-18T10:21:42.197336+00:00",
+          "commence_time": "2026-10-24T23:30:00Z",
+          "consensus_home_spread": -8.5,
+          "consensus_total": 61.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-18T10:21:09Z",
+              "home_spread": -8.5,
+              "total": 61.5
+            }
+          ]
+        }
+      ],
+      "latest_pre_kickoff": {
+        "captured_at": "2026-10-18T10:21:42.197336+00:00",
+        "commence_time": "2026-10-24T23:30:00Z",
+        "consensus_home_spread": -8.5,
+        "consensus_total": 61.5,
+        "spread_books": 1,
+        "total_books": 1,
+        "books": [
+          {
+            "key": "fanduel",
+            "title": "FanDuel",
+            "last_update": "2026-10-18T10:21:09Z",
+            "home_spread": -8.5,
+            "total": 61.5
+          }
+        ]
+      }
     }
   },
-  "generated_at": "2026-10-18T02:57:23.417686+00:00",
+  "generated_at": "2026-10-18T10:21:42.197336+00:00",
   "consensus_method": "median across available US bookmakers; final strictly pre-kickoff snapshot is official close",
   "last_capture": {
-    "events_returned": 18,
-    "matched": 5,
-    "captured": 5,
-    "skipped_live": 13,
-    "unmatched_count": 0,
-    "unmatched_sample": [],
-    "requests_remaining": "354",
-    "requests_used": "146",
+    "events_returned": 40,
+    "matched": 22,
+    "captured": 22,
+    "skipped_live": 0,
+    "unmatched_count": 18,
+    "unmatched_sample": [
+      {
+        "home": "Appalachian State Mountaineers",
+        "away": "James Madison Dukes",
+        "commence_time": "2026-10-22T23:00:00Z"
+      },
+      {
+        "home": "UConn Huskies",
+        "away": "UMass Minutemen",
+        "commence_time": "2026-10-23T23:00:00Z"
+      },
+      {
+        "home": "Alabama Crimson Tide",
+        "away": "Texas A&M Aggies",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Arizona Wildcats",
+        "away": "Iowa State Cyclones",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "UCF Knights",
+        "away": "BYU Cougars",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Cincinnati Bearcats",
+        "away": "Texas Tech Red Raiders",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Clemson Tigers",
+        "away": "Virginia Tech Hokies",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Michigan Wolverines",
+        "away": "Indiana Hoosiers",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Minnesota Golden Gophers",
+        "away": "Iowa Hawkeyes",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "UCLA Bruins",
+        "away": "Michigan State Spartans",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Northwestern Wildcats",
+        "away": "Rutgers Scarlet Knights",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Texas Longhorns",
+        "away": "Ole Miss Rebels",
+        "commence_time": "2026-10-24T16:00:00Z"
+      },
+      {
+        "home": "Utah Utes",
+        "away": "Houston Cougars",
+        "commence_time": "2026-10-24T19:30:00Z"
+      },
+      {
+        "home": "Illinois Fighting Illini",
+        "away": "Oregon Ducks",
+        "commence_time": "2026-10-24T19:30:00Z"
+      },
+      {
+        "home": "Kansas Jayhawks",
+        "away": "Baylor Bears",
+        "commence_time": "2026-10-24T20:00:00Z"
+      },
+      {
+        "home": "Wisconsin Badgers",
+        "away": "USC Trojans",
+        "commence_time": "2026-10-24T23:30:00Z"
+      },
+      {
+        "home": "Oklahoma State Cowboys",
+        "away": "Colorado Buffaloes",
+        "commence_time": "2026-10-25T00:00:00Z"
+      },
+      {
+        "home": "Arizona State Sun Devils",
+        "away": "Kansas State Wildcats",
+        "commence_time": "2026-10-25T01:00:00Z"
+      }
+    ],
+    "requests_remaining": "352",
+    "requests_used": "148",
     "request_cost": "2"
   }
 }
