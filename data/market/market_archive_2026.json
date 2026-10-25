@@ -987242,21 +987242,52 @@
               "total": 53.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-10-31T16:00:00Z",
+          "consensus_home_spread": 29.5,
+          "consensus_total": 53.5,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-25T03:07:10Z",
+              "home_spread": 29.5,
+              "total": 53.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-25T03:06:33Z",
+              "home_spread": 29.5,
+              "total": 53.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T13:44:32.112066+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-10-31T16:00:00Z",
-        "consensus_home_spread": 28.5,
+        "consensus_home_spread": 29.5,
         "consensus_total": 53.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-10-24T13:44:18Z",
-            "home_spread": 28.5,
+            "last_update": "2026-10-25T03:07:10Z",
+            "home_spread": 29.5,
+            "total": 53.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-25T03:06:33Z",
+            "home_spread": 29.5,
             "total": 53.5
           }
         ]
@@ -989055,10 +989086,34 @@
               "total": 58.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-10-27T23:00:00Z",
+          "consensus_home_spread": 2.5,
+          "consensus_total": 59.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-25T03:07:11Z",
+              "home_spread": 2.5,
+              "total": 59.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-25T03:07:10Z",
+              "home_spread": 2.5,
+              "total": 58.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T23:52:32.240073+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-10-27T23:00:00Z",
         "consensus_home_spread": 2.5,
         "consensus_total": 59.0,
@@ -989068,14 +989123,14 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-24T23:52:23Z",
+            "last_update": "2026-10-25T03:07:11Z",
             "home_spread": 2.5,
             "total": 59.5
           },
           {
-            "key": "mybookieag",
-            "title": "MyBookie.ag",
-            "last_update": "2026-10-24T23:50:58Z",
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-25T03:07:10Z",
             "home_spread": 2.5,
             "total": 58.5
           }
@@ -989310,21 +989365,52 @@
               "total": 51.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-10-28T00:00:00Z",
+          "consensus_home_spread": -6.25,
+          "consensus_total": 51.5,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-25T03:07:11Z",
+              "home_spread": -6.5,
+              "total": 51.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-25T03:07:10Z",
+              "home_spread": -6.0,
+              "total": 51.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T23:52:32.240073+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-10-28T00:00:00Z",
-        "consensus_home_spread": -6.5,
+        "consensus_home_spread": -6.25,
         "consensus_total": 51.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-24T23:52:23Z",
+            "last_update": "2026-10-25T03:07:11Z",
             "home_spread": -6.5,
+            "total": 51.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-25T03:07:10Z",
+            "home_spread": -6.0,
             "total": 51.5
           }
         ]
@@ -989558,22 +989644,53 @@
               "total": 49.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-10-29T00:00:00Z",
+          "consensus_home_spread": 2.75,
+          "consensus_total": 50.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-25T03:07:11Z",
+              "home_spread": 2.5,
+              "total": 49.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-25T03:07:10Z",
+              "home_spread": 3.0,
+              "total": 50.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T23:52:32.240073+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-10-29T00:00:00Z",
-        "consensus_home_spread": 2.5,
-        "consensus_total": 49.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "consensus_home_spread": 2.75,
+        "consensus_total": 50.0,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-24T23:52:23Z",
+            "last_update": "2026-10-25T03:07:11Z",
             "home_spread": 2.5,
             "total": 49.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-25T03:07:10Z",
+            "home_spread": 3.0,
+            "total": 50.5
           }
         ]
       }
@@ -989755,21 +989872,66 @@
               "total": 48.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-10-31T23:45:00Z",
+          "consensus_home_spread": 10.5,
+          "consensus_total": 48.5,
+          "spread_books": 3,
+          "total_books": 3,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-25T03:07:11Z",
+              "home_spread": 10.5,
+              "total": 48.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-25T03:07:10Z",
+              "home_spread": 10.5,
+              "total": 48.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-25T03:06:33Z",
+              "home_spread": 10.0,
+              "total": 48.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T23:52:32.240073+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-10-31T23:45:00Z",
         "consensus_home_spread": 10.5,
         "consensus_total": 48.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "spread_books": 3,
+        "total_books": 3,
         "books": [
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-24T23:52:23Z",
+            "last_update": "2026-10-25T03:07:11Z",
             "home_spread": 10.5,
+            "total": 48.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-25T03:07:10Z",
+            "home_spread": 10.5,
+            "total": 48.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-25T03:06:33Z",
+            "home_spread": 10.0,
             "total": 48.5
           }
         ]
@@ -989952,21 +990114,66 @@
               "total": 48.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-11-01T00:00:00Z",
+          "consensus_home_spread": -9.5,
+          "consensus_total": 48.5,
+          "spread_books": 3,
+          "total_books": 3,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-25T03:07:11Z",
+              "home_spread": -9.5,
+              "total": 48.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-25T03:07:10Z",
+              "home_spread": -9.5,
+              "total": 49.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-10-25T03:06:33Z",
+              "home_spread": -10.0,
+              "total": 48.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T23:52:32.240073+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-11-01T00:00:00Z",
         "consensus_home_spread": -9.5,
         "consensus_total": 48.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "spread_books": 3,
+        "total_books": 3,
         "books": [
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-24T23:52:23Z",
+            "last_update": "2026-10-25T03:07:11Z",
             "home_spread": -9.5,
+            "total": 48.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-25T03:07:10Z",
+            "home_spread": -9.5,
+            "total": 49.5
+          },
+          {
+            "key": "betrivers",
+            "title": "BetRivers",
+            "last_update": "2026-10-25T03:06:33Z",
+            "home_spread": -10.0,
             "total": 48.5
           }
         ]
@@ -990149,10 +990356,27 @@
               "total": 56.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-11-01T03:00:00Z",
+          "consensus_home_spread": 6.5,
+          "consensus_total": 56.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-25T03:07:11Z",
+              "home_spread": 6.5,
+              "total": 56.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T23:52:32.240073+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-11-01T03:00:00Z",
         "consensus_home_spread": 6.5,
         "consensus_total": 56.5,
@@ -990162,7 +990386,7 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-24T23:52:23Z",
+            "last_update": "2026-10-25T03:07:11Z",
             "home_spread": 6.5,
             "total": 56.5
           }
@@ -990295,34 +990519,65 @@
               "total": 49.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-10-25T03:07:21.314254+00:00",
+          "commence_time": "2026-10-28T23:00:00Z",
+          "consensus_home_spread": -3.0,
+          "consensus_total": 49.5,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-10-25T03:07:11Z",
+              "home_spread": -3.5,
+              "total": 49.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-10-25T03:07:10Z",
+              "home_spread": -2.5,
+              "total": 49.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-10-24T23:52:32.240073+00:00",
+        "captured_at": "2026-10-25T03:07:21.314254+00:00",
         "commence_time": "2026-10-28T23:00:00Z",
-        "consensus_home_spread": -3.5,
+        "consensus_home_spread": -3.0,
         "consensus_total": 49.5,
-        "spread_books": 1,
-        "total_books": 1,
+        "spread_books": 2,
+        "total_books": 2,
         "books": [
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-10-24T23:52:23Z",
+            "last_update": "2026-10-25T03:07:11Z",
             "home_spread": -3.5,
+            "total": 49.5
+          },
+          {
+            "key": "draftkings",
+            "title": "DraftKings",
+            "last_update": "2026-10-25T03:07:10Z",
+            "home_spread": -2.5,
             "total": 49.5
           }
         ]
       }
     }
   },
-  "generated_at": "2026-10-24T23:52:32.240073+00:00",
+  "generated_at": "2026-10-25T03:07:21.314254+00:00",
   "consensus_method": "median across available US bookmakers; final strictly pre-kickoff snapshot is official close",
   "last_capture": {
-    "events_returned": 26,
-    "matched": 10,
-    "captured": 10,
-    "skipped_live": 15,
+    "events_returned": 16,
+    "matched": 8,
+    "captured": 8,
+    "skipped_live": 7,
     "unmatched_count": 1,
     "unmatched_sample": [
       {
@@ -990331,8 +990586,8 @@
         "commence_time": "2026-10-31T16:00:00Z"
       }
     ],
-    "requests_remaining": "290",
-    "requests_used": "210",
+    "requests_remaining": "288",
+    "requests_used": "212",
     "request_cost": "2"
   }
 }
