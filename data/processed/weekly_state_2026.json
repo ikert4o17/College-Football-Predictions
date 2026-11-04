@@ -1,8 +1,8 @@
 {
     "season": 2026,
-    "generated_at": "2026-11-02T12:48:59.812861+00:00",
-    "latest_completed_week": 9,
-    "completed_fbs_vs_fbs_games": 500,
+    "generated_at": "2026-11-04T13:24:33.050898+00:00",
+    "latest_completed_week": 10,
+    "completed_fbs_vs_fbs_games": 502,
     "applied_game_ids": [
         "401856766",
         "401864494",
@@ -503,9 +503,11 @@
         "401862814",
         "401860908",
         "401864530",
-        "401860924"
+        "401860924",
+        "401866453",
+        "401866454"
     ],
-    "rating_snapshot": "data/snapshots/2026/ratings_after_week_09.json",
+    "rating_snapshot": "data/snapshots/2026/ratings_after_week_10.json",
     "current_ratings": "data/processed/inseason_ratings_2026.json",
     "rebuild_strategy": "always rebuild from frozen preseason and all completed games"
 }

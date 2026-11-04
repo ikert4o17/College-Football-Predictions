@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "latest_completed_week": 9,
+  "latest_completed_week": 10,
   "model_version": "2026_inseason_v2_balanced_light_backtest_conservative",
   "biggest_risers": [
     {
@@ -292,6 +292,19 @@
       "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
     },
     {
+      "rank": 102,
+      "team": "Miami (OH)",
+      "power_rating": 39.145,
+      "preseason_power_rating": 47.251,
+      "inseason_adjustment": -8.106,
+      "games_inseason": 8,
+      "returning_production": 0.74,
+      "transfer_talent": -1.0,
+      "qb_continuity": -0.765,
+      "coaching": 0.0,
+      "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
+    },
+    {
       "rank": 59,
       "team": "Vanderbilt",
       "power_rating": 51.1238,
@@ -327,19 +340,6 @@
       "returning_production": 0.83,
       "transfer_talent": -1.0,
       "qb_continuity": 0.957,
-      "coaching": 0.0,
-      "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
-    },
-    {
-      "rank": 98,
-      "team": "Miami (OH)",
-      "power_rating": 40.5925,
-      "preseason_power_rating": 47.251,
-      "inseason_adjustment": -6.6585,
-      "games_inseason": 7,
-      "returning_production": 0.74,
-      "transfer_talent": -1.0,
-      "qb_continuity": -0.765,
       "coaching": 0.0,
       "model_version": "2026_inseason_v2_balanced_light_backtest_conservative"
     },

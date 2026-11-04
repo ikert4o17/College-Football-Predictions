@@ -158,10 +158,10 @@
   {
     "rank": 133,
     "team": "Akron",
-    "power_rating": 23.333,
+    "power_rating": 23.4271,
     "preseason_power_rating": 28.3427,
-    "inseason_adjustment": -5.0097,
-    "games_inseason": 7,
+    "inseason_adjustment": -4.9156,
+    "games_inseason": 8,
     "returning_production": 0.63,
     "transfer_talent": 0.0,
     "qb_continuity": 0.937,
