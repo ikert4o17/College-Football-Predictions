@@ -113,7 +113,7 @@ input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px r
 .team-name { font-family: "Space Grotesk"; font-size: 1.06rem; font-weight: 700; overflow-wrap: anywhere; }
 .team-rating { color: var(--muted); font-size: .8rem; margin-top: 3px; }
 .vs { color: var(--muted); font-size: .72rem; font-weight: 800; }
-.projection-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+.projection-bar { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
 .projection { background: #0a1510; border: 1px solid var(--line); border-radius: 12px; padding: 11px; }
 .projection strong { display: block; margin-top: 4px; font-size: .95rem; }
 .projection span { color: var(--muted); font-size: .7rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 800; }
