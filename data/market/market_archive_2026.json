@@ -172033,12 +172033,36 @@
               "total": 41.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-28T17:00:00Z",
+          "consensus_home_spread": -12.0,
+          "consensus_total": 40.5,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -11.5,
+              "total": 39.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -12.5,
+              "total": 41.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-28T17:00:00Z",
-        "consensus_home_spread": -11.5,
+        "consensus_home_spread": -12.0,
         "consensus_total": 40.5,
         "spread_books": 2,
         "total_books": 2,
@@ -172046,14 +172070,14 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
-            "home_spread": -10.5,
+            "last_update": "2026-11-21T04:55:04Z",
+            "home_spread": -11.5,
             "total": 39.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -12.5,
             "total": 41.5
           }
@@ -207981,10 +208005,83 @@
               "total": 56.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-22T00:30:00Z",
+          "consensus_home_spread": -20.5,
+          "consensus_total": 56.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -20.5,
+              "total": 56.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -20.5,
+              "total": 56.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -20.5,
+              "total": 57.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -21.0,
+              "total": 56.0
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -21.0,
+              "total": 56.0
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -20.5,
+              "total": 56.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -21.0,
+              "total": 56.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -20.5,
+              "total": 56.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -20.5,
+              "total": 56.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-22T00:30:00Z",
         "consensus_home_spread": -20.5,
         "consensus_total": 56.5,
@@ -207994,63 +208091,63 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -20.5,
             "total": 56.5
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -20.5,
             "total": 56.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -20.5,
             "total": 57.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -21.0,
             "total": 56.0
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -21.0,
             "total": 56.0
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": -20.5,
             "total": 56.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -21.0,
             "total": 56.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -20.5,
             "total": 56.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -20.5,
             "total": 56.5
           }
@@ -209092,10 +209189,34 @@
               "total": 40.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-28T00:30:00Z",
+          "consensus_home_spread": 7.5,
+          "consensus_total": 41.0,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": 7.5,
+              "total": 41.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": 7.5,
+              "total": 40.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-28T00:30:00Z",
         "consensus_home_spread": 7.5,
         "consensus_total": 41.0,
@@ -209105,14 +209226,14 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": 7.5,
             "total": 41.5
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": 7.5,
             "total": 40.5
           }
@@ -1245297,10 +1245418,83 @@
               "total": 46.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T17:00:00Z",
+          "consensus_home_spread": -6.0,
+          "consensus_total": 46.0,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -5.5,
+              "total": 45.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -6.0,
+              "total": 46.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -6.0,
+              "total": 46.0
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -6.0,
+              "total": 46.0
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -5.5,
+              "total": 45.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -6.0,
+              "total": 46.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -6.0,
+              "total": 46.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -6.0,
+              "total": 46.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -6.0,
+              "total": 46.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T17:00:00Z",
         "consensus_home_spread": -6.0,
         "consensus_total": 46.0,
@@ -1245310,63 +1245504,63 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -5.5,
             "total": 45.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -6.0,
             "total": 46.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -6.0,
             "total": 46.0
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -6.0,
             "total": 46.0
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -5.5,
             "total": 45.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
-            "home_spread": -6.5,
+            "last_update": "2026-11-21T04:53:57Z",
+            "home_spread": -6.0,
             "total": 46.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -6.0,
             "total": 46.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -6.0,
             "total": 46.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -6.0,
             "total": 46.5
           }
@@ -1246367,10 +1246561,83 @@
               "total": 67.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T17:00:00Z",
+          "consensus_home_spread": 2.5,
+          "consensus_total": 67.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": 2.5,
+              "total": 66.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": 2.5,
+              "total": 67.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": 2.5,
+              "total": 67.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": 2.5,
+              "total": 67.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": 3.0,
+              "total": 67.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": 2.5,
+              "total": 67.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": 2.5,
+              "total": 67.5
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": 2.5,
+              "total": 67.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": 3.0,
+              "total": 67.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T17:00:00Z",
         "consensus_home_spread": 2.5,
         "consensus_total": 67.5,
@@ -1246380,63 +1246647,63 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": 2.5,
             "total": 66.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": 2.5,
             "total": 67.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": 2.5,
             "total": 67.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": 2.5,
             "total": 67.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": 3.0,
             "total": 67.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": 2.5,
             "total": 67.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": 2.5,
             "total": 67.5
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
-            "home_spread": 3.0,
-            "total": 67.0
+            "last_update": "2026-11-21T04:55:08Z",
+            "home_spread": 2.5,
+            "total": 67.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": 3.0,
             "total": 67.5
           }
@@ -1247437,10 +1247704,83 @@
               "total": 53.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T18:00:00Z",
+          "consensus_home_spread": -17.0,
+          "consensus_total": 53.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -17.5,
+              "total": 52.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -17.5,
+              "total": 53.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -17.0,
+              "total": 54.0
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -17.0,
+              "total": 54.0
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -18.0,
+              "total": 52.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -17.0,
+              "total": 53.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -17.0,
+              "total": 54.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -17.5,
+              "total": 53.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -17.0,
+              "total": 53.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T18:00:00Z",
         "consensus_home_spread": -17.0,
         "consensus_total": 53.5,
@@ -1247450,63 +1247790,63 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -17.5,
             "total": 52.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -17.5,
             "total": 53.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -17.0,
             "total": 54.0
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -17.0,
             "total": 54.0
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -18.0,
             "total": 52.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": -17.0,
             "total": 53.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -17.0,
             "total": 54.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -17.5,
             "total": 53.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -17.0,
             "total": 53.5
           }
@@ -1248507,10 +1248847,83 @@
               "total": 53.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T19:00:00Z",
+          "consensus_home_spread": -10.5,
+          "consensus_total": 52.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -10.5,
+              "total": 52.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -10.5,
+              "total": 52.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -10.5,
+              "total": 52.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -10.5,
+              "total": 52.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -10.5,
+              "total": 51.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -10.5,
+              "total": 52.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -10.5,
+              "total": 53.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -10.5,
+              "total": 53.0
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -10.5,
+              "total": 53.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T19:00:00Z",
         "consensus_home_spread": -10.5,
         "consensus_total": 52.5,
@@ -1248520,63 +1248933,63 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -10.5,
             "total": 52.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -10.5,
             "total": 52.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -10.5,
             "total": 52.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -10.5,
             "total": 52.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -10.5,
             "total": 51.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": -10.5,
             "total": 52.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -10.5,
             "total": 53.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -10.5,
-            "total": 52.5
+            "total": 53.0
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -10.5,
             "total": 53.0
           }
@@ -1249577,10 +1249990,83 @@
               "total": 48.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T19:00:00Z",
+          "consensus_home_spread": 6.0,
+          "consensus_total": 48.0,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": 6.5,
+              "total": 48.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": 6.0,
+              "total": 48.0
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": 6.5,
+              "total": 48.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": 6.0,
+              "total": 48.0
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": 6.0,
+              "total": 48.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": 6.5,
+              "total": 47.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": 6.0,
+              "total": 48.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": 6.0,
+              "total": 48.0
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": 5.5,
+              "total": 48.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T19:00:00Z",
         "consensus_home_spread": 6.0,
         "consensus_total": 48.0,
@@ -1249590,64 +1250076,64 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": 6.5,
             "total": 48.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": 6.0,
             "total": 48.0
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
-            "home_spread": 6.0,
+            "last_update": "2026-11-21T04:55:21Z",
+            "home_spread": 6.5,
             "total": 48.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": 6.0,
             "total": 48.0
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": 6.0,
             "total": 48.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": 6.5,
             "total": 47.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": 6.0,
             "total": 48.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": 6.0,
             "total": 48.0
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
-            "home_spread": 6.0,
+            "last_update": "2026-11-21T04:54:52Z",
+            "home_spread": 5.5,
             "total": 48.0
           }
         ]
@@ -1250647,10 +1251133,83 @@
               "total": 54.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T20:00:00Z",
+          "consensus_home_spread": 3.0,
+          "consensus_total": 53.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": 3.0,
+              "total": 53.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": 3.0,
+              "total": 53.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": 3.0,
+              "total": 53.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": 3.5,
+              "total": 53.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": 3.0,
+              "total": 53.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": 3.0,
+              "total": 53.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": 3.0,
+              "total": 53.5
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": 3.0,
+              "total": 53.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": 3.0,
+              "total": 54.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T20:00:00Z",
         "consensus_home_spread": 3.0,
         "consensus_total": 53.5,
@@ -1250660,63 +1251219,63 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": 3.0,
             "total": 53.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": 3.0,
             "total": 53.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": 3.0,
             "total": 53.5
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
-            "home_spread": 2.5,
+            "last_update": "2026-11-21T04:55:04Z",
+            "home_spread": 3.5,
             "total": 53.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": 3.0,
             "total": 53.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": 3.0,
             "total": 53.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": 3.0,
             "total": 53.5
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": 3.0,
             "total": 53.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": 3.0,
             "total": 54.0
           }
@@ -1251717,10 +1252276,83 @@
               "total": 44.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T20:00:00Z",
+          "consensus_home_spread": -2.5,
+          "consensus_total": 44.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -3.0,
+              "total": 44.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -2.5,
+              "total": 44.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T20:00:00Z",
         "consensus_home_spread": -2.5,
         "consensus_total": 44.5,
@@ -1251730,63 +1252362,63 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -2.5,
             "total": 44.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
-            "home_spread": -3.0,
+            "last_update": "2026-11-21T04:55:22Z",
+            "home_spread": -2.5,
             "total": 44.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
-            "home_spread": -3.0,
+            "last_update": "2026-11-21T04:55:22Z",
+            "home_spread": -2.5,
             "total": 44.5
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -2.5,
             "total": 44.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -3.0,
             "total": 44.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": -2.5,
             "total": 44.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
-            "home_spread": -3.0,
+            "last_update": "2026-11-21T04:55:05Z",
+            "home_spread": -2.5,
             "total": 44.5
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -2.5,
             "total": 44.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -2.5,
             "total": 44.5
           }
@@ -1252787,10 +1253419,83 @@
               "total": 47.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T20:30:00Z",
+          "consensus_home_spread": -13.5,
+          "consensus_total": 47.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -14.0,
+              "total": 47.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -13.5,
+              "total": 47.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T20:30:00Z",
         "consensus_home_spread": -13.5,
         "consensus_total": 47.5,
@@ -1252800,63 +1253505,63 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -13.5,
             "total": 47.5
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -13.5,
             "total": 47.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -13.5,
             "total": 47.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -13.5,
             "total": 47.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -13.5,
             "total": 47.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": -13.5,
             "total": 47.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -13.5,
             "total": 47.5
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -14.0,
             "total": 47.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -13.5,
             "total": 47.5
           }
@@ -1253856,76 +1254561,149 @@
               "total": 45.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T21:00:00Z",
+          "consensus_home_spread": -25.0,
+          "consensus_total": 45.0,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -25.5,
+              "total": 44.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -25.0,
+              "total": 45.0
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -25.0,
+              "total": 45.0
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -24.5,
+              "total": 44.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -25.0,
+              "total": 44.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -24.5,
+              "total": 44.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -25.5,
+              "total": 45.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -25.5,
+              "total": 45.0
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -26.0,
+              "total": 45.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T21:00:00Z",
         "consensus_home_spread": -25.0,
-        "consensus_total": 44.5,
+        "consensus_total": 45.0,
         "spread_books": 9,
         "total_books": 9,
         "books": [
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -25.5,
             "total": 44.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -25.0,
             "total": 45.0
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -25.0,
             "total": 45.0
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -24.5,
             "total": 44.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": -25.0,
             "total": 44.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -24.5,
             "total": 44.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -25.5,
             "total": 45.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
-            "home_spread": -25.0,
-            "total": 44.5
+            "last_update": "2026-11-21T04:55:08Z",
+            "home_spread": -25.5,
+            "total": 45.0
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -26.0,
             "total": 45.0
           }
@@ -1254926,10 +1255704,83 @@
               "total": 62.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T23:00:00Z",
+          "consensus_home_spread": -13.5,
+          "consensus_total": 62.5,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -13.5,
+              "total": 62.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -13.0,
+              "total": 62.0
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -13.0,
+              "total": 62.0
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -13.5,
+              "total": 62.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -13.5,
+              "total": 62.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -14.0,
+              "total": 62.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -13.5,
+              "total": 62.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -13.5,
+              "total": 63.0
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -13.5,
+              "total": 62.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T23:00:00Z",
         "consensus_home_spread": -13.5,
         "consensus_total": 62.5,
@@ -1254939,63 +1255790,63 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -13.5,
             "total": 62.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -13.0,
-            "total": 62.5
+            "total": 62.0
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -13.0,
-            "total": 62.5
+            "total": 62.0
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -13.5,
             "total": 62.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
+            "last_update": "2026-11-21T04:53:57Z",
             "home_spread": -13.5,
             "total": 62.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -14.0,
             "total": 62.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -13.5,
-            "total": 62.5
+            "total": 62.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -13.5,
             "total": 63.0
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -13.5,
             "total": 62.5
           }
@@ -1255996,10 +1256847,83 @@
               "total": 66.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-22T00:30:00Z",
+          "consensus_home_spread": -20.0,
+          "consensus_total": 66.0,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -20.5,
+              "total": 66.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -20.0,
+              "total": 66.0
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -20.0,
+              "total": 66.0
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -19.5,
+              "total": 65.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -20.5,
+              "total": 66.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -20.0,
+              "total": 66.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -20.0,
+              "total": 66.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -20.5,
+              "total": 66.5
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -20.0,
+              "total": 66.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-22T00:30:00Z",
         "consensus_home_spread": -20.0,
         "consensus_total": 66.0,
@@ -1256009,63 +1256933,63 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -20.5,
             "total": 66.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -20.0,
             "total": 66.0
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -20.0,
             "total": 66.0
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -19.5,
             "total": 65.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
-            "home_spread": -20.0,
+            "last_update": "2026-11-21T04:53:57Z",
+            "home_spread": -20.5,
             "total": 66.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -20.0,
             "total": 66.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -20.0,
             "total": 66.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -20.5,
             "total": 66.5
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -20.0,
             "total": 66.0
           }
@@ -1257066,10 +1257990,83 @@
               "total": 61.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-22T02:30:00Z",
+          "consensus_home_spread": -17.5,
+          "consensus_total": 61.0,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -17.5,
+              "total": 60.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -17.5,
+              "total": 60.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -17.5,
+              "total": 60.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -17.5,
+              "total": 61.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -17.0,
+              "total": 60.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -17.5,
+              "total": 61.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -17.5,
+              "total": 61.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -17.5,
+              "total": 61.0
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -17.5,
+              "total": 61.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-22T02:30:00Z",
         "consensus_home_spread": -17.5,
         "consensus_total": 61.0,
@@ -1257079,63 +1258076,63 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -17.5,
             "total": 60.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -17.5,
             "total": 60.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -17.5,
             "total": 60.5
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -17.5,
             "total": 61.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
-            "home_spread": -17.5,
+            "last_update": "2026-11-21T04:53:57Z",
+            "home_spread": -17.0,
             "total": 60.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -17.5,
             "total": 61.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:05Z",
             "home_spread": -17.5,
             "total": 61.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -17.5,
             "total": 61.0
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
+            "last_update": "2026-11-21T04:54:52Z",
             "home_spread": -17.5,
             "total": 61.0
           }
@@ -1258136,12 +1259133,85 @@
               "total": 50.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-22T03:30:00Z",
+          "consensus_home_spread": -8.0,
+          "consensus_total": 50.0,
+          "spread_books": 9,
+          "total_books": 9,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -8.5,
+              "total": 50.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -7.5,
+              "total": 50.0
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -7.5,
+              "total": 50.0
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -8.5,
+              "total": 50.5
+            },
+            {
+              "key": "betmgm",
+              "title": "BetMGM",
+              "last_update": "2026-11-21T04:53:57Z",
+              "home_spread": -8.0,
+              "total": 50.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -8.0,
+              "total": 49.5
+            },
+            {
+              "key": "betus",
+              "title": "BetUS",
+              "last_update": "2026-11-21T04:55:05Z",
+              "home_spread": -7.5,
+              "total": 50.0
+            },
+            {
+              "key": "bovada",
+              "title": "Bovada",
+              "last_update": "2026-11-21T04:55:08Z",
+              "home_spread": -8.5,
+              "total": 50.0
+            },
+            {
+              "key": "mybookieag",
+              "title": "MyBookie.ag",
+              "last_update": "2026-11-21T04:54:52Z",
+              "home_spread": -8.0,
+              "total": 50.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-22T03:30:00Z",
-        "consensus_home_spread": -8.5,
+        "consensus_home_spread": -8.0,
         "consensus_total": 50.0,
         "spread_books": 9,
         "total_books": 9,
@@ -1258149,64 +1259219,64 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -8.5,
             "total": 50.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
-            "home_spread": -9.0,
+            "last_update": "2026-11-21T04:55:22Z",
+            "home_spread": -7.5,
             "total": 50.0
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
-            "home_spread": -9.0,
+            "last_update": "2026-11-21T04:55:22Z",
+            "home_spread": -7.5,
             "total": 50.0
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -8.5,
             "total": 50.5
           },
           {
             "key": "betmgm",
             "title": "BetMGM",
-            "last_update": "2026-11-20T22:25:48Z",
-            "home_spread": -8.5,
+            "last_update": "2026-11-21T04:53:57Z",
+            "home_spread": -8.0,
             "total": 50.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -8.0,
             "total": 49.5
           },
           {
             "key": "betus",
             "title": "BetUS",
-            "last_update": "2026-11-20T22:26:23Z",
-            "home_spread": -9.0,
+            "last_update": "2026-11-21T04:55:05Z",
+            "home_spread": -7.5,
             "total": 50.0
           },
           {
             "key": "bovada",
             "title": "Bovada",
-            "last_update": "2026-11-20T22:26:44Z",
+            "last_update": "2026-11-21T04:55:08Z",
             "home_spread": -8.5,
             "total": 50.0
           },
           {
             "key": "mybookieag",
             "title": "MyBookie.ag",
-            "last_update": "2026-11-20T22:26:24Z",
-            "home_spread": -8.5,
+            "last_update": "2026-11-21T04:54:52Z",
+            "home_spread": -8.0,
             "total": 50.0
           }
         ]
@@ -1258460,10 +1259530,48 @@
               "total": 60.0
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T17:00:00Z",
+          "consensus_home_spread": -49.5,
+          "consensus_total": 60.25,
+          "spread_books": 4,
+          "total_books": 4,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -48.5,
+              "total": 60.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -50.0,
+              "total": 60.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -49.5,
+              "total": 59.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -49.5,
+              "total": 60.0
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T17:00:00Z",
         "consensus_home_spread": -49.5,
         "consensus_total": 60.25,
@@ -1258473,28 +1259581,28 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -48.5,
             "total": 60.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -50.0,
             "total": 60.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -49.5,
             "total": 59.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -49.5,
             "total": 60.0
           }
@@ -1258749,12 +1259857,57 @@
               "total": 59.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T18:00:00Z",
+          "consensus_home_spread": -33.5,
+          "consensus_total": 59.5,
+          "spread_books": 5,
+          "total_books": 5,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -31.5,
+              "total": 59.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -32.0,
+              "total": 59.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -33.5,
+              "total": 59.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -34.5,
+              "total": 59.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -34.5,
+              "total": 59.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T18:00:00Z",
-        "consensus_home_spread": -34.5,
+        "consensus_home_spread": -33.5,
         "consensus_total": 59.5,
         "spread_books": 5,
         "total_books": 5,
@@ -1258762,35 +1259915,35 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
-            "home_spread": -34.5,
-            "total": 60.5
+            "last_update": "2026-11-21T04:55:04Z",
+            "home_spread": -31.5,
+            "total": 59.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
-            "home_spread": -34.5,
-            "total": 60.5
+            "last_update": "2026-11-21T04:55:23Z",
+            "home_spread": -32.0,
+            "total": 59.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -33.5,
             "total": 59.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -34.5,
             "total": 59.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -34.5,
             "total": 59.5
           }
@@ -1259038,10 +1260191,55 @@
               "total": 58.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T19:00:00Z",
+          "consensus_home_spread": -48.5,
+          "consensus_total": 58.5,
+          "spread_books": 5,
+          "total_books": 5,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -48.5,
+              "total": 57.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -48.0,
+              "total": 58.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -48.5,
+              "total": 58.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -49.5,
+              "total": 58.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -49.5,
+              "total": 58.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T19:00:00Z",
         "consensus_home_spread": -48.5,
         "consensus_total": 58.5,
@@ -1259051,35 +1260249,35 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -48.5,
             "total": 57.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
-            "home_spread": -48.5,
+            "last_update": "2026-11-21T04:55:23Z",
+            "home_spread": -48.0,
             "total": 58.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -48.5,
             "total": 58.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -49.5,
             "total": 58.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -49.5,
             "total": 58.5
           }
@@ -1259212,10 +1260410,27 @@
               "total": 47.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-27T01:00:00Z",
+          "consensus_home_spread": -10.5,
+          "consensus_total": 47.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -10.5,
+              "total": 47.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-27T01:00:00Z",
         "consensus_home_spread": -10.5,
         "consensus_total": 47.5,
@@ -1259225,7 +1260440,7 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -10.5,
             "total": 47.5
           }
@@ -1259407,10 +1260622,34 @@
               "total": 38.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-27T17:00:00Z",
+          "consensus_home_spread": -6.5,
+          "consensus_total": 38.5,
+          "spread_books": 2,
+          "total_books": 2,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -6.5,
+              "total": 38.5
+            },
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -6.5,
+              "total": 38.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-27T17:00:00Z",
         "consensus_home_spread": -6.5,
         "consensus_total": 38.5,
@@ -1259420,14 +1260659,14 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -6.5,
             "total": 38.5
           },
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -6.5,
             "total": 38.5
           }
@@ -1259627,10 +1260866,55 @@
               "total": 59.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-21T20:30:00Z",
+          "consensus_home_spread": -48.5,
+          "consensus_total": 59.5,
+          "spread_books": 5,
+          "total_books": 5,
+          "books": [
+            {
+              "key": "draftkings",
+              "title": "DraftKings",
+              "last_update": "2026-11-21T04:55:21Z",
+              "home_spread": -48.5,
+              "total": 59.5
+            },
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -48.5,
+              "total": 59.5
+            },
+            {
+              "key": "betrivers",
+              "title": "BetRivers",
+              "last_update": "2026-11-21T04:55:23Z",
+              "home_spread": -48.0,
+              "total": 60.5
+            },
+            {
+              "key": "betonlineag",
+              "title": "BetOnline.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -48.5,
+              "total": 59.5
+            },
+            {
+              "key": "lowvig",
+              "title": "LowVig.ag",
+              "last_update": "2026-11-21T04:55:22Z",
+              "home_spread": -48.5,
+              "total": 59.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-21T20:30:00Z",
         "consensus_home_spread": -48.5,
         "consensus_total": 59.5,
@@ -1259640,35 +1260924,35 @@
           {
             "key": "draftkings",
             "title": "DraftKings",
-            "last_update": "2026-11-20T22:26:54Z",
+            "last_update": "2026-11-21T04:55:21Z",
             "home_spread": -48.5,
             "total": 59.5
           },
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -48.5,
             "total": 59.5
           },
           {
             "key": "betrivers",
             "title": "BetRivers",
-            "last_update": "2026-11-20T22:26:58Z",
+            "last_update": "2026-11-21T04:55:23Z",
             "home_spread": -48.0,
             "total": 60.5
           },
           {
             "key": "betonlineag",
             "title": "BetOnline.ag",
-            "last_update": "2026-11-20T22:26:22Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -48.5,
             "total": 59.5
           },
           {
             "key": "lowvig",
             "title": "LowVig.ag",
-            "last_update": "2026-11-20T22:26:23Z",
+            "last_update": "2026-11-21T04:55:22Z",
             "home_spread": -48.5,
             "total": 59.5
           }
@@ -1259750,10 +1261034,27 @@
               "total": 45.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-25T00:00:00Z",
+          "consensus_home_spread": -5.5,
+          "consensus_total": 45.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": -5.5,
+              "total": 45.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-25T00:00:00Z",
         "consensus_home_spread": -5.5,
         "consensus_total": 45.5,
@@ -1259763,7 +1261064,7 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": -5.5,
             "total": 45.5
           }
@@ -1259845,10 +1261146,27 @@
               "total": 48.5
             }
           ]
+        },
+        {
+          "captured_at": "2026-11-21T04:55:35.883258+00:00",
+          "commence_time": "2026-11-27T17:00:00Z",
+          "consensus_home_spread": 10.5,
+          "consensus_total": 48.5,
+          "spread_books": 1,
+          "total_books": 1,
+          "books": [
+            {
+              "key": "fanduel",
+              "title": "FanDuel",
+              "last_update": "2026-11-21T04:55:04Z",
+              "home_spread": 10.5,
+              "total": 48.5
+            }
+          ]
         }
       ],
       "latest_pre_kickoff": {
-        "captured_at": "2026-11-20T22:27:06.493284+00:00",
+        "captured_at": "2026-11-21T04:55:35.883258+00:00",
         "commence_time": "2026-11-27T17:00:00Z",
         "consensus_home_spread": 10.5,
         "consensus_total": 48.5,
@@ -1259858,7 +1261176,7 @@
           {
             "key": "fanduel",
             "title": "FanDuel",
-            "last_update": "2026-11-20T22:26:40Z",
+            "last_update": "2026-11-21T04:55:04Z",
             "home_spread": 10.5,
             "total": 48.5
           }
@@ -1259866,20 +1261184,15 @@
       }
     }
   },
-  "generated_at": "2026-11-20T22:27:06.493284+00:00",
+  "generated_at": "2026-11-21T04:55:35.883258+00:00",
   "consensus_method": "median across available US bookmakers; final strictly pre-kickoff snapshot is official close",
   "last_capture": {
-    "events_returned": 80,
-    "matched": 29,
-    "captured": 29,
-    "skipped_live": 0,
-    "unmatched_count": 51,
+    "events_returned": 74,
+    "matched": 24,
+    "captured": 24,
+    "skipped_live": 1,
+    "unmatched_count": 49,
     "unmatched_sample": [
-      {
-        "home": "Wyoming Cowboys",
-        "away": "New Mexico Lobos",
-        "commence_time": "2026-11-21T02:00:00Z"
-      },
       {
         "home": "Nebraska Cornhuskers",
         "away": "Ohio State Buckeyes",
@@ -1259974,10 +1261287,15 @@
         "home": "Florida State Seminoles",
         "away": "NC State Wolfpack",
         "commence_time": "2026-11-21T20:30:00Z"
+      },
+      {
+        "home": "Washington Huskies",
+        "away": "Indiana Hoosiers",
+        "commence_time": "2026-11-21T20:30:00Z"
       }
     ],
-    "requests_remaining": "374",
-    "requests_used": "126",
+    "requests_remaining": "372",
+    "requests_used": "128",
     "request_cost": "2"
   }
 }
